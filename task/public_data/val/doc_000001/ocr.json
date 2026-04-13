@@ -1,0 +1,635 @@
+{
+  "pages": [
+    {
+      "page_index": 0,
+      "width": 1600,
+      "height": 2200,
+      "tokens": [
+        {
+          "text": "Western",
+          "bbox": [
+            486,
+            71,
+            667,
+            117
+          ],
+          "line_id": 0,
+          "block_id": 0,
+          "conf": 0.976
+        },
+        {
+          "text": "Electricity",
+          "bbox": [
+            682,
+            71,
+            972,
+            118
+          ],
+          "line_id": 0,
+          "block_id": 0,
+          "conf": 0.9692
+        },
+        {
+          "text": "Board",
+          "bbox": [
+            984,
+            72,
+            1116,
+            117
+          ],
+          "line_id": 0,
+          "block_id": 0,
+          "conf": 0.8429
+        },
+        {
+          "text": "UTILITY",
+          "bbox": [
+            691,
+            136,
+            825,
+            162
+          ],
+          "line_id": 1,
+          "block_id": 1,
+          "conf": 0.9822
+        },
+        {
+          "text": "BILL",
+          "bbox": [
+            832,
+            137,
+            910,
+            163
+          ],
+          "line_id": 1,
+          "block_id": 1,
+          "conf": 0.971
+        },
+        {
+          "text": "Date",
+          "bbox": [
+            203,
+            200,
+            255,
+            220
+          ],
+          "line_id": 2,
+          "block_id": 5,
+          "conf": 0.848
+        },
+        {
+          "text": "2164",
+          "bbox": [
+            1102,
+            199,
+            1144,
+            222
+          ],
+          "line_id": 2,
+          "block_id": 3,
+          "conf": 0.8792
+        },
+        {
+          "text": "2025-06-21",
+          "bbox": [
+            380,
+            201,
+            510,
+            221
+          ],
+          "line_id": 2,
+          "block_id": 5,
+          "conf": 0.9575
+        },
+        {
+          "text": "Statement",
+          "bbox": [
+            78,
+            202,
+            197,
+            221
+          ],
+          "line_id": 2,
+          "block_id": 5,
+          "conf": 0.8783
+        },
+        {
+          "text": "Mills",
+          "bbox": [
+            1228,
+            202,
+            1285,
+            221
+          ],
+          "line_id": 2,
+          "block_id": 3,
+          "conf": 0.8351
+        },
+        {
+          "text": "Suite",
+          "bbox": [
+            1290,
+            200,
+            1352,
+            223
+          ],
+          "line_id": 2,
+          "block_id": 3,
+          "conf": 0.8415
+        },
+        {
+          "text": "715",
+          "bbox": [
+            1358,
+            199,
+            1389,
+            224
+          ],
+          "line_id": 2,
+          "block_id": 3,
+          "conf": 0.8893
+        },
+        {
+          "text": "Evelyn",
+          "bbox": [
+            1151,
+            201,
+            1224,
+            225
+          ],
+          "line_id": 2,
+          "block_id": 3,
+          "conf": 0.8646
+        },
+        {
+          "text": "UT",
+          "bbox": [
+            1267,
+            231,
+            1293,
+            252
+          ],
+          "line_id": 3,
+          "block_id": 4,
+          "conf": 0.8552
+        },
+        {
+          "text": "Colleenmouth,",
+          "bbox": [
+            1101,
+            232,
+            1262,
+            253
+          ],
+          "line_id": 3,
+          "block_id": 4,
+          "conf": 0.9337
+        },
+        {
+          "text": "Due",
+          "bbox": [
+            82,
+            233,
+            122,
+            254
+          ],
+          "line_id": 3,
+          "block_id": 6,
+          "conf": 0.8874
+        },
+        {
+          "text": "75884",
+          "bbox": [
+            1300,
+            233,
+            1364,
+            254
+          ],
+          "line_id": 3,
+          "block_id": 4,
+          "conf": 0.9727
+        },
+        {
+          "text": "2025-07-03",
+          "bbox": [
+            379,
+            234,
+            508,
+            255
+          ],
+          "line_id": 3,
+          "block_id": 6,
+          "conf": 0.986
+        },
+        {
+          "text": "Date",
+          "bbox": [
+            131,
+            235,
+            187,
+            256
+          ],
+          "line_id": 3,
+          "block_id": 6,
+          "conf": 0.9803
+        },
+        {
+          "text": "Account",
+          "bbox": [
+            82,
+            272,
+            178,
+            289
+          ],
+          "line_id": 4,
+          "block_id": 7,
+          "conf": 0.9207
+        },
+        {
+          "text": "Number1936615789",
+          "bbox": [
+            189,
+            270,
+            520,
+            291
+          ],
+          "line_id": 4,
+          "block_id": 7,
+          "conf": 0.874
+        },
+        {
+          "text": "To",
+          "bbox": [
+            138,
+            345,
+            166,
+            364
+          ],
+          "line_id": 5,
+          "block_id": 9,
+          "conf": 0.8535
+        },
+        {
+          "text": "Bill",
+          "bbox": [
+            81,
+            347,
+            134,
+            364
+          ],
+          "line_id": 5,
+          "block_id": 9,
+          "conf": 0.8644
+        },
+        {
+          "text": "Heather",
+          "bbox": [
+            82,
+            387,
+            212,
+            406
+          ],
+          "line_id": 6,
+          "block_id": 10,
+          "conf": 0.8675
+        },
+        {
+          "text": "Moon",
+          "bbox": [
+            221,
+            384,
+            295,
+            410
+          ],
+          "line_id": 6,
+          "block_id": 10,
+          "conf": 0.9613
+        },
+        {
+          "text": "652",
+          "bbox": [
+            78,
+            423,
+            128,
+            452
+          ],
+          "line_id": 7,
+          "block_id": 11,
+          "conf": 0.8821
+        },
+        {
+          "text": "Kate",
+          "bbox": [
+            137,
+            426,
+            204,
+            455
+          ],
+          "line_id": 7,
+          "block_id": 11,
+          "conf": 0.881
+        },
+        {
+          "text": "Skyway",
+          "bbox": [
+            213,
+            426,
+            313,
+            455
+          ],
+          "line_id": 7,
+          "block_id": 11,
+          "conf": 0.9442
+        },
+        {
+          "text": "B0",
+          "bbox": [
+            249,
+            462,
+            278,
+            490
+          ],
+          "line_id": 8,
+          "block_id": 12,
+          "conf": 0.8888
+        },
+        {
+          "text": "Robinberg,",
+          "bbox": [
+            82,
+            462,
+            239,
+            493
+          ],
+          "line_id": 8,
+          "block_id": 12,
+          "conf": 0.9645
+        },
+        {
+          "text": "3AL",
+          "bbox": [
+            289,
+            465,
+            336,
+            491
+          ],
+          "line_id": 8,
+          "block_id": 12,
+          "conf": 0.9444
+        },
+        {
+          "text": "United",
+          "bbox": [
+            80,
+            501,
+            175,
+            529
+          ],
+          "line_id": 9,
+          "block_id": 13,
+          "conf": 0.985
+        },
+        {
+          "text": "Kingdom",
+          "bbox": [
+            186,
+            503,
+            297,
+            528
+          ],
+          "line_id": 9,
+          "block_id": 13,
+          "conf": 0.9172
+        },
+        {
+          "text": "AMOUNT",
+          "bbox": [
+            1302,
+            574,
+            1415,
+            596
+          ],
+          "line_id": 10,
+          "block_id": 15,
+          "conf": 0.9493
+        },
+        {
+          "text": "DESCRIPTION",
+          "bbox": [
+            81,
+            575,
+            259,
+            596
+          ],
+          "line_id": 10,
+          "block_id": 15,
+          "conf": 0.885
+        },
+        {
+          "text": "29.26",
+          "bbox": [
+            1300,
+            638,
+            1371,
+            660
+          ],
+          "line_id": 11,
+          "block_id": 17,
+          "conf": 0.9149
+        },
+        {
+          "text": "Balance",
+          "bbox": [
+            199,
+            638,
+            302,
+            661
+          ],
+          "line_id": 11,
+          "block_id": 17,
+          "conf": 0.9437
+        },
+        {
+          "text": "Previous",
+          "bbox": [
+            81,
+            638,
+            192,
+            662
+          ],
+          "line_id": 11,
+          "block_id": 17,
+          "conf": 0.874
+        },
+        {
+          "text": "254.44",
+          "bbox": [
+            1299,
+            689,
+            1386,
+            708
+          ],
+          "line_id": 12,
+          "block_id": 18,
+          "conf": 0.8225
+        },
+        {
+          "text": "Current",
+          "bbox": [
+            79,
+            691,
+            182,
+            715
+          ],
+          "line_id": 12,
+          "block_id": 18,
+          "conf": 0.8887
+        },
+        {
+          "text": "Charges",
+          "bbox": [
+            189,
+            688,
+            291,
+            719
+          ],
+          "line_id": 12,
+          "block_id": 18,
+          "conf": 0.8365
+        },
+        {
+          "text": "Fee",
+          "bbox": [
+            187,
+            739,
+            232,
+            758
+          ],
+          "line_id": 13,
+          "block_id": 19,
+          "conf": 0.9637
+        },
+        {
+          "text": "2.50",
+          "bbox": [
+            1298,
+            739,
+            1354,
+            761
+          ],
+          "line_id": 13,
+          "block_id": 19,
+          "conf": 0.8397
+        },
+        {
+          "text": "Ser",
+          "bbox": [
+            82,
+            739,
+            124,
+            762
+          ],
+          "line_id": 13,
+          "block_id": 19,
+          "conf": 0.8588
+        },
+        {
+          "text": "vice",
+          "bbox": [
+            124,
+            739,
+            182,
+            762
+          ],
+          "line_id": 13,
+          "block_id": 19,
+          "conf": 0.9779
+        },
+        {
+          "text": "&",
+          "bbox": [
+            161,
+            789,
+            177,
+            808
+          ],
+          "line_id": 14,
+          "block_id": 20,
+          "conf": 0.9487
+        },
+        {
+          "text": "Taxes",
+          "bbox": [
+            79,
+            789,
+            152,
+            811
+          ],
+          "line_id": 14,
+          "block_id": 20,
+          "conf": 0.8426
+        },
+        {
+          "text": "1.80",
+          "bbox": [
+            1301,
+            791,
+            1356,
+            811
+          ],
+          "line_id": 14,
+          "block_id": 20,
+          "conf": 0.9243
+        },
+        {
+          "text": "Levies",
+          "bbox": [
+            183,
+            792,
+            275,
+            812
+          ],
+          "line_id": 14,
+          "block_id": 20,
+          "conf": 0.9228
+        },
+        {
+          "text": "DUE",
+          "bbox": [
+            197,
+            868,
+            264,
+            893
+          ],
+          "line_id": 15,
+          "block_id": 22,
+          "conf": 0.9796
+        },
+        {
+          "text": "TOTAL",
+          "bbox": [
+            80,
+            869,
+            190,
+            894
+          ],
+          "line_id": 15,
+          "block_id": 22,
+          "conf": 0.8811
+        },
+        {
+          "text": "254.44",
+          "bbox": [
+            1302,
+            872,
+            1399,
+            895
+          ],
+          "line_id": 15,
+          "block_id": 22,
+          "conf": 0.8704
+        }
+      ]
+    }
+  ]
+}

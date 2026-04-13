@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "proof_of_address",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_name", "fields"],
+  "properties": {
+    "schema_name": {
+      "type": "string",
+      "const": "proof_of_address"
+    },
+    "fields": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "full_name",
+        "address_line1",
+        "city",
+        "postal_code",
+        "country",
+        "statement_date",
+        "issuer_name"
+      ],
+      "properties": {
+        "full_name":      {"type": ["string", "null"]},
+        "address_line1":  {"type": ["string", "null"]},
+        "city":           {"type": ["string", "null"]},
+        "postal_code":    {"type": ["string", "null"]},
+        "country":        {"type": ["string", "null"]},
+        "statement_date": {"type": ["string", "null"]},
+        "issuer_name":    {"type": ["string", "null"]}
+      }
+    }
+  }
+}

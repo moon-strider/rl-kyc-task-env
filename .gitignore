@@ -1,0 +1,36 @@
+# macOS
+.DS_Store
+
+# Python virtual environments
+.venv/
+venv/
+
+# Python cache and compiled artifacts
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Tool caches and reports
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Packaging artifacts
+build/
+dist/
+*.egg-info/
+
+# Editor settings
+.idea/
+.vscode/
+
+# Environment files
+.env
+.env.*
+.python-version
+
+# Notebook checkpoints
+.ipynb_checkpoints/

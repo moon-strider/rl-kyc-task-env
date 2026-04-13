@@ -1,0 +1,527 @@
+{
+  "pages": [
+    {
+      "page_index": 0,
+      "width": 1600,
+      "height": 2200,
+      "tokens": [
+        {
+          "text": "UNITED",
+          "bbox": [
+            768,
+            58,
+            908,
+            84
+          ],
+          "line_id": 0,
+          "block_id": 0,
+          "conf": 0.8751
+        },
+        {
+          "text": "REPUBLIC",
+          "bbox": [
+            514,
+            59,
+            699,
+            86
+          ],
+          "line_id": 0,
+          "block_id": 0,
+          "conf": 0.9611
+        },
+        {
+          "text": "OF",
+          "bbox": [
+            714,
+            61,
+            757,
+            85
+          ],
+          "line_id": 0,
+          "block_id": 0,
+          "conf": 0.9836
+        },
+        {
+          "text": "KINGDOM",
+          "bbox": [
+            920,
+            62,
+            1085,
+            87
+          ],
+          "line_id": 0,
+          "block_id": 0,
+          "conf": 0.834
+        },
+        {
+          "text": "NATIONAL",
+          "bbox": [
+            484,
+            109,
+            726,
+            146
+          ],
+          "line_id": 1,
+          "block_id": 1,
+          "conf": 0.9835
+        },
+        {
+          "text": "IDENTITY",
+          "bbox": [
+            741,
+            110,
+            982,
+            147
+          ],
+          "line_id": 1,
+          "block_id": 1,
+          "conf": 0.8725
+        },
+        {
+          "text": "CARD",
+          "bbox": [
+            995,
+            111,
+            1114,
+            146
+          ],
+          "line_id": 1,
+          "block_id": 1,
+          "conf": 0.9046
+        },
+        {
+          "text": "Name",
+          "bbox": [
+            429,
+            202,
+            500,
+            217
+          ],
+          "line_id": 2,
+          "block_id": 4,
+          "conf": 0.8745
+        },
+        {
+          "text": "No.",
+          "bbox": [
+            1059,
+            198,
+            1096,
+            225
+          ],
+          "line_id": 2,
+          "block_id": 7,
+          "conf": 0.9383
+        },
+        {
+          "text": "Passport",
+          "bbox": [
+            948,
+            198,
+            1053,
+            226
+          ],
+          "line_id": 2,
+          "block_id": 7,
+          "conf": 0.9757
+        },
+        {
+          "text": "L9790919",
+          "bbox": [
+            948,
+            239,
+            1103,
+            264
+          ],
+          "line_id": 3,
+          "block_id": 7,
+          "conf": 0.9723
+        },
+        {
+          "text": "Ian",
+          "bbox": [
+            429,
+            236,
+            486,
+            273
+          ],
+          "line_id": 3,
+          "block_id": 4,
+          "conf": 0.8938
+        },
+        {
+          "text": "Murray",
+          "bbox": [
+            499,
+            240,
+            611,
+            272
+          ],
+          "line_id": 3,
+          "block_id": 4,
+          "conf": 0.8855
+        },
+        {
+          "text": "[PHOTO]",
+          "bbox": [
+            100,
+            268,
+            207,
+            295
+          ],
+          "line_id": 4,
+          "block_id": 3,
+          "conf": 0.8489
+        },
+        {
+          "text": "Birth",
+          "bbox": [
+            429,
+            299,
+            488,
+            319
+          ],
+          "line_id": 5,
+          "block_id": 5,
+          "conf": 0.9356
+        },
+        {
+          "text": "On",
+          "bbox": [
+            1039,
+            300,
+            1068,
+            318
+          ],
+          "line_id": 5,
+          "block_id": 8,
+          "conf": 0.8412
+        },
+        {
+          "text": "DateIssued",
+          "bbox": [
+            497,
+            300,
+            1031,
+            321
+          ],
+          "line_id": 5,
+          "block_id": 5,
+          "conf": 0.9205
+        },
+        {
+          "text": "1997-11-25",
+          "bbox": [
+            430,
+            334,
+            597,
+            360
+          ],
+          "line_id": 6,
+          "block_id": 5,
+          "conf": 0.9582
+        },
+        {
+          "text": "2025-04-12",
+          "bbox": [
+            948,
+            338,
+            1117,
+            357
+          ],
+          "line_id": 6,
+          "block_id": 8,
+          "conf": 0.9308
+        },
+        {
+          "text": "Valid",
+          "bbox": [
+            949,
+            393,
+            1003,
+            412
+          ],
+          "line_id": 7,
+          "block_id": 9,
+          "conf": 0.9193
+        },
+        {
+          "text": "Until",
+          "bbox": [
+            1008,
+            396,
+            1068,
+            414
+          ],
+          "line_id": 7,
+          "block_id": 9,
+          "conf": 0.8674
+        },
+        {
+          "text": "Sex",
+          "bbox": [
+            429,
+            395,
+            472,
+            416
+          ],
+          "line_id": 7,
+          "block_id": 6,
+          "conf": 0.9506
+        },
+        {
+          "text": "2035-O4-12",
+          "bbox": [
+            951,
+            430,
+            1115,
+            453
+          ],
+          "line_id": 8,
+          "block_id": 9,
+          "conf": 0.9304
+        },
+        {
+          "text": "F",
+          "bbox": [
+            429,
+            431,
+            448,
+            454
+          ],
+          "line_id": 8,
+          "block_id": 6,
+          "conf": 0.9191
+        },
+        {
+          "text": "of",
+          "bbox": [
+            1042,
+            488,
+            1067,
+            515
+          ],
+          "line_id": 9,
+          "block_id": 10,
+          "conf": 0.964
+        },
+        {
+          "text": "Country",
+          "bbox": [
+            950,
+            488,
+            1034,
+            516
+          ],
+          "line_id": 9,
+          "block_id": 10,
+          "conf": 0.8499
+        },
+        {
+          "text": "Issue",
+          "bbox": [
+            1073,
+            492,
+            1134,
+            512
+          ],
+          "line_id": 9,
+          "block_id": 10,
+          "conf": 0.858
+        },
+        {
+          "text": "United",
+          "bbox": [
+            950,
+            526,
+            1045,
+            553
+          ],
+          "line_id": 10,
+          "block_id": 10,
+          "conf": 0.8426
+        },
+        {
+          "text": "Kingdom",
+          "bbox": [
+            1052,
+            525,
+            1166,
+            556
+          ],
+          "line_id": 10,
+          "block_id": 10,
+          "conf": 0.8931
+        },
+        {
+          "text": "14443",
+          "bbox": [
+            883,
+            613,
+            941,
+            634
+          ],
+          "line_id": 11,
+          "block_id": 12,
+          "conf": 0.9175
+        },
+        {
+          "text": "Compliant",
+          "bbox": [
+            943,
+            613,
+            1048,
+            634
+          ],
+          "line_id": 11,
+          "block_id": 12,
+          "conf": 0.8606
+        },
+        {
+          "text": "—",
+          "bbox": [
+            825,
+            614,
+            834,
+            634
+          ],
+          "line_id": 11,
+          "block_id": 12,
+          "conf": 0.8827
+        },
+        {
+          "text": "Electronic",
+          "bbox": [
+            552,
+            614,
+            665,
+            635
+          ],
+          "line_id": 11,
+          "block_id": 12,
+          "conf": 0.8608
+        },
+        {
+          "text": "Chip",
+          "bbox": [
+            672,
+            613,
+            718,
+            637
+          ],
+          "line_id": 11,
+          "block_id": 12,
+          "conf": 0.9254
+        },
+        {
+          "text": "ISO",
+          "bbox": [
+            842,
+            615,
+            877,
+            637
+          ],
+          "line_id": 11,
+          "block_id": 12,
+          "conf": 0.8272
+        },
+        {
+          "text": "Embedded",
+          "bbox": [
+            723,
+            617,
+            816,
+            637
+          ],
+          "line_id": 11,
+          "block_id": 12,
+          "conf": 0.8491
+        },
+        {
+          "text": "This",
+          "bbox": [
+            530,
+            650,
+            569,
+            669
+          ],
+          "line_id": 12,
+          "block_id": 13,
+          "conf": 0.8708
+        },
+        {
+          "text": "document",
+          "bbox": [
+            577,
+            651,
+            660,
+            668
+          ],
+          "line_id": 12,
+          "block_id": 13,
+          "conf": 0.9118
+        },
+        {
+          "text": "the",
+          "bbox": [
+            690,
+            648,
+            722,
+            672
+          ],
+          "line_id": 12,
+          "block_id": 13,
+          "conf": 0.9378
+        },
+        {
+          "text": "thegovernment.",
+          "bbox": [
+            841,
+            648,
+            1071,
+            672
+          ],
+          "line_id": 12,
+          "block_id": 13,
+          "conf": 0.947
+        },
+        {
+          "text": "is",
+          "bbox": [
+            663,
+            650,
+            683,
+            671
+          ],
+          "line_id": 12,
+          "block_id": 13,
+          "conf": 0.8809
+        },
+        {
+          "text": "property",
+          "bbox": [
+            727,
+            650,
+            808,
+            671
+          ],
+          "line_id": 12,
+          "block_id": 13,
+          "conf": 0.9681
+        },
+        {
+          "text": "of",
+          "bbox": [
+            816,
+            650,
+            835,
+            671
+          ],
+          "line_id": 12,
+          "block_id": 13,
+          "conf": 0.9232
+        }
+      ]
+    }
+  ]
+}

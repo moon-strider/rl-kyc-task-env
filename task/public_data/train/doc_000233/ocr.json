@@ -1,0 +1,443 @@
+{
+  "pages": [
+    {
+      "page_index": 0,
+      "width": 1600,
+      "height": 2200,
+      "tokens": [
+        {
+          "text": "PAYMENT",
+          "bbox": [
+            564,
+            61,
+            790,
+            98
+          ],
+          "line_id": 0,
+          "block_id": 0,
+          "conf": 0.8352
+        },
+        {
+          "text": "RECEIPT",
+          "bbox": [
+            806,
+            62,
+            1037,
+            99
+          ],
+          "line_id": 0,
+          "block_id": 0,
+          "conf": 0.9004
+        },
+        {
+          "text": "Supplies",
+          "bbox": [
+            738,
+            119,
+            903,
+            153
+          ],
+          "line_id": 1,
+          "block_id": 1,
+          "conf": 0.9052
+        },
+        {
+          "text": "Metro",
+          "bbox": [
+            626,
+            120,
+            729,
+            153
+          ],
+          "line_id": 1,
+          "block_id": 1,
+          "conf": 0.9739
+        },
+        {
+          "text": "Co.",
+          "bbox": [
+            914,
+            118,
+            972,
+            157
+          ],
+          "line_id": 1,
+          "block_id": 1,
+          "conf": 0.928
+        },
+        {
+          "text": "$372.69",
+          "bbox": [
+            672,
+            198,
+            932,
+            263
+          ],
+          "line_id": 2,
+          "block_id": 3,
+          "conf": 0.8359
+        },
+        {
+          "text": "USD",
+          "bbox": [
+            769,
+            285,
+            833,
+            305
+          ],
+          "line_id": 3,
+          "block_id": 4,
+          "conf": 0.9357
+        },
+        {
+          "text": "Denise",
+          "bbox": [
+            482,
+            361,
+            558,
+            382
+          ],
+          "line_id": 4,
+          "block_id": 6,
+          "conf": 0.961
+        },
+        {
+          "text": "Little",
+          "bbox": [
+            565,
+            360,
+            647,
+            383
+          ],
+          "line_id": 4,
+          "block_id": 6,
+          "conf": 0.8356
+        },
+        {
+          "text": "Payer",
+          "bbox": [
+            82,
+            359,
+            158,
+            389
+          ],
+          "line_id": 4,
+          "block_id": 6,
+          "conf": 0.9321
+        },
+        {
+          "text": "Merchant",
+          "bbox": [
+            81,
+            433,
+            205,
+            455
+          ],
+          "line_id": 5,
+          "block_id": 7,
+          "conf": 0.9404
+        },
+        {
+          "text": "Metro",
+          "bbox": [
+            480,
+            433,
+            553,
+            461
+          ],
+          "line_id": 5,
+          "block_id": 7,
+          "conf": 0.9374
+        },
+        {
+          "text": "Co.",
+          "bbox": [
+            692,
+            434,
+            735,
+            464
+          ],
+          "line_id": 5,
+          "block_id": 7,
+          "conf": 0.9278
+        },
+        {
+          "text": "Supplies",
+          "bbox": [
+            563,
+            436,
+            682,
+            465
+          ],
+          "line_id": 5,
+          "block_id": 7,
+          "conf": 0.8785
+        },
+        {
+          "text": "On",
+          "bbox": [
+            238,
+            512,
+            270,
+            530
+          ],
+          "line_id": 6,
+          "block_id": 8,
+          "conf": 0.8949
+        },
+        {
+          "text": "2025-07-10",
+          "bbox": [
+            480,
+            509,
+            635,
+            533
+          ],
+          "line_id": 6,
+          "block_id": 8,
+          "conf": 0.8584
+        },
+        {
+          "text": "Processed",
+          "bbox": [
+            81,
+            512,
+            230,
+            531
+          ],
+          "line_id": 6,
+          "block_id": 8,
+          "conf": 0.8266
+        },
+        {
+          "text": "Payment",
+          "bbox": [
+            81,
+            584,
+            199,
+            611
+          ],
+          "line_id": 7,
+          "block_id": 9,
+          "conf": 0.9274
+        },
+        {
+          "text": "REFYTMPSOI",
+          "bbox": [
+            480,
+            587,
+            676,
+            608
+          ],
+          "line_id": 7,
+          "block_id": 9,
+          "conf": 0.868
+        },
+        {
+          "text": "Ref",
+          "bbox": [
+            204,
+            585,
+            258,
+            613
+          ],
+          "line_id": 7,
+          "block_id": 9,
+          "conf": 0.9656
+        },
+        {
+          "text": "129O.21",
+          "bbox": [
+            482,
+            658,
+            591,
+            683
+          ],
+          "line_id": 8,
+          "block_id": 10,
+          "conf": 0.8843
+        },
+        {
+          "text": "Subtotal",
+          "bbox": [
+            79,
+            661,
+            190,
+            682
+          ],
+          "line_id": 8,
+          "block_id": 10,
+          "conf": 0.9874
+        },
+        {
+          "text": "Service",
+          "bbox": [
+            79,
+            733,
+            187,
+            756
+          ],
+          "line_id": 9,
+          "block_id": 11,
+          "conf": 0.8279
+        },
+        {
+          "text": "23.22",
+          "bbox": [
+            482,
+            735,
+            558,
+            756
+          ],
+          "line_id": 9,
+          "block_id": 11,
+          "conf": 0.8473
+        },
+        {
+          "text": "Fee",
+          "bbox": [
+            195,
+            736,
+            239,
+            757
+          ],
+          "line_id": 9,
+          "block_id": 11,
+          "conf": 0.9613
+        },
+        {
+          "text": "372.69",
+          "bbox": [
+            540,
+            808,
+            647,
+            831
+          ],
+          "line_id": 10,
+          "block_id": 12,
+          "conf": 0.9826
+        },
+        {
+          "text": "Paid",
+          "bbox": [
+            157,
+            809,
+            216,
+            831
+          ],
+          "line_id": 10,
+          "block_id": 12,
+          "conf": 0.8703
+        },
+        {
+          "text": "Total",
+          "bbox": [
+            81,
+            808,
+            149,
+            833
+          ],
+          "line_id": 10,
+          "block_id": 12,
+          "conf": 0.8387
+        },
+        {
+          "text": "USD",
+          "bbox": [
+            480,
+            812,
+            530,
+            833
+          ],
+          "line_id": 10,
+          "block_id": 12,
+          "conf": 0.8346
+        },
+        {
+          "text": "CodeAUTH-090471",
+          "bbox": [
+            158,
+            883,
+            677,
+            905
+          ],
+          "line_id": 11,
+          "block_id": 13,
+          "conf": 0.8851
+        },
+        {
+          "text": "Auth",
+          "bbox": [
+            79,
+            886,
+            148,
+            908
+          ],
+          "line_id": 11,
+          "block_id": 13,
+          "conf": 0.9508
+        },
+        {
+          "text": "your",
+          "bbox": [
+            801,
+            993,
+            852,
+            1019
+          ],
+          "line_id": 12,
+          "block_id": 15,
+          "conf": 0.8957
+        },
+        {
+          "text": "for",
+          "bbox": [
+            757,
+            996,
+            792,
+            1017
+          ],
+          "line_id": 12,
+          "block_id": 15,
+          "conf": 0.9307
+        },
+        {
+          "text": "payment.",
+          "bbox": [
+            858,
+            995,
+            961,
+            1018
+          ],
+          "line_id": 12,
+          "block_id": 15,
+          "conf": 0.8304
+        },
+        {
+          "text": "you",
+          "bbox": [
+            709,
+            996,
+            748,
+            1018
+          ],
+          "line_id": 12,
+          "block_id": 15,
+          "conf": 0.8883
+        },
+        {
+          "text": "Thank",
+          "bbox": [
+            636,
+            997,
+            703,
+            1019
+          ],
+          "line_id": 12,
+          "block_id": 15,
+          "conf": 0.9713
+        }
+      ]
+    }
+  ]
+}

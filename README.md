@@ -67,7 +67,9 @@ doc_extract_env/
     heuristic_baseline/
       extract.py
 
-  requirements.txt
+  pyproject.toml
+  uv.lock
+  justfile
   README.md
 ```
 
@@ -520,45 +522,44 @@ Fixed seeds:
 `generator/generate_public.py` uses only `PUBLIC_SEED`.
 `generator/generate_hidden.py` uses only `HIDDEN_SEED`.
 
-## Requirements
+## Runtime and Tooling
 
-- Python 3.11
-- numpy
-- pandas
-- Pillow
-- rapidfuzz
-- python-dateutil
-- jsonschema
-- pydantic
-- Faker
+- Python 3.11 target runtime
+- `uv` for environment and dependency management
+- `just` for common repository commands
+- Declared Python dependencies:
+  - numpy
+  - pandas
+  - Pillow
+  - rapidfuzz
+  - python-dateutil
+  - jsonschema
+  - pydantic
+  - Faker
 
 ## Typical Commands
 
 ```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-python generator/generate_public.py
-python generator/generate_hidden.py
-python task/tools/public_validator.py baselines/null_baseline
-python task/tools/public_validator.py baselines/heuristic_baseline
-python judge/run_judge.py baselines/null_baseline
-python judge/run_judge.py baselines/heuristic_baseline
+uv sync
+just generate-public
+just generate-hidden
+just validate-null
+just validate-heuristic
+just judge-null
+just judge-heuristic
+```
+
+Direct command equivalents remain available when needed:
+
+```bash
+uv run python generator/generate_public.py
+uv run python generator/generate_hidden.py
+uv run python task/tools/public_validator.py baselines/null_baseline
+uv run python task/tools/public_validator.py baselines/heuristic_baseline
+uv run python judge/run_judge.py baselines/null_baseline
+uv run python judge/run_judge.py baselines/heuristic_baseline
 ```
 
 ## Why This Design
 
 The environment combines document layout, OCR noise, distractor fields, normalization, and hidden templates while remaining lightweight enough for local CPU-only execution. It models a realistic KYC and payment extraction task without turning into an OCR training, multilingual parsing, or infrastructure-heavy project.
-
-## Out of Scope
-
-- multi-page documents
-- multilingual documents
-- real OCR engines
-- handwriting
-- face matching
-- liveness
-- tampering detection
-- PDF parsing
-- external APIs
-- GPU training

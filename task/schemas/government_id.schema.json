@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "government_id",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_name", "fields"],
+  "properties": {
+    "schema_name": {
+      "type": "string",
+      "const": "government_id"
+    },
+    "fields": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "full_name",
+        "date_of_birth",
+        "document_number",
+        "issue_date",
+        "expiry_date",
+        "issuing_country"
+      ],
+      "properties": {
+        "full_name":        {"type": ["string", "null"]},
+        "date_of_birth":   {"type": ["string", "null"]},
+        "document_number": {"type": ["string", "null"]},
+        "issue_date":      {"type": ["string", "null"]},
+        "expiry_date":     {"type": ["string", "null"]},
+        "issuing_country": {"type": ["string", "null"]}
+      }
+    }
+  }
+}

@@ -1,0 +1,527 @@
+{
+  "pages": [
+    {
+      "page_index": 0,
+      "width": 1600,
+      "height": 2200,
+      "tokens": [
+        {
+          "text": "PASSPORT",
+          "bbox": [
+            641,
+            81,
+            962,
+            124
+          ],
+          "line_id": 0,
+          "block_id": 0,
+          "conf": 0.9093
+        },
+        {
+          "text": "STATES",
+          "bbox": [
+            807,
+            149,
+            936,
+            174
+          ],
+          "line_id": 1,
+          "block_id": 1,
+          "conf": 0.8667
+        },
+        {
+          "text": "UNITED",
+          "bbox": [
+            665,
+            148,
+            796,
+            176
+          ],
+          "line_id": 1,
+          "block_id": 1,
+          "conf": 0.8218
+        },
+        {
+          "text": "and",
+          "bbox": [
+            591,
+            231,
+            634,
+            247
+          ],
+          "line_id": 2,
+          "block_id": 4,
+          "conf": 0.9325
+        },
+        {
+          "text": "Names",
+          "bbox": [
+            722,
+            230,
+            795,
+            249
+          ],
+          "line_id": 2,
+          "block_id": 4,
+          "conf": 0.8928
+        },
+        {
+          "text": "Surname",
+          "bbox": [
+            482,
+            231,
+            580,
+            249
+          ],
+          "line_id": 2,
+          "block_id": 4,
+          "conf": 0.9112
+        },
+        {
+          "text": "Given",
+          "bbox": [
+            641,
+            232,
+            715,
+            249
+          ],
+          "line_id": 2,
+          "block_id": 4,
+          "conf": 0.9375
+        },
+        {
+          "text": "Margaret",
+          "bbox": [
+            482,
+            265,
+            638,
+            295
+          ],
+          "line_id": 3,
+          "block_id": 4,
+          "conf": 0.9685
+        },
+        {
+          "text": "Zimmerman",
+          "bbox": [
+            645,
+            263,
+            824,
+            297
+          ],
+          "line_id": 3,
+          "block_id": 4,
+          "conf": 0.8464
+        },
+        {
+          "text": "[PHOTO]",
+          "bbox": [
+            111,
+            301,
+            215,
+            325
+          ],
+          "line_id": 4,
+          "block_id": 3,
+          "conf": 0.8481
+        },
+        {
+          "text": "Nationality",
+          "bbox": [
+            478,
+            328,
+            601,
+            355
+          ],
+          "line_id": 5,
+          "block_id": 5,
+          "conf": 0.8824
+        },
+        {
+          "text": "United",
+          "bbox": [
+            479,
+            365,
+            564,
+            387
+          ],
+          "line_id": 6,
+          "block_id": 5,
+          "conf": 0.9492
+        },
+        {
+          "text": "States",
+          "bbox": [
+            573,
+            365,
+            663,
+            387
+          ],
+          "line_id": 6,
+          "block_id": 5,
+          "conf": 0.9039
+        },
+        {
+          "text": "BIRTH",
+          "bbox": [
+            774,
+            420,
+            832,
+            439
+          ],
+          "line_id": 7,
+          "block_id": 7,
+          "conf": 0.8475
+        },
+        {
+          "text": "SEX",
+          "bbox": [
+            482,
+            421,
+            526,
+            439
+          ],
+          "line_id": 7,
+          "block_id": 6,
+          "conf": 0.9382
+        },
+        {
+          "text": "OF",
+          "bbox": [
+            746,
+            422,
+            769,
+            438
+          ],
+          "line_id": 7,
+          "block_id": 7,
+          "conf": 0.9093
+        },
+        {
+          "text": "PLACE",
+          "bbox": [
+            678,
+            422,
+            736,
+            441
+          ],
+          "line_id": 7,
+          "block_id": 7,
+          "conf": 0.8774
+        },
+        {
+          "text": "F",
+          "bbox": [
+            479,
+            454,
+            498,
+            476
+          ],
+          "line_id": 8,
+          "block_id": 6,
+          "conf": 0.8836
+        },
+        {
+          "text": "Walter",
+          "bbox": [
+            739,
+            456,
+            838,
+            475
+          ],
+          "line_id": 8,
+          "block_id": 7,
+          "conf": 0.8389
+        },
+        {
+          "text": "New",
+          "bbox": [
+            680,
+            457,
+            730,
+            479
+          ],
+          "line_id": 8,
+          "block_id": 7,
+          "conf": 0.8823
+        },
+        {
+          "text": "of",
+          "bbox": [
+            133,
+            540,
+            156,
+            559
+          ],
+          "line_id": 9,
+          "block_id": 9,
+          "conf": 0.9895
+        },
+        {
+          "text": "Date",
+          "bbox": [
+            80,
+            539,
+            126,
+            561
+          ],
+          "line_id": 9,
+          "block_id": 9,
+          "conf": 0.9876
+        },
+        {
+          "text": "Birth",
+          "bbox": [
+            163,
+            541,
+            221,
+            559
+          ],
+          "line_id": 9,
+          "block_id": 9,
+          "conf": 0.9327
+        },
+        {
+          "text": "No.",
+          "bbox": [
+            961,
+            542,
+            1001,
+            558
+          ],
+          "line_id": 9,
+          "block_id": 10,
+          "conf": 0.8733
+        },
+        {
+          "text": "Document",
+          "bbox": [
+            838,
+            541,
+            956,
+            561
+          ],
+          "line_id": 9,
+          "block_id": 10,
+          "conf": 0.9329
+        },
+        {
+          "text": "A189",
+          "bbox": [
+            840,
+            575,
+            913,
+            600
+          ],
+          "line_id": 10,
+          "block_id": 10,
+          "conf": 0.8627
+        },
+        {
+          "text": "8024",
+          "bbox": [
+            913,
+            575,
+            987,
+            600
+          ],
+          "line_id": 10,
+          "block_id": 10,
+          "conf": 0.8787
+        },
+        {
+          "text": "1963-",
+          "bbox": [
+            78,
+            575,
+            162,
+            601
+          ],
+          "line_id": 10,
+          "block_id": 9,
+          "conf": 0.9114
+        },
+        {
+          "text": "01-07",
+          "bbox": [
+            162,
+            575,
+            246,
+            601
+          ],
+          "line_id": 10,
+          "block_id": 9,
+          "conf": 0.9806
+        },
+        {
+          "text": "Date",
+          "bbox": [
+            150,
+            679,
+            201,
+            699
+          ],
+          "line_id": 11,
+          "block_id": 11,
+          "conf": 0.8659
+        },
+        {
+          "text": "Issue",
+          "bbox": [
+            79,
+            681,
+            143,
+            700
+          ],
+          "line_id": 11,
+          "block_id": 11,
+          "conf": 0.9109
+        },
+        {
+          "text": "Expiry",
+          "bbox": [
+            841,
+            680,
+            918,
+            702
+          ],
+          "line_id": 11,
+          "block_id": 12,
+          "conf": 0.9144
+        },
+        {
+          "text": "Date",
+          "bbox": [
+            923,
+            680,
+            974,
+            706
+          ],
+          "line_id": 11,
+          "block_id": 12,
+          "conf": 0.9443
+        },
+        {
+          "text": "2006-11-21",
+          "bbox": [
+            82,
+            718,
+            247,
+            737
+          ],
+          "line_id": 12,
+          "block_id": 11,
+          "conf": 0.8424
+        },
+        {
+          "text": "2016-11-21",
+          "bbox": [
+            840,
+            716,
+            1006,
+            739
+          ],
+          "line_id": 12,
+          "block_id": 12,
+          "conf": 0.9821
+        },
+        {
+          "text": "Height",
+          "bbox": [
+            842,
+            820,
+            916,
+            842
+          ],
+          "line_id": 13,
+          "block_id": 14,
+          "conf": 0.9708
+        },
+        {
+          "text": "Issuing",
+          "bbox": [
+            80,
+            821,
+            166,
+            844
+          ],
+          "line_id": 13,
+          "block_id": 13,
+          "conf": 0.8632
+        },
+        {
+          "text": "Country",
+          "bbox": [
+            172,
+            822,
+            257,
+            843
+          ],
+          "line_id": 13,
+          "block_id": 13,
+          "conf": 0.8506
+        },
+        {
+          "text": "5tates",
+          "bbox": [
+            179,
+            854,
+            271,
+            880
+          ],
+          "line_id": 14,
+          "block_id": 13,
+          "conf": 0.8282
+        },
+        {
+          "text": "156",
+          "bbox": [
+            840,
+            858,
+            896,
+            878
+          ],
+          "line_id": 14,
+          "block_id": 14,
+          "conf": 0.8941
+        },
+        {
+          "text": "cm",
+          "bbox": [
+            907,
+            857,
+            947,
+            881
+          ],
+          "line_id": 14,
+          "block_id": 14,
+          "conf": 0.8859
+        },
+        {
+          "text": "P<UNIMARGARET<ZIMMERMAN",
+          "bbox": [
+            81,
+            1001,
+            420,
+            1016
+          ],
+          "line_id": 15,
+          "block_id": 16,
+          "conf": 0.8605
+        },
+        {
+          "text": "A1898024<<<<<19630107",
+          "bbox": [
+            80,
+            1036,
+            340,
+            1050
+          ],
+          "line_id": 16,
+          "block_id": 17,
+          "conf": 0.8956
+        }
+      ]
+    }
+  ]
+}

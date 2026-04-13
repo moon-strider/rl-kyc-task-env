@@ -1,0 +1,467 @@
+{
+  "pages": [
+    {
+      "page_index": 0,
+      "width": 1600,
+      "height": 2200,
+      "tokens": [
+        {
+          "text": "TRANSFER",
+          "bbox": [
+            553,
+            71,
+            800,
+            105
+          ],
+          "line_id": 0,
+          "block_id": 0,
+          "conf": 0.9062
+        },
+        {
+          "text": "BANK",
+          "bbox": [
+            420,
+            71,
+            538,
+            106
+          ],
+          "line_id": 0,
+          "block_id": 0,
+          "conf": 0.9112
+        },
+        {
+          "text": "CONF1RMATION",
+          "bbox": [
+            813,
+            70,
+            1182,
+            107
+          ],
+          "line_id": 0,
+          "block_id": 0,
+          "conf": 0.9419
+        },
+        {
+          "text": "Reference:",
+          "bbox": [
+            638,
+            128,
+            797,
+            148
+          ],
+          "line_id": 1,
+          "block_id": 1,
+          "conf": 0.9375
+        },
+        {
+          "text": "TRX-079153",
+          "bbox": [
+            804,
+            126,
+            965,
+            151
+          ],
+          "line_id": 1,
+          "block_id": 1,
+          "conf": 0.8627
+        },
+        {
+          "text": "FROM",
+          "bbox": [
+            81,
+            212,
+            149,
+            232
+          ],
+          "line_id": 2,
+          "block_id": 3,
+          "conf": 0.8495
+        },
+        {
+          "text": "MARGARET",
+          "bbox": [
+            482,
+            208,
+            592,
+            237
+          ],
+          "line_id": 2,
+          "block_id": 3,
+          "conf": 0.8232
+        },
+        {
+          "text": "MITCHELL",
+          "bbox": [
+            601,
+            211,
+            712,
+            238
+          ],
+          "line_id": 2,
+          "block_id": 3,
+          "conf": 0.8516
+        },
+        {
+          "text": "To",
+          "bbox": [
+            79,
+            288,
+            113,
+            310
+          ],
+          "line_id": 3,
+          "block_id": 4,
+          "conf": 0.8803
+        },
+        {
+          "text": "Store",
+          "bbox": [
+            668,
+            290,
+            741,
+            317
+          ],
+          "line_id": 3,
+          "block_id": 4,
+          "conf": 0.9559
+        },
+        {
+          "text": "Nexus",
+          "bbox": [
+            478,
+            289,
+            553,
+            320
+          ],
+          "line_id": 3,
+          "block_id": 4,
+          "conf": 0.8617
+        },
+        {
+          "text": "Digital",
+          "bbox": [
+            559,
+            292,
+            657,
+            317
+          ],
+          "line_id": 3,
+          "block_id": 4,
+          "conf": 0.9849
+        },
+        {
+          "text": "2025-04-04",
+          "bbox": [
+            478,
+            370,
+            634,
+            391
+          ],
+          "line_id": 4,
+          "block_id": 5,
+          "conf": 0.9228
+        },
+        {
+          "text": "Payment",
+          "bbox": [
+            81,
+            368,
+            197,
+            396
+          ],
+          "line_id": 4,
+          "block_id": 5,
+          "conf": 0.9117
+        },
+        {
+          "text": "Date",
+          "bbox": [
+            204,
+            369,
+            269,
+            399
+          ],
+          "line_id": 4,
+          "block_id": 5,
+          "conf": 0.8254
+        },
+        {
+          "text": "156.55",
+          "bbox": [
+            539,
+            449,
+            644,
+            470
+          ],
+          "line_id": 5,
+          "block_id": 6,
+          "conf": 0.9583
+        },
+        {
+          "text": "GBP",
+          "bbox": [
+            482,
+            448,
+            531,
+            474
+          ],
+          "line_id": 5,
+          "block_id": 6,
+          "conf": 0.9814
+        },
+        {
+          "text": "Amount",
+          "bbox": [
+            80,
+            450,
+            187,
+            473
+          ],
+          "line_id": 5,
+          "block_id": 6,
+          "conf": 0.8934
+        },
+        {
+          "text": "GBP",
+          "bbox": [
+            480,
+            530,
+            541,
+            554
+          ],
+          "line_id": 6,
+          "block_id": 7,
+          "conf": 0.8243
+        },
+        {
+          "text": "CURRENCY",
+          "bbox": [
+            78,
+            528,
+            203,
+            559
+          ],
+          "line_id": 6,
+          "block_id": 7,
+          "conf": 0.97
+        },
+        {
+          "text": "TRX-079153",
+          "bbox": [
+            478,
+            609,
+            651,
+            630
+          ],
+          "line_id": 7,
+          "block_id": 8,
+          "conf": 0.9469
+        },
+        {
+          "text": "Transaction",
+          "bbox": [
+            80,
+            610,
+            241,
+            632
+          ],
+          "line_id": 7,
+          "block_id": 8,
+          "conf": 0.8609
+        },
+        {
+          "text": "ID",
+          "bbox": [
+            248,
+            612,
+            274,
+            634
+          ],
+          "line_id": 7,
+          "block_id": 8,
+          "conf": 0.8858
+        },
+        {
+          "text": "Subtotal",
+          "bbox": [
+            79,
+            689,
+            189,
+            711
+          ],
+          "line_id": 8,
+          "block_id": 9,
+          "conf": 0.9067
+        },
+        {
+          "text": "1811.34",
+          "bbox": [
+            478,
+            690,
+            591,
+            711
+          ],
+          "line_id": 8,
+          "block_id": 9,
+          "conf": 0.8281
+        },
+        {
+          "text": "1.29",
+          "bbox": [
+            478,
+            768,
+            537,
+            792
+          ],
+          "line_id": 9,
+          "block_id": 10,
+          "conf": 0.9046
+        },
+        {
+          "text": "FEE",
+          "bbox": [
+            80,
+            771,
+            130,
+            793
+          ],
+          "line_id": 9,
+          "block_id": 10,
+          "conf": 0.9607
+        },
+        {
+          "text": "Tax",
+          "bbox": [
+            82,
+            849,
+            132,
+            870
+          ],
+          "line_id": 10,
+          "block_id": 11,
+          "conf": 0.8717
+        },
+        {
+          "text": "135.56",
+          "bbox": [
+            481,
+            848,
+            575,
+            873
+          ],
+          "line_id": 10,
+          "block_id": 11,
+          "conf": 0.8251
+        },
+        {
+          "text": "ID",
+          "bbox": [
+            185,
+            928,
+            214,
+            951
+          ],
+          "line_id": 11,
+          "block_id": 12,
+          "conf": 0.9803
+        },
+        {
+          "text": "INV-1",
+          "bbox": [
+            478,
+            931,
+            559,
+            951
+          ],
+          "line_id": 11,
+          "block_id": 12,
+          "conf": 0.8407
+        },
+        {
+          "text": "71238",
+          "bbox": [
+            559,
+            931,
+            640,
+            951
+          ],
+          "line_id": 11,
+          "block_id": 12,
+          "conf": 0.9544
+        },
+        {
+          "text": "Invoice",
+          "bbox": [
+            81,
+            930,
+            176,
+            954
+          ],
+          "line_id": 11,
+          "block_id": 12,
+          "conf": 0.9273
+        },
+        {
+          "text": "AUTH-850496",
+          "bbox": [
+            481,
+            1010,
+            676,
+            1030
+          ],
+          "line_id": 12,
+          "block_id": 13,
+          "conf": 0.8958
+        },
+        {
+          "text": "CODE",
+          "bbox": [
+            154,
+            1011,
+            226,
+            1031
+          ],
+          "line_id": 12,
+          "block_id": 13,
+          "conf": 0.8511
+        },
+        {
+          "text": "successfully.",
+          "bbox": [
+            832,
+            1130,
+            1005,
+            1158
+          ],
+          "line_id": 13,
+          "block_id": 15,
+          "conf": 0.944
+        },
+        {
+          "text": "completed",
+          "bbox": [
+            707,
+            1132,
+            828,
+            1157
+          ],
+          "line_id": 13,
+          "block_id": 15,
+          "conf": 0.8257
+        },
+        {
+          "text": "Transfer",
+          "bbox": [
+            594,
+            1132,
+            700,
+            1159
+          ],
+          "line_id": 13,
+          "block_id": 15,
+          "conf": 0.8576
+        }
+      ]
+    }
+  ]
+}

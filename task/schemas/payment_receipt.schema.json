@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "payment_receipt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_name", "fields"],
+  "properties": {
+    "schema_name": {
+      "type": "string",
+      "const": "payment_receipt"
+    },
+    "fields": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sender_name",
+        "recipient_name",
+        "amount",
+        "currency",
+        "payment_date",
+        "reference_id"
+      ],
+      "properties": {
+        "sender_name":    {"type": ["string", "null"]},
+        "recipient_name": {"type": ["string", "null"]},
+        "amount":         {"type": ["string", "null"]},
+        "currency":       {"type": ["string", "null"]},
+        "payment_date":   {"type": ["string", "null"]},
+        "reference_id":   {"type": ["string", "null"]}
+      }
+    }
+  }
+}

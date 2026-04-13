@@ -1,0 +1,563 @@
+{
+  "pages": [
+    {
+      "page_index": 0,
+      "width": 1600,
+      "height": 2200,
+      "tokens": [
+        {
+          "text": "DOCUMENT",
+          "bbox": [
+            577,
+            58,
+            764,
+            84
+          ],
+          "line_id": 0,
+          "block_id": 0,
+          "conf": 0.8395
+        },
+        {
+          "text": "GOVERNMENT",
+          "bbox": [
+            811,
+            61,
+            1049,
+            83
+          ],
+          "line_id": 0,
+          "block_id": 0,
+          "conf": 0.8276
+        },
+        {
+          "text": "ISSUE",
+          "bbox": [
+            1060,
+            59,
+            1179,
+            86
+          ],
+          "line_id": 0,
+          "block_id": 0,
+          "conf": 0.8608
+        },
+        {
+          "text": "TRAVEL",
+          "bbox": [
+            425,
+            61,
+            564,
+            86
+          ],
+          "line_id": 0,
+          "block_id": 0,
+          "conf": 0.9417
+        },
+        {
+          "text": "—",
+          "bbox": [
+            775,
+            62,
+            800,
+            85
+          ],
+          "line_id": 0,
+          "block_id": 0,
+          "conf": 0.9458
+        },
+        {
+          "text": "AUSTRALIA",
+          "bbox": [
+            671,
+            104,
+            930,
+            132
+          ],
+          "line_id": 1,
+          "block_id": 1,
+          "conf": 0.8584
+        },
+        {
+          "text": "AND",
+          "bbox": [
+            193,
+            176,
+            237,
+            192
+          ],
+          "line_id": 2,
+          "block_id": 3,
+          "conf": 0.951
+        },
+        {
+          "text": "NAMES",
+          "bbox": [
+            327,
+            178,
+            404,
+            194
+          ],
+          "line_id": 2,
+          "block_id": 3,
+          "conf": 0.9749
+        },
+        {
+          "text": "SURNAME",
+          "bbox": [
+            82,
+            180,
+            185,
+            194
+          ],
+          "line_id": 2,
+          "block_id": 3,
+          "conf": 0.8891
+        },
+        {
+          "text": "GIVEN",
+          "bbox": [
+            245,
+            180,
+            322,
+            196
+          ],
+          "line_id": 2,
+          "block_id": 3,
+          "conf": 0.9375
+        },
+        {
+          "text": "Cassandra",
+          "bbox": [
+            418,
+            180,
+            538,
+            202
+          ],
+          "line_id": 2,
+          "block_id": 3,
+          "conf": 0.8374
+        },
+        {
+          "text": "Taylor",
+          "bbox": [
+            547,
+            180,
+            622,
+            203
+          ],
+          "line_id": 2,
+          "block_id": 3,
+          "conf": 0.8821
+        },
+        {
+          "text": "NATIONALITY",
+          "bbox": [
+            81,
+            242,
+            226,
+            256
+          ],
+          "line_id": 3,
+          "block_id": 4,
+          "conf": 0.9483
+        },
+        {
+          "text": "Australia",
+          "bbox": [
+            420,
+            240,
+            520,
+            258
+          ],
+          "line_id": 3,
+          "block_id": 4,
+          "conf": 0.8314
+        },
+        {
+          "text": "DATE",
+          "bbox": [
+            79,
+            300,
+            133,
+            318
+          ],
+          "line_id": 4,
+          "block_id": 5,
+          "conf": 0.8729
+        },
+        {
+          "text": "OFBIRTH",
+          "bbox": [
+            142,
+            301,
+            247,
+            320
+          ],
+          "line_id": 4,
+          "block_id": 5,
+          "conf": 0.8462
+        },
+        {
+          "text": "1978-03-30",
+          "bbox": [
+            419,
+            303,
+            549,
+            323
+          ],
+          "line_id": 4,
+          "block_id": 5,
+          "conf": 0.947
+        },
+        {
+          "text": "PERSONAL",
+          "bbox": [
+            81,
+            365,
+            197,
+            378
+          ],
+          "line_id": 5,
+          "block_id": 6,
+          "conf": 0.9258
+        },
+        {
+          "text": "NO.",
+          "bbox": [
+            200,
+            362,
+            244,
+            381
+          ],
+          "line_id": 5,
+          "block_id": 6,
+          "conf": 0.882
+        },
+        {
+          "text": "L1095257",
+          "bbox": [
+            421,
+            362,
+            531,
+            383
+          ],
+          "line_id": 5,
+          "block_id": 6,
+          "conf": 0.9672
+        },
+        {
+          "text": "SEX",
+          "bbox": [
+            78,
+            426,
+            124,
+            441
+          ],
+          "line_id": 6,
+          "block_id": 7,
+          "conf": 0.9543
+        },
+        {
+          "text": "F",
+          "bbox": [
+            420,
+            424,
+            437,
+            444
+          ],
+          "line_id": 6,
+          "block_id": 7,
+          "conf": 0.9558
+        },
+        {
+          "text": "BIRTH",
+          "bbox": [
+            190,
+            486,
+            262,
+            504
+          ],
+          "line_id": 7,
+          "block_id": 8,
+          "conf": 0.9366
+        },
+        {
+          "text": "PLACE",
+          "bbox": [
+            81,
+            489,
+            151,
+            502
+          ],
+          "line_id": 7,
+          "block_id": 8,
+          "conf": 0.8966
+        },
+        {
+          "text": "OF",
+          "bbox": [
+            156,
+            486,
+            183,
+            506
+          ],
+          "line_id": 7,
+          "block_id": 8,
+          "conf": 0.9207
+        },
+        {
+          "text": "East",
+          "bbox": [
+            421,
+            488,
+            472,
+            506
+          ],
+          "line_id": 7,
+          "block_id": 8,
+          "conf": 0.8811
+        },
+        {
+          "text": "Donald",
+          "bbox": [
+            479,
+            487,
+            560,
+            507
+          ],
+          "line_id": 7,
+          "block_id": 8,
+          "conf": 0.9725
+        },
+        {
+          "text": "DATE",
+          "bbox": [
+            78,
+            550,
+            137,
+            566
+          ],
+          "line_id": 8,
+          "block_id": 9,
+          "conf": 0.8736
+        },
+        {
+          "text": "OF",
+          "bbox": [
+            142,
+            552,
+            172,
+            566
+          ],
+          "line_id": 8,
+          "block_id": 9,
+          "conf": 0.9738
+        },
+        {
+          "text": "ISSUE",
+          "bbox": [
+            180,
+            552,
+            247,
+            566
+          ],
+          "line_id": 8,
+          "block_id": 9,
+          "conf": 0.856
+        },
+        {
+          "text": "1996-07-13",
+          "bbox": [
+            421,
+            550,
+            551,
+            568
+          ],
+          "line_id": 8,
+          "block_id": 9,
+          "conf": 0.8689
+        },
+        {
+          "text": "EXPIRY",
+          "bbox": [
+            180,
+            611,
+            264,
+            627
+          ],
+          "line_id": 9,
+          "block_id": 10,
+          "conf": 0.8752
+        },
+        {
+          "text": "OF",
+          "bbox": [
+            143,
+            610,
+            171,
+            630
+          ],
+          "line_id": 9,
+          "block_id": 10,
+          "conf": 0.8236
+        },
+        {
+          "text": "DATE",
+          "bbox": [
+            82,
+            612,
+            134,
+            629
+          ],
+          "line_id": 9,
+          "block_id": 10,
+          "conf": 0.9261
+        },
+        {
+          "text": "2001-07-13",
+          "bbox": [
+            421,
+            611,
+            552,
+            632
+          ],
+          "line_id": 9,
+          "block_id": 10,
+          "conf": 0.9492
+        },
+        {
+          "text": "ISSUING",
+          "bbox": [
+            78,
+            674,
+            179,
+            690
+          ],
+          "line_id": 10,
+          "block_id": 11,
+          "conf": 0.8342
+        },
+        {
+          "text": "Australia",
+          "bbox": [
+            418,
+            673,
+            521,
+            693
+          ],
+          "line_id": 10,
+          "block_id": 11,
+          "conf": 0.8844
+        },
+        {
+          "text": "COUNTRY",
+          "bbox": [
+            185,
+            676,
+            285,
+            691
+          ],
+          "line_id": 10,
+          "block_id": 11,
+          "conf": 0.8377
+        },
+        {
+          "text": "HEIGHT",
+          "bbox": [
+            81,
+            736,
+            163,
+            751
+          ],
+          "line_id": 11,
+          "block_id": 12,
+          "conf": 0.8775
+        },
+        {
+          "text": "cm",
+          "bbox": [
+            472,
+            734,
+            504,
+            757
+          ],
+          "line_id": 11,
+          "block_id": 12,
+          "conf": 0.955
+        },
+        {
+          "text": "191",
+          "bbox": [
+            420,
+            735,
+            467,
+            757
+          ],
+          "line_id": 11,
+          "block_id": 12,
+          "conf": 0.8212
+        },
+        {
+          "text": "READABLE",
+          "bbox": [
+            765,
+            839,
+            881,
+            854
+          ],
+          "line_id": 12,
+          "block_id": 14,
+          "conf": 0.9728
+        },
+        {
+          "text": "ZONE",
+          "bbox": [
+            888,
+            838,
+            946,
+            855
+          ],
+          "line_id": 12,
+          "block_id": 14,
+          "conf": 0.9353
+        },
+        {
+          "text": "MACHINE",
+          "bbox": [
+            652,
+            839,
+            754,
+            856
+          ],
+          "line_id": 12,
+          "block_id": 14,
+          "conf": 0.8932
+        },
+        {
+          "text": "P<AUSCASSANDRA<TAYLOR<<<<<<<<<<",
+          "bbox": [
+            78,
+            873,
+            525,
+            890
+          ],
+          "line_id": 13,
+          "block_id": 15,
+          "conf": 0.8632
+        },
+        {
+          "text": "L1095257<<<<<<<<<19780330<<<<<<<<<<",
+          "bbox": [
+            79,
+            904,
+            518,
+            923
+          ],
+          "line_id": 14,
+          "block_id": 16,
+          "conf": 0.8212
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,551 @@
+{
+  "pages": [
+    {
+      "page_index": 0,
+      "width": 1600,
+      "height": 2200,
+      "tokens": [
+        {
+          "text": "DOCUMENT",
+          "bbox": [
+            577,
+            59,
+            762,
+            86
+          ],
+          "line_id": 0,
+          "block_id": 0,
+          "conf": 0.8336
+        },
+        {
+          "text": "GOVERNMENT",
+          "bbox": [
+            809,
+            62,
+            1048,
+            83
+          ],
+          "line_id": 0,
+          "block_id": 0,
+          "conf": 0.9248
+        },
+        {
+          "text": "ISSUE",
+          "bbox": [
+            1061,
+            62,
+            1175,
+            85
+          ],
+          "line_id": 0,
+          "block_id": 0,
+          "conf": 0.9383
+        },
+        {
+          "text": "TRAVEL",
+          "bbox": [
+            422,
+            62,
+            562,
+            86
+          ],
+          "line_id": 0,
+          "block_id": 0,
+          "conf": 0.925
+        },
+        {
+          "text": "—",
+          "bbox": [
+            776,
+            62,
+            798,
+            86
+          ],
+          "line_id": 0,
+          "block_id": 0,
+          "conf": 0.9496
+        },
+        {
+          "text": "AUSTRALIA",
+          "bbox": [
+            672,
+            103,
+            930,
+            133
+          ],
+          "line_id": 1,
+          "block_id": 1,
+          "conf": 0.9348
+        },
+        {
+          "text": "AND",
+          "bbox": [
+            195,
+            176,
+            237,
+            192
+          ],
+          "line_id": 2,
+          "block_id": 3,
+          "conf": 0.9707
+        },
+        {
+          "text": "GIVEN",
+          "bbox": [
+            245,
+            177,
+            321,
+            194
+          ],
+          "line_id": 2,
+          "block_id": 3,
+          "conf": 0.9496
+        },
+        {
+          "text": "NAMES",
+          "bbox": [
+            329,
+            177,
+            404,
+            195
+          ],
+          "line_id": 2,
+          "block_id": 3,
+          "conf": 0.919
+        },
+        {
+          "text": "SURNAME",
+          "bbox": [
+            82,
+            179,
+            183,
+            194
+          ],
+          "line_id": 2,
+          "block_id": 3,
+          "conf": 0.8464
+        },
+        {
+          "text": "James",
+          "bbox": [
+            420,
+            178,
+            491,
+            198
+          ],
+          "line_id": 2,
+          "block_id": 3,
+          "conf": 0.9151
+        },
+        {
+          "text": "Barker",
+          "bbox": [
+            494,
+            179,
+            581,
+            198
+          ],
+          "line_id": 2,
+          "block_id": 3,
+          "conf": 0.8561
+        },
+        {
+          "text": "NATIONALITY",
+          "bbox": [
+            81,
+            238,
+            224,
+            255
+          ],
+          "line_id": 3,
+          "block_id": 4,
+          "conf": 0.9807
+        },
+        {
+          "text": "Australia",
+          "bbox": [
+            422,
+            241,
+            523,
+            261
+          ],
+          "line_id": 3,
+          "block_id": 4,
+          "conf": 0.843
+        },
+        {
+          "text": "BIRTH",
+          "bbox": [
+            175,
+            300,
+            248,
+            316
+          ],
+          "line_id": 4,
+          "block_id": 5,
+          "conf": 0.9081
+        },
+        {
+          "text": "OF",
+          "bbox": [
+            143,
+            300,
+            172,
+            320
+          ],
+          "line_id": 4,
+          "block_id": 5,
+          "conf": 0.8576
+        },
+        {
+          "text": "DATE",
+          "bbox": [
+            81,
+            302,
+            134,
+            319
+          ],
+          "line_id": 4,
+          "block_id": 5,
+          "conf": 0.9632
+        },
+        {
+          "text": "1996-09-09",
+          "bbox": [
+            418,
+            304,
+            549,
+            323
+          ],
+          "line_id": 4,
+          "block_id": 5,
+          "conf": 0.8515
+        },
+        {
+          "text": "197971848",
+          "bbox": [
+            422,
+            362,
+            545,
+            381
+          ],
+          "line_id": 5,
+          "block_id": 6,
+          "conf": 0.859
+        },
+        {
+          "text": "PERSONAL",
+          "bbox": [
+            81,
+            365,
+            195,
+            379
+          ],
+          "line_id": 5,
+          "block_id": 6,
+          "conf": 0.9519
+        },
+        {
+          "text": "NO.",
+          "bbox": [
+            201,
+            366,
+            246,
+            378
+          ],
+          "line_id": 5,
+          "block_id": 6,
+          "conf": 0.9196
+        },
+        {
+          "text": "SEX",
+          "bbox": [
+            82,
+            426,
+            125,
+            440
+          ],
+          "line_id": 6,
+          "block_id": 7,
+          "conf": 0.8473
+        },
+        {
+          "text": "M",
+          "bbox": [
+            421,
+            427,
+            440,
+            443
+          ],
+          "line_id": 6,
+          "block_id": 7,
+          "conf": 0.8917
+        },
+        {
+          "text": "PLACEOF",
+          "bbox": [
+            79,
+            486,
+            186,
+            502
+          ],
+          "line_id": 7,
+          "block_id": 8,
+          "conf": 0.9438
+        },
+        {
+          "text": "BIRTH",
+          "bbox": [
+            191,
+            490,
+            262,
+            503
+          ],
+          "line_id": 7,
+          "block_id": 8,
+          "conf": 0.8801
+        },
+        {
+          "text": "Matthewfurt",
+          "bbox": [
+            488,
+            487,
+            629,
+            506
+          ],
+          "line_id": 7,
+          "block_id": 8,
+          "conf": 0.8305
+        },
+        {
+          "text": "South",
+          "bbox": [
+            422,
+            489,
+            482,
+            509
+          ],
+          "line_id": 7,
+          "block_id": 8,
+          "conf": 0.8559
+        },
+        {
+          "text": "OF",
+          "bbox": [
+            143,
+            548,
+            170,
+            565
+          ],
+          "line_id": 8,
+          "block_id": 9,
+          "conf": 0.8237
+        },
+        {
+          "text": "DATE",
+          "bbox": [
+            80,
+            548,
+            135,
+            567
+          ],
+          "line_id": 8,
+          "block_id": 9,
+          "conf": 0.9074
+        },
+        {
+          "text": "ISSUE",
+          "bbox": [
+            177,
+            550,
+            246,
+            565
+          ],
+          "line_id": 8,
+          "block_id": 9,
+          "conf": 0.8479
+        },
+        {
+          "text": "2020-10-08",
+          "bbox": [
+            421,
+            548,
+            549,
+            567
+          ],
+          "line_id": 8,
+          "block_id": 9,
+          "conf": 0.8623
+        },
+        {
+          "text": "OF",
+          "bbox": [
+            141,
+            610,
+            172,
+            626
+          ],
+          "line_id": 9,
+          "block_id": 10,
+          "conf": 0.9029
+        },
+        {
+          "text": "EXPIRY",
+          "bbox": [
+            177,
+            613,
+            264,
+            629
+          ],
+          "line_id": 9,
+          "block_id": 10,
+          "conf": 0.9436
+        },
+        {
+          "text": "202S-10-08",
+          "bbox": [
+            420,
+            612,
+            548,
+            631
+          ],
+          "line_id": 9,
+          "block_id": 10,
+          "conf": 0.8818
+        },
+        {
+          "text": "DATE",
+          "bbox": [
+            82,
+            614,
+            138,
+            630
+          ],
+          "line_id": 9,
+          "block_id": 10,
+          "conf": 0.9786
+        },
+        {
+          "text": "COUNTRY",
+          "bbox": [
+            187,
+            675,
+            288,
+            691
+          ],
+          "line_id": 10,
+          "block_id": 11,
+          "conf": 0.8263
+        },
+        {
+          "text": "AUSTRALIA",
+          "bbox": [
+            422,
+            675,
+            519,
+            694
+          ],
+          "line_id": 10,
+          "block_id": 11,
+          "conf": 0.8901
+        },
+        {
+          "text": "HEIGHT",
+          "bbox": [
+            81,
+            734,
+            162,
+            753
+          ],
+          "line_id": 11,
+          "block_id": 12,
+          "conf": 0.9718
+        },
+        {
+          "text": "cm",
+          "bbox": [
+            471,
+            735,
+            504,
+            756
+          ],
+          "line_id": 11,
+          "block_id": 12,
+          "conf": 0.9793
+        },
+        {
+          "text": "177",
+          "bbox": [
+            422,
+            738,
+            463,
+            756
+          ],
+          "line_id": 11,
+          "block_id": 12,
+          "conf": 0.8777
+        },
+        {
+          "text": "MACHINE",
+          "bbox": [
+            653,
+            836,
+            755,
+            854
+          ],
+          "line_id": 12,
+          "block_id": 14,
+          "conf": 0.9103
+        },
+        {
+          "text": "ZONE",
+          "bbox": [
+            886,
+            837,
+            948,
+            854
+          ],
+          "line_id": 12,
+          "block_id": 14,
+          "conf": 0.856
+        },
+        {
+          "text": "READABLE",
+          "bbox": [
+            764,
+            840,
+            881,
+            852
+          ],
+          "line_id": 12,
+          "block_id": 14,
+          "conf": 0.9741
+        },
+        {
+          "text": "P<AUSJAMES<BARKER<<<<<<<<<<",
+          "bbox": [
+            79,
+            873,
+            463,
+            890
+          ],
+          "line_id": 13,
+          "block_id": 15,
+          "conf": 0.8463
+        },
+        {
+          "text": "197971848<<<<<<<<<19960909<<<<<<<<<<",
+          "bbox": [
+            81,
+            907,
+            530,
+            924
+          ],
+          "line_id": 14,
+          "block_id": 16,
+          "conf": 0.8444
+        }
+      ]
+    }
+  ]
+}

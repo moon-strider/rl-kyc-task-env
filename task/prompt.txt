@@ -1,0 +1,45 @@
+You are given a local dataset of synthetic but realistic documents.
+
+Each document directory contains:
+- meta.json
+- ocr.json
+- pages/0.png
+
+The document type is already known and is provided in meta.json as schema_name.
+schema_name is one of:
+- government_id
+- proof_of_address
+- payment_receipt
+
+You must create:
+
+    /workspace/solution/extract.py
+
+This file must define:
+
+    def predict(document_dir: str) -> dict:
+
+The function must return a JSON-serializable dict with the exact format:
+
+    {
+      "schema_name": "<schema_name from meta.json>",
+      "fields": { ... }
+    }
+
+Use the exact field names defined in:
+
+    /task/schemas/<schema_name>.schema.json
+
+Rules:
+- Use only local files and installed packages.
+- Network access is disabled.
+- Your solution must run on CPU.
+- OCR may contain minor recognition errors.
+- Do not assume fixed coordinates, fixed templates, or exact label wording.
+- Dates must be returned as YYYY-MM-DD.
+- Amounts must be returned as decimal strings with exactly two fractional digits.
+- Currency must be returned as a 3-letter ISO code.
+- Return null only if a field cannot be extracted.
+- Do not output extra keys.
+
+You may create any additional files under /workspace/solution/.

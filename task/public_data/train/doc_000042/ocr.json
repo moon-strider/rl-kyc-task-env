@@ -1,0 +1,647 @@
+{
+  "pages": [
+    {
+      "page_index": 0,
+      "width": 1600,
+      "height": 2200,
+      "tokens": [
+        {
+          "text": "DOCUMENT",
+          "bbox": [
+            967,
+            68,
+            1217,
+            103
+          ],
+          "line_id": 0,
+          "block_id": 0,
+          "conf": 0.9236
+        },
+        {
+          "text": "IDENTITY",
+          "bbox": [
+            706,
+            69,
+            952,
+            103
+          ],
+          "line_id": 0,
+          "block_id": 0,
+          "conf": 0.844
+        },
+        {
+          "text": "GOVERNMENT",
+          "bbox": [
+            386,
+            72,
+            691,
+            105
+          ],
+          "line_id": 0,
+          "block_id": 0,
+          "conf": 0.8868
+        },
+        {
+          "text": "Only",
+          "bbox": [
+            933,
+            128,
+            984,
+            152
+          ],
+          "line_id": 1,
+          "block_id": 1,
+          "conf": 0.9798
+        },
+        {
+          "text": "Form",
+          "bbox": [
+            616,
+            131,
+            663,
+            151
+          ],
+          "line_id": 1,
+          "block_id": 1,
+          "conf": 0.8833
+        },
+        {
+          "text": "GID-2025",
+          "bbox": [
+            669,
+            132,
+            767,
+            151
+          ],
+          "line_id": 1,
+          "block_id": 1,
+          "conf": 0.9458
+        },
+        {
+          "text": "Official",
+          "bbox": [
+            792,
+            129,
+            888,
+            154
+          ],
+          "line_id": 1,
+          "block_id": 1,
+          "conf": 0.8304
+        },
+        {
+          "text": "|",
+          "bbox": [
+            775,
+            132,
+            786,
+            153
+          ],
+          "line_id": 1,
+          "block_id": 1,
+          "conf": 0.9573
+        },
+        {
+          "text": "Use",
+          "bbox": [
+            892,
+            131,
+            929,
+            154
+          ],
+          "line_id": 1,
+          "block_id": 1,
+          "conf": 0.9255
+        },
+        {
+          "text": "—",
+          "bbox": [
+            246,
+            196,
+            266,
+            214
+          ],
+          "line_id": 2,
+          "block_id": 3,
+          "conf": 0.9693
+        },
+        {
+          "text": "PERSONAL",
+          "bbox": [
+            272,
+            193,
+            423,
+            217
+          ],
+          "line_id": 2,
+          "block_id": 3,
+          "conf": 0.9081
+        },
+        {
+          "text": "INFORMATION",
+          "bbox": [
+            428,
+            197,
+            632,
+            213
+          ],
+          "line_id": 2,
+          "block_id": 3,
+          "conf": 0.8536
+        },
+        {
+          "text": "SECTION",
+          "bbox": [
+            80,
+            196,
+            208,
+            217
+          ],
+          "line_id": 2,
+          "block_id": 3,
+          "conf": 0.9503
+        },
+        {
+          "text": "1",
+          "bbox": [
+            217,
+            197,
+            234,
+            217
+          ],
+          "line_id": 2,
+          "block_id": 3,
+          "conf": 0.9608
+        },
+        {
+          "text": "Name",
+          "bbox": [
+            190,
+            250,
+            260,
+            271
+          ],
+          "line_id": 3,
+          "block_id": 4,
+          "conf": 0.9101
+        },
+        {
+          "text": "Palmer",
+          "bbox": [
+            520,
+            251,
+            601,
+            270
+          ],
+          "line_id": 3,
+          "block_id": 4,
+          "conf": 0.8456
+        },
+        {
+          "text": "Holder",
+          "bbox": [
+            78,
+            250,
+            182,
+            273
+          ],
+          "line_id": 3,
+          "block_id": 4,
+          "conf": 0.941
+        },
+        {
+          "text": "Jill",
+          "bbox": [
+            459,
+            250,
+            515,
+            274
+          ],
+          "line_id": 3,
+          "block_id": 4,
+          "conf": 0.8204
+        },
+        {
+          "text": "Date",
+          "bbox": [
+            81,
+            339,
+            133,
+            361
+          ],
+          "line_id": 4,
+          "block_id": 5,
+          "conf": 0.8369
+        },
+        {
+          "text": "of",
+          "bbox": [
+            140,
+            342,
+            170,
+            360
+          ],
+          "line_id": 4,
+          "block_id": 5,
+          "conf": 0.8958
+        },
+        {
+          "text": "Birth",
+          "bbox": [
+            176,
+            339,
+            248,
+            364
+          ],
+          "line_id": 4,
+          "block_id": 5,
+          "conf": 0.9875
+        },
+        {
+          "text": "2001-0S-12",
+          "bbox": [
+            459,
+            342,
+            615,
+            362
+          ],
+          "line_id": 4,
+          "block_id": 5,
+          "conf": 0.8915
+        },
+        {
+          "text": "Place",
+          "bbox": [
+            82,
+            428,
+            149,
+            451
+          ],
+          "line_id": 5,
+          "block_id": 6,
+          "conf": 0.8674
+        },
+        {
+          "text": "of",
+          "bbox": [
+            153,
+            429,
+            185,
+            451
+          ],
+          "line_id": 5,
+          "block_id": 6,
+          "conf": 0.8899
+        },
+        {
+          "text": "Birth",
+          "bbox": [
+            192,
+            431,
+            260,
+            450
+          ],
+          "line_id": 5,
+          "block_id": 6,
+          "conf": 0.8754
+        },
+        {
+          "text": "Pearsonville",
+          "bbox": [
+            460,
+            429,
+            625,
+            453
+          ],
+          "line_id": 5,
+          "block_id": 6,
+          "conf": 0.8576
+        },
+        {
+          "text": "181",
+          "bbox": [
+            461,
+            521,
+            514,
+            541
+          ],
+          "line_id": 6,
+          "block_id": 7,
+          "conf": 0.8921
+        },
+        {
+          "text": "cm",
+          "bbox": [
+            522,
+            519,
+            558,
+            543
+          ],
+          "line_id": 6,
+          "block_id": 7,
+          "conf": 0.8712
+        },
+        {
+          "text": "Height",
+          "bbox": [
+            81,
+            521,
+            167,
+            548
+          ],
+          "line_id": 6,
+          "block_id": 7,
+          "conf": 0.9637
+        },
+        {
+          "text": "—",
+          "bbox": [
+            248,
+            648,
+            264,
+            670
+          ],
+          "line_id": 7,
+          "block_id": 9,
+          "conf": 0.9217
+        },
+        {
+          "text": "DETAILS",
+          "bbox": [
+            433,
+            650,
+            563,
+            669
+          ],
+          "line_id": 7,
+          "block_id": 9,
+          "conf": 0.8716
+        },
+        {
+          "text": "SECTION",
+          "bbox": [
+            79,
+            649,
+            208,
+            671
+          ],
+          "line_id": 7,
+          "block_id": 9,
+          "conf": 0.9505
+        },
+        {
+          "text": "DOCUMENT",
+          "bbox": [
+            275,
+            651,
+            423,
+            669
+          ],
+          "line_id": 7,
+          "block_id": 9,
+          "conf": 0.9664
+        },
+        {
+          "text": "2",
+          "bbox": [
+            219,
+            649,
+            239,
+            672
+          ],
+          "line_id": 7,
+          "block_id": 9,
+          "conf": 0.8894
+        },
+        {
+          "text": "Doc",
+          "bbox": [
+            82,
+            704,
+            132,
+            727
+          ],
+          "line_id": 8,
+          "block_id": 10,
+          "conf": 0.9607
+        },
+        {
+          "text": "No.",
+          "bbox": [
+            140,
+            704,
+            188,
+            729
+          ],
+          "line_id": 8,
+          "block_id": 10,
+          "conf": 0.8369
+        },
+        {
+          "text": "531044085",
+          "bbox": [
+            460,
+            706,
+            612,
+            727
+          ],
+          "line_id": 8,
+          "block_id": 10,
+          "conf": 0.8594
+        },
+        {
+          "text": "Germany",
+          "bbox": [
+            458,
+            794,
+            584,
+            823
+          ],
+          "line_id": 9,
+          "block_id": 11,
+          "conf": 0.8674
+        },
+        {
+          "text": "Country",
+          "bbox": [
+            190,
+            797,
+            289,
+            823
+          ],
+          "line_id": 9,
+          "block_id": 11,
+          "conf": 0.9255
+        },
+        {
+          "text": "Issuing",
+          "bbox": [
+            82,
+            797,
+            180,
+            825
+          ],
+          "line_id": 9,
+          "block_id": 11,
+          "conf": 0.9111
+        },
+        {
+          "text": "Date",
+          "bbox": [
+            80,
+            884,
+            138,
+            905
+          ],
+          "line_id": 10,
+          "block_id": 12,
+          "conf": 0.9168
+        },
+        {
+          "text": "Issue",
+          "bbox": [
+            183,
+            883,
+            255,
+            909
+          ],
+          "line_id": 10,
+          "block_id": 12,
+          "conf": 0.8218
+        },
+        {
+          "text": "of",
+          "bbox": [
+            145,
+            887,
+            176,
+            909
+          ],
+          "line_id": 10,
+          "block_id": 12,
+          "conf": 0.9098
+        },
+        {
+          "text": "2026-10-09",
+          "bbox": [
+            459,
+            887,
+            615,
+            909
+          ],
+          "line_id": 10,
+          "block_id": 12,
+          "conf": 0.9047
+        },
+        {
+          "text": "2036-10-09",
+          "bbox": [
+            458,
+            973,
+            615,
+            995
+          ],
+          "line_id": 11,
+          "block_id": 13,
+          "conf": 0.8657
+        },
+        {
+          "text": "of",
+          "bbox": [
+            147,
+            974,
+            174,
+            1003
+          ],
+          "line_id": 11,
+          "block_id": 13,
+          "conf": 0.9813
+        },
+        {
+          "text": "Date",
+          "bbox": [
+            79,
+            976,
+            136,
+            1002
+          ],
+          "line_id": 11,
+          "block_id": 13,
+          "conf": 0.9731
+        },
+        {
+          "text": "Expiry",
+          "bbox": [
+            182,
+            975,
+            269,
+            1003
+          ],
+          "line_id": 11,
+          "block_id": 13,
+          "conf": 0.8694
+        },
+        {
+          "text": "________________________________________",
+          "bbox": [
+            458,
+            1105,
+            1101,
+            1113
+          ],
+          "line_id": 12,
+          "block_id": 15,
+          "conf": 0.8694
+        },
+        {
+          "text": "Authorized",
+          "bbox": [
+            78,
+            1104,
+            212,
+            1132
+          ],
+          "line_id": 12,
+          "block_id": 15,
+          "conf": 0.9458
+        },
+        {
+          "text": "Signature:",
+          "bbox": [
+            222,
+            1107,
+            353,
+            1133
+          ],
+          "line_id": 12,
+          "block_id": 15,
+          "conf": 0.9069
+        },
+        {
+          "text": "Issuing",
+          "bbox": [
+            79,
+            1163,
+            165,
+            1189
+          ],
+          "line_id": 13,
+          "block_id": 16,
+          "conf": 0.8492
+        },
+        {
+          "text": "Officer:",
+          "bbox": [
+            170,
+            1164,
+            268,
+            1192
+          ],
+          "line_id": 13,
+          "block_id": 16,
+          "conf": 0.9735
+        }
+      ]
+    }
+  ]
+}

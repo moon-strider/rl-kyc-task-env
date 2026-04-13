@@ -1,0 +1,419 @@
+{
+  "pages": [
+    {
+      "page_index": 0,
+      "width": 1600,
+      "height": 2200,
+      "tokens": [
+        {
+          "text": "INV0ICE",
+          "bbox": [
+            678,
+            68,
+            925,
+            115
+          ],
+          "line_id": 0,
+          "block_id": 0,
+          "conf": 0.8858
+        },
+        {
+          "text": "INV-982779",
+          "bbox": [
+            713,
+            138,
+            884,
+            162
+          ],
+          "line_id": 1,
+          "block_id": 1,
+          "conf": 0.8473
+        },
+        {
+          "text": "By",
+          "bbox": [
+            141,
+            215,
+            169,
+            237
+          ],
+          "line_id": 2,
+          "block_id": 3,
+          "conf": 0.8313
+        },
+        {
+          "text": "Paid",
+          "bbox": [
+            80,
+            214,
+            134,
+            239
+          ],
+          "line_id": 2,
+          "block_id": 3,
+          "conf": 0.9644
+        },
+        {
+          "text": "Payee",
+          "bbox": [
+            900,
+            215,
+            971,
+            239
+          ],
+          "line_id": 2,
+          "block_id": 4,
+          "conf": 0.8985
+        },
+        {
+          "text": "Sarah",
+          "bbox": [
+            80,
+            250,
+            168,
+            271
+          ],
+          "line_id": 3,
+          "block_id": 3,
+          "conf": 0.9023
+        },
+        {
+          "text": "TechMart",
+          "bbox": [
+            900,
+            250,
+            1042,
+            271
+          ],
+          "line_id": 3,
+          "block_id": 4,
+          "conf": 0.9212
+        },
+        {
+          "text": "Barber",
+          "bbox": [
+            178,
+            251,
+            283,
+            272
+          ],
+          "line_id": 3,
+          "block_id": 3,
+          "conf": 0.8873
+        },
+        {
+          "text": "Online",
+          "bbox": [
+            1049,
+            252,
+            1153,
+            273
+          ],
+          "line_id": 3,
+          "block_id": 4,
+          "conf": 0.9745
+        },
+        {
+          "text": "2025-04-18",
+          "bbox": [
+            382,
+            334,
+            525,
+            355
+          ],
+          "line_id": 4,
+          "block_id": 6,
+          "conf": 0.9756
+        },
+        {
+          "text": "Payment",
+          "bbox": [
+            82,
+            335,
+            191,
+            360
+          ],
+          "line_id": 4,
+          "block_id": 6,
+          "conf": 0.9012
+        },
+        {
+          "text": "Date",
+          "bbox": [
+            199,
+            337,
+            262,
+            363
+          ],
+          "line_id": 4,
+          "block_id": 6,
+          "conf": 0.9117
+        },
+        {
+          "text": "Reference",
+          "bbox": [
+            80,
+            394,
+            209,
+            416
+          ],
+          "line_id": 5,
+          "block_id": 7,
+          "conf": 0.8936
+        },
+        {
+          "text": "REFRPDOYGA",
+          "bbox": [
+            382,
+            394,
+            578,
+            417
+          ],
+          "line_id": 5,
+          "block_id": 7,
+          "conf": 0.8589
+        },
+        {
+          "text": "Auth",
+          "bbox": [
+            79,
+            456,
+            142,
+            474
+          ],
+          "line_id": 6,
+          "block_id": 8,
+          "conf": 0.8479
+        },
+        {
+          "text": "Code",
+          "bbox": [
+            151,
+            453,
+            218,
+            477
+          ],
+          "line_id": 6,
+          "block_id": 8,
+          "conf": 0.8724
+        },
+        {
+          "text": "AUTH-659205",
+          "bbox": [
+            380,
+            457,
+            563,
+            477
+          ],
+          "line_id": 6,
+          "block_id": 8,
+          "conf": 0.9201
+        },
+        {
+          "text": "GBPCurrency",
+          "bbox": [
+            80,
+            515,
+            438,
+            542
+          ],
+          "line_id": 7,
+          "block_id": 9,
+          "conf": 0.9892
+        },
+        {
+          "text": "AMOUNT",
+          "bbox": [
+            1298,
+            617,
+            1413,
+            633
+          ],
+          "line_id": 8,
+          "block_id": 11,
+          "conf": 0.8994
+        },
+        {
+          "text": "ITEM",
+          "bbox": [
+            79,
+            617,
+            144,
+            635
+          ],
+          "line_id": 8,
+          "block_id": 11,
+          "conf": 0.8863
+        },
+        {
+          "text": "2467.11",
+          "bbox": [
+            1300,
+            670,
+            1404,
+            692
+          ],
+          "line_id": 9,
+          "block_id": 13,
+          "conf": 0.8291
+        },
+        {
+          "text": "Goods/Services",
+          "bbox": [
+            80,
+            672,
+            282,
+            691
+          ],
+          "line_id": 9,
+          "block_id": 13,
+          "conf": 0.8378
+        },
+        {
+          "text": "16.20",
+          "bbox": [
+            1300,
+            720,
+            1374,
+            741
+          ],
+          "line_id": 10,
+          "block_id": 14,
+          "conf": 0.8717
+        },
+        {
+          "text": "Fee",
+          "bbox": [
+            203,
+            723,
+            247,
+            747
+          ],
+          "line_id": 10,
+          "block_id": 14,
+          "conf": 0.9301
+        },
+        {
+          "text": "Shipping",
+          "bbox": [
+            82,
+            721,
+            197,
+            750
+          ],
+          "line_id": 10,
+          "block_id": 14,
+          "conf": 0.958
+        },
+        {
+          "text": "Tax",
+          "bbox": [
+            79,
+            772,
+            129,
+            792
+          ],
+          "line_id": 11,
+          "block_id": 15,
+          "conf": 0.8289
+        },
+        {
+          "text": "169.97",
+          "bbox": [
+            1302,
+            776,
+            1388,
+            796
+          ],
+          "line_id": 11,
+          "block_id": 15,
+          "conf": 0.9605
+        },
+        {
+          "text": "GBP",
+          "bbox": [
+            1299,
+            855,
+            1360,
+            880
+          ],
+          "line_id": 12,
+          "block_id": 17,
+          "conf": 0.8876
+        },
+        {
+          "text": "2237.53",
+          "bbox": [
+            1366,
+            855,
+            1506,
+            880
+          ],
+          "line_id": 12,
+          "block_id": 17,
+          "conf": 0.8271
+        },
+        {
+          "text": "PAID",
+          "bbox": [
+            199,
+            855,
+            287,
+            881
+          ],
+          "line_id": 12,
+          "block_id": 17,
+          "conf": 0.8378
+        },
+        {
+          "text": "TOTAL",
+          "bbox": [
+            79,
+            858,
+            189,
+            883
+          ],
+          "line_id": 12,
+          "block_id": 17,
+          "conf": 0.9763
+        },
+        {
+          "text": "***",
+          "bbox": [
+            857,
+            926,
+            930,
+            960
+          ],
+          "line_id": 13,
+          "block_id": 18,
+          "conf": 0.9675
+        },
+        {
+          "text": "PAID",
+          "bbox": [
+            751,
+            928,
+            848,
+            960
+          ],
+          "line_id": 13,
+          "block_id": 18,
+          "conf": 0.8805
+        },
+        {
+          "text": "***",
+          "bbox": [
+            668,
+            927,
+            739,
+            963
+          ],
+          "line_id": 13,
+          "block_id": 18,
+          "conf": 0.8271
+        }
+      ]
+    }
+  ]
+}

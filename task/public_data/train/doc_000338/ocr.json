@@ -1,0 +1,431 @@
+{
+  "pages": [
+    {
+      "page_index": 0,
+      "width": 1600,
+      "height": 2200,
+      "tokens": [
+        {
+          "text": "BANKTRANSFER",
+          "bbox": [
+            416,
+            68,
+            799,
+            107
+          ],
+          "line_id": 0,
+          "block_id": 0,
+          "conf": 0.9241
+        },
+        {
+          "text": "CONFIRMATION",
+          "bbox": [
+            814,
+            71,
+            1184,
+            107
+          ],
+          "line_id": 0,
+          "block_id": 0,
+          "conf": 0.9656
+        },
+        {
+          "text": "Reference:",
+          "bbox": [
+            627,
+            129,
+            795,
+            148
+          ],
+          "line_id": 1,
+          "block_id": 1,
+          "conf": 0.9579
+        },
+        {
+          "text": "REFU6",
+          "bbox": [
+            804,
+            130,
+            888,
+            152
+          ],
+          "line_id": 1,
+          "block_id": 1,
+          "conf": 0.8568
+        },
+        {
+          "text": "M3IFR",
+          "bbox": [
+            888,
+            130,
+            973,
+            152
+          ],
+          "line_id": 1,
+          "block_id": 1,
+          "conf": 0.9144
+        },
+        {
+          "text": "From",
+          "bbox": [
+            78,
+            210,
+            152,
+            230
+          ],
+          "line_id": 2,
+          "block_id": 3,
+          "conf": 0.9414
+        },
+        {
+          "text": "Monica",
+          "bbox": [
+            481,
+            208,
+            578,
+            233
+          ],
+          "line_id": 2,
+          "block_id": 3,
+          "conf": 0.8401
+        },
+        {
+          "text": "Dennis",
+          "bbox": [
+            584,
+            211,
+            680,
+            233
+          ],
+          "line_id": 2,
+          "block_id": 3,
+          "conf": 0.8493
+        },
+        {
+          "text": "To",
+          "bbox": [
+            78,
+            288,
+            113,
+            313
+          ],
+          "line_id": 3,
+          "block_id": 4,
+          "conf": 0.8393
+        },
+        {
+          "text": "Keystone",
+          "bbox": [
+            480,
+            290,
+            595,
+            316
+          ],
+          "line_id": 3,
+          "block_id": 4,
+          "conf": 0.9566
+        },
+        {
+          "text": "Retail",
+          "bbox": [
+            605,
+            289,
+            694,
+            317
+          ],
+          "line_id": 3,
+          "block_id": 4,
+          "conf": 0.9879
+        },
+        {
+          "text": "2025-11-12",
+          "bbox": [
+            478,
+            370,
+            635,
+            393
+          ],
+          "line_id": 4,
+          "block_id": 5,
+          "conf": 0.9513
+        },
+        {
+          "text": "PaymentDate",
+          "bbox": [
+            82,
+            370,
+            270,
+            398
+          ],
+          "line_id": 4,
+          "block_id": 5,
+          "conf": 0.9057
+        },
+        {
+          "text": "3671.74",
+          "bbox": [
+            540,
+            450,
+            663,
+            470
+          ],
+          "line_id": 5,
+          "block_id": 6,
+          "conf": 0.8385
+        },
+        {
+          "text": "Amount",
+          "bbox": [
+            78,
+            452,
+            187,
+            470
+          ],
+          "line_id": 5,
+          "block_id": 6,
+          "conf": 0.8512
+        },
+        {
+          "text": "USD",
+          "bbox": [
+            482,
+            452,
+            531,
+            472
+          ],
+          "line_id": 5,
+          "block_id": 6,
+          "conf": 0.876
+        },
+        {
+          "text": "USD",
+          "bbox": [
+            481,
+            528,
+            544,
+            554
+          ],
+          "line_id": 6,
+          "block_id": 7,
+          "conf": 0.9084
+        },
+        {
+          "text": "Currency",
+          "bbox": [
+            78,
+            531,
+            203,
+            558
+          ],
+          "line_id": 6,
+          "block_id": 7,
+          "conf": 0.8671
+        },
+        {
+          "text": "Transaction",
+          "bbox": [
+            78,
+            609,
+            237,
+            630
+          ],
+          "line_id": 7,
+          "block_id": 8,
+          "conf": 0.8389
+        },
+        {
+          "text": "ID",
+          "bbox": [
+            244,
+            608,
+            277,
+            631
+          ],
+          "line_id": 7,
+          "block_id": 8,
+          "conf": 0.8761
+        },
+        {
+          "text": "REFU6M3IFR",
+          "bbox": [
+            478,
+            610,
+            668,
+            631
+          ],
+          "line_id": 7,
+          "block_id": 8,
+          "conf": 0.944
+        },
+        {
+          "text": "4788.48",
+          "bbox": [
+            481,
+            691,
+            590,
+            710
+          ],
+          "line_id": 8,
+          "block_id": 9,
+          "conf": 0.8279
+        },
+        {
+          "text": "Subtotal",
+          "bbox": [
+            82,
+            691,
+            192,
+            712
+          ],
+          "line_id": 8,
+          "block_id": 9,
+          "conf": 0.8799
+        },
+        {
+          "text": "13.10",
+          "bbox": [
+            481,
+            768,
+            556,
+            790
+          ],
+          "line_id": 9,
+          "block_id": 10,
+          "conf": 0.8302
+        },
+        {
+          "text": "Fee",
+          "bbox": [
+            81,
+            769,
+            133,
+            792
+          ],
+          "line_id": 9,
+          "block_id": 10,
+          "conf": 0.9678
+        },
+        {
+          "text": "TAX",
+          "bbox": [
+            82,
+            848,
+            131,
+            873
+          ],
+          "line_id": 10,
+          "block_id": 11,
+          "conf": 0.9764
+        },
+        {
+          "text": "313.16",
+          "bbox": [
+            479,
+            849,
+            571,
+            874
+          ],
+          "line_id": 10,
+          "block_id": 11,
+          "conf": 0.8784
+        },
+        {
+          "text": "InvoiceID",
+          "bbox": [
+            81,
+            929,
+            213,
+            953
+          ],
+          "line_id": 11,
+          "block_id": 12,
+          "conf": 0.9416
+        },
+        {
+          "text": "INV-978205",
+          "bbox": [
+            478,
+            928,
+            640,
+            954
+          ],
+          "line_id": 11,
+          "block_id": 12,
+          "conf": 0.8255
+        },
+        {
+          "text": "Code",
+          "bbox": [
+            158,
+            1008,
+            226,
+            1032
+          ],
+          "line_id": 12,
+          "block_id": 13,
+          "conf": 0.9444
+        },
+        {
+          "text": "AUTH-038173",
+          "bbox": [
+            479,
+            1008,
+            677,
+            1034
+          ],
+          "line_id": 12,
+          "block_id": 13,
+          "conf": 0.8338
+        },
+        {
+          "text": "Auth",
+          "bbox": [
+            81,
+            1012,
+            145,
+            1034
+          ],
+          "line_id": 12,
+          "block_id": 13,
+          "conf": 0.9732
+        },
+        {
+          "text": "completed",
+          "bbox": [
+            706,
+            1129,
+            825,
+            1158
+          ],
+          "line_id": 13,
+          "block_id": 15,
+          "conf": 0.8643
+        },
+        {
+          "text": "Transfer",
+          "bbox": [
+            594,
+            1132,
+            699,
+            1156
+          ],
+          "line_id": 13,
+          "block_id": 15,
+          "conf": 0.8844
+        },
+        {
+          "text": "successfully.",
+          "bbox": [
+            832,
+            1132,
+            1004,
+            1159
+          ],
+          "line_id": 13,
+          "block_id": 15,
+          "conf": 0.9212
+        }
+      ]
+    }
+  ]
+}

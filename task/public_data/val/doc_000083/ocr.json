@@ -1,0 +1,407 @@
+{
+  "pages": [
+    {
+      "page_index": 0,
+      "width": 1600,
+      "height": 2200,
+      "tokens": [
+        {
+          "text": "Atlas",
+          "bbox": [
+            560,
+            68,
+            696,
+            107
+          ],
+          "line_id": 0,
+          "block_id": 0,
+          "conf": 0.8382
+        },
+        {
+          "text": "Commerce",
+          "bbox": [
+            708,
+            68,
+            918,
+            107
+          ],
+          "line_id": 0,
+          "block_id": 0,
+          "conf": 0.9398
+        },
+        {
+          "text": "Inc.",
+          "bbox": [
+            933,
+            72,
+            1038,
+            108
+          ],
+          "line_id": 0,
+          "block_id": 0,
+          "conf": 0.8534
+        },
+        {
+          "text": "RECE1PT",
+          "bbox": [
+            806,
+            127,
+            968,
+            152
+          ],
+          "line_id": 1,
+          "block_id": 1,
+          "conf": 0.8793
+        },
+        {
+          "text": "PAYMENT",
+          "bbox": [
+            630,
+            128,
+            795,
+            154
+          ],
+          "line_id": 1,
+          "block_id": 1,
+          "conf": 0.9089
+        },
+        {
+          "text": "5ENDER",
+          "bbox": [
+            78,
+            203,
+            162,
+            224
+          ],
+          "line_id": 2,
+          "block_id": 3,
+          "conf": 0.9122
+        },
+        {
+          "text": "Melanie",
+          "bbox": [
+            80,
+            242,
+            182,
+            261
+          ],
+          "line_id": 3,
+          "block_id": 3,
+          "conf": 0.9891
+        },
+        {
+          "text": "Smith-Barrett",
+          "bbox": [
+            187,
+            241,
+            375,
+            264
+          ],
+          "line_id": 3,
+          "block_id": 3,
+          "conf": 0.8443
+        },
+        {
+          "text": "Date",
+          "bbox": [
+            78,
+            290,
+            134,
+            307
+          ],
+          "line_id": 4,
+          "block_id": 4,
+          "conf": 0.8317
+        },
+        {
+          "text": "2026-01-07",
+          "bbox": [
+            300,
+            288,
+            431,
+            310
+          ],
+          "line_id": 4,
+          "block_id": 4,
+          "conf": 0.9798
+        },
+        {
+          "text": "Ref",
+          "bbox": [
+            82,
+            326,
+            118,
+            343
+          ],
+          "line_id": 5,
+          "block_id": 5,
+          "conf": 0.8627
+        },
+        {
+          "text": "PMT-76719235",
+          "bbox": [
+            302,
+            326,
+            477,
+            343
+          ],
+          "line_id": 5,
+          "block_id": 5,
+          "conf": 0.9506
+        },
+        {
+          "text": "ID",
+          "bbox": [
+            126,
+            327,
+            152,
+            346
+          ],
+          "line_id": 5,
+          "block_id": 5,
+          "conf": 0.8464
+        },
+        {
+          "text": "PRICE",
+          "bbox": [
+            1198,
+            393,
+            1278,
+            412
+          ],
+          "line_id": 6,
+          "block_id": 7,
+          "conf": 0.9727
+        },
+        {
+          "text": "ITEM",
+          "bbox": [
+            81,
+            396,
+            142,
+            412
+          ],
+          "line_id": 6,
+          "block_id": 7,
+          "conf": 0.8798
+        },
+        {
+          "text": "QTY",
+          "bbox": [
+            898,
+            395,
+            955,
+            417
+          ],
+          "line_id": 6,
+          "block_id": 7,
+          "conf": 0.8292
+        },
+        {
+          "text": "Item",
+          "bbox": [
+            78,
+            453,
+            140,
+            475
+          ],
+          "line_id": 7,
+          "block_id": 9,
+          "conf": 0.8811
+        },
+        {
+          "text": "A",
+          "bbox": [
+            147,
+            454,
+            164,
+            475
+          ],
+          "line_id": 7,
+          "block_id": 9,
+          "conf": 0.9284
+        },
+        {
+          "text": "1",
+          "bbox": [
+            900,
+            454,
+            916,
+            477
+          ],
+          "line_id": 7,
+          "block_id": 9,
+          "conf": 0.8217
+        },
+        {
+          "text": "250.45",
+          "bbox": [
+            1201,
+            457,
+            1286,
+            476
+          ],
+          "line_id": 7,
+          "block_id": 9,
+          "conf": 0.8907
+        },
+        {
+          "text": "1",
+          "bbox": [
+            901,
+            505,
+            917,
+            525
+          ],
+          "line_id": 8,
+          "block_id": 10,
+          "conf": 0.9392
+        },
+        {
+          "text": "18.95",
+          "bbox": [
+            1201,
+            509,
+            1273,
+            528
+          ],
+          "line_id": 8,
+          "block_id": 10,
+          "conf": 0.8258
+        },
+        {
+          "text": "Service",
+          "bbox": [
+            78,
+            507,
+            183,
+            532
+          ],
+          "line_id": 8,
+          "block_id": 10,
+          "conf": 0.9799
+        },
+        {
+          "text": "Charge",
+          "bbox": [
+            187,
+            505,
+            276,
+            535
+          ],
+          "line_id": 8,
+          "block_id": 10,
+          "conf": 0.8591
+        },
+        {
+          "text": "250.45",
+          "bbox": [
+            1201,
+            590,
+            1289,
+            608
+          ],
+          "line_id": 9,
+          "block_id": 12,
+          "conf": 0.8582
+        },
+        {
+          "text": "Subtotal",
+          "bbox": [
+            79,
+            587,
+            183,
+            612
+          ],
+          "line_id": 9,
+          "block_id": 12,
+          "conf": 0.9546
+        },
+        {
+          "text": "Tax19.31",
+          "bbox": [
+            81,
+            628,
+            1271,
+            647
+          ],
+          "line_id": 10,
+          "block_id": 13,
+          "conf": 0.8684
+        },
+        {
+          "text": "Total",
+          "bbox": [
+            82,
+            688,
+            161,
+            715
+          ],
+          "line_id": 11,
+          "block_id": 15,
+          "conf": 0.8232
+        },
+        {
+          "text": "GBP",
+          "bbox": [
+            1200,
+            690,
+            1259,
+            713
+          ],
+          "line_id": 11,
+          "block_id": 15,
+          "conf": 0.9396
+        },
+        {
+          "text": "132.7O",
+          "bbox": [
+            1269,
+            689,
+            1388,
+            715
+          ],
+          "line_id": 11,
+          "block_id": 15,
+          "conf": 0.9549
+        },
+        {
+          "text": "132.70",
+          "bbox": [
+            1202,
+            743,
+            1287,
+            763
+          ],
+          "line_id": 12,
+          "block_id": 16,
+          "conf": 0.9481
+        },
+        {
+          "text": "PAYMENT",
+          "bbox": [
+            82,
+            742,
+            191,
+            772
+          ],
+          "line_id": 12,
+          "block_id": 16,
+          "conf": 0.9803
+        },
+        {
+          "text": "AMOUNT",
+          "bbox": [
+            203,
+            744,
+            298,
+            773
+          ],
+          "line_id": 12,
+          "block_id": 16,
+          "conf": 0.8591
+        }
+      ]
+    }
+  ]
+}
