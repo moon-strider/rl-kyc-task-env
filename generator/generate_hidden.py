@@ -1,25 +1,13 @@
-"""Generate the hidden test dataset: 108 documents.
-
-Uses only HIDDEN_SEED = 90731157.
-
-Distribution:
-  hidden_test: 36 government_id / 36 proof_of_address / 36 payment_receipt
-
-Documents are interleaved by schema (index % 3 → schema).
-All 6 templates (4 public + 2 private) are cycled per schema.
-
-target.json is written alongside each document for judge scoring.
-
-Run:
-  python generator/generate_hidden.py
-"""
+                                                                       
 
 from __future__ import annotations
 
+import argparse
+import json
 import sys
 from pathlib import Path
 
-# Ensure repo root is on sys.path
+                                 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 import numpy as np
@@ -29,6 +17,7 @@ from generator.utils import (
     HIDDEN_GOLD_DIR,
     HIDDEN_SEED,
     HIDDEN_TEST_DIR,
+    SEED_BANK_PATH,
     doc_dir,
     format_doc_id,
     make_rng,
@@ -48,13 +37,13 @@ from generator.template_specs_private import PRIVATE_TEMPLATES, PRIVATE_TEMPLATE
 from generator.render import render_document
 from generator.ocr_noise import apply_ocr_noise
 
-# ---------------------------------------------------------------------------
-# Schema ordering (interleaved)
-# ---------------------------------------------------------------------------
+                                                                             
+                               
+                                                                             
 _SCHEMAS = ["government_id", "proof_of_address", "payment_receipt"]
-_DOCS_PER_SCHEMA = 36  # 36 per schema → 108 total
+_DOCS_PER_SCHEMA = 36                             
 
-# Combined template lists per schema (public first, then private)
+                                                                 
 _ALL_TEMPLATE_NAMES: dict[str, list[str]] = {
     schema: PUBLIC_TEMPLATE_NAMES[schema] + PRIVATE_TEMPLATE_NAMES[schema]
     for schema in _SCHEMAS
@@ -70,42 +59,56 @@ def _target_fields(schema_name: str, fields: dict) -> dict:
     elif schema_name == "proof_of_address":
         keys = ["full_name", "address_line1", "city", "postal_code",
                 "country", "statement_date", "issuer_name"]
-    else:  # payment_receipt
+    else:                   
         keys = ["sender_name", "recipient_name", "amount", "currency",
                 "payment_date", "reference_id"]
     return {k: fields[k] for k in keys}
 
 
-def main() -> None:
-    reset_output_dir(HIDDEN_TEST_DIR)
-    reset_output_dir(HIDDEN_GOLD_DIR)
+def load_hidden_seed(seed: int | None, seed_name: str | None) -> int:
+    if seed is not None and seed_name is not None:
+        raise SystemExit("Use either --seed or --seed-name, not both")
+    if seed is not None:
+        return seed
+    if seed_name is not None:
+        seed_bank = json.loads(SEED_BANK_PATH.read_text(encoding="utf-8"))
+        if seed_name not in seed_bank:
+            known = ", ".join(sorted(seed_bank))
+            raise SystemExit(f"Unknown seed name {seed_name!r}. Known seeds: {known}")
+        return int(seed_bank[seed_name])
+    return HIDDEN_SEED
 
-    master_rng = make_rng(HIDDEN_SEED)
+
+def generate_hidden_dataset(hidden_test_dir: Path, hidden_gold_dir: Path, seed: int) -> None:
+    reset_output_dir(hidden_test_dir)
+    reset_output_dir(hidden_gold_dir)
+
+    master_rng = make_rng(seed)
     faker = Faker(["en_US", "en_GB", "en_CA"])
-    faker.seed_instance(HIDDEN_SEED)
+    faker.seed_instance(seed)
 
-    total = _DOCS_PER_SCHEMA * len(_SCHEMAS)  # 108
+    total = _DOCS_PER_SCHEMA * len(_SCHEMAS)       
     schema_counters: dict[str, int] = {s: 0 for s in _SCHEMAS}
 
-    print(f"Generating hidden_test: {total} documents → {HIDDEN_TEST_DIR}")
+    print(f"Generating hidden_test: {total} documents → {hidden_test_dir}")
 
     for doc_index in range(total):
         schema_name = _SCHEMAS[doc_index % 3]
         schema_idx = schema_counters[schema_name]
         schema_counters[schema_name] += 1
 
-        # Template cycling (6 templates: 4 public + 2 private)
+                                                              
         template_names = _ALL_TEMPLATE_NAMES[schema_name]
         template_name = template_names[schema_idx % len(template_names)]
         template_fn = _ALL_TEMPLATES[template_name]
 
-        # Per-document seed
+                           
         doc_seed = int(master_rng.integers(0, 2**31))
         doc_rng = np.random.default_rng(doc_seed)
 
         faker.seed_instance(doc_seed)
 
-        # Sample fields
+                       
         if schema_name == "government_id":
             fields = sample_government_id(doc_rng, faker)
         elif schema_name == "proof_of_address":
@@ -113,28 +116,43 @@ def main() -> None:
         else:
             fields = sample_payment_receipt(doc_rng, faker)
 
-        # Render
+                
         elements = template_fn(fields)
         image, boxes = render_document(elements)
 
-        # OCR noise
+                   
         ocr_tokens = apply_ocr_noise(boxes, doc_rng)
 
-        # Write artifacts
+                         
         doc_id = format_doc_id(doc_index)
-        dpath = doc_dir(HIDDEN_TEST_DIR, doc_id)
+        dpath = doc_dir(hidden_test_dir, doc_id)
 
         write_meta(dpath, doc_id, schema_name)
         write_ocr(dpath, ocr_tokens)
         write_page_image(dpath, image)
-        write_hidden_gold(HIDDEN_GOLD_DIR, doc_id, schema_name, _target_fields(schema_name, fields))
+        write_hidden_gold(hidden_gold_dir, doc_id, schema_name, _target_fields(schema_name, fields))
 
         if (doc_index + 1) % 30 == 0 or doc_index == total - 1:
             print(f"  {doc_index + 1}/{total} done")
 
     print("Hidden generation complete.")
-    print(f"  hidden_test → {HIDDEN_TEST_DIR}")
-    print(f"  hidden_gold → {HIDDEN_GOLD_DIR}")
+    print(f"  hidden_test → {hidden_test_dir}")
+    print(f"  hidden_gold → {hidden_gold_dir}")
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--seed", type=int, default=None)
+    parser.add_argument("--seed-name", default=None)
+    parser.add_argument("--dataset-dir", default=str(HIDDEN_TEST_DIR))
+    parser.add_argument("--gold-dir", default=str(HIDDEN_GOLD_DIR))
+    return parser.parse_args()
+
+
+def main() -> None:
+    args = parse_args()
+    seed = load_hidden_seed(args.seed, args.seed_name)
+    generate_hidden_dataset(Path(args.dataset_dir), Path(args.gold_dir), seed)
 
 
 if __name__ == "__main__":

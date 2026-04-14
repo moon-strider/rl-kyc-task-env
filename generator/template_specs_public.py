@@ -1,29 +1,29 @@
-"""Public template layout functions.
-
-Each function receives a fields dict (as returned by field_sampling) and
-returns a list of render-element dicts ready for generator/render.py.
-
-Render-element dict keys:
-  text       : str   — text to draw
-  x          : int   — left edge in pixels
-  y          : int   — top edge in pixels
-  font_size  : int   — point size
-  is_label   : bool  — True for label text, False for value text
-  block_id   : int   — block grouping (unique per visual block)
-  bold       : bool  — draw bold variant if available
-"""
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+   
 
 from __future__ import annotations
 
 from typing import Any
 
-# Page dimensions
+                 
 W = 1600
 H = 2200
 
-# ---------------------------------------------------------------------------
-# Helpers
-# ---------------------------------------------------------------------------
+                                                                             
+         
+                                                                             
 
 def _el(
     text: str,
@@ -57,7 +57,7 @@ def _lv_row(
     font_size: int = 30,
     block_id: int = 0,
 ) -> list[dict]:
-    """Return a label-value pair on the same horizontal line."""
+                                                                
     return [
         _el(label, x_label, y, font_size, is_label=True, block_id=block_id),
         _el(value, x_value, y, font_size, is_label=False, block_id=block_id),
@@ -117,16 +117,16 @@ def _rect(
     }
 
 
-# ============================================================
-# GOVERNMENT-ID PUBLIC TEMPLATES
-# ============================================================
+                                                              
+                                
+                                                              
 
 def gid_passport_grid(fields: dict[str, Any]) -> list[dict]:
-    """Passport info-page grid layout."""
+                                         
     els: list[dict] = []
     bid = 0
 
-    # Header
+            
     els.append(_el("PASSPORT", W // 2, 80, 58, is_label=False, block_id=bid, bold=True))
     bid += 1
     els.append(_el(fields["issuing_country"].upper(), W // 2, 150, 34,
@@ -135,13 +135,13 @@ def gid_passport_grid(fields: dict[str, Any]) -> list[dict]:
     els.append(_hline_marker(195, bid))
     bid += 1
 
-    # Photo placeholder label (left column, rows 0-3)
+                                                     
     photo_x, photo_y = 80, 220
     els.append(_el("[PHOTO]", photo_x + 30, photo_y + 80, 26,
                    is_label=True, block_id=bid))
     bid += 1
 
-    # Right column: surname, given names, nationality
+                                                     
     rx = 480
     els.append(_el("Surname and Given Names", rx, 230, 26, is_label=True, block_id=bid))
     els.append(_el(fields["full_name"], rx, 265, 34, is_label=False, block_id=bid, bold=True))
@@ -160,7 +160,7 @@ def gid_passport_grid(fields: dict[str, Any]) -> list[dict]:
     els.append(_hline_marker(505, bid))
     bid += 1
 
-    # Grid: 2 columns x 3 rows
+                              
     col1_x, col2_x = 80, 840
     row_y = [540, 680, 820]
     label_offset_y = 0
@@ -185,7 +185,7 @@ def gid_passport_grid(fields: dict[str, Any]) -> list[dict]:
     els.append(_hline_marker(960, bid))
     bid += 1
 
-    # MRZ-like distractor lines
+                               
     els.append(_el("P<" + fields["issuing_country"][:3].upper() + fields["full_name"].upper().replace(" ", "<"),
                    80, 1000, 22, is_label=False, block_id=bid))
     bid += 1
@@ -249,11 +249,11 @@ def gid_idcard_compact(fields: dict[str, Any]) -> list[dict]:
 
 
 def gid_form_official(fields: dict[str, Any]) -> list[dict]:
-    """Official form style with boxed header and underlined rows."""
+                                                                    
     els: list[dict] = []
     bid = 0
 
-    # Letterhead
+                
     els.append(_el("GOVERNMENT IDENTITY DOCUMENT", W // 2, 70, 46,
                    is_label=False, block_id=bid, bold=True))
     bid += 1
@@ -263,7 +263,7 @@ def gid_form_official(fields: dict[str, Any]) -> list[dict]:
     els.append(_hline_marker(165, bid))
     bid += 1
 
-    # Section 1: Personal Information
+                                     
     els.append(_el("SECTION 1 — PERSONAL INFORMATION",
                    80, 195, 28, is_label=True, block_id=bid, bold=True))
     bid += 1
@@ -287,7 +287,7 @@ def gid_form_official(fields: dict[str, Any]) -> list[dict]:
     els.append(_hline_marker(y + 5, bid))
     bid += 1
 
-    # Section 2: Document Information
+                                     
     y += 40
     els.append(_el("SECTION 2 — DOCUMENT DETAILS",
                    80, y, 28, is_label=True, block_id=bid, bold=True))
@@ -309,7 +309,7 @@ def gid_form_official(fields: dict[str, Any]) -> list[dict]:
     els.append(_hline_marker(y + 5, bid))
     bid += 1
 
-    # Signature block
+                     
     y += 40
     els.append(_el("Authorized Signature:", lx, y, 28, is_label=True, block_id=bid))
     els.append(_el("_" * 40, vx, y, 28, is_label=False, block_id=bid))
@@ -322,11 +322,11 @@ def gid_form_official(fields: dict[str, Any]) -> list[dict]:
 
 
 def gid_card_horizontal(fields: dict[str, Any]) -> list[dict]:
-    """Horizontal card layout occupying the upper 900 px of the page."""
+                                                                        
     els: list[dict] = []
     bid = 0
 
-    # Card outline header
+                         
     els.append(_el("REPUBLIC OF " + fields["issuing_country"].upper(),
                    W // 2, 60, 36, is_label=False, block_id=bid, bold=True))
     bid += 1
@@ -336,11 +336,11 @@ def gid_card_horizontal(fields: dict[str, Any]) -> list[dict]:
     els.append(_hline_marker(165, bid))
     bid += 1
 
-    # Left stripe: photo box
+                            
     els.append(_el("[PHOTO]", 100, 270, 26, is_label=True, block_id=bid))
     bid += 1
 
-    # Center block: name and DOB
+                                
     cx = 430
     els.append(_el("Name", cx, 200, 26, is_label=True, block_id=bid))
     els.append(_el(fields["full_name"], cx, 238, 36, is_label=False, block_id=bid, bold=True))
@@ -352,7 +352,7 @@ def gid_card_horizontal(fields: dict[str, Any]) -> list[dict]:
     els.append(_el(fields.get("_sex", "M"), cx, 430, 30, is_label=False, block_id=bid))
     bid += 1
 
-    # Right block: document details
+                                   
     rx = 950
     els.append(_el("Passport No.", rx, 200, 26, is_label=True, block_id=bid))
     els.append(_el(fields["document_number"], rx, 238, 34, is_label=False, block_id=bid, bold=True))
@@ -370,7 +370,7 @@ def gid_card_horizontal(fields: dict[str, Any]) -> list[dict]:
     els.append(_hline_marker(580, bid))
     bid += 1
 
-    # Chip / security notice
+                            
     els.append(_el("Electronic Chip Embedded — ISO 14443 Compliant",
                    W // 2, 615, 22, is_label=True, block_id=bid))
     bid += 1
@@ -381,16 +381,16 @@ def gid_card_horizontal(fields: dict[str, Any]) -> list[dict]:
     return els
 
 
-# ============================================================
-# PROOF-OF-ADDRESS PUBLIC TEMPLATES
-# ============================================================
+                                                              
+                                   
+                                                              
 
 def poa_utility_bill(fields: dict[str, Any]) -> list[dict]:
-    """Utility bill layout."""
+                              
     els: list[dict] = []
     bid = 0
 
-    # Provider header
+                     
     els.append(_el(fields["issuer_name"], W // 2, 70, 52,
                    is_label=False, block_id=bid, bold=True))
     bid += 1
@@ -399,7 +399,7 @@ def poa_utility_bill(fields: dict[str, Any]) -> list[dict]:
     els.append(_hline_marker(180, bid))
     bid += 1
 
-    # Provider address (distractor, top right)
+                                              
     px = 1100
     els.append(_el(fields.get("_provider_address", ""), px, 200, 24,
                    is_label=False, block_id=bid))
@@ -408,7 +408,7 @@ def poa_utility_bill(fields: dict[str, Any]) -> list[dict]:
                    is_label=False, block_id=bid))
     bid += 1
 
-    # Statement date and due date (left side)
+                                             
     lx, vx = 80, 380
     els.append(_el("Statement Date", lx, 200, 26, is_label=True, block_id=bid))
     els.append(_el(fields["statement_date"], vx, 200, 26, is_label=False, block_id=bid))
@@ -423,7 +423,7 @@ def poa_utility_bill(fields: dict[str, Any]) -> list[dict]:
     els.append(_hline_marker(315, bid))
     bid += 1
 
-    # Customer address block
+                            
     els.append(_el("Bill To", 80, 345, 28, is_label=True, block_id=bid, bold=True))
     bid += 1
     els.append(_el(fields["full_name"], 80, 385, 32, is_label=False, block_id=bid, bold=True))
@@ -439,14 +439,14 @@ def poa_utility_bill(fields: dict[str, Any]) -> list[dict]:
     els.append(_hline_marker(545, bid))
     bid += 1
 
-    # Charges table header
+                          
     els.append(_el("DESCRIPTION", 80, 575, 26, is_label=True, block_id=bid, bold=True))
     els.append(_el("AMOUNT", 1300, 575, 26, is_label=True, block_id=bid, bold=True))
     bid += 1
     els.append(_hline_marker(610, bid))
     bid += 1
 
-    # Charges rows (distractors)
+                                
     rows = [
         ("Previous Balance", fields.get("_prev_balance", "0.00")),
         ("Current Charges", fields.get("_amount_due", "0.00")),
@@ -483,7 +483,7 @@ def poa_telecom_invoice(fields: dict[str, Any]) -> list[dict]:
     els.append(_hline_marker(185, bid))
     bid += 1
 
-    # Two-column info header
+                            
     lx, rx = 80, 900
     els.append(_el("Bill Date", lx, 215, 26, is_label=True, block_id=bid))
     els.append(_el(fields["statement_date"], lx + 240, 215, 26, is_label=False, block_id=bid))
@@ -495,7 +495,7 @@ def poa_telecom_invoice(fields: dict[str, Any]) -> list[dict]:
     els.append(_el(fields.get("_account_number", ""), rx + 240, 215, 26, is_label=False, block_id=bid))
     bid += 1
 
-    # Provider address (right side)
+                                   
     els.append(_el(fields.get("_provider_address", ""), rx, 250, 24, is_label=False, block_id=bid))
     bid += 1
     els.append(_el(fields.get("_provider_city_state", ""), rx, 278, 24, is_label=False, block_id=bid))
@@ -504,7 +504,7 @@ def poa_telecom_invoice(fields: dict[str, Any]) -> list[dict]:
     els.append(_hline_marker(310, bid))
     bid += 1
 
-    # Customer block
+                    
     els.append(_el("Customer Name", 80, 340, 28, is_label=True, block_id=bid, bold=True))
     bid += 1
     els.append(_el(fields["full_name"], 80, 378, 32, is_label=False, block_id=bid, bold=True))
@@ -520,12 +520,12 @@ def poa_telecom_invoice(fields: dict[str, Any]) -> list[dict]:
     els.append(_hline_marker(535, bid))
     bid += 1
 
-    # Service period
+                    
     els.append(_el("Service Period:", 80, 565, 26, is_label=True, block_id=bid))
     els.append(_el("01 Jan 2025 — 31 Jan 2025", 360, 565, 26, is_label=False, block_id=bid))
     bid += 1
 
-    # Charges
+             
     els.append(_el("CHARGES SUMMARY", 80, 615, 28, is_label=True, block_id=bid, bold=True))
     bid += 1
     els.append(_hline_marker(645, bid))
@@ -555,11 +555,11 @@ def poa_telecom_invoice(fields: dict[str, Any]) -> list[dict]:
 
 
 def poa_bank_statement(fields: dict[str, Any]) -> list[dict]:
-    """Bank statement layout."""
+                                
     els: list[dict] = []
     bid = 0
 
-    # Bank header
+                 
     els.append(_el(fields["issuer_name"], W // 2, 70, 52,
                    is_label=False, block_id=bid, bold=True))
     bid += 1
@@ -571,7 +571,7 @@ def poa_bank_statement(fields: dict[str, Any]) -> list[dict]:
     els.append(_hline_marker(210, bid))
     bid += 1
 
-    # Statement info
+                    
     lx, vx = 80, 380
     els.append(_el("Issued On", lx, 240, 26, is_label=True, block_id=bid))
     els.append(_el(fields["statement_date"], vx, 240, 26, is_label=False, block_id=bid))
@@ -580,7 +580,7 @@ def poa_bank_statement(fields: dict[str, Any]) -> list[dict]:
     els.append(_el(fields.get("_account_number", ""), vx, 275, 26, is_label=False, block_id=bid))
     bid += 1
 
-    # Bank address (right side)
+                               
     bx = 900
     els.append(_el(fields.get("_provider_address", ""), bx, 240, 24, is_label=False, block_id=bid))
     bid += 1
@@ -590,7 +590,7 @@ def poa_bank_statement(fields: dict[str, Any]) -> list[dict]:
     els.append(_hline_marker(315, bid))
     bid += 1
 
-    # Account holder address block
+                                  
     els.append(_el("Account Holder", 80, 345, 28, is_label=True, block_id=bid, bold=True))
     bid += 1
     els.append(_el(fields["full_name"], 80, 383, 32, is_label=False, block_id=bid, bold=True))
@@ -606,7 +606,7 @@ def poa_bank_statement(fields: dict[str, Any]) -> list[dict]:
     els.append(_hline_marker(540, bid))
     bid += 1
 
-    # Summary
+             
     els.append(_el("ACCOUNT SUMMARY", 80, 570, 28, is_label=True, block_id=bid, bold=True))
     bid += 1
     els.append(_hline_marker(600, bid))
@@ -642,7 +642,7 @@ def poa_insurance_notice(fields: dict[str, Any]) -> list[dict]:
     els.append(_hline_marker(178, bid))
     bid += 1
 
-    # Notice metadata
+                     
     lx, vx = 80, 380
     els.append(_el("Statement Date", lx, 210, 26, is_label=True, block_id=bid))
     els.append(_el(fields["statement_date"], vx, 210, 26, is_label=False, block_id=bid))
@@ -654,7 +654,7 @@ def poa_insurance_notice(fields: dict[str, Any]) -> list[dict]:
     els.append(_el(fields.get("_account_number", ""), vx, 280, 26, is_label=False, block_id=bid))
     bid += 1
 
-    # Provider address
+                      
     px = 900
     els.append(_el(fields.get("_provider_address", ""), px, 210, 24, is_label=False, block_id=bid))
     bid += 1
@@ -664,7 +664,7 @@ def poa_insurance_notice(fields: dict[str, Any]) -> list[dict]:
     els.append(_hline_marker(320, bid))
     bid += 1
 
-    # Mailing address block
+                           
     els.append(_el("Mailing Address", 80, 350, 28, is_label=True, block_id=bid, bold=True))
     bid += 1
     els.append(_el(fields["full_name"], 80, 388, 32, is_label=False, block_id=bid, bold=True))
@@ -680,7 +680,7 @@ def poa_insurance_notice(fields: dict[str, Any]) -> list[dict]:
     els.append(_hline_marker(548, bid))
     bid += 1
 
-    # Policy details
+                    
     els.append(_el("POLICY DETAILS", 80, 578, 28, is_label=True, block_id=bid, bold=True))
     bid += 1
 
@@ -699,12 +699,12 @@ def poa_insurance_notice(fields: dict[str, Any]) -> list[dict]:
     return els
 
 
-# ============================================================
-# PAYMENT-RECEIPT PUBLIC TEMPLATES
-# ============================================================
+                                                              
+                                  
+                                                              
 
 def pay_bank_transfer(fields: dict[str, Any]) -> list[dict]:
-    """Bank transfer confirmation receipt."""
+                                             
     els: list[dict] = []
     bid = 0
 
@@ -751,7 +751,7 @@ def pay_bank_transfer(fields: dict[str, Any]) -> list[dict]:
 
 
 def pay_wallet_receipt(fields: dict[str, Any]) -> list[dict]:
-    """Digital wallet receipt layout."""
+                                        
     els: list[dict] = []
     bid = 0
 
@@ -764,7 +764,7 @@ def pay_wallet_receipt(fields: dict[str, Any]) -> list[dict]:
     els.append(_hline_marker(168, bid))
     bid += 1
 
-    # Large amount display
+                          
     currency_sym = {"USD": "$", "EUR": "€", "GBP": "£"}.get(fields["currency"], "")
     els.append(_el(f"{currency_sym}{fields['amount']}", W // 2, 200, 72,
                    is_label=False, block_id=bid, bold=True))
@@ -774,7 +774,7 @@ def pay_wallet_receipt(fields: dict[str, Any]) -> list[dict]:
     els.append(_hline_marker(325, bid))
     bid += 1
 
-    # Details table
+                   
     lx, vx = 80, 480
     y = 360
 
@@ -816,7 +816,7 @@ def pay_paid_invoice(fields: dict[str, Any]) -> list[dict]:
     els.append(_hline_marker(182, bid))
     bid += 1
 
-    # Sender / Recipient header
+                               
     lx, rx = 80, 900
     els.append(_el("Paid By", lx, 215, 26, is_label=True, block_id=bid))
     els.append(_el(fields["sender_name"], lx, 250, 32, is_label=False, block_id=bid, bold=True))
@@ -828,7 +828,7 @@ def pay_paid_invoice(fields: dict[str, Any]) -> list[dict]:
     els.append(_hline_marker(300, bid))
     bid += 1
 
-    # Invoice meta
+                  
     lx2, vx2 = 80, 380
     y = 335
     meta_rows = [
@@ -845,7 +845,7 @@ def pay_paid_invoice(fields: dict[str, Any]) -> list[dict]:
     els.append(_hline_marker(y + 5, bid))
     bid += 1
 
-    # Line items
+                
     y += 40
     els.append(_el("ITEM", 80, y, 26, is_label=True, block_id=bid, bold=True))
     els.append(_el("AMOUNT", 1300, y, 26, is_label=True, block_id=bid, bold=True))
@@ -881,11 +881,11 @@ def pay_paid_invoice(fields: dict[str, Any]) -> list[dict]:
 
 
 def pay_checkout_receipt(fields: dict[str, Any]) -> list[dict]:
-    """Point-of-sale checkout receipt."""
+                                         
     els: list[dict] = []
     bid = 0
 
-    # Store name (recipient)
+                            
     els.append(_el(fields["recipient_name"], W // 2, 70, 48,
                    is_label=False, block_id=bid, bold=True))
     bid += 1
@@ -894,12 +894,12 @@ def pay_checkout_receipt(fields: dict[str, Any]) -> list[dict]:
     els.append(_hline_marker(172, bid))
     bid += 1
 
-    # Sender
+            
     els.append(_el("Sender", 80, 205, 26, is_label=True, block_id=bid))
     els.append(_el(fields["sender_name"], 80, 240, 30, is_label=False, block_id=bid))
     bid += 1
 
-    # Date / Ref
+                
     els.append(_el("Date", 80, 290, 26, is_label=True, block_id=bid))
     els.append(_el(fields["payment_date"], 300, 290, 26, is_label=False, block_id=bid))
     bid += 1
@@ -910,7 +910,7 @@ def pay_checkout_receipt(fields: dict[str, Any]) -> list[dict]:
     els.append(_hline_marker(365, bid))
     bid += 1
 
-    # Items
+           
     els.append(_el("ITEM", 80, 395, 26, is_label=True, block_id=bid, bold=True))
     els.append(_el("QTY", 900, 395, 26, is_label=True, block_id=bid, bold=True))
     els.append(_el("PRICE", 1200, 395, 26, is_label=True, block_id=bid, bold=True))
@@ -953,28 +953,28 @@ def pay_checkout_receipt(fields: dict[str, Any]) -> list[dict]:
     return els
 
 
-# ============================================================
-# Public template dispatch
-# ============================================================
+                                                              
+                          
+                                                              
 PUBLIC_TEMPLATES: dict[str, callable] = {
-    # government_id
+                   
     "gid_passport_grid": gid_passport_grid,
     "gid_idcard_compact": gid_idcard_compact,
     "gid_form_official": gid_form_official,
     "gid_card_horizontal": gid_card_horizontal,
-    # proof_of_address
+                      
     "poa_utility_bill": poa_utility_bill,
     "poa_telecom_invoice": poa_telecom_invoice,
     "poa_bank_statement": poa_bank_statement,
     "poa_insurance_notice": poa_insurance_notice,
-    # payment_receipt
+                     
     "pay_bank_transfer": pay_bank_transfer,
     "pay_wallet_receipt": pay_wallet_receipt,
     "pay_paid_invoice": pay_paid_invoice,
     "pay_checkout_receipt": pay_checkout_receipt,
 }
 
-# Schema → ordered list of public template names
+                                                
 PUBLIC_TEMPLATE_NAMES: dict[str, list[str]] = {
     "government_id": [
         "gid_passport_grid",

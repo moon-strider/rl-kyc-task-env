@@ -1,9 +1,9 @@
-"""Deterministic field sampling for all three document schemas.
-
-All sampling functions accept a seeded numpy Generator and a Faker instance
-so the caller controls reproducibility.  The Faker instance should already
-have its own seed set before this module is called.
-"""
+\
+\
+\
+\
+\
+   
 
 from __future__ import annotations
 
@@ -17,21 +17,21 @@ from faker import Faker
 
 from generator.utils import rng_choice, rng_randint, rng_uniform
 
-# ---------------------------------------------------------------------------
-# Faker locale pool
-# ---------------------------------------------------------------------------
+                                                                             
+                   
+                                                                             
 _LOCALES = ["en_US", "en_GB", "en_CA"]
 
-# Locale → country name mapping (used for POA)
+                                              
 _LOCALE_COUNTRY = {
     "en_US": "United States",
     "en_GB": "United Kingdom",
     "en_CA": "Canada",
 }
 
-# ---------------------------------------------------------------------------
-# Shared date helpers
-# ---------------------------------------------------------------------------
+                                                                             
+                     
+                                                                             
 _EPOCH = date(1970, 1, 1)
 
 
@@ -45,9 +45,9 @@ def _fmt(d: date) -> str:
     return d.strftime("%Y-%m-%d")
 
 
-# ---------------------------------------------------------------------------
-# Government-ID field sampling
-# ---------------------------------------------------------------------------
+                                                                             
+                              
+                                                                             
 GID_COUNTRIES = [
     "United States",
     "United Kingdom",
@@ -57,7 +57,7 @@ GID_COUNTRIES = [
     "Germany",
 ]
 
-_DOC_NUM_PATTERNS = ["A7", "A2N6", "N9"]  # shorthand codes
+_DOC_NUM_PATTERNS = ["A7", "A2N6", "N9"]                   
 
 
 def _gen_doc_number(rng: np.random.Generator) -> str:
@@ -70,12 +70,12 @@ def _gen_doc_number(rng: np.random.Generator) -> str:
         letters = "".join(rng_choice(rng, list(string.ascii_uppercase)) for _ in range(2))
         digits = "".join(str(rng_randint(rng, 0, 9)) for _ in range(6))
         return letters + digits
-    else:  # N9
+    else:      
         return "".join(str(rng_randint(rng, 0, 9)) for _ in range(9))
 
 
 def _clean_name(raw: str) -> str:
-    """Strip honorifics/titles and keep only 2-3 word names."""
+                                                               
     parts = raw.split()
     titles = {
         "Mr.", "Mrs.", "Ms.", "Dr.", "Prof.", "Sir", "Miss", "Jr.", "Sr.",
@@ -94,14 +94,14 @@ def sample_government_id(rng: np.random.Generator, faker: Faker) -> dict[str, An
     dob_end = date(2005, 12, 31)
     dob = _random_date(rng, dob_start, dob_end)
 
-    # Issue date: DOB + 18 years <= issue_date <= DOB + 60 years
+                                                                
     min_issue = date(dob.year + 18, dob.month, dob.day)
     max_issue = date(min(dob.year + 60, 2026), 12, 31)
     if min_issue > max_issue:
         min_issue = max_issue
     issue = _random_date(rng, min_issue, max_issue)
 
-    # Expiry: +5 or +10 years
+                             
     years_offset = rng_choice(rng, [5, 10])
     expiry = date(issue.year + years_offset, issue.month, issue.day)
 
@@ -109,20 +109,20 @@ def sample_government_id(rng: np.random.Generator, faker: Faker) -> dict[str, An
     country = rng_choice(rng, GID_COUNTRIES)
     full_name = _clean_name(faker.name())
 
-    # Distractors
+                 
     place_of_birth = faker.city()
     sex = rng_choice(rng, ["M", "F"])
     height_cm = rng_randint(rng, 155, 200)
 
     return {
-        # Target fields
+                       
         "full_name": full_name,
         "date_of_birth": _fmt(dob),
         "document_number": doc_num,
         "issue_date": _fmt(issue),
         "expiry_date": _fmt(expiry),
         "issuing_country": country,
-        # Distractor fields (used by renderer but not in target)
+                                                                
         "_place_of_birth": place_of_birth,
         "_sex": sex,
         "_height": f"{height_cm} cm",
@@ -130,16 +130,16 @@ def sample_government_id(rng: np.random.Generator, faker: Faker) -> dict[str, An
     }
 
 
-# ---------------------------------------------------------------------------
-# Proof-of-address field sampling
-# ---------------------------------------------------------------------------
+                                                                             
+                                 
+                                                                             
 def _locale_address(rng: np.random.Generator, faker: Faker, locale: str) -> tuple[str, str, str, str]:
-    """Return (address_line1, city, postal_code, country) locale-consistently."""
-    # Create a locale-specific Faker
+                                                                                 
+                                    
     locale_faker = Faker(locale)
     locale_faker.seed_instance(int(rng.integers(0, 2**31)))
     address_line1 = locale_faker.street_address()
-    # Ensure no newlines in address_line1 (some locales produce multi-line)
+                                                                           
     address_line1 = address_line1.replace("\n", ", ")
     city = locale_faker.city()
     country = _LOCALE_COUNTRY[locale]
@@ -147,7 +147,7 @@ def _locale_address(rng: np.random.Generator, faker: Faker, locale: str) -> tupl
         postal_code = locale_faker.zipcode()
     elif locale == "en_GB":
         postal_code = locale_faker.postcode()
-    else:  # en_CA
+    else:         
         postal_code = locale_faker.postalcode()
     return address_line1, city, postal_code, country
 
@@ -245,20 +245,20 @@ def sample_proof_of_address(
 
     full_name = _clean_name(faker.name())
 
-    # Distractors
+                 
     due_offset = rng_randint(rng, 10, 21)
     due_date = stmt_date + timedelta(days=due_offset)
     account_number = "".join(str(rng_randint(rng, 0, 9)) for _ in range(10))
     prev_balance = f"{rng_uniform(rng, 0.0, 200.0):.2f}"
     amount_due = f"{rng_uniform(rng, 5.0, 500.0):.2f}"
 
-    # Provider address (distractor)
+                                   
     provider_faker = Faker("en_US")
     provider_faker.seed_instance(int(rng.integers(0, 2**31)))
     provider_addr = provider_faker.street_address()
 
     return {
-        # Target fields
+                       
         "full_name": full_name,
         "address_line1": address_line1,
         "city": city,
@@ -266,7 +266,7 @@ def sample_proof_of_address(
         "country": country,
         "statement_date": _fmt(stmt_date),
         "issuer_name": issuer_name,
-        # Distractors
+                     
         "_due_date": _fmt(due_date),
         "_account_number": account_number,
         "_prev_balance": prev_balance,
@@ -276,9 +276,9 @@ def sample_proof_of_address(
     }
 
 
-# ---------------------------------------------------------------------------
-# Payment-receipt field sampling
-# ---------------------------------------------------------------------------
+                                                                             
+                                
+                                                                             
 _MERCHANT_NAMES = [
     "Apex Retail Ltd.",
     "CloudStore Inc.",
@@ -304,7 +304,7 @@ _MERCHANT_NAMES = [
 
 _CURRENCIES = ["USD", "EUR", "GBP"]
 
-_REF_PATTERNS = ["TRX6", "PMT8", "REFAN7"]  # shorthand
+_REF_PATTERNS = ["TRX6", "PMT8", "REFAN7"]             
 
 
 def _gen_reference_id(rng: np.random.Generator) -> str:
@@ -315,7 +315,7 @@ def _gen_reference_id(rng: np.random.Generator) -> str:
     elif pattern == "PMT8":
         digits = "".join(str(rng_randint(rng, 0, 9)) for _ in range(8))
         return f"PMT-{digits}"
-    else:  # REFAN7
+    else:          
         chars = string.ascii_uppercase + string.digits
         suffix = "".join(rng_choice(rng, list(chars)) for _ in range(7))
         return f"REF{suffix}"
@@ -325,7 +325,7 @@ def sample_payment_receipt(rng: np.random.Generator, faker: Faker) -> dict[str, 
     sender_name = _clean_name(faker.name())
     recipient_name = rng_choice(rng, _MERCHANT_NAMES)
 
-    amount_cents = rng_randint(rng, 500, 500000)  # 5.00 – 5000.00
+    amount_cents = rng_randint(rng, 500, 500000)                  
     amount = f"{amount_cents / 100:.2f}"
 
     currency = rng_choice(rng, _CURRENCIES)
@@ -336,7 +336,7 @@ def sample_payment_receipt(rng: np.random.Generator, faker: Faker) -> dict[str, 
 
     reference_id = _gen_reference_id(rng)
 
-    # Distractors
+                 
     fee = f"{rng_uniform(rng, 0.50, 25.00):.2f}"
     tax_rate = rng_uniform(rng, 0.05, 0.15)
     subtotal_cents = rng_randint(rng, 500, 500000)
@@ -346,14 +346,14 @@ def sample_payment_receipt(rng: np.random.Generator, faker: Faker) -> dict[str, 
     auth_code = "AUTH-" + "".join(str(rng_randint(rng, 0, 9)) for _ in range(6))
 
     return {
-        # Target fields
+                       
         "sender_name": sender_name,
         "recipient_name": recipient_name,
         "amount": amount,
         "currency": currency,
         "payment_date": _fmt(payment_date),
         "reference_id": reference_id,
-        # Distractors
+                     
         "_fee": fee,
         "_tax": tax,
         "_subtotal": subtotal,

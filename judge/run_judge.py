@@ -8,7 +8,7 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
-from judge.judge_utils import evaluate_solution  # noqa: E402
+from judge.judge_utils import evaluate_solution              
 
 
 def main() -> int:
@@ -16,10 +16,6 @@ def main() -> int:
         raise SystemExit("Usage: python judge/run_judge.py <solution_dir>")
 
     solution_dir = Path(sys.argv[1]).resolve()
-    extract_path = solution_dir / "extract.py"
-    if not extract_path.is_file():
-        raise SystemExit(f"Missing extract.py in {solution_dir}")
-
     dataset_dir = REPO_ROOT / "private" / "hidden_test"
     gold_dir = REPO_ROOT / "private" / "hidden_gold"
     result = evaluate_solution(solution_dir, dataset_dir, gold_dir)

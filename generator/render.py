@@ -1,27 +1,27 @@
-"""Rendering engine: convert a list of render elements to a PNG image.
-
-Returns:
-  - A clean Pillow Image (1600 x 2200, white background)
-  - A list of ground-truth box dicts: {text, x1, y1, x2, y2, is_label, block_id}
-
-The renderer tries to load a TrueType font from common system paths.
-If none are found it falls back to Pillow's built-in bitmap font.
-
-Element dict schema (from template_specs_*.py):
-  text       : str
-  x          : int   — left edge (for left-anchored text) or center x (for centered)
-  y          : int   — top edge
-  font_size  : int
-  is_label   : bool
-  block_id   : int
-  bold       : bool
-
-Special text value "__HLINE__" draws a horizontal rule across the page.
-Special text value "__CENTER__" prefix causes centered rendering (set in
-template functions by passing x = W // 2).
-
-Centering heuristic: if x == W // 2 (800) the text is centered on that x.
-"""
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+   
 
 from __future__ import annotations
 
@@ -30,32 +30,32 @@ from typing import Optional
 
 from PIL import Image, ImageDraw, ImageFont
 
-# ---------------------------------------------------------------------------
-# Constants
-# ---------------------------------------------------------------------------
+                                                                             
+           
+                                                                             
 PAGE_W = 1600
 PAGE_H = 2200
 BG_COLOR = (255, 255, 255)
 TEXT_COLOR = (20, 20, 20)
 HLINE_COLOR = (80, 80, 80)
 
-CENTER_X = PAGE_W // 2  # 800 — sentinel for centering
+CENTER_X = PAGE_W // 2                                
 
-# ---------------------------------------------------------------------------
-# Font loading
-# ---------------------------------------------------------------------------
+                                                                             
+              
+                                                                             
 _FONT_CANDIDATES_REGULAR = [
-    # Linux (DejaVu — most common in Docker/CI)
+                                               
     "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
     "/usr/share/fonts/dejavu/DejaVuSans.ttf",
     "/usr/share/fonts/TTF/DejaVuSans.ttf",
-    # macOS
+           
     "/Library/Fonts/Arial.ttf",
     "/System/Library/Fonts/Supplemental/Arial.ttf",
     "/System/Library/Fonts/Helvetica.ttc",
-    # Windows
+             
     "C:/Windows/Fonts/arial.ttf",
-    # Generic fallback paths
+                            
     "/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf",
     "/usr/share/fonts/truetype/freefont/FreeSans.ttf",
 ]
@@ -90,30 +90,30 @@ _resolve_fonts()
 
 
 def _get_font(size: int, bold: bool = False) -> ImageFont.ImageFont:
-    """Load and return a font of the given size."""
+                                                   
     path = _FONT_PATH_BOLD if (bold and _FONT_PATH_BOLD) else _FONT_PATH_REGULAR
     if path:
         try:
             return ImageFont.truetype(path, size)
         except Exception:
             pass
-    # Fallback: Pillow built-in default (supports size= in Pillow >= 10)
+                                                                        
     try:
         return ImageFont.load_default(size=size)
     except TypeError:
         return ImageFont.load_default()
 
 
-# ---------------------------------------------------------------------------
-# Text measurement helpers
-# ---------------------------------------------------------------------------
+                                                                             
+                          
+                                                                             
 
 def _measure_text(text: str, font: ImageFont.ImageFont) -> tuple[int, int, int, int]:
-    """Return (left, top, right, bottom) bbox of text relative to draw origin."""
+                                                                                 
     try:
         return font.getbbox(text)
     except AttributeError:
-        # Older Pillow
+                      
         w, h = font.getsize(text)
         return (0, 0, w, h)
 
@@ -128,18 +128,18 @@ def _text_height(text: str, font: ImageFont.ImageFont) -> int:
     return b - t
 
 
-# ---------------------------------------------------------------------------
-# Main render function
-# ---------------------------------------------------------------------------
+                                                                             
+                      
+                                                                             
 
 def render_document(elements: list[dict]) -> tuple[Image.Image, list[dict]]:
-    """Render *elements* onto a 1600×2200 white page.
-
-    Returns:
-      (image, boxes) where boxes is a list of:
-        {text, x1, y1, x2, y2, is_label, block_id}
-      Boxes are not yet sorted — sorting happens in ocr_noise.py.
-    """
+\
+\
+\
+\
+\
+\
+       
     img = Image.new("RGB", (PAGE_W, PAGE_H), BG_COLOR)
     draw = ImageDraw.Draw(img)
     boxes: list[dict] = []

@@ -1,24 +1,24 @@
-"""OCR noise pipeline.
-
-Input:  ground-truth boxes from render.py —
-        list of {text, x1, y1, x2, y2, is_label, block_id}
-
-Output: OCR token list for ocr.json —
-        list of {text, bbox, line_id, block_id, conf}
-
-Pipeline:
-  1. Split each box into word tokens, computing sub-bboxes proportionally.
-  2. Sort all tokens top-to-bottom then left-to-right.
-  3. Assign line_id (unique per visual line) and block_id.
-  4. Apply bbox jitter ±2 px per coordinate.
-  5. Apply char confusion: 1.5% for value tokens, 0.5% for label tokens.
-  6. Apply token drop: 1%.
-  7. Apply token merge: 4% of adjacent same-line pairs.
-  8. Apply token split: 3% of tokens longer than 6 characters.
-  9. Apply random label-line capitalization: 10% of label lines.
- 10. Sample confidence uniformly in [0.82, 0.99].
- 11. Re-sort final token list top-to-bottom then left-to-right.
-"""
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+   
 
 from __future__ import annotations
 
@@ -30,9 +30,9 @@ import numpy as np
 
 from generator.utils import rng_uniform, rng_randint, rng_choice
 
-# ---------------------------------------------------------------------------
-# Character confusion map (bidirectional)
-# ---------------------------------------------------------------------------
+                                                                             
+                                         
+                                                                             
 _CONFUSION_MAP: dict[str, str] = {
     "O": "0", "0": "O",
     "I": "1", "1": "I",
@@ -43,29 +43,29 @@ _CONFUSION_MAP: dict[str, str] = {
 
 
 def _confuse_char(ch: str, rng: np.random.Generator, rate: float) -> str:
-    """Maybe replace *ch* with a confusable character."""
+                                                         
     if rng.random() < rate and ch in _CONFUSION_MAP:
         return _CONFUSION_MAP[ch]
     return ch
 
 
 def _corrupt_text(text: str, rng: np.random.Generator, is_label: bool) -> str:
-    """Apply character-level confusion to *text*."""
+                                                    
     rate = 0.005 if is_label else 0.015
     return "".join(_confuse_char(c, rng, rate) for c in text)
 
 
-# ---------------------------------------------------------------------------
-# Sub-bbox computation for word tokens within a line box
-# ---------------------------------------------------------------------------
+                                                                             
+                                                        
+                                                                             
 
 def _split_into_word_tokens(
     box: dict, rng: np.random.Generator
 ) -> list[dict]:
-    """Split a ground-truth box into word-level sub-boxes.
-
-    Sub-bboxes are computed proportionally based on character counts.
-    """
+\
+\
+\
+       
     text = box["text"].strip()
     if not text:
         return []
@@ -78,9 +78,9 @@ def _split_into_word_tokens(
     total_chars = sum(len(w) for w in words)
     total_width = x2 - x1
 
-    # Small gap between words (proportional to a space character)
+                                                                 
     n_gaps = len(words) - 1
-    # Estimate space width as roughly 0.5 char width
+                                                    
     if total_chars > 0:
         char_width = total_width / (total_chars + 0.5 * n_gaps)
     else:
@@ -108,32 +108,32 @@ def _split_into_word_tokens(
     return tokens
 
 
-# ---------------------------------------------------------------------------
-# Sort helper
-# ---------------------------------------------------------------------------
+                                                                             
+             
+                                                                             
 
 def _sort_key(tok: dict) -> tuple:
-    """Top-to-bottom then left-to-right sort key."""
-    # Use centre-y for primary sort, centre-x for secondary
+                                                    
+                                                           
     cy = (tok["y1"] + tok["y2"]) / 2
     cx = (tok["x1"] + tok["x2"]) / 2
     return (cy, cx)
 
 
-# ---------------------------------------------------------------------------
-# Line-grouping helper
-# ---------------------------------------------------------------------------
+                                                                             
+                      
+                                                                             
 
 def _assign_line_ids(tokens: list[dict]) -> list[dict]:
-    """Group tokens into lines by y-proximity and assign sequential line_id.
-
-    Tokens on the same visual line share a line_id.  A new line starts when
-    the centre-y gap exceeds half the average token height.
-    """
+\
+\
+\
+\
+       
     if not tokens:
         return tokens
 
-    # Compute average token height
+                                  
     heights = [(t["y2"] - t["y1"]) for t in tokens]
     avg_h = max(sum(heights) / len(heights), 8)
     threshold = avg_h * 0.6
@@ -151,19 +151,19 @@ def _assign_line_ids(tokens: list[dict]) -> list[dict]:
     return tokens
 
 
-# ---------------------------------------------------------------------------
-# Main noise function
-# ---------------------------------------------------------------------------
+                                                                             
+                     
+                                                                             
 
 def apply_ocr_noise(
     boxes: list[dict],
     rng: np.random.Generator,
 ) -> list[dict]:
-    """Apply the full OCR corruption pipeline and return OCR token dicts."""
+                                                                            
 
-    # ------------------------------------------------------------------ #
-    # Step 1: split boxes into word tokens
-    # ------------------------------------------------------------------ #
+                                                                          
+                                          
+                                                                          
     raw_tokens: list[dict] = []
     for box in boxes:
         raw_tokens.extend(_split_into_word_tokens(box, rng))
@@ -171,43 +171,43 @@ def apply_ocr_noise(
     if not raw_tokens:
         return []
 
-    # ------------------------------------------------------------------ #
-    # Step 2: sort top-to-bottom then left-to-right
-    # ------------------------------------------------------------------ #
+                                                                          
+                                                   
+                                                                          
     raw_tokens.sort(key=_sort_key)
 
-    # ------------------------------------------------------------------ #
-    # Step 3: assign line_id
-    # ------------------------------------------------------------------ #
+                                                                          
+                            
+                                                                          
     raw_tokens = _assign_line_ids(raw_tokens)
 
-    # ------------------------------------------------------------------ #
-    # Step 4: bbox jitter ±2 px per coordinate
-    # ------------------------------------------------------------------ #
+                                                                          
+                                              
+                                                                          
     for tok in raw_tokens:
         for coord in ("x1", "y1", "x2", "y2"):
-            jitter = int(rng.integers(-2, 3))  # -2, -1, 0, 1, 2
+            jitter = int(rng.integers(-2, 3))                   
             tok[coord] = max(0, tok[coord] + jitter)
 
-    # ------------------------------------------------------------------ #
-    # Step 5: character confusion
-    # ------------------------------------------------------------------ #
+                                                                          
+                                 
+                                                                          
     for tok in raw_tokens:
         tok["text"] = _corrupt_text(tok["text"], rng, tok["is_label"])
 
-    # ------------------------------------------------------------------ #
-    # Step 6: token drop (1%)
-    # ------------------------------------------------------------------ #
+                                                                          
+                             
+                                                                          
     kept: list[dict] = []
     for tok in raw_tokens:
         if rng.random() < 0.01:
-            continue  # drop
+            continue        
         kept.append(tok)
     raw_tokens = kept
 
-    # ------------------------------------------------------------------ #
-    # Step 7: token merge (4% of adjacent same-line pairs)
-    # ------------------------------------------------------------------ #
+                                                                          
+                                                          
+                                                                          
     merged: list[dict] = []
     i = 0
     while i < len(raw_tokens):
@@ -235,9 +235,9 @@ def apply_ocr_noise(
             i += 1
     raw_tokens = merged
 
-    # ------------------------------------------------------------------ #
-    # Step 8: token split (3% of tokens longer than 6 chars)
-    # ------------------------------------------------------------------ #
+                                                                          
+                                                            
+                                                                          
     split_tokens: list[dict] = []
     for tok in raw_tokens:
         text = tok["text"]
@@ -267,12 +267,12 @@ def apply_ocr_noise(
             split_tokens.append(tok)
     raw_tokens = split_tokens
 
-    # ------------------------------------------------------------------ #
-    # Step 9: random label-line capitalization (10% of label lines)
-    # ------------------------------------------------------------------ #
-    # Collect label line IDs
+                                                                          
+                                                                   
+                                                                          
+                            
     label_line_ids = {tok["line_id"] for tok in raw_tokens if tok["is_label"]}
-    # Randomly pick 10% of those lines to capitalize
+                                                    
     lines_to_cap = {
         lid for lid in label_line_ids if rng.random() < 0.10
     }
@@ -280,14 +280,14 @@ def apply_ocr_noise(
         if tok["line_id"] in lines_to_cap:
             tok["text"] = tok["text"].upper()
 
-    # ------------------------------------------------------------------ #
-    # Step 10: final sort (top-to-bottom then left-to-right)
-    # ------------------------------------------------------------------ #
+                                                                          
+                                                            
+                                                                          
     raw_tokens.sort(key=_sort_key)
 
-    # ------------------------------------------------------------------ #
-    # Step 11: build final OCR token list with conf and correct bbox format
-    # ------------------------------------------------------------------ #
+                                                                          
+                                                                           
+                                                                          
     ocr_tokens: list[dict] = []
     for tok in raw_tokens:
         if not tok["text"].strip():

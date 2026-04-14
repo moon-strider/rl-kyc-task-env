@@ -4,7 +4,7 @@ default:
     @just --list
 
 sync:
-    uv sync
+    uv sync --frozen
 
 generate-public:
     uv run python generator/generate_public.py
@@ -40,3 +40,18 @@ check:
     just validate-heuristic
     just judge-null
     just judge-heuristic
+
+build-public-bundle:
+    uv run python -m harness.cli.external_agent_eval build-public-bundle
+
+build-private-judge-bundle shard="benchmark":
+    uv run python -m harness.cli.external_agent_eval build-private-judge-bundle --shard-name {{shard}}
+
+build-eval-image image="rl-kyc-eval:local":
+    uv run python -m harness.cli.external_agent_eval build-eval-image --image {{image}}
+
+run-public-episode solution="baselines/heuristic_baseline" image="rl-kyc-eval:local":
+    uv run python -m harness.cli.external_agent_eval run-public-episode --image {{image}} --seed-solution {{solution}}
+
+run-hidden-judge solution="baselines/heuristic_baseline" image="rl-kyc-eval:local":
+    uv run python -m harness.cli.external_agent_eval run-hidden-judge --image {{image}} --solution-dir {{solution}}

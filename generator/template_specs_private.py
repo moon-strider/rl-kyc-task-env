@@ -1,8 +1,8 @@
-"""Private template layout functions (hidden templates).
-
-Same element dict contract as template_specs_public.py.
-These templates are used only for the hidden evaluation split.
-"""
+\
+\
+\
+\
+   
 
 from __future__ import annotations
 
@@ -10,15 +10,15 @@ from typing import Any
 
 from generator.template_specs_public import W, H, _el, _lv_row, _hline_marker, _rect, _vline_marker
 
-# ============================================================
-# GOVERNMENT-ID PRIVATE TEMPLATES
-# ============================================================
+                                                              
+                                 
+                                                              
 
 def gid_dense_smallcaps(fields: dict[str, Any]) -> list[dict]:
     els: list[dict] = []
     bid = 0
 
-    # Header
+            
     els.append(_el("TRAVEL DOCUMENT — GOVERNMENT ISSUE", W // 2, 60, 34,
                    is_label=False, block_id=bid, bold=True))
     bid += 1
@@ -28,7 +28,7 @@ def gid_dense_smallcaps(fields: dict[str, Any]) -> list[dict]:
     els.append(_hline_marker(148, bid))
     bid += 1
 
-    # Dense grid of label+value pairs, tightly packed
+                                                     
     lx, vx = 80, 420
     y = 178
     step = 62
@@ -56,7 +56,7 @@ def gid_dense_smallcaps(fields: dict[str, Any]) -> list[dict]:
     els.append(_hline_marker(y + 5, bid))
     bid += 1
 
-    # MRZ section
+                 
     y += 40
     els.append(_el("MACHINE READABLE ZONE", W // 2, y, 22, is_label=True, block_id=bid))
     bid += 1
@@ -77,14 +77,14 @@ def gid_minimal_two_column(fields: dict[str, Any]) -> list[dict]:
     els: list[dict] = []
     bid = 0
 
-    # Minimal header
+                    
     els.append(_el("IDENTIFICATION DOCUMENT", W // 2, 80, 44,
                    is_label=False, block_id=bid, bold=True))
     bid += 1
     els.append(_hline_marker(130, bid))
     bid += 1
 
-    # Left column (personal)
+                            
     lc_x, lc_vx = 60, 320
     y = 170
     step = 90
@@ -101,7 +101,7 @@ def gid_minimal_two_column(fields: dict[str, Any]) -> list[dict]:
         bid += 1
         y += step
 
-    # Right column (document)
+                             
     rc_x, rc_vx = 840, 1100
     y = 170
 
@@ -121,7 +121,7 @@ def gid_minimal_two_column(fields: dict[str, Any]) -> list[dict]:
     els.append(_vline_marker(W // 2, 170, 540, block_id=bid, width=3))
     bid += 1
 
-    # Footer
+            
     els.append(_el("Place of Birth:", 60, 600, 26, is_label=True, block_id=bid))
     els.append(_el(fields.get("_place_of_birth", ""), 300, 600, 28,
                    is_label=False, block_id=bid))
@@ -133,16 +133,16 @@ def gid_minimal_two_column(fields: dict[str, Any]) -> list[dict]:
     return els
 
 
-# ============================================================
-# PROOF-OF-ADDRESS PRIVATE TEMPLATES
-# ============================================================
+                                                              
+                                    
+                                                              
 
 def poa_energy_statement_center(fields: dict[str, Any]) -> list[dict]:
-    """Energy statement with centered customer block."""
+                                                        
     els: list[dict] = []
     bid = 0
 
-    # Header
+            
     els.append(_el(fields["issuer_name"], W // 2, 70, 52,
                    is_label=False, block_id=bid, bold=True))
     bid += 1
@@ -151,7 +151,7 @@ def poa_energy_statement_center(fields: dict[str, Any]) -> list[dict]:
     els.append(_hline_marker(178, bid))
     bid += 1
 
-    # Metadata row
+                  
     cx = W // 2 - 300
     els.append(_el("Bill Date", cx, 210, 26, is_label=True, block_id=bid))
     els.append(_el(fields["statement_date"], cx + 200, 210, 26, is_label=False, block_id=bid))
@@ -167,7 +167,7 @@ def poa_energy_statement_center(fields: dict[str, Any]) -> list[dict]:
     els.append(_hline_marker(290, bid))
     bid += 1
 
-    # Centered customer block
+                             
     center_x = W // 2 - 200
     els.append(_el("Service Address", center_x, 325, 28, is_label=True, block_id=bid, bold=True))
     bid += 1
@@ -184,7 +184,7 @@ def poa_energy_statement_center(fields: dict[str, Any]) -> list[dict]:
     els.append(_hline_marker(525, bid))
     bid += 1
 
-    # Usage table
+                 
     els.append(_el("ENERGY USAGE", 80, 558, 28, is_label=True, block_id=bid, bold=True))
     bid += 1
     els.append(_hline_marker(588, bid))
@@ -276,12 +276,12 @@ def poa_water_bill_split(fields: dict[str, Any]) -> list[dict]:
     return els
 
 
-# ============================================================
-# PAYMENT-RECEIPT PRIVATE TEMPLATES
-# ============================================================
+                                                              
+                                   
+                                                              
 
 def pay_merchant_confirmation(fields: dict[str, Any]) -> list[dict]:
-    """Merchant payment confirmation with a bold amount focus."""
+                                                                 
     els: list[dict] = []
     bid = 0
 
@@ -294,7 +294,7 @@ def pay_merchant_confirmation(fields: dict[str, Any]) -> list[dict]:
     els.append(_hline_marker(178, bid))
     bid += 1
 
-    # Centered summary
+                      
     currency_sym = {"USD": "$", "EUR": "€", "GBP": "£"}.get(fields["currency"], "")
     els.append(_el("Amount Received", W // 2, 220, 28, is_label=True, block_id=bid))
     bid += 1
@@ -306,7 +306,7 @@ def pay_merchant_confirmation(fields: dict[str, Any]) -> list[dict]:
     els.append(_hline_marker(385, bid))
     bid += 1
 
-    # Details
+             
     lx, vx = 80, 500
     y = 420
     rows = [
@@ -337,7 +337,7 @@ def pay_merchant_confirmation(fields: dict[str, Any]) -> list[dict]:
 
 
 def pay_transaction_slip(fields: dict[str, Any]) -> list[dict]:
-    """Transaction slip in a narrow column style."""
+                                                    
     els: list[dict] = []
     bid = 0
 
@@ -347,7 +347,7 @@ def pay_transaction_slip(fields: dict[str, Any]) -> list[dict]:
     els.append(_hline_marker(118, bid))
     bid += 1
 
-    # Narrow single-column label-value pairs
+                                            
     lx, vx = 80, 600
     y = 155
     step = 72
@@ -381,17 +381,17 @@ def pay_transaction_slip(fields: dict[str, Any]) -> list[dict]:
     return els
 
 
-# ============================================================
-# Private template dispatch
-# ============================================================
+                                                              
+                           
+                                                              
 PRIVATE_TEMPLATES: dict[str, callable] = {
-    # government_id
+                   
     "gid_dense_smallcaps": gid_dense_smallcaps,
     "gid_minimal_two_column": gid_minimal_two_column,
-    # proof_of_address
+                      
     "poa_energy_statement_center": poa_energy_statement_center,
     "poa_water_bill_split": poa_water_bill_split,
-    # payment_receipt
+                     
     "pay_merchant_confirmation": pay_merchant_confirmation,
     "pay_transaction_slip": pay_transaction_slip,
 }
