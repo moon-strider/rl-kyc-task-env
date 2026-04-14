@@ -111,7 +111,7 @@ def _join_tokens(tokens: list[dict[str, Any]]) -> str:
         token_width = max(1, token["bbox"][2] - token["bbox"][0])
         prev_char = prev_width / max(len(prev["text"]), 1)
         token_char = token_width / max(len(token["text"]), 1)
-        join_without_space = gap <= max(2.0, min(prev_char, token_char) * 0.35)
+        join_without_space = gap <= max(1.0, min(prev_char, token_char) * 0.08)
         parts.append(token["text"] if join_without_space else f" {token['text']}")
         prev = token
     return "".join(parts).strip()
@@ -334,10 +334,55 @@ def _collect_name_candidates(page_lines: list[dict[str, Any]]) -> list[str]:
     return candidates
 
 
+def _clean_inline_label_value(value: str | None, synonyms: list[str]) -> str | None:
+    cleaned = _clean_value_text(value)
+    if not cleaned:
+        return None
+    for synonym in sorted(synonyms, key=len, reverse=True):
+        pattern = rf"^{re.escape(synonym)}[\s:\-–—]*"
+        stripped = re.sub(pattern, "", cleaned, flags=re.IGNORECASE).strip()
+        if stripped and stripped != cleaned:
+            return stripped
+    return cleaned
+
+
+def _collect_header_entity_candidates(page_lines: list[dict[str, Any]]) -> list[str]:
+    candidates = []
+    for line in page_lines[:10]:
+        text = _clean_value_text(line["text"])
+        if not text:
+            continue
+        lowered = text.lower()
+        if any(
+            token in lowered
+            for token in {
+                "payment receipt",
+                "bank transfer",
+                "confirmation",
+                "invoice",
+                "statement",
+                "transaction slip",
+                "amount received",
+                "reference",
+                "date",
+                "paid",
+            }
+        ):
+            continue
+        if any(ch.isdigit() for ch in text):
+            continue
+        if len(text.split()) > 5:
+            continue
+        candidates.append(text)
+    return candidates
+
+
 def _extract_government_id(page_lines: list[dict[str, Any]], blocks: dict[int, list[dict[str, Any]]]) -> dict[str, Any]:
     fields = {}
     for field_name, synonyms in LABELS["government_id"].items():
         fields[field_name] = _extract_from_blocks(blocks, synonyms, threshold=84.0)
+        if isinstance(fields[field_name], str):
+            fields[field_name] = _clean_inline_label_value(fields[field_name], synonyms)
 
     if not fields.get("document_number"):
         matches = _collect_pattern_matches(page_lines, DOC_NUM_RE, "document_number")
@@ -363,6 +408,8 @@ def _extract_payment_receipt(page_lines: list[dict[str, Any]], blocks: dict[int,
     for field_name in ["sender_name", "recipient_name", "payment_date", "reference_id", "currency"]:
         threshold = 88.0 if field_name == "currency" else 84.0
         fields[field_name] = _extract_from_blocks(blocks, LABELS["payment_receipt"][field_name], threshold=threshold)
+        if isinstance(fields[field_name], str):
+            fields[field_name] = _clean_inline_label_value(fields[field_name], LABELS["payment_receipt"].get(field_name, []))
 
     if not fields.get("sender_name"):
         from_value = _extract_from_blocks(blocks, LABELS["payment_receipt"]["sender_name"], threshold=80.0)
@@ -421,6 +468,15 @@ def _extract_payment_receipt(page_lines: list[dict[str, Any]], blocks: dict[int,
                 if match:
                     fields["currency"] = match.group(0)
                     break
+
+    header_entities = _collect_header_entity_candidates(page_lines)
+    if not fields.get("recipient_name") and header_entities:
+        fields["recipient_name"] = header_entities[0]
+    if not fields.get("sender_name"):
+        for candidate in header_entities[1:]:
+            if candidate != fields.get("recipient_name"):
+                fields["sender_name"] = candidate
+                break
 
     return fields
 

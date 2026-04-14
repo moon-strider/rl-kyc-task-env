@@ -21,7 +21,8 @@ def main() -> int:
         raise SystemExit(f"Missing extract.py in {solution_dir}")
 
     dataset_dir = REPO_ROOT / "private" / "hidden_test"
-    result = evaluate_solution(solution_dir, dataset_dir)
+    gold_dir = REPO_ROOT / "private" / "hidden_gold"
+    result = evaluate_solution(solution_dir, dataset_dir, gold_dir)
     json.dump(result, sys.stdout, ensure_ascii=False)
     sys.stdout.write("\n")
     return 0

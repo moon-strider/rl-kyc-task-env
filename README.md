@@ -59,6 +59,7 @@ doc_extract_env/
 
   private/
     hidden_test/
+    hidden_gold/
     seed_config.json
 
   baselines/
@@ -73,7 +74,7 @@ doc_extract_env/
   README.md
 ```
 
-The public task bundle is the `task/` directory. Hidden assets remain under `private/`.
+The public task bundle is the `task/` directory. Hidden assets remain under `private/`, with hidden gold labels stored separately from hidden document directories.
 
 ## Data
 
@@ -113,7 +114,7 @@ Totals:
 
 ## Document Format
 
-Each document directory has this structure:
+Each public document directory has this structure:
 
 ```text
 doc_000123/
@@ -128,6 +129,8 @@ Public train and validation documents also include:
 ```text
   target.json
 ```
+
+Hidden test documents contain only `meta.json`, `ocr.json`, and `pages/0.png`. Their gold targets are stored privately under `private/hidden_gold/`.
 
 ### `meta.json`
 
@@ -464,7 +467,7 @@ The heuristic baseline reads `meta.json` and `ocr.json`, reconstructs lines from
 
 `task/tools/public_validator.py` evaluates solutions on `task/public_data/val`.
 
-`judge/run_judge.py` evaluates solutions on `private/hidden_test`.
+`judge/run_judge.py` evaluates solutions on `private/hidden_test` and loads hidden gold from `private/hidden_gold`.
 
 Both evaluators:
 

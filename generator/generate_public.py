@@ -31,6 +31,7 @@ from generator.utils import (
     doc_dir,
     format_doc_id,
     make_rng,
+    reset_output_dir,
     write_meta,
     write_ocr,
     write_page_image,
@@ -135,7 +136,7 @@ def main() -> None:
     faker.seed_instance(PUBLIC_SEED)
 
     for split_name, output_dir, docs_per_schema in _SPLITS:
-        output_dir.mkdir(parents=True, exist_ok=True)
+        reset_output_dir(output_dir)
         generate_split(split_name, output_dir, docs_per_schema, master_rng, faker)
 
     print("Public generation complete.")

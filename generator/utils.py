@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 import os
 import random
+import shutil
 from pathlib import Path
 from typing import Any
 
@@ -36,6 +37,7 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 PUBLIC_TRAIN_DIR = REPO_ROOT / "task" / "public_data" / "train"
 PUBLIC_VAL_DIR = REPO_ROOT / "task" / "public_data" / "val"
 HIDDEN_TEST_DIR = REPO_ROOT / "private" / "hidden_test"
+HIDDEN_GOLD_DIR = REPO_ROOT / "private" / "hidden_gold"
 
 
 def split_output_dir(split: str) -> Path:
@@ -56,6 +58,12 @@ def doc_dir(output_root: Path, doc_id: str) -> Path:
     d.mkdir(parents=True, exist_ok=True)
     (d / "pages").mkdir(exist_ok=True)
     return d
+
+
+def reset_output_dir(path: Path) -> None:
+    if path.exists():
+        shutil.rmtree(path)
+    path.mkdir(parents=True, exist_ok=True)
 
 
 def format_doc_id(index: int) -> str:
@@ -113,6 +121,14 @@ def write_target(doc_path: Path, schema_name: str, fields: dict) -> None:
     """Write target.json (only for public train/val documents)."""
     write_json(
         doc_path / "target.json",
+        {"schema_name": schema_name, "fields": fields},
+    )
+
+
+def write_hidden_gold(gold_root: Path, doc_id: str, schema_name: str, fields: dict) -> None:
+    gold_root.mkdir(parents=True, exist_ok=True)
+    write_json(
+        gold_root / f"{doc_id}.json",
         {"schema_name": schema_name, "fields": fields},
     )
 

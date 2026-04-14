@@ -26,15 +26,17 @@ import numpy as np
 from faker import Faker
 
 from generator.utils import (
+    HIDDEN_GOLD_DIR,
     HIDDEN_SEED,
     HIDDEN_TEST_DIR,
     doc_dir,
     format_doc_id,
     make_rng,
+    reset_output_dir,
+    write_hidden_gold,
     write_meta,
     write_ocr,
     write_page_image,
-    write_target,
 )
 from generator.field_sampling import (
     sample_government_id,
@@ -75,7 +77,8 @@ def _target_fields(schema_name: str, fields: dict) -> dict:
 
 
 def main() -> None:
-    HIDDEN_TEST_DIR.mkdir(parents=True, exist_ok=True)
+    reset_output_dir(HIDDEN_TEST_DIR)
+    reset_output_dir(HIDDEN_GOLD_DIR)
 
     master_rng = make_rng(HIDDEN_SEED)
     faker = Faker(["en_US", "en_GB", "en_CA"])
@@ -124,14 +127,14 @@ def main() -> None:
         write_meta(dpath, doc_id, schema_name)
         write_ocr(dpath, ocr_tokens)
         write_page_image(dpath, image)
-        # target.json is written for judge scoring (private, not exposed to participants)
-        write_target(dpath, schema_name, _target_fields(schema_name, fields))
+        write_hidden_gold(HIDDEN_GOLD_DIR, doc_id, schema_name, _target_fields(schema_name, fields))
 
         if (doc_index + 1) % 30 == 0 or doc_index == total - 1:
             print(f"  {doc_index + 1}/{total} done")
 
     print("Hidden generation complete.")
     print(f"  hidden_test → {HIDDEN_TEST_DIR}")
+    print(f"  hidden_gold → {HIDDEN_GOLD_DIR}")
 
 
 if __name__ == "__main__":

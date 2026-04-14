@@ -99,20 +99,17 @@ def canonicalize_currency(value: str) -> str:
 def canonicalize_identifier(value: str) -> str:
     normalized = normalize_text(value)
     normalized = normalized.replace(" ", "")
-    translation = str.maketrans({"O": "0", "I": "1", "L": "1", "S": "5", "B": "8"})
-    return normalized.upper().translate(translation)
+    return normalized.upper()
 
 
 def canonicalize_postal_code(value: str) -> str:
     normalized = normalize_text(value).upper()
-    translation = str.maketrans({"O": "0", "I": "1", "L": "1", "S": "5", "B": "8"})
-    return normalized.translate(translation)
+    return normalized
 
 
 def canonicalize_ordinary_text(value: str) -> str:
     normalized = normalize_text(value)
-    translation = str.maketrans({"0": "o", "1": "l", "5": "s", "8": "b"})
-    return normalized.casefold().translate(translation)
+    return normalized.casefold()
 
 
 def canonicalize_value(field_name: str, value: Any) -> Any:

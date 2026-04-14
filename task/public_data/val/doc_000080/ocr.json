@@ -15,7 +15,7 @@
           ],
           "line_id": 0,
           "block_id": 0,
-          "conf": 0.9388
+          "conf": 0.9717
         },
         {
           "text": "INV-178214",
@@ -27,7 +27,7 @@
           ],
           "line_id": 1,
           "block_id": 1,
-          "conf": 0.8366
+          "conf": 0.884
         },
         {
           "text": "Payee",
@@ -39,7 +39,7 @@
           ],
           "line_id": 2,
           "block_id": 4,
-          "conf": 0.8667
+          "conf": 0.9403
         },
         {
           "text": "Paid",
@@ -51,7 +51,7 @@
           ],
           "line_id": 2,
           "block_id": 3,
-          "conf": 0.8482
+          "conf": 0.9752
         },
         {
           "text": "By",
@@ -63,355 +63,355 @@
           ],
           "line_id": 2,
           "block_id": 3,
-          "conf": 0.8883
+          "conf": 0.9815
+        },
+        {
+          "text": "PAID",
+          "bbox": [
+            1242,
+            230,
+            1380,
+            270
+          ],
+          "line_id": 3,
+          "block_id": 18,
+          "conf": 0.9546
         },
         {
           "text": "Commerce",
           "bbox": [
-            1067,
-            248,
-            1213,
-            275
+            1071,
+            250,
+            1210,
+            272
           ],
           "line_id": 3,
           "block_id": 4,
-          "conf": 0.9642
+          "conf": 0.9782
         },
         {
           "text": "Crestline",
           "bbox": [
-            902,
-            252,
+            898,
+            248,
             1061,
-            273
+            275
           ],
           "line_id": 3,
           "block_id": 4,
-          "conf": 0.9247
-        },
-        {
-          "text": "Bryan",
-          "bbox": [
-            164,
-            250,
-            254,
-            277
-          ],
-          "line_id": 3,
-          "block_id": 3,
-          "conf": 0.9717
+          "conf": 0.8791
         },
         {
           "text": "Luke",
           "bbox": [
-            82,
+            81,
             250,
             152,
-            278
-          ],
-          "line_id": 3,
-          "block_id": 3,
-          "conf": 0.884
-        },
-        {
-          "text": "2025-12-17",
-          "bbox": [
-            382,
-            334,
-            526,
-            356
+            277
           ],
           "line_id": 4,
-          "block_id": 6,
-          "conf": 0.9403
+          "block_id": 3,
+          "conf": 0.8222
+        },
+        {
+          "text": "Bryan",
+          "bbox": [
+            165,
+            249,
+            256,
+            280
+          ],
+          "line_id": 4,
+          "block_id": 3,
+          "conf": 0.8486
         },
         {
           "text": "Date",
           "bbox": [
-            195,
-            333,
-            258,
-            362
-          ],
-          "line_id": 4,
-          "block_id": 6,
-          "conf": 0.9752
-        },
-        {
-          "text": "Payment",
-          "bbox": [
-            80,
-            334,
-            190,
-            362
-          ],
-          "line_id": 4,
-          "block_id": 6,
-          "conf": 0.9815
-        },
-        {
-          "text": "Reference",
-          "bbox": [
-            79,
-            396,
-            209,
-            413
+            1240,
+            287,
+            1289,
+            306
           ],
           "line_id": 5,
-          "block_id": 7,
-          "conf": 0.9546
+          "block_id": 18,
+          "conf": 0.8724
+        },
+        {
+          "text": "2025-12-17",
+          "bbox": [
+            379,
+            336,
+            524,
+            353
+          ],
+          "line_id": 6,
+          "block_id": 6,
+          "conf": 0.8925
+        },
+        {
+          "text": "DATE",
+          "bbox": [
+            197,
+            335,
+            261,
+            360
+          ],
+          "line_id": 6,
+          "block_id": 6,
+          "conf": 0.8674
+        },
+        {
+          "text": "PAYMENT",
+          "bbox": [
+            80,
+            337,
+            188,
+            360
+          ],
+          "line_id": 6,
+          "block_id": 6,
+          "conf": 0.9795
         },
         {
           "text": "TRX-861408",
           "bbox": [
-            380,
-            397,
-            540,
-            413
+            379,
+            395,
+            539,
+            414
           ],
-          "line_id": 5,
+          "line_id": 7,
           "block_id": 7,
-          "conf": 0.9782
+          "conf": 0.884
+        },
+        {
+          "text": "Reference",
+          "bbox": [
+            80,
+            397,
+            210,
+            414
+          ],
+          "line_id": 7,
+          "block_id": 7,
+          "conf": 0.8307
         },
         {
           "text": "AUTH-712442",
           "bbox": [
-            380,
-            455,
-            563,
+            378,
+            454,
+            562,
             473
           ],
-          "line_id": 6,
+          "line_id": 8,
           "block_id": 8,
-          "conf": 0.8791
+          "conf": 0.9274
         },
         {
           "text": "Code",
           "bbox": [
             151,
-            455,
+            454,
             214,
-            475
+            474
           ],
-          "line_id": 6,
+          "line_id": 8,
           "block_id": 8,
-          "conf": 0.8222
+          "conf": 0.8285
         },
         {
           "text": "Auth",
           "bbox": [
-            80,
-            457,
-            143,
-            475
+            82,
+            454,
+            145,
+            476
           ],
-          "line_id": 6,
+          "line_id": 8,
           "block_id": 8,
-          "conf": 0.8486
+          "conf": 0.9115
         },
         {
           "text": "GBP",
           "bbox": [
-            378,
-            514,
-            440,
-            533
+            379,
+            515,
+            441,
+            537
           ],
-          "line_id": 7,
+          "line_id": 9,
           "block_id": 9,
-          "conf": 0.8724
+          "conf": 0.9545
         },
         {
           "text": "Currency",
           "bbox": [
-            82,
-            514,
-            195,
-            541
+            79,
+            513,
+            192,
+            540
           ],
-          "line_id": 7,
+          "line_id": 9,
           "block_id": 9,
-          "conf": 0.8925
+          "conf": 0.9896
+        },
+        {
+          "text": "ITEM",
+          "bbox": [
+            81,
+            613,
+            140,
+            634
+          ],
+          "line_id": 10,
+          "block_id": 11,
+          "conf": 0.9185
         },
         {
           "text": "AMOUNT",
           "bbox": [
-            1299,
+            1302,
             615,
-            1416,
-            636
+            1415,
+            635
           ],
-          "line_id": 8,
+          "line_id": 10,
           "block_id": 11,
-          "conf": 0.8674
+          "conf": 0.9713
         },
         {
           "text": "Goods/Services",
           "bbox": [
             79,
-            668,
+            669,
             278,
-            689
+            691
           ],
-          "line_id": 9,
+          "line_id": 11,
           "block_id": 13,
-          "conf": 0.9795
+          "conf": 0.9443
         },
         {
           "text": "1248.16",
           "bbox": [
-            1301,
-            668,
-            1402,
-            690
+            1299,
+            669,
+            1405,
+            691
           ],
-          "line_id": 9,
+          "line_id": 11,
           "block_id": 13,
-          "conf": 0.884
+          "conf": 0.9816
         },
         {
           "text": "6.02",
           "bbox": [
-            1302,
-            722,
-            1356,
+            1298,
+            723,
+            1358,
             743
           ],
-          "line_id": 10,
+          "line_id": 12,
           "block_id": 14,
-          "conf": 0.8307
-        },
-        {
-          "text": "Shipping",
-          "bbox": [
-            79,
-            721,
-            194,
-            749
-          ],
-          "line_id": 10,
-          "block_id": 14,
-          "conf": 0.9274
+          "conf": 0.9468
         },
         {
           "text": "Fee",
           "bbox": [
             203,
-            721,
-            249,
-            749
+            723,
+            247,
+            748
           ],
-          "line_id": 10,
+          "line_id": 12,
           "block_id": 14,
-          "conf": 0.8285
+          "conf": 0.9067
         },
         {
-          "text": "Tax",
+          "text": "Shipping",
           "bbox": [
-            78,
-            775,
-            129,
-            795
+            82,
+            723,
+            197,
+            750
           ],
-          "line_id": 11,
-          "block_id": 15,
-          "conf": 0.9115
+          "line_id": 12,
+          "block_id": 14,
+          "conf": 0.9106
         },
         {
           "text": "71.84",
           "bbox": [
-            1302,
-            775,
-            1373,
-            796
-          ],
-          "line_id": 11,
-          "block_id": 15,
-          "conf": 0.9545
-        },
-        {
-          "text": "GBP",
-          "bbox": [
             1301,
-            854,
-            1359,
-            881
+            772,
+            1373,
+            794
           ],
-          "line_id": 12,
-          "block_id": 17,
-          "conf": 0.9896
+          "line_id": 13,
+          "block_id": 15,
+          "conf": 0.8521
         },
         {
-          "text": "PAID",
+          "text": "Tax",
           "bbox": [
-            197,
-            855,
-            287,
-            881
+            79,
+            773,
+            129,
+            794
           ],
-          "line_id": 12,
-          "block_id": 17,
-          "conf": 0.9185
-        },
-        {
-          "text": "4129.16",
-          "bbox": [
-            1370,
-            855,
-            1508,
-            881
-          ],
-          "line_id": 12,
-          "block_id": 17,
-          "conf": 0.9713
+          "line_id": 13,
+          "block_id": 15,
+          "conf": 0.9362
         },
         {
           "text": "TOTAL",
           "bbox": [
-            79,
-            857,
-            186,
+            82,
+            855,
+            189,
             881
           ],
-          "line_id": 12,
+          "line_id": 14,
           "block_id": 17,
-          "conf": 0.9443
-        },
-        {
-          "text": "***",
-          "bbox": [
-            668,
-            924,
-            739,
-            963
-          ],
-          "line_id": 13,
-          "block_id": 18,
-          "conf": 0.9816
-        },
-        {
-          "text": "***",
-          "bbox": [
-            857,
-            924,
-            929,
-            964
-          ],
-          "line_id": 13,
-          "block_id": 18,
-          "conf": 0.9468
+          "conf": 0.8508
         },
         {
           "text": "PAID",
           "bbox": [
-            753,
-            928,
-            846,
-            963
+            196,
+            854,
+            283,
+            882
           ],
-          "line_id": 13,
-          "block_id": 18,
-          "conf": 0.9067
+          "line_id": 14,
+          "block_id": 17,
+          "conf": 0.9662
+        },
+        {
+          "text": "4129.16",
+          "bbox": [
+            1366,
+            854,
+            1504,
+            883
+          ],
+          "line_id": 14,
+          "block_id": 17,
+          "conf": 0.84
+        },
+        {
+          "text": "GBP",
+          "bbox": [
+            1300,
+            858,
+            1357,
+            882
+          ],
+          "line_id": 14,
+          "block_id": 17,
+          "conf": 0.9632
         }
       ]
     }

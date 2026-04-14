@@ -8,14 +8,13 @@ from __future__ import annotations
 
 from typing import Any
 
-from generator.template_specs_public import W, H, _el, _lv_row, _hline_marker
+from generator.template_specs_public import W, H, _el, _lv_row, _hline_marker, _rect, _vline_marker
 
 # ============================================================
 # GOVERNMENT-ID PRIVATE TEMPLATES
 # ============================================================
 
 def gid_dense_smallcaps(fields: dict[str, Any]) -> list[dict]:
-    """Dense small-caps style with tight line spacing."""
     els: list[dict] = []
     bid = 0
 
@@ -39,6 +38,7 @@ def gid_dense_smallcaps(fields: dict[str, Any]) -> list[dict]:
         ("NATIONALITY", fields["issuing_country"]),
         ("DATE OF BIRTH", fields["date_of_birth"]),
         ("PERSONAL NO.", fields["document_number"]),
+        ("PRINT DATE", fields["issue_date"]),
         ("SEX", fields.get("_sex", "M")),
         ("PLACE OF BIRTH", fields.get("_place_of_birth", "")),
         ("DATE OF ISSUE", fields["issue_date"]),
@@ -74,7 +74,6 @@ def gid_dense_smallcaps(fields: dict[str, Any]) -> list[dict]:
 
 
 def gid_minimal_two_column(fields: dict[str, Any]) -> list[dict]:
-    """Minimal two-column layout with a strong center divider."""
     els: list[dict] = []
     bid = 0
 
@@ -108,6 +107,7 @@ def gid_minimal_two_column(fields: dict[str, Any]) -> list[dict]:
 
     right_rows = [
         ("Doc No.", fields["document_number"]),
+        ("Personal No.", fields["document_number"][-6:]),
         ("Issue Date", fields["issue_date"]),
         ("Expiry Date", fields["expiry_date"]),
         ("Issuing Country", fields["issuing_country"]),
@@ -118,8 +118,7 @@ def gid_minimal_two_column(fields: dict[str, Any]) -> list[dict]:
         bid += 1
         y += step
 
-    # Center divider (vertical line represented as a narrow element)
-    els.append(_hline_marker(560, bid))
+    els.append(_vline_marker(W // 2, 170, 540, block_id=bid, width=3))
     bid += 1
 
     # Footer
@@ -220,11 +219,9 @@ def poa_energy_statement_center(fields: dict[str, Any]) -> list[dict]:
 
 
 def poa_water_bill_split(fields: dict[str, Any]) -> list[dict]:
-    """Water bill with a split-panel layout (provider left, customer right)."""
     els: list[dict] = []
     bid = 0
 
-    # Header (full width)
     els.append(_el(fields["issuer_name"], W // 2, 70, 52,
                    is_label=False, block_id=bid, bold=True))
     bid += 1
@@ -233,52 +230,47 @@ def poa_water_bill_split(fields: dict[str, Any]) -> list[dict]:
     els.append(_hline_marker(178, bid))
     bid += 1
 
-    # Left panel: provider info
-    els.append(_el("Service Provider", 80, 210, 26, is_label=True, block_id=bid, bold=True))
+    els.append(_rect(70, 205, 680, 410, block_id=bid, outline=(96, 108, 128), fill=(249, 251, 254)))
+    els.append(_el("Address", 100, 225, 26, is_label=True, block_id=bid, bold=True))
     bid += 1
-    els.append(_el(fields["issuer_name"], 80, 245, 28, is_label=False, block_id=bid))
+    els.append(_el(fields["full_name"], 100, 260, 32, is_label=False, block_id=bid, bold=True))
     bid += 1
-    els.append(_el(fields.get("_provider_address", ""), 80, 282, 24, is_label=False, block_id=bid))
+    els.append(_el(fields["address_line1"], 100, 300, 30, is_label=False, block_id=bid))
     bid += 1
-    els.append(_el(fields.get("_provider_city_state", ""), 80, 312, 24, is_label=False, block_id=bid))
+    els.append(_el(f"{fields['city']}, {fields['postal_code']}", 100, 338, 30, is_label=False, block_id=bid))
+    bid += 1
+    els.append(_el(fields["country"], 100, 376, 30, is_label=False, block_id=bid))
     bid += 1
 
-    # Right panel: customer address
-    els.append(_el("Address", 840, 210, 26, is_label=True, block_id=bid, bold=True))
+    els.append(_rect(820, 205, W - 70, 500, block_id=bid, outline=(96, 108, 128), fill=(241, 246, 250)))
+    els.append(_el("Summary", 860, 225, 30, is_label=True, block_id=bid, bold=True))
     bid += 1
-    els.append(_el(fields["full_name"], 840, 245, 32, is_label=False, block_id=bid, bold=True))
+    els.extend(_lv_row("Issued On", fields["statement_date"], 860, 1110, 275, font_size=28, block_id=bid))
     bid += 1
-    els.append(_el(fields["address_line1"], 840, 285, 30, is_label=False, block_id=bid))
+    els.extend(_lv_row("Due Date", fields.get("_due_date", ""), 860, 1110, 333, font_size=28, block_id=bid))
     bid += 1
-    els.append(_el(f"{fields['city']}, {fields['postal_code']}", 840, 323, 30,
-                   is_label=False, block_id=bid))
+    els.extend(_lv_row("Account Number", fields.get("_account_number", ""), 860, 1110, 391, font_size=28, block_id=bid))
     bid += 1
-    els.append(_el(fields["country"], 840, 361, 30, is_label=False, block_id=bid))
+    els.extend(_lv_row("Current Charges", fields.get("_amount_due", "0.00"), 860, 1110, 449, font_size=28, block_id=bid))
     bid += 1
 
     els.append(_hline_marker(410, bid))
     bid += 1
 
-    # Bill summary
-    lx, vx = 80, 380
-    y = 445
-    meta_rows = [
-        ("Issued On", fields["statement_date"]),
-        ("Due Date", fields.get("_due_date", "")),
-        ("Account Number", fields.get("_account_number", "")),
-        ("Previous Balance", fields.get("_prev_balance", "0.00")),
-        ("Current Charges", fields.get("_amount_due", "0.00")),
-    ]
-    for lbl, val in meta_rows:
-        els.extend(_lv_row(lbl, val, lx, vx, y, font_size=28, block_id=bid))
-        bid += 1
-        y += 58
-
-    els.append(_hline_marker(y + 5, bid))
+    els.append(_rect(80, 455, W - 80, 700, block_id=bid, outline=(132, 132, 132), fill=(252, 252, 252)))
+    els.append(_el("Remittance", 110, 480, 28, is_label=True, block_id=bid, bold=True))
     bid += 1
-    els.append(_el("TOTAL PAYABLE", lx, y + 35, 34, is_label=True, block_id=bid, bold=True))
-    els.append(_el(fields.get("_amount_due", "0.00"), 1300, y + 35, 34,
-                   is_label=False, block_id=bid, bold=True))
+    els.append(_el("Service Provider", 110, 525, 26, is_label=True, block_id=bid))
+    els.append(_el(fields["issuer_name"], 370, 525, 28, is_label=False, block_id=bid))
+    bid += 1
+    els.append(_el("Provider Address", 110, 565, 26, is_label=True, block_id=bid))
+    els.append(_el(fields.get("_provider_address", ""), 370, 565, 28, is_label=False, block_id=bid))
+    bid += 1
+    els.append(_el("City / ZIP", 110, 605, 26, is_label=True, block_id=bid))
+    els.append(_el(fields.get("_provider_city_state", ""), 370, 605, 28, is_label=False, block_id=bid))
+    bid += 1
+    els.append(_el("TOTAL PAYABLE", 110, 650, 34, is_label=True, block_id=bid, bold=True))
+    els.append(_el(fields.get("_amount_due", "0.00"), 1260, 650, 34, is_label=False, block_id=bid, bold=True))
     bid += 1
 
     return els

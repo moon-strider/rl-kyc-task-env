@@ -89,21 +89,13 @@ def list_document_dirs(dataset_dir: Path) -> list[Path]:
     return sorted(path for path in dataset_dir.iterdir() if path.is_dir())
 
 
-def resolve_gold_path(document_dir: Path) -> Path:
-    direct_target = document_dir / "target.json"
-    if direct_target.exists():
-        return direct_target
-
-    doc_id = document_dir.name
-    candidates = [
-        document_dir.parent / "targets" / f"{doc_id}.json",
-        document_dir.parent / "gold" / f"{doc_id}.json",
-        document_dir.parent.parent / "targets" / f"{doc_id}.json",
-        document_dir.parent.parent / "gold" / f"{doc_id}.json",
-    ]
-    for candidate in candidates:
-        if candidate.exists():
-            return candidate
+def resolve_gold_path(document_dir: Path, gold_dir: Path | None = None) -> Path:
+    if gold_dir is None:
+        target_path = document_dir / "target.json"
+    else:
+        target_path = gold_dir / f"{document_dir.name}.json"
+    if target_path.exists():
+        return target_path
     raise FileNotFoundError(f"Could not locate gold target for {document_dir}")
 
 
@@ -154,10 +146,10 @@ def score_document(schema_name: str, prediction: dict[str, Any], gold: dict[str,
     return 0.9 * field_acc + 0.1 * exact_doc
 
 
-def evaluate_document(solution_dir: Path, document_dir: Path) -> tuple[str, float]:
+def evaluate_document(solution_dir: Path, document_dir: Path, gold_dir: Path | None = None) -> tuple[str, float]:
     meta = load_json(document_dir / "meta.json")
     schema_name = meta["schema_name"]
-    gold = load_json(resolve_gold_path(document_dir))
+    gold = load_json(resolve_gold_path(document_dir, gold_dir))
 
     status, prediction = run_prediction_subprocess(solution_dir, document_dir)
     if status != "ok":
@@ -194,8 +186,11 @@ def aggregate_scores(doc_scores: list[tuple[str, float]]) -> dict[str, Any]:
     }
 
 
-def evaluate_solution(solution_dir: Path, dataset_dir: Path) -> dict[str, Any]:
-    doc_scores = [evaluate_document(solution_dir, document_dir) for document_dir in list_document_dirs(dataset_dir)]
+def evaluate_solution(solution_dir: Path, dataset_dir: Path, gold_dir: Path | None = None) -> dict[str, Any]:
+    doc_scores = [
+        evaluate_document(solution_dir, document_dir, gold_dir)
+        for document_dir in list_document_dirs(dataset_dir)
+    ]
     return aggregate_scores(doc_scores)
 
 
@@ -212,4 +207,3 @@ __all__ = [
     "score_document",
     "validate_prediction",
 ]
-

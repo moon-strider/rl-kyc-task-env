@@ -33,8 +33,10 @@ def _el(
     is_label: bool = False,
     block_id: int = 0,
     bold: bool = False,
+    fill: tuple[int, int, int] | None = None,
 ) -> dict:
     return {
+        "kind": "text",
         "text": str(text),
         "x": x,
         "y": y,
@@ -42,6 +44,7 @@ def _el(
         "is_label": is_label,
         "block_id": block_id,
         "bold": bold,
+        "fill": fill,
     }
 
 
@@ -62,14 +65,56 @@ def _lv_row(
 
 
 def _header_bar(text: str, y: int, font_size: int = 52, block_id: int = 0) -> dict:
-    """Centered header text."""
     return _el(text, W // 2, y, font_size, is_label=False, block_id=block_id, bold=True)
 
 
 def _hline_marker(y: int, block_id: int = 0) -> dict:
-    """Invisible placeholder that signals a horizontal rule in the renderer."""
-    return {"text": "__HLINE__", "x": 60, "y": y, "font_size": 2,
-            "is_label": False, "block_id": block_id, "bold": False}
+    return {
+        "kind": "line",
+        "x1": 60,
+        "y1": y + 1,
+        "x2": W - 60,
+        "y2": y + 1,
+        "width": 2,
+        "fill": (80, 80, 80),
+        "block_id": block_id,
+    }
+
+
+def _vline_marker(x: int, y1: int, y2: int, block_id: int = 0, width: int = 2) -> dict:
+    return {
+        "kind": "line",
+        "x1": x,
+        "y1": y1,
+        "x2": x,
+        "y2": y2,
+        "width": width,
+        "fill": (96, 108, 128),
+        "block_id": block_id,
+    }
+
+
+def _rect(
+    x1: int,
+    y1: int,
+    x2: int,
+    y2: int,
+    block_id: int = 0,
+    outline: tuple[int, int, int] | None = (96, 108, 128),
+    fill: tuple[int, int, int] | None = None,
+    width: int = 2,
+) -> dict:
+    return {
+        "kind": "rect",
+        "x1": x1,
+        "y1": y1,
+        "x2": x2,
+        "y2": y2,
+        "outline": outline,
+        "fill": fill,
+        "width": width,
+        "block_id": block_id,
+    }
 
 
 # ============================================================
@@ -152,21 +197,26 @@ def gid_passport_grid(fields: dict[str, Any]) -> list[dict]:
 
 
 def gid_idcard_compact(fields: dict[str, Any]) -> list[dict]:
-    """Compact ID card layout, two-column."""
     els: list[dict] = []
     bid = 0
 
-    els.append(_el("IDENTITY CARD", W // 2, 70, 50, is_label=False, block_id=bid, bold=True))
+    els.append(_rect(70, 45, W - 70, 170, block_id=bid, fill=(34, 84, 140), outline=None))
+    els.append(_el("IDENTITY CARD", W // 2, 70, 50, is_label=False, block_id=bid, bold=True, fill=(255, 255, 255)))
     bid += 1
     els.append(_el("OFFICIAL DOCUMENT — NOT FOR COMMERCIAL USE",
-                   W // 2, 135, 22, is_label=True, block_id=bid))
+                   W // 2, 135, 22, is_label=True, block_id=bid, fill=(235, 241, 248)))
     bid += 1
     els.append(_hline_marker(170, bid))
     bid += 1
 
-    # Card body: left col labels, right col values
-    lx, vx = 80, 420
-    y = 210
+    els.append(_rect(80, 205, 300, 595, block_id=bid, outline=(120, 132, 148), fill=(242, 246, 250)))
+    els.append(_el("[PHOTO]", 140, 360, 34, is_label=True, block_id=bid))
+    bid += 1
+    els.append(_rect(340, 205, W - 80, 760, block_id=bid, outline=(120, 132, 148), fill=(250, 252, 255)))
+    bid += 1
+
+    lx, vx = 380, 760
+    y = 240
     step = 80
 
     rows = [
@@ -188,7 +238,9 @@ def gid_idcard_compact(fields: dict[str, Any]) -> list[dict]:
     els.append(_hline_marker(y + 10, bid))
     bid += 1
 
-    # Footer
+    els.append(_el("Signature", 1040, 720, 24, is_label=True, block_id=bid))
+    els.append(_rect(1150, 728, 1460, 732, block_id=bid, outline=(80, 80, 80), fill=(80, 80, 80), width=1))
+    bid += 1
     els.append(_el("This card remains the property of the issuing authority.",
                    W // 2, y + 40, 22, is_label=True, block_id=bid))
     bid += 1
@@ -419,15 +471,14 @@ def poa_utility_bill(fields: dict[str, Any]) -> list[dict]:
 
 
 def poa_telecom_invoice(fields: dict[str, Any]) -> list[dict]:
-    """Telecom invoice layout."""
     els: list[dict] = []
     bid = 0
 
-    # Header
+    els.append(_rect(70, 45, W - 70, 175, block_id=bid, fill=(28, 102, 161), outline=None))
     els.append(_el(fields["issuer_name"], W // 2, 70, 52,
-                   is_label=False, block_id=bid, bold=True))
+                   is_label=False, block_id=bid, bold=True, fill=(255, 255, 255)))
     bid += 1
-    els.append(_el("INVOICE", W // 2, 135, 42, is_label=False, block_id=bid, bold=True))
+    els.append(_el("INVOICE", W // 2, 135, 42, is_label=False, block_id=bid, bold=True, fill=(231, 241, 250)))
     bid += 1
     els.append(_hline_marker(185, bid))
     bid += 1
@@ -578,11 +629,10 @@ def poa_bank_statement(fields: dict[str, Any]) -> list[dict]:
 
 
 def poa_insurance_notice(fields: dict[str, Any]) -> list[dict]:
-    """Insurance notice layout."""
     els: list[dict] = []
     bid = 0
 
-    # Header
+    els.append(_rect(90, 55, W - 90, 175, block_id=bid, outline=(104, 112, 124), fill=(241, 244, 248)))
     els.append(_el(fields["issuer_name"], W // 2, 70, 50,
                    is_label=False, block_id=bid, bold=True))
     bid += 1
@@ -754,11 +804,10 @@ def pay_wallet_receipt(fields: dict[str, Any]) -> list[dict]:
 
 
 def pay_paid_invoice(fields: dict[str, Any]) -> list[dict]:
-    """Paid invoice layout."""
     els: list[dict] = []
     bid = 0
 
-    # Invoice header
+    els.append(_rect(70, 50, W - 70, 178, block_id=bid, outline=(104, 112, 124), fill=(246, 246, 246)))
     els.append(_el("INVOICE", W // 2, 70, 60, is_label=False, block_id=bid, bold=True))
     bid += 1
     els.append(_el(fields.get("_invoice_id", "INV-000000"), W // 2, 140, 32,
@@ -823,8 +872,9 @@ def pay_paid_invoice(fields: dict[str, Any]) -> list[dict]:
                    is_label=False, block_id=bid, bold=True))
     bid += 1
 
-    # PAID stamp
-    els.append(_el("*** PAID ***", W // 2, y + 100, 50, is_label=False, block_id=bid, bold=True))
+    els.append(_rect(1030, 208, 1450, 330, block_id=bid, outline=(188, 52, 44), width=5))
+    els.append(_el("PAID", 1240, 228, 58, is_label=False, block_id=bid, bold=True, fill=(188, 52, 44)))
+    els.append(_el(f"Date {fields['payment_date']}", 1240, 288, 24, is_label=False, block_id=bid, fill=(188, 52, 44)))
     bid += 1
 
     return els

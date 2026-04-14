@@ -15,7 +15,7 @@
           ],
           "line_id": 0,
           "block_id": 0,
-          "conf": 0.9111
+          "conf": 0.8796
         },
         {
           "text": "DOCUMENT",
@@ -27,19 +27,7 @@
           ],
           "line_id": 0,
           "block_id": 0,
-          "conf": 0.9156
-        },
-        {
-          "text": "Doc",
-          "bbox": [
-            842,
-            169,
-            882,
-            187
-          ],
-          "line_id": 1,
-          "block_id": 6,
-          "conf": 0.8703
+          "conf": 0.8765
         },
         {
           "text": "No.",
@@ -51,7 +39,7 @@
           ],
           "line_id": 1,
           "block_id": 6,
-          "conf": 0.9429
+          "conf": 0.8861
         },
         {
           "text": "LH369120",
@@ -63,7 +51,7 @@
           ],
           "line_id": 1,
           "block_id": 6,
-          "conf": 0.9508
+          "conf": 0.9103
         },
         {
           "text": "Name",
@@ -75,7 +63,7 @@
           ],
           "line_id": 1,
           "block_id": 2,
-          "conf": 0.9237
+          "conf": 0.9723
         },
         {
           "text": "Samantha",
@@ -87,7 +75,7 @@
           ],
           "line_id": 1,
           "block_id": 2,
-          "conf": 0.9258
+          "conf": 0.962
         },
         {
           "text": "Hernandez",
@@ -99,7 +87,7 @@
           ],
           "line_id": 1,
           "block_id": 2,
-          "conf": 0.8262
+          "conf": 0.8979
         },
         {
           "text": "of",
@@ -111,7 +99,7 @@
           ],
           "line_id": 2,
           "block_id": 3,
-          "conf": 0.9805
+          "conf": 0.8543
         },
         {
           "text": "Birth",
@@ -123,19 +111,19 @@
           ],
           "line_id": 2,
           "block_id": 3,
-          "conf": 0.8896
+          "conf": 0.8202
         },
         {
-          "text": "Date",
+          "text": "No.",
           "bbox": [
-            911,
+            950,
             258,
-            961,
+            987,
             280
           ],
           "line_id": 2,
           "block_id": 7,
-          "conf": 0.9023
+          "conf": 0.9149
         },
         {
           "text": "Date",
@@ -147,7 +135,7 @@
           ],
           "line_id": 2,
           "block_id": 3,
-          "conf": 0.92
+          "conf": 0.9844
         },
         {
           "text": "1984-07-29",
@@ -159,91 +147,91 @@
           ],
           "line_id": 2,
           "block_id": 3,
-          "conf": 0.9736
+          "conf": 0.8375
         },
         {
-          "text": "Issue",
+          "text": "Personal",
           "bbox": [
             840,
             261,
-            902,
+            940,
             281
           ],
           "line_id": 2,
           "block_id": 7,
-          "conf": 0.9534
+          "conf": 0.8747
         },
         {
-          "text": "2012-09-23",
+          "text": "369120",
           "bbox": [
             1098,
             258,
-            1255,
+            1201,
             284
           ],
           "line_id": 2,
           "block_id": 7,
-          "conf": 0.8421
-        },
-        {
-          "text": "2017-O9-23",
-          "bbox": [
-            1099,
-            350,
-            1255,
-            370
-          ],
-          "line_id": 3,
-          "block_id": 8,
-          "conf": 0.9203
-        },
-        {
-          "text": "Australia",
-          "bbox": [
-            322,
-            351,
-            439,
-            372
-          ],
-          "line_id": 3,
-          "block_id": 4,
-          "conf": 0.9583
-        },
-        {
-          "text": "Nationality",
-          "bbox": [
-            58,
-            351,
-            178,
-            374
-          ],
-          "line_id": 3,
-          "block_id": 4,
-          "conf": 0.9131
+          "conf": 0.959
         },
         {
           "text": "Date",
           "bbox": [
-            924,
+            909,
+            350,
+            961,
+            367
+          ],
+          "line_id": 3,
+          "block_id": 8,
+          "conf": 0.8809
+        },
+        {
+          "text": "Issue",
+          "bbox": [
+            842,
             351,
-            972,
+            904,
+            369
+          ],
+          "line_id": 3,
+          "block_id": 8,
+          "conf": 0.8986
+        },
+        {
+          "text": "Australia",
+          "bbox": [
+            318,
+            351,
+            437,
+            372
+          ],
+          "line_id": 3,
+          "block_id": 4,
+          "conf": 0.8302
+        },
+        {
+          "text": "Nationality",
+          "bbox": [
+            62,
+            351,
+            179,
+            374
+          ],
+          "line_id": 3,
+          "block_id": 4,
+          "conf": 0.8774
+        },
+        {
+          "text": "2012-09-23",
+          "bbox": [
+            1100,
+            352,
+            1254,
             374
           ],
           "line_id": 3,
           "block_id": 8,
-          "conf": 0.8918
-        },
-        {
-          "text": "Expiry",
-          "bbox": [
-            840,
-            352,
-            914,
-            376
-          ],
-          "line_id": 3,
-          "block_id": 8,
-          "conf": 0.935
+          "conf": 0.976
         },
         {
           "text": "Sex",
@@ -255,31 +243,31 @@
           ],
           "line_id": 4,
           "block_id": 5,
-          "conf": 0.9344
+          "conf": 0.8327
         },
         {
-          "text": "Country",
+          "text": "Date",
           "bbox": [
-            933,
+            923,
             439,
-            1019,
+            974,
             462
           ],
           "line_id": 4,
           "block_id": 9,
-          "conf": 0.9625
+          "conf": 0.917
         },
         {
-          "text": "Australia",
+          "text": "2017-09-23",
           "bbox": [
             1101,
             438,
-            1217,
+            1254,
             464
           ],
           "line_id": 4,
           "block_id": 9,
-          "conf": 0.9132
+          "conf": 0.961
         },
         {
           "text": "F",
@@ -291,163 +279,211 @@
           ],
           "line_id": 4,
           "block_id": 5,
-          "conf": 0.9533
+          "conf": 0.8241
         },
         {
-          "text": "Issuing",
+          "text": "Expiry",
           "bbox": [
             839,
             441,
-            923,
+            914,
             465
           ],
           "line_id": 4,
           "block_id": 9,
-          "conf": 0.9064
+          "conf": 0.9312
         },
         {
-          "text": "Birth:",
+          "text": "Country",
           "bbox": [
-            150,
-            602,
-            218,
-            618
+            932,
+            532,
+            1017,
+            553
           ],
           "line_id": 5,
-          "block_id": 11,
-          "conf": 0.892
+          "block_id": 10,
+          "conf": 0.8541
         },
         {
-          "text": "Hernandezmouth",
+          "text": "Australia",
           "bbox": [
-            300,
-            602,
-            519,
-            619
+            1102,
+            532,
+            1221,
+            553
           ],
           "line_id": 5,
-          "block_id": 11,
-          "conf": 0.921
+          "block_id": 10,
+          "conf": 0.8671
+        },
+        {
+          "text": "Issuing",
+          "bbox": [
+            842,
+            531,
+            927,
+            556
+          ],
+          "line_id": 5,
+          "block_id": 10,
+          "conf": 0.9333
         },
         {
           "text": "Place",
           "bbox": [
-            62,
+            60,
             602,
-            118,
+            117,
+            617
+          ],
+          "line_id": 6,
+          "block_id": 12,
+          "conf": 0.8442
+        },
+        {
+          "text": "of",
+          "bbox": [
+            123,
+            602,
+            145,
+            618
+          ],
+          "line_id": 6,
+          "block_id": 12,
+          "conf": 0.9744
+        },
+        {
+          "text": "Birth:",
+          "bbox": [
+            151,
+            602,
+            221,
+            618
+          ],
+          "line_id": 6,
+          "block_id": 12,
+          "conf": 0.8876
+        },
+        {
+          "text": "Hernandezmouth",
+          "bbox": [
+            298,
+            602,
+            520,
             620
           ],
-          "line_id": 5,
-          "block_id": 11,
-          "conf": 0.9638
+          "line_id": 6,
+          "block_id": 12,
+          "conf": 0.8433
+        },
+        {
+          "text": "This",
+          "bbox": [
+            540,
+            659,
+            579,
+            678
+          ],
+          "line_id": 7,
+          "block_id": 13,
+          "conf": 0.872
+        },
+        {
+          "text": "holder's",
+          "bbox": [
+            877,
+            659,
+            956,
+            678
+          ],
+          "line_id": 7,
+          "block_id": 13,
+          "conf": 0.9011
+        },
+        {
+          "text": "signature.",
+          "bbox": [
+            959,
+            661,
+            1063,
+            679
+          ],
+          "line_id": 7,
+          "block_id": 13,
+          "conf": 0.9145
+        },
+        {
+          "text": "only",
+          "bbox": [
+            748,
+            660,
+            789,
+            681
+          ],
+          "line_id": 7,
+          "block_id": 13,
+          "conf": 0.8563
+        },
+        {
+          "text": "the",
+          "bbox": [
+            841,
+            661,
+            872,
+            680
+          ],
+          "line_id": 7,
+          "block_id": 13,
+          "conf": 0.9685
+        },
+        {
+          "text": "is",
+          "bbox": [
+            671,
+            660,
+            691,
+            682
+          ],
+          "line_id": 7,
+          "block_id": 13,
+          "conf": 0.9788
+        },
+        {
+          "text": "with",
+          "bbox": [
+            795,
+            662,
+            837,
+            680
+          ],
+          "line_id": 7,
+          "block_id": 13,
+          "conf": 0.9101
+        },
+        {
+          "text": "document",
+          "bbox": [
+            581,
+            661,
+            661,
+            682
+          ],
+          "line_id": 7,
+          "block_id": 13,
+          "conf": 0.9153
         },
         {
           "text": "valid",
           "bbox": [
             696,
-            659,
-            745,
-            678
-          ],
-          "line_id": 6,
-          "block_id": 12,
-          "conf": 0.8921
-        },
-        {
-          "text": "This",
-          "bbox": [
-            539,
             662,
-            578,
-            679
-          ],
-          "line_id": 6,
-          "block_id": 12,
-          "conf": 0.9797
-        },
-        {
-          "text": "document",
-          "bbox": [
-            584,
-            662,
-            665,
-            679
-          ],
-          "line_id": 6,
-          "block_id": 12,
-          "conf": 0.8796
-        },
-        {
-          "text": "is",
-          "bbox": [
-            667,
-            662,
-            691,
-            679
-          ],
-          "line_id": 6,
-          "block_id": 12,
-          "conf": 0.8765
-        },
-        {
-          "text": "holder's",
-          "bbox": [
-            874,
-            660,
-            956,
+            746,
             681
           ],
-          "line_id": 6,
-          "block_id": 12,
-          "conf": 0.8861
-        },
-        {
-          "text": "with",
-          "bbox": [
-            796,
-            660,
-            837,
-            682
-          ],
-          "line_id": 6,
-          "block_id": 12,
-          "conf": 0.9103
-        },
-        {
-          "text": "signature.",
-          "bbox": [
-            962,
-            662,
-            1064,
-            680
-          ],
-          "line_id": 6,
-          "block_id": 12,
-          "conf": 0.9723
-        },
-        {
-          "text": "only",
-          "bbox": [
-            747,
-            661,
-            787,
-            682
-          ],
-          "line_id": 6,
-          "block_id": 12,
-          "conf": 0.962
-        },
-        {
-          "text": "the",
-          "bbox": [
-            842,
-            662,
-            872,
-            681
-          ],
-          "line_id": 6,
-          "block_id": 12,
-          "conf": 0.8979
+          "line_id": 7,
+          "block_id": 13,
+          "conf": 0.868
         }
       ]
     }

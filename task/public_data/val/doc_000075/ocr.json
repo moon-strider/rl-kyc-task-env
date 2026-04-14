@@ -15,7 +15,7 @@
           ],
           "line_id": 0,
           "block_id": 0,
-          "conf": 0.9189
+          "conf": 0.829
         },
         {
           "text": "IDENTITY",
@@ -27,7 +27,7 @@
           ],
           "line_id": 0,
           "block_id": 0,
-          "conf": 0.8202
+          "conf": 0.8404
         },
         {
           "text": "FOR",
@@ -39,7 +39,7 @@
           ],
           "line_id": 1,
           "block_id": 1,
-          "conf": 0.8934
+          "conf": 0.9262
         },
         {
           "text": "COMMERCIAL",
@@ -51,7 +51,7 @@
           ],
           "line_id": 1,
           "block_id": 1,
-          "conf": 0.9179
+          "conf": 0.9598
         },
         {
           "text": "USE",
@@ -63,7 +63,7 @@
           ],
           "line_id": 1,
           "block_id": 1,
-          "conf": 0.9609
+          "conf": 0.9818
         },
         {
           "text": "OFFICIAL",
@@ -75,7 +75,7 @@
           ],
           "line_id": 1,
           "block_id": 1,
-          "conf": 0.9233
+          "conf": 0.8465
         },
         {
           "text": "DOCUMENT",
@@ -87,7 +87,7 @@
           ],
           "line_id": 1,
           "block_id": 1,
-          "conf": 0.842
+          "conf": 0.8853
         },
         {
           "text": "NOT",
@@ -99,7 +99,7 @@
           ],
           "line_id": 1,
           "block_id": 1,
-          "conf": 0.9109
+          "conf": 0.9862
         },
         {
           "text": "—",
@@ -111,427 +111,463 @@
           ],
           "line_id": 1,
           "block_id": 1,
-          "conf": 0.8827
+          "conf": 0.8585
         },
         {
           "text": "Number:",
           "bbox": [
-            119,
-            208,
-            232,
-            231
+            419,
+            238,
+            532,
+            261
           ],
           "line_id": 2,
-          "block_id": 3,
-          "conf": 0.9808
+          "block_id": 5,
+          "conf": 0.8876
         },
         {
           "text": "ID",
           "bbox": [
-            78,
-            209,
-            112,
-            232
+            378,
+            239,
+            412,
+            262
           ],
           "line_id": 2,
-          "block_id": 3,
-          "conf": 0.9288
+          "block_id": 5,
+          "conf": 0.9542
         },
         {
           "text": "U7722648",
           "bbox": [
-            421,
-            212,
-            559,
-            233
+            761,
+            242,
+            899,
+            263
           ],
           "line_id": 2,
-          "block_id": 3,
-          "conf": 0.916
+          "block_id": 5,
+          "conf": 0.9598
         },
         {
           "text": "Name:",
           "bbox": [
-            148,
-            291,
-            227,
-            310
+            448,
+            321,
+            527,
+            340
           ],
           "line_id": 3,
-          "block_id": 4,
-          "conf": 0.937
+          "block_id": 6,
+          "conf": 0.8472
         },
         {
           "text": "Full",
           "bbox": [
-            78,
-            292,
-            142,
-            311
+            378,
+            322,
+            442,
+            341
           ],
           "line_id": 3,
-          "block_id": 4,
-          "conf": 0.9749
+          "block_id": 6,
+          "conf": 0.8893
         },
         {
-          "text": "Preston",
+          "text": "Pre",
           "bbox": [
-            421,
-            290,
-            529,
-            318
+            761,
+            320,
+            807,
+            348
           ],
           "line_id": 3,
-          "block_id": 4,
-          "conf": 0.8379
+          "block_id": 6,
+          "conf": 0.8583
+        },
+        {
+          "text": "ston",
+          "bbox": [
+            807,
+            320,
+            869,
+            348
+          ],
+          "line_id": 3,
+          "block_id": 6,
+          "conf": 0.8693
         },
         {
           "text": "Reynolds",
           "bbox": [
-            536,
-            291,
-            657,
-            319
+            876,
+            321,
+            997,
+            349
           ],
           "line_id": 3,
-          "block_id": 4,
-          "conf": 0.8663
+          "block_id": 6,
+          "conf": 0.9799
+        },
+        {
+          "text": "[PHOTO]",
+          "bbox": [
+            138,
+            362,
+            277,
+            394
+          ],
+          "line_id": 4,
+          "block_id": 3,
+          "conf": 0.9199
+        },
+        {
+          "text": "of",
+          "bbox": [
+            442,
+            399,
+            465,
+            420
+          ],
+          "line_id": 5,
+          "block_id": 7,
+          "conf": 0.8237
         },
         {
           "text": "Birth:",
           "bbox": [
-            176,
-            369,
-            253,
-            390
+            472,
+            399,
+            555,
+            424
           ],
-          "line_id": 4,
-          "block_id": 5,
-          "conf": 0.9438
-        },
-        {
-          "text": "2002-05-30",
-          "bbox": [
-            418,
-            369,
-            576,
-            394
-          ],
-          "line_id": 4,
-          "block_id": 5,
-          "conf": 0.9321
-        },
-        {
-          "text": "of",
-          "bbox": [
-            141,
-            371,
-            165,
-            393
-          ],
-          "line_id": 4,
-          "block_id": 5,
-          "conf": 0.8983
+          "line_id": 5,
+          "block_id": 7,
+          "conf": 0.8307
         },
         {
           "text": "Date",
           "bbox": [
-            78,
-            372,
-            131,
-            394
-          ],
-          "line_id": 4,
-          "block_id": 5,
-          "conf": 0.9599
-        },
-        {
-          "text": "Date:",
-          "bbox": [
-            158,
-            449,
-            230,
-            474
+            381,
+            401,
+            431,
+            423
           ],
           "line_id": 5,
-          "block_id": 6,
-          "conf": 0.9449
+          "block_id": 7,
+          "conf": 0.8513
+        },
+        {
+          "text": "2002-05-30",
+          "bbox": [
+            758,
+            402,
+            914,
+            424
+          ],
+          "line_id": 5,
+          "block_id": 7,
+          "conf": 0.8353
         },
         {
           "text": "2020-07-22",
           "bbox": [
-            418,
-            451,
-            574,
-            473
+            761,
+            479,
+            917,
+            502
           ],
-          "line_id": 5,
-          "block_id": 6,
-          "conf": 0.8759
+          "line_id": 6,
+          "block_id": 8,
+          "conf": 0.9503
         },
         {
           "text": "Issue",
           "bbox": [
-            78,
-            452,
-            150,
-            474
-          ],
-          "line_id": 5,
-          "block_id": 6,
-          "conf": 0.8473
-        },
-        {
-          "text": "2025-07-22",
-          "bbox": [
-            421,
-            529,
-            577,
-            552
+            379,
+            479,
+            450,
+            504
           ],
           "line_id": 6,
-          "block_id": 7,
-          "conf": 0.9238
+          "block_id": 8,
+          "conf": 0.8977
         },
         {
           "text": "Date:",
           "bbox": [
-            174,
-            531,
-            246,
-            556
+            457,
+            481,
+            530,
+            503
           ],
           "line_id": 6,
-          "block_id": 7,
-          "conf": 0.8377
+          "block_id": 8,
+          "conf": 0.85
+        },
+        {
+          "text": "2025-07-22",
+          "bbox": [
+            761,
+            562,
+            917,
+            583
+          ],
+          "line_id": 7,
+          "block_id": 9,
+          "conf": 0.9805
         },
         {
           "text": "Expiry",
           "bbox": [
-            81,
-            532,
-            166,
-            559
-          ],
-          "line_id": 6,
-          "block_id": 7,
-          "conf": 0.8637
-        },
-        {
-          "text": "States",
-          "bbox": [
-            512,
-            612,
-            599,
-            632
+            382,
+            561,
+            467,
+            586
           ],
           "line_id": 7,
-          "block_id": 8,
-          "conf": 0.829
+          "block_id": 9,
+          "conf": 0.9864
+        },
+        {
+          "text": "Date:",
+          "bbox": [
+            471,
+            562,
+            546,
+            589
+          ],
+          "line_id": 7,
+          "block_id": 9,
+          "conf": 0.9478
         },
         {
           "text": "United",
           "bbox": [
-            419,
-            612,
-            508,
-            633
+            758,
+            642,
+            844,
+            662
           ],
-          "line_id": 7,
-          "block_id": 8,
-          "conf": 0.8404
+          "line_id": 8,
+          "block_id": 10,
+          "conf": 0.8706
         },
         {
-          "text": "Country:",
+          "text": "States",
           "bbox": [
-            185,
-            610,
-            296,
-            637
+            855,
+            642,
+            939,
+            662
           ],
-          "line_id": 7,
-          "block_id": 8,
-          "conf": 0.9262
+          "line_id": 8,
+          "block_id": 10,
+          "conf": 0.8965
         },
         {
           "text": "Issuing",
           "bbox": [
-            81,
-            612,
-            176,
-            638
+            380,
+            640,
+            476,
+            667
           ],
-          "line_id": 7,
-          "block_id": 8,
-          "conf": 0.9598
+          "line_id": 8,
+          "block_id": 10,
+          "conf": 0.8285
+        },
+        {
+          "text": "Country:",
+          "bbox": [
+            486,
+            642,
+            597,
+            666
+          ],
+          "line_id": 8,
+          "block_id": 10,
+          "conf": 0.92
+        },
+        {
+          "text": "Signature",
+          "bbox": [
+            1042,
+            719,
+            1141,
+            742
+          ],
+          "line_id": 9,
+          "block_id": 14,
+          "conf": 0.9484
         },
         {
           "text": "United",
           "bbox": [
-            421,
-            692,
-            505,
-            710
+            760,
+            718,
+            845,
+            744
           ],
-          "line_id": 8,
-          "block_id": 9,
-          "conf": 0.9818
+          "line_id": 9,
+          "block_id": 11,
+          "conf": 0.9869
         },
         {
           "text": "States",
           "bbox": [
-            514,
-            688,
-            600,
-            714
+            856,
+            722,
+            940,
+            744
           ],
-          "line_id": 8,
-          "block_id": 9,
-          "conf": 0.8465
+          "line_id": 9,
+          "block_id": 11,
+          "conf": 0.9463
         },
         {
           "text": "Nationality:",
           "bbox": [
-            82,
-            692,
-            229,
-            720
+            378,
+            719,
+            530,
+            750
           ],
-          "line_id": 8,
-          "block_id": 9,
-          "conf": 0.8853
+          "line_id": 9,
+          "block_id": 11,
+          "conf": 0.9085
         },
         {
           "text": "Sex:",
           "bbox": [
-            82,
-            769,
-            140,
-            791
+            378,
+            798,
+            440,
+            824
           ],
-          "line_id": 9,
-          "block_id": 10,
-          "conf": 0.9862
+          "line_id": 10,
+          "block_id": 12,
+          "conf": 0.8514
         },
         {
           "text": "F",
           "bbox": [
-            418,
-            769,
-            438,
-            794
-          ],
-          "line_id": 9,
-          "block_id": 10,
-          "conf": 0.8585
-        },
-        {
-          "text": "of",
-          "bbox": [
-            823,
-            889,
-            847,
-            908
+            760,
+            801,
+            779,
+            821
           ],
           "line_id": 10,
           "block_id": 12,
-          "conf": 0.8876
-        },
-        {
-          "text": "authority.",
-          "bbox": [
-            959,
-            889,
-            1059,
-            909
-          ],
-          "line_id": 10,
-          "block_id": 12,
-          "conf": 0.9542
+          "conf": 0.8553
         },
         {
           "text": "the",
           "bbox": [
-            704,
-            891,
-            732,
-            908
+            702,
+            919,
+            736,
+            938
           ],
-          "line_id": 10,
-          "block_id": 12,
-          "conf": 0.9598
-        },
-        {
-          "text": "property",
-          "bbox": [
-            737,
-            890,
-            820,
-            909
-          ],
-          "line_id": 10,
-          "block_id": 12,
-          "conf": 0.8472
+          "line_id": 11,
+          "block_id": 15,
+          "conf": 0.9314
         },
         {
           "text": "the",
           "bbox": [
-            851,
-            889,
+            849,
+            919,
             878,
-            910
+            939
           ],
-          "line_id": 10,
-          "block_id": 12,
-          "conf": 0.8893
-        },
-        {
-          "text": "This",
-          "bbox": [
-            537,
-            888,
-            579,
-            912
-          ],
-          "line_id": 10,
-          "block_id": 12,
-          "conf": 0.8583
+          "line_id": 11,
+          "block_id": 15,
+          "conf": 0.8545
         },
         {
           "text": "card",
           "bbox": [
             584,
-            891,
-            625,
-            909
+            921,
+            622,
+            938
           ],
-          "line_id": 10,
-          "block_id": 12,
-          "conf": 0.8693
+          "line_id": 11,
+          "block_id": 15,
+          "conf": 0.8609
         },
         {
           "text": "remains",
           "bbox": [
-            629,
-            888,
-            700,
-            912
+            627,
+            920,
+            699,
+            939
           ],
-          "line_id": 10,
-          "block_id": 12,
-          "conf": 0.9799
+          "line_id": 11,
+          "block_id": 15,
+          "conf": 0.982
+        },
+        {
+          "text": "property",
+          "bbox": [
+            740,
+            919,
+            818,
+            940
+          ],
+          "line_id": 11,
+          "block_id": 15,
+          "conf": 0.8637
+        },
+        {
+          "text": "authority.",
+          "bbox": [
+            959,
+            919,
+            1063,
+            940
+          ],
+          "line_id": 11,
+          "block_id": 15,
+          "conf": 0.823
+        },
+        {
+          "text": "This",
+          "bbox": [
+            539,
+            918,
+            580,
+            942
+          ],
+          "line_id": 11,
+          "block_id": 15,
+          "conf": 0.9274
+        },
+        {
+          "text": "of",
+          "bbox": [
+            823,
+            921,
+            843,
+            940
+          ],
+          "line_id": 11,
+          "block_id": 15,
+          "conf": 0.877
         },
         {
           "text": "issuing",
           "bbox": [
             883,
-            891,
-            953,
-            910
+            922,
+            956,
+            939
           ],
-          "line_id": 10,
-          "block_id": 12,
-          "conf": 0.9199
+          "line_id": 11,
+          "block_id": 15,
+          "conf": 0.8546
         }
       ]
     }

@@ -26,8 +26,6 @@ Centering heuristic: if x == W // 2 (800) the text is centered on that x.
 from __future__ import annotations
 
 import os
-import sys
-from pathlib import Path
 from typing import Optional
 
 from PIL import Image, ImageDraw, ImageFont
@@ -147,6 +145,23 @@ def render_document(elements: list[dict]) -> tuple[Image.Image, list[dict]]:
     boxes: list[dict] = []
 
     for el in elements:
+        kind = el.get("kind", "text")
+        if kind == "rect":
+            draw.rectangle(
+                (el["x1"], el["y1"], el["x2"], el["y2"]),
+                fill=el.get("fill"),
+                outline=el.get("outline"),
+                width=el.get("width", 1),
+            )
+            continue
+        if kind == "line":
+            draw.line(
+                [(el["x1"], el["y1"]), (el["x2"], el["y2"])],
+                fill=el.get("fill", HLINE_COLOR),
+                width=el.get("width", 2),
+            )
+            continue
+
         text = el["text"]
         x = el["x"]
         y = el["y"]
@@ -154,19 +169,13 @@ def render_document(elements: list[dict]) -> tuple[Image.Image, list[dict]]:
         is_label = el.get("is_label", False)
         block_id = el.get("block_id", 0)
         bold = el.get("bold", False)
-
-        # Handle special markers
-        if text == "__HLINE__":
-            line_y = y + 1
-            draw.line([(60, line_y), (PAGE_W - 60, line_y)], fill=HLINE_COLOR, width=2)
-            continue
+        fill_value = el.get("fill")
+        fill = TEXT_COLOR if fill_value is None else tuple(fill_value)
 
         font = _get_font(font_size, bold=bold)
         bbox_rel = _measure_text(text, font)
         w = bbox_rel[2] - bbox_rel[0]
-        h = bbox_rel[3] - bbox_rel[1]
 
-        # Centering: if x is the page center sentinel, center the text
         if x == CENTER_X:
             draw_x = x - w // 2 - bbox_rel[0]
         else:
@@ -174,22 +183,20 @@ def render_document(elements: list[dict]) -> tuple[Image.Image, list[dict]]:
 
         draw_y = y - bbox_rel[1]
 
-        # Compute absolute bbox (top-left to bottom-right of the glyph)
         x1 = draw_x + bbox_rel[0]
         y1 = draw_y + bbox_rel[1]
         x2 = draw_x + bbox_rel[2]
         y2 = draw_y + bbox_rel[3]
 
-        # Clip to page
         x1 = max(0, min(x1, PAGE_W))
         y1 = max(0, min(y1, PAGE_H))
         x2 = max(0, min(x2, PAGE_W))
         y2 = max(0, min(y2, PAGE_H))
 
         if x2 <= x1 or y2 <= y1:
-            continue  # skip zero-area boxes
+            continue
 
-        draw.text((draw_x, draw_y), text, font=font, fill=TEXT_COLOR)
+        draw.text((draw_x, draw_y), text, font=font, fill=fill)
 
         boxes.append({
             "text": text,
