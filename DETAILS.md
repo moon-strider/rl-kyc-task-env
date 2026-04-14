@@ -16,7 +16,7 @@ Direct dependencies:
 - `python-dateutil==2.9.0.post0`
 - `rapidfuzz==3.14.5`
 
-The exact lockfile is `uv.lock`. A full exported requirements file is `requirements.txt`.
+The exact lockfile is `uv.lock`.
 
 ## Repository Structure
 
