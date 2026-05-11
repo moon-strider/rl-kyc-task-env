@@ -48,6 +48,76 @@ Pinned runtime:
 - Python `3.12.2`
 - `uv` `0.7.7`
 
+## Demo flow
+
+Run the benchmark as a participant would see it:
+
+```bash
+uv run python task/tools/public_validator.py baselines/heuristic_baseline
+```
+
+Run the hidden judge locally:
+
+```bash
+uv run python judge/run_judge.py baselines/heuristic_baseline
+```
+
+Run the package API directly:
+
+```bash
+uv run python - <<'PY'
+from rl_kyc_task_env import DocumentExtractionTask
+
+task = DocumentExtractionTask(split="val", limit=1)
+record = task.records[0]
+print(task.get_prompt(record).splitlines()[0])
+print(task.score_submission(record, task.load_gold_prediction(record)).reward)
+PY
+```
+
+Run the production-style isolated path:
+
+```bash
+just build-public-bundle
+just build-private-judge-bundle
+just build-eval-image
+just run-public-episode
+just run-hidden-judge
+```
+
+What this demonstrates:
+
+- stable public `extract.py` participant contract
+- deterministic scoring shared by local, package, framework, and Docker paths
+- importable environment API for RL adapters
+- optional Verifiers and OpenReward integration surfaces
+- containerized public/hidden execution with separate bundles
+- CI coverage for contract tests, bundle creation, wheel build, and Docker smoke runs
+
+## Installation
+
+Editable local install:
+
+```bash
+uv sync --frozen
+```
+
+Build wheel and source distribution:
+
+```bash
+uv build
+```
+
+Install optional framework adapters only in environments that need them:
+
+```bash
+uv sync --frozen --extra verifiers
+uv sync --frozen --extra openreward
+uv sync --frozen --extra frameworks
+```
+
+Optional framework packages are strictly pinned and lazy-imported, so the core benchmark stays lightweight.
+
 ## Local evaluation
 
 Public validation:
@@ -173,7 +243,7 @@ The same scoring code is used by:
 - Verifiers rewards
 - OpenReward submission rewards
 
-## Tests
+## Tests and CI
 
 Run all contract and integration smoke tests:
 
@@ -181,7 +251,13 @@ Run all contract and integration smoke tests:
 uv run python -m unittest discover -s tests
 ```
 
-The tests freeze CLI compatibility, baseline scores, scoring behavior, bundle contents, environment APIs, and optional integration behavior.
+The tests freeze CLI compatibility, baseline scores, scoring behavior, bundle contents, environment APIs, optional integration behavior, packaging metadata, and CI workflow coverage.
+
+GitHub Actions runs three gates on pushes and pull requests:
+
+- `contract-tests`: full unittest suite
+- `bundle-builds`: wheel/source build plus public and private bundle creation
+- `docker-smoke`: isolated public episode and hidden judge against the heuristic baseline
 
 ## Development rules
 

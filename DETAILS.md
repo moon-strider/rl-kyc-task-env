@@ -5,6 +5,7 @@
 - Python `3.12.2`
 - `uv` `0.7.7`
 - Docker base image `python:3.12.2-slim`
+- Docker runtime installs dependency lockfile with `uv sync --frozen --no-install-project`; task and package code are mounted from bundles during isolated runs
 
 Direct dependencies:
 - `Faker==40.13.0`
@@ -17,6 +18,17 @@ Direct dependencies:
 - `rapidfuzz==3.14.5`
 
 The exact lockfile is `uv.lock`.
+
+Optional framework extras:
+- `verifiers`: `verifiers==0.1.11`
+- `openreward`: `openreward==0.1.112`
+- `frameworks`: both optional framework adapters
+
+Packaging:
+- build backend: `hatchling==1.29.0`
+- `uv build` produces wheel and source distribution artifacts
+- console scripts: `rl-kyc-public-validator`, `rl-kyc-hidden-judge`, `rl-kyc-harness`
+- framework dependencies are extras only and are lazy-imported by adapter modules
 
 ## Repository Structure
 

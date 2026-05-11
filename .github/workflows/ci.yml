@@ -1,0 +1,60 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  contract-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12.2"
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.7.7"
+      - run: uv sync --frozen
+      - run: uv run python -m unittest discover -s tests
+
+  bundle-builds:
+    runs-on: ubuntu-latest
+    needs: contract-tests
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12.2"
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.7.7"
+      - run: uv sync --frozen
+      - run: uv build
+      - run: uv run python -m harness.cli.external_agent_eval build-public-bundle
+      - run: uv run python -m harness.cli.external_agent_eval build-private-judge-bundle --shard-name benchmark
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rl-kyc-bundles
+          path: |
+            dist/public_bundle.tar.gz
+            dist/private_judge_bundle.tar.gz
+
+  docker-smoke:
+    runs-on: ubuntu-latest
+    needs: bundle-builds
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12.2"
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.7.7"
+      - run: uv sync --frozen
+      - run: uv run python -m harness.cli.external_agent_eval build-public-bundle
+      - run: uv run python -m harness.cli.external_agent_eval build-private-judge-bundle --shard-name benchmark
+      - run: uv run python -m harness.cli.external_agent_eval build-eval-image --image rl-kyc-eval:ci
+      - run: uv run python -m harness.cli.external_agent_eval run-public-episode --image rl-kyc-eval:ci --seed-solution baselines/heuristic_baseline
+      - run: uv run python -m harness.cli.external_agent_eval run-hidden-judge --image rl-kyc-eval:ci --solution-dir baselines/heuristic_baseline

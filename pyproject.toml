@@ -15,5 +15,65 @@ dependencies = [
   "rapidfuzz==3.14.5",
 ]
 
+[project.optional-dependencies]
+verifiers = ["verifiers==0.1.11"]
+openreward = ["openreward==0.1.112"]
+frameworks = ["verifiers==0.1.11", "openreward==0.1.112"]
+
+[project.scripts]
+rl-kyc-public-validator = "task.tools.public_validator:main"
+rl-kyc-hidden-judge = "judge.run_judge:main"
+rl-kyc-harness = "harness.cli.external_agent_eval:main"
+
+[build-system]
+requires = ["hatchling==1.29.0"]
+build-backend = "hatchling.build"
+
 [tool.uv]
-package = false
+package = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["rl_kyc_task_env", "harness"]
+include = [
+  "/baselines",
+  "/docker",
+  "/generator",
+  "/judge",
+  "/private",
+  "/task",
+  "/justfile",
+  "/DETAILS.md",
+]
+exclude = [
+  "/dist",
+  "/build",
+  "/.venv",
+  "/.git",
+  "/.github",
+  "/tests",
+]
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "/baselines",
+  "/docker",
+  "/generator",
+  "/harness",
+  "/integrations",
+  "/judge",
+  "/private",
+  "/rl_kyc_task_env",
+  "/task",
+  "/tests",
+  "/DETAILS.md",
+  "/README.md",
+  "/justfile",
+  "/pyproject.toml",
+  "/uv.lock",
+]
+exclude = [
+  "/dist",
+  "/build",
+  "/.venv",
+  "/.git",
+]

@@ -9,6 +9,6 @@ RUN pip install --no-cache-dir uv==0.7.7
 
 COPY pyproject.toml uv.lock ./
 
-RUN uv sync --frozen
+RUN uv sync --frozen --no-install-project
 
 ENV PATH="/opt/runtime/.venv/bin:${PATH}"
