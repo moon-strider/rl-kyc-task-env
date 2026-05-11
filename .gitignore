@@ -26,5 +26,8 @@ dist/
 .env.*
 .python-version
 
+# Hermes internal files
+PLAN.md
+
 tmp
 .local
