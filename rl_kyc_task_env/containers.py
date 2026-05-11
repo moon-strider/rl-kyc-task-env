@@ -145,7 +145,11 @@ def run_public_episode(
     if agent_command:
         agent_completed = _run_container(
             image,
-            [(task_dir, "/workspace/task", True), (solution_dir, "/workspace/solution", False)],
+            [
+                (task_dir, "/workspace/task", True),
+                (workspace_root / "rl_kyc_task_env", "/workspace/rl_kyc_task_env", True),
+                (solution_dir, "/workspace/solution", False),
+            ],
             agent_command,
             PUBLIC_AGENT_TIMEOUT_SECONDS,
         )
@@ -159,7 +163,11 @@ def run_public_episode(
             raise SystemExit(agent_completed.stderr or agent_completed.stdout or "Agent command failed")
     validator_completed = _run_container(
         image,
-        [(task_dir, "/workspace/task", True), (solution_dir, "/workspace/solution", True)],
+        [
+            (task_dir, "/workspace/task", True),
+            (workspace_root / "rl_kyc_task_env", "/workspace/rl_kyc_task_env", True),
+            (solution_dir, "/workspace/solution", True),
+        ],
         "python /workspace/task/tools/public_validator.py /workspace/solution",
         PUBLIC_VALIDATOR_TIMEOUT_SECONDS,
     )
@@ -186,6 +194,7 @@ def run_public_episode(
                 "validator": PUBLIC_VALIDATOR_TIMEOUT_SECONDS,
             },
             "writable_mounts": ["/workspace/solution", "/tmp", "/run"],
+            "readonly_mounts": ["/workspace/task", "/workspace/rl_kyc_task_env"],
         },
     }
     write_json(out_dir / "episode_manifest.json", manifest)
@@ -217,6 +226,7 @@ def run_hidden_judge(
             (workspace_root / "judge", "/workspace/judge", True),
             (workspace_root / "private", "/workspace/private", True),
             (workspace_root / "task", "/workspace/task", True),
+            (workspace_root / "rl_kyc_task_env", "/workspace/rl_kyc_task_env", True),
             (staged_solution, "/workspace/solution", True),
         ],
         "python /workspace/judge/run_judge.py /workspace/solution",
@@ -240,6 +250,7 @@ def run_hidden_judge(
             "pids_limit": CONTAINER_PIDS_LIMIT,
             "timeout_seconds": HIDDEN_JUDGE_TIMEOUT_SECONDS,
             "writable_mounts": ["/tmp", "/run"],
+            "readonly_mounts": ["/workspace/judge", "/workspace/private", "/workspace/task", "/workspace/rl_kyc_task_env", "/workspace/solution"],
         },
     }
     write_json(out_dir / "judge_manifest.json", manifest)
