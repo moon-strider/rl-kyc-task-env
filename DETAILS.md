@@ -20,13 +20,36 @@ The exact lockfile is `uv.lock`.
 
 ## Repository Structure
 
-- `task/`: public task interface, schemas, public data, normalization, and public validation
+- `rl_kyc_task_env/`: canonical importable package with datasets, schemas, scoring, runner, evaluation, bundle, container, environment, and integration APIs
+- `task/`: public task interface, schemas, public data, normalization, and compatibility validation entrypoints
 - `generator/`: data generation, rendering, OCR-noise pipeline, and templates
-- `judge/`: hidden evaluation entrypoint
+- `judge/`: hidden evaluation compatibility entrypoint
 - `private/`: hidden documents, hidden gold, and private seed bank
 - `baselines/`: `null_baseline` and `heuristic_baseline`
-- `harness/`: artifact building, orchestration, diagnostics, and container runners
+- `harness/`: compatibility artifact building, orchestration, diagnostics, and container runner entrypoints
+- `integrations/`: human-facing documentation for optional framework integrations
 - `docker/`: isolated runtime image
+
+## Package Architecture
+
+The package is the canonical implementation surface:
+
+- `paths.py`: repository paths and split roots
+- `records.py`: document, split, prediction, and submission result dataclasses
+- `datasets.py`: split resolution, document discovery, metadata/OCR/gold loading
+- `schemas.py`: schema loading, field names, and JSON Schema validation
+- `prediction_io.py`: robust parsing helpers for adapter/model text outputs
+- `scoring.py`: pure canonical scoring and aggregation
+- `runner.py`: participant `extract.py` subprocess execution
+- `evaluation.py`: solution/document evaluation APIs
+- `bundles.py`: public/private bundle builders
+- `containers.py`: Docker image and isolated runner APIs
+- `prompts.py`: adapter-oriented prompt and OCR-line rendering
+- `environment.py`: high-level environment API for rewards and observations
+- `integrations/verifiers.py`: optional Verifiers adapter
+- `integrations/openreward.py`: optional OpenReward/ORS adapter
+
+Compatibility wrappers under `task/tools`, `judge`, and `harness` delegate to this package so existing CLI and Docker flows keep working.
 
 ## Data
 
@@ -233,6 +256,12 @@ Quick smoke check:
 
 ```bash
 just check
+```
+
+Package and integration smoke tests:
+
+```bash
+uv run python -m unittest discover -s tests
 ```
 
 Current baseline results:
