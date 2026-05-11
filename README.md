@@ -62,12 +62,14 @@ Hidden judging:
 uv run python judge/run_judge.py baselines/heuristic_baseline
 ```
 
-Expected baseline scores:
+Expected baseline scores for checked-in datasets:
 
 - public null: `0.0`
 - public heuristic: `0.8468`
 - hidden null: `0.0`
 - hidden heuristic: `0.8296`
+
+The isolated private judge bundle regenerates the benchmark hidden shard from the seed bank; its heuristic score is currently `0.8333`.
 
 ## Isolated execution
 

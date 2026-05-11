@@ -264,11 +264,13 @@ Package and integration smoke tests:
 uv run python -m unittest discover -s tests
 ```
 
-Current baseline results:
+Current checked-in dataset baseline results:
 - public `null`: `0.0`
 - public `heuristic`: `0.8468`
 - hidden `null`: `0.0`
 - hidden `heuristic`: `0.8296`
+
+The isolated private judge bundle regenerates the benchmark hidden shard from the seed bank. Its current heuristic score is `0.8333`.
 
 Manual container validation has also been completed:
 - the public container sees only `task` and `solution`
