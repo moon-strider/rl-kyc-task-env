@@ -58,6 +58,12 @@ def list_documents(
     schemas: list[str] | tuple[str, ...] | None = None,
 ) -> list[DocumentRecord]:
     paths = get_split_paths(split)
+    if not paths.dataset_dir.is_dir():
+        raise FileNotFoundError(
+            f"Dataset split {split!r} is absent at {paths.dataset_dir}. "
+            "Datasets are not bundled in the wheel. Set RL_KYC_DATA_ROOT to "
+            "a dataset checkout containing task/public_data and private, or generate data first."
+        )
     document_dirs = list_document_dirs(paths.dataset_dir)
     if indices is not None:
         document_dirs = [document_dirs[index] for index in indices]

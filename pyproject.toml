@@ -3,13 +3,13 @@ name = "doc-extract-env"
 version = "0.1.0"
 description = "Local assessment environment for structured extraction from documents with OCR and layout noise."
 readme = "README.md"
-requires-python = "==3.12.2"
+requires-python = ">=3.12,<3.14"
 dependencies = [
   "Faker==40.13.0",
   "jsonschema==4.26.0",
   "numpy==2.4.4",
   "pandas==3.0.2",
-  "Pillow==12.2.0",
+  "Pillow==12.3.0",
   "pydantic==2.13.0",
   "python-dateutil==2.9.0.post0",
   "rapidfuzz==3.14.5",
@@ -24,6 +24,7 @@ frameworks = ["verifiers==0.1.11", "openreward==0.1.112"]
 rl-kyc-public-validator = "task.tools.public_validator:main"
 rl-kyc-hidden-judge = "judge.run_judge:main"
 rl-kyc-harness = "harness.cli.external_agent_eval:main"
+rl-kyc-experiment = "rl_kyc_task_env.experiments:main"
 
 [build-system]
 requires = ["hatchling==1.29.0"]
@@ -33,18 +34,10 @@ build-backend = "hatchling.build"
 package = true
 
 [tool.hatch.build.targets.wheel]
-packages = ["rl_kyc_task_env", "harness"]
-include = [
-  "/baselines",
-  "/docker",
-  "/generator",
-  "/judge",
-  "/private",
-  "/task",
-  "/justfile",
-  "/DETAILS.md",
-]
+packages = ["rl_kyc_task_env", "harness", "task", "judge", "generator", "baselines"]
 exclude = [
+  "/task/public_data",
+  "/private",
   "/dist",
   "/build",
   "/.venv",
@@ -61,8 +54,8 @@ include = [
   "/harness",
   "/integrations",
   "/judge",
-  "/private",
   "/rl_kyc_task_env",
+  "/scripts",
   "/task",
   "/tests",
   "/DETAILS.md",
@@ -72,6 +65,8 @@ include = [
   "/uv.lock",
 ]
 exclude = [
+  "/task/public_data",
+  "/private",
   "/dist",
   "/build",
   "/.venv",

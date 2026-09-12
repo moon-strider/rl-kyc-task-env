@@ -1,10 +1,16 @@
-set shell := ["/bin/zsh", "-cu"]
+set shell := ["sh", "-eu", "-c"]
 
 default:
     @just --list
 
 sync:
     uv sync --frozen
+
+test:
+    uv run python -m unittest discover -s tests
+
+check-install:
+    uv run python scripts/check_install.py
 
 generate-public:
     uv run python generator/generate_public.py
@@ -17,10 +23,10 @@ generate-all:
     just generate-hidden
 
 validate-public solution="baselines/heuristic_baseline":
-    uv run python task/tools/public_validator.py {{solution}}
+    uv run rl-kyc-public-validator "{{solution}}"
 
 judge-hidden solution="baselines/heuristic_baseline":
-    uv run python judge/run_judge.py {{solution}}
+    uv run rl-kyc-hidden-judge --trusted-solution "{{solution}}"
 
 validate-null:
     just validate-public baselines/null_baseline

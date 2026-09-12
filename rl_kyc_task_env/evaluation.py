@@ -13,6 +13,7 @@ def evaluate_document(
     document_dir: Path,
     gold_dir: Path | None = None,
 ) -> dict[str, Any]:
+    """Evaluate owned/trusted code locally; this subprocess is not a sandbox."""
     meta = load_json(document_dir / "meta.json")
     schema_name = meta["schema_name"]
     gold = load_json(resolve_gold_path(document_dir, gold_dir))
@@ -30,10 +31,42 @@ def evaluate_solution(
     gold_dir: Path | None = None,
     include_error_summary: bool = False,
 ) -> dict[str, Any]:
+    """Local convenience for trusted baselines only; use Docker for submissions."""
+    document_dirs = list_document_dirs(dataset_dir)
+    if not document_dirs:
+        raise ValueError(f"No documents found in {dataset_dir}; set RL_KYC_DATA_ROOT to the dataset checkout")
     doc_results = [
         evaluate_document(solution_dir, document_dir, gold_dir)
-        for document_dir in list_document_dirs(dataset_dir)
+        for document_dir in document_dirs
     ]
+    return aggregate_scores(doc_results, include_error_summary=include_error_summary)
+
+
+def evaluate_predictions(
+    predictions: dict[str, Any],
+    dataset_dir: Path,
+    gold_dir: Path | None = None,
+    include_error_summary: bool = False,
+) -> dict[str, Any]:
+    """Score frozen plain JSON. Never import or execute participant code."""
+    doc_results = []
+    document_dirs = list_document_dirs(dataset_dir)
+    if not document_dirs:
+        raise ValueError(f"No documents found in {dataset_dir}")
+    for document_dir in document_dirs:
+        meta = load_json(document_dir / "meta.json")
+        schema_name = meta["schema_name"]
+        record = predictions.get(document_dir.name, {"status": "missing_prediction"})
+        status = record["status"]
+        prediction = record.get("prediction")
+        score = 0.0
+        if status == "ok":
+            if validate_prediction(schema_name, prediction):
+                gold = load_json(resolve_gold_path(document_dir, gold_dir))
+                score = score_prediction(schema_name, prediction, gold)
+            else:
+                status = "invalid_schema"
+        doc_results.append({"schema_name": schema_name, "score": score, "status": status})
     return aggregate_scores(doc_results, include_error_summary=include_error_summary)
 
 
@@ -42,6 +75,7 @@ __all__ = [
     "aggregate_scores",
     "evaluate_document",
     "evaluate_solution",
+    "evaluate_predictions",
     "list_document_dirs",
     "load_json",
     "resolve_gold_path",

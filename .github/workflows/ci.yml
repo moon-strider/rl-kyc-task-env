@@ -8,16 +8,22 @@ on:
 jobs:
   contract-tests:
     runs-on: ubuntu-latest
+    env:
+      UV_PYTHON: ${{ matrix.python-version }}
+    strategy:
+      matrix:
+        python-version: ["3.12", "3.13"]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.12.2"
+          python-version: ${{ matrix.python-version }}
       - uses: astral-sh/setup-uv@v6
         with:
-          version: "0.7.7"
+          version: "0.12.11"
       - run: uv sync --frozen
-      - run: uv run python -m unittest discover -s tests
+      - run: uv run --frozen python -m unittest discover -s tests
+      - run: uv run --frozen python scripts/check_install.py
 
   bundle-builds:
     runs-on: ubuntu-latest
@@ -26,10 +32,10 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.12.2"
+          python-version: "3.12"
       - uses: astral-sh/setup-uv@v6
         with:
-          version: "0.7.7"
+          version: "0.12.11"
       - run: uv sync --frozen
       - run: uv build
       - run: uv run python -m harness.cli.external_agent_eval build-public-bundle
@@ -48,13 +54,18 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.12.2"
+          python-version: "3.12"
       - uses: astral-sh/setup-uv@v6
         with:
-          version: "0.7.7"
+          version: "0.12.11"
       - run: uv sync --frozen
       - run: uv run python -m harness.cli.external_agent_eval build-public-bundle
       - run: uv run python -m harness.cli.external_agent_eval build-private-judge-bundle --shard-name benchmark
       - run: uv run python -m harness.cli.external_agent_eval build-eval-image --image rl-kyc-eval:ci
+      - name: Verify real Docker isolation
+        env:
+          KYC_DOCKER_TESTS: "1"
+          KYC_DOCKER_IMAGE: rl-kyc-eval:ci
+        run: uv run python -m unittest discover -s tests -p test_isolation_docker.py
       - run: uv run python -m harness.cli.external_agent_eval run-public-episode --image rl-kyc-eval:ci --seed-solution baselines/heuristic_baseline
       - run: uv run python -m harness.cli.external_agent_eval run-hidden-judge --image rl-kyc-eval:ci --solution-dir baselines/heuristic_baseline

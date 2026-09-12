@@ -1,51 +1,63 @@
 from __future__ import annotations
 
-import pathlib
-import tomllib
+import json
+import os
+from pathlib import Path
+import subprocess
+import sys
+import tempfile
 import unittest
 
 
-ROOT = pathlib.Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[1]
 
 
-class ProjectPolishTest(unittest.TestCase):
-    def load_pyproject(self) -> dict:
-        return tomllib.loads((ROOT / "pyproject.toml").read_text(encoding="utf-8"))
+class DataRootTest(unittest.TestCase):
+    def inspect_paths(self, root: Path | None, cwd: Path) -> dict:
+        env = dict(os.environ)
+        env.pop("RL_KYC_DATA_ROOT", None)
+        env["PYTHONPATH"] = str(ROOT)
+        if root is not None:
+            env["RL_KYC_DATA_ROOT"] = str(root)
+        completed = subprocess.run(
+            [
+                sys.executable,
+                "-c",
+                "import json; from rl_kyc_task_env.paths import REPO_ROOT, VAL_DIR, "
+                "HIDDEN_GOLD_DIR, SCHEMA_DIR, PROMPT_PATH; "
+                "from rl_kyc_task_env import load_schema; "
+                "print(json.dumps({'root': str(REPO_ROOT), 'val': str(VAL_DIR), "
+                "'gold': str(HIDDEN_GOLD_DIR), 'schema_dir': str(SCHEMA_DIR), "
+                "'schema': load_schema('government_id')['title'], "
+                "'prompt': PROMPT_PATH.read_text()}))",
+            ],
+            cwd=cwd,
+            env=env,
+            check=True,
+            capture_output=True,
+            text=True,
+        )
+        return json.loads(completed.stdout)
 
-    def test_project_is_installable_package(self) -> None:
-        data = self.load_pyproject()
-        self.assertEqual(data["tool"]["uv"]["package"], True)
-        self.assertEqual(data["build-system"]["build-backend"], "hatchling.build")
-        self.assertTrue(any(requirement.startswith("hatchling==") for requirement in data["build-system"]["requires"]))
-        wheel = data["tool"]["hatch"]["build"]["targets"]["wheel"]
-        self.assertIn("rl_kyc_task_env", wheel["packages"])
-        self.assertIn("/task", wheel["include"])
-        self.assertIn("/private", wheel["include"])
+    def test_source_defaults_do_not_depend_on_working_directory(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            result = self.inspect_paths(None, Path(tmp))
+        self.assertEqual(result["root"], str(ROOT))
+        self.assertEqual(result["val"], str(ROOT / "task" / "public_data" / "val"))
+        self.assertTrue(result["prompt"].strip())
 
-    def test_optional_framework_dependencies_are_strictly_pinned(self) -> None:
-        optional = self.load_pyproject()["project"]["optional-dependencies"]
-        self.assertEqual(optional["verifiers"], ["verifiers==0.1.11"])
-        self.assertEqual(optional["openreward"], ["openreward==0.1.112"])
-        self.assertEqual(optional["frameworks"], ["verifiers==0.1.11", "openreward==0.1.112"])
-
-    def test_console_scripts_are_declared(self) -> None:
-        scripts = self.load_pyproject()["project"]["scripts"]
-        self.assertEqual(scripts["rl-kyc-public-validator"], "task.tools.public_validator:main")
-        self.assertEqual(scripts["rl-kyc-hidden-judge"], "judge.run_judge:main")
-        self.assertEqual(scripts["rl-kyc-harness"], "harness.cli.external_agent_eval:main")
-
-    def test_ci_workflow_has_required_jobs(self) -> None:
-        workflow = (ROOT / ".github" / "workflows" / "ci.yml").read_text(encoding="utf-8")
-        self.assertIn("contract-tests", workflow)
-        self.assertIn("bundle-builds", workflow)
-        self.assertIn("docker-smoke", workflow)
-        self.assertIn("uv run python -m unittest discover -s tests", workflow)
-        self.assertIn("build-public-bundle", workflow)
-        self.assertIn("run-public-episode", workflow)
-
-    def test_docker_runtime_installs_dependencies_without_project_build(self) -> None:
-        dockerfile = (ROOT / "docker" / "eval-runtime.Dockerfile").read_text(encoding="utf-8")
-        self.assertIn("RUN uv sync --frozen --no-install-project", dockerfile)
+    def test_external_data_root_cannot_replace_runtime_schemas(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / "separate dataset"
+            schemas = root / "task" / "schemas"
+            schemas.mkdir(parents=True)
+            (schemas / "government_id.schema.json").write_text("invalid JSON")
+            result = self.inspect_paths(root, Path(tmp))
+        self.assertEqual(result["root"], str(root))
+        self.assertEqual(result["val"], str(root / "task" / "public_data" / "val"))
+        self.assertEqual(result["gold"], str(root / "private" / "hidden_gold"))
+        self.assertEqual(result["schema_dir"], str(ROOT / "task" / "schemas"))
+        self.assertEqual(result["schema"], "government_id")
 
 
 if __name__ == "__main__":

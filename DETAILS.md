@@ -2,9 +2,9 @@
 
 ## Runtime
 
-- Python `3.12.2`
-- `uv` `0.7.7`
-- Docker base image `python:3.12.2-slim`
+- Python `3.12` or `3.13`
+- `uv` `0.12.11`
+- Docker base image `python:3.12-slim`
 - Docker runtime installs dependency lockfile with `uv sync --frozen --no-install-project`; task and package code are mounted from bundles during isolated runs
 
 Direct dependencies:
@@ -12,7 +12,7 @@ Direct dependencies:
 - `jsonschema==4.26.0`
 - `numpy==2.4.4`
 - `pandas==3.0.2`
-- `Pillow==12.2.0`
+- `Pillow==12.3.0`
 - `pydantic==2.13.0`
 - `python-dateutil==2.9.0.post0`
 - `rapidfuzz==3.14.5`
@@ -27,8 +27,10 @@ Optional framework extras:
 Packaging:
 - build backend: `hatchling==1.29.0`
 - `uv build` produces wheel and source distribution artifacts
-- console scripts: `rl-kyc-public-validator`, `rl-kyc-hidden-judge`, `rl-kyc-harness`
+- console scripts: `rl-kyc-public-validator`, `rl-kyc-hidden-judge`, `rl-kyc-harness`, `rl-kyc-experiment`
 - framework dependencies are extras only and are lazy-imported by adapter modules
+- wheel and sdist omit datasets and gold; runtime schemas and prompts are included
+- set `RL_KYC_DATA_ROOT` before import to use data outside the runtime installation
 
 ## Repository Structure
 
@@ -52,7 +54,9 @@ The package is the canonical implementation surface:
 - `schemas.py`: schema loading, field names, and JSON Schema validation
 - `prediction_io.py`: robust parsing helpers for adapter/model text outputs
 - `scoring.py`: pure canonical scoring and aggregation
-- `runner.py`: participant `extract.py` subprocess execution
+- `runner.py`: bounded participant subprocess execution with process-group cleanup
+- `collector.py`: standalone prediction collection without gold or judge imports
+- `experiments.py`: fresh fixtures, local endpoint inference, development reflection, and frozen-run scoring
 - `evaluation.py`: solution/document evaluation APIs
 - `bundles.py`: public/private bundle builders
 - `containers.py`: Docker image and isolated runner APIs
@@ -249,18 +253,20 @@ Artifacts are written to `dist/`:
 
 ## Isolation Model
 
-Public runtime:
-- mounts only the extracted public bundle and `/workspace/solution`
-- runs with `network=none`
-- uses a read-only root filesystem
-- uses fixed CPU, memory, PID, and wall-clock limits
+The host, Docker daemon, runtime image, and dataset bundles are trusted organizer infrastructure. Participant code and every byte of its output are untrusted. Do not mount the repository root in a participant container.
 
-Hidden judge:
-- runs in a separate containerized flow
-- mounts the private bundle only inside the judge runtime
-- never returns hidden metrics to the public repair loop
+The public repair loop can access the public task, including public targets, and its own solution. Hidden data is never mounted there.
 
-The agent-visible execution path must never mount the repository root directly.
+Hidden execution has two separate stages:
+
+1. A collector mounts only participant code, allowlisted metadata/OCR/page inputs, schemas, canonicalization, and a minimal collector/runner. It has no gold, private seeds, generator, judge, or full package source. Output is a bounded version-1 JSON envelope.
+2. After confirmed collector removal, the trusted scorer receives that envelope, hidden gold, and trusted scoring code. No participant solution or writable participant directory is mounted in the scorer. Missing predictions count as zero; participant-supplied scores are rejected.
+
+Both containers use no network, a read-only root, UID/GID 65534, dropped capabilities, `no-new-privileges`, and resource limits. Each Docker invocation has a unique name and is force-removed in `finally`, including client timeout. Local participant processes have wall-clock/output limits and process-group cleanup; detached sessions can outlive that local cleanup. Removing the whole collector container is the boundary that also removes detached processes. These controls reduce risk; Docker shares the host kernel and is not a VM boundary.
+
+Private bundles and `keep_workspace` output are organizer-only artifacts and contain gold. The example hidden data and seed bank already published in this repository cannot serve as secret evaluation data. Generate fresh shards privately, keep them outside participant access, freeze predictions, and only then score them.
+
+Local `evaluate_solution`, the public validator, and `--trusted-solution` execute code with host access. Use them only for owned/trusted baselines. `rl-kyc-hidden-judge --predictions FILE` evaluates a strictly parsed JSON file without executing participant code.
 
 ## Validation Status
 
@@ -284,8 +290,10 @@ Current checked-in dataset baseline results:
 
 The isolated private judge bundle regenerates the benchmark hidden shard from the seed bank. Its current heuristic score is `0.8333`.
 
-Manual container validation has also been completed:
-- the public container sees only `task` and `solution`
-- `private` and `judge` are absent from the public runtime
-- network access is unavailable from the public container
-- hidden judging runs separately and returns aggregate metrics only
+Verification gates now include:
+- adversarial host tests for mount allowlists, archive traversal/links, strict envelopes, timeout/output limits, and cleanup
+- real Docker canaries for hidden gold/seed access, process termination, and frozen scoring
+- clean wheel installation outside the source checkout, including all console commands and external dataset scoring
+- Python 3.12/3.13 CI and full public/hidden Docker smoke runs
+
+Real Docker tests require `KYC_DOCKER_TESTS=1`. A skipped Docker test is not evidence of isolation. Consult the linked CI run and [experiment report](docs/experiment.md) for observed results rather than treating the design alone as verification.
