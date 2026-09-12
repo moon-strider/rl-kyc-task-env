@@ -142,4 +142,4 @@ KYC_DOCKER_TESTS=1 KYC_DOCKER_IMAGE=rl-kyc-eval:local \
   uv run python -m unittest discover -s tests -p test_isolation_docker.py
 ```
 
-GitHub Actions checks Python 3.12/3.13, clean wheel installation, bundle builds, real Docker isolation canaries, and public/hidden heuristic runs. Host unit tests alone do not establish Docker isolation. `just test` and `just check-install` are shortcuts; `just check` additionally regenerates the checked-in datasets.
+See [the validation record](docs/validation.md) for observed test results and CI evidence. GitHub Actions checks Python 3.12/3.13, clean wheel installation, bundle builds, real Docker isolation canaries, and public/hidden heuristic runs. Host unit tests alone do not establish Docker isolation. `just test` and `just check-install` are shortcuts; `just check` additionally regenerates the checked-in datasets.

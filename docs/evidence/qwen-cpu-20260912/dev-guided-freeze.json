@@ -1,0 +1,15 @@
+{
+  "created_at_utc": "2026-09-12T15:36:01.930334+00:00",
+  "method": "analyst-written one-step prompt revision based only on dev-direct errors",
+  "automatic_reflection": "preserved separately; returned an echo of the original prompt",
+  "dev_metrics_sha256": "52cc73ea2d875c6ea312bfbf65a03866250f96b92b3202f461421383175a50ef",
+  "prompt_sha256": "21dc7f79c3920019957d88b9bb673555839c9a858b902b0d97d86e3acfde604b",
+  "holdout_generated": true,
+  "holdout_outputs_inspected": false,
+  "dev_error_categories": [
+    "issuer address confused for customer address",
+    "payer omitted",
+    "payer/payee column roles reversed"
+  ],
+  "selection_rule": "one candidate; no holdout-driven revision or selection"
+}

@@ -1,0 +1,22 @@
+{
+  "original_generation_pillow": "12.2.0",
+  "replay_dependencies": {
+    "Faker": "40.13.0",
+    "numpy": "2.4.4",
+    "Pillow": "12.3.0",
+    "jsonschema": "4.26.0",
+    "rapidfuzz": "3.14.5"
+  },
+  "comparisons": {
+    "dev": {
+      "files": 28,
+      "different": [],
+      "all_identical": true
+    },
+    "holdout": {
+      "files": 37,
+      "different": [],
+      "all_identical": true
+    }
+  }
+}

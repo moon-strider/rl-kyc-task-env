@@ -302,6 +302,7 @@ class ExperimentArtifactsTest(unittest.TestCase):
                           {"status": "ok", "prediction": gold})
                 records[name] = ({"status": "invalid_prediction"} if index == 0 else record)
                 traces.append({"doc_id": name, "record": record, "elapsed_seconds": 1,
+                               "content": "{malformed" if index == 0 else json.dumps(gold),
                                "usage": {"prompt_tokens": 10, "completion_tokens": 5, "total_tokens": 15}})
             experiments.write_json(root / "dataset" / "manifest.json", {"documents": docs})
             experiments.write_json(root / "run" / "predictions.json", {"version": 1, "documents": records})

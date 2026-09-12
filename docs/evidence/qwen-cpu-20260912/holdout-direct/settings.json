@@ -1,0 +1,12 @@
+{
+  "method": "llm",
+  "endpoint": "http://127.0.0.1:8765/v1/chat/completions",
+  "model": "qwen2.5-1.5b-instruct",
+  "temperature": 0,
+  "seed": 17,
+  "max_tokens": 512,
+  "timeout_seconds": 180,
+  "prompt_sha256": "ed7060c2773d17886f506a3b15cfd4f41eddf0a9418ce6f24b2ea662c223d2e8",
+  "currency_cost": null,
+  "cost_note": "No monetary estimate; see model provenance for execution hardware."
+}

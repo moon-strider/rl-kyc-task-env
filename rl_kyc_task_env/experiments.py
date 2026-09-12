@@ -295,11 +295,19 @@ def summarize(dataset: Path, run: Path) -> dict[str, Any]:
                 "exact_docs": sum(d["exact_doc"] for d in items)}
 
     latency = [t["elapsed_seconds"] for t in traces if "elapsed_seconds" in t]
+    invalid_json = 0
+    for trace in traces:
+        if "content" in trace:
+            try:
+                strict_json(trace["content"])
+            except (ValueError, RecursionError):
+                invalid_json += 1
     result = {**metrics(rows), "official_score": trusted,
               "by_schema": {key: metrics([r for r in rows if r["schema_name"] == key]) for key in SCHEMA_NAMES},
               "by_ocr_profile": {key: metrics([r for r in rows if r["ocr_profile"] == key])
                                   for key in sorted({r["ocr_profile"] for r in rows})},
-              "invalid_json": sum(t["record"].get("error") == "invalid_json" for t in traces),
+              "invalid_json": invalid_json,
+              "truncated_responses": sum(t.get("finish_reason") == "length" for t in traces),
               "invalid_predictions": sum(t["record"]["status"] != "ok" for t in traces),
               "latency_seconds": {"total": round(sum(latency), 6),
                                   "mean": round(statistics.mean(latency), 6) if latency else None},

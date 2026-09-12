@@ -1,0 +1,45 @@
+{
+  "repository": "Qwen/Qwen2.5-1.5B-Instruct-GGUF",
+  "revision": "91cad51170dc346986eccefdc2dd33a9da36ead9",
+  "url": "https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct-GGUF/resolve/91cad51170dc346986eccefdc2dd33a9da36ead9/qwen2.5-1.5b-instruct-q4_k_m.gguf",
+  "file": "qwen2.5-1.5b-instruct-q4_k_m.gguf",
+  "sha256": "6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e",
+  "size_bytes": 1117320736,
+  "created_at_utc": "2026-09-12T15:30:51.600426+00:00",
+  "runner_repository": "https://github.com/ggml-org/llama.cpp",
+  "runner_revision": "3057bb66c86c46d5781e50e85462a760ba7d1feb",
+  "runner_sha256": "c0a593b96b2b0b1091dba279bd7141df57c53d019b556ca496652d926b01d5fc",
+  "runner_build": "cmake 4.1.2; GCC 13.3; Release; GGML_CUDA=OFF; native CPU",
+  "hardware": {
+    "architecture": "x86_64",
+    "processor": "AMD EPYC 9V74 80-Core Processor",
+    "threads": 6,
+    "available_memory_mib": 22039,
+    "gpu_layers": 0
+  },
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "dependencies": {
+    "Faker": "40.13.0",
+    "numpy": "2.4.4",
+    "Pillow": "12.2.0",
+    "jsonschema": "4.26.0",
+    "rapidfuzz": "3.14.5"
+  },
+  "font_sha256": "ae7b7855e115a5966d8b1b3f80f254ccc117ec86f9965e202ee2940453837280",
+  "temperature": 0,
+  "sampling_seed": 17,
+  "context_tokens": 16384,
+  "concurrent_requests": 1,
+  "max_tokens": 512,
+  "reflection_max_tokens": 768,
+  "quantization": "Q4_K_M",
+  "provider_cost_usd": null,
+  "reproduction_source_sha256": {
+    "rl_kyc_task_env/experiments.py": "5240e3f3b3c35ccd30673984c4a6345365044b1052222c84fd6f69ce6f0093b5",
+    "scripts/run_experiment.py": "a51380f6cf2afc721fcecca355b8ce0c867ba7348fbae58103b3eaed19ee68d7",
+    "scripts/local_model.sh": "f37362a7d181d06159b51a8fd752eb6e0155126367079b1fb1ba5004362df54e"
+  },
+  "final_pinned_pillow": "12.3.0",
+  "regeneration_check": "regeneration-check.json",
+  "freeze_source_note": "dev-guided-freeze dev_metrics_sha256 addresses reflection/dev-direct-metrics-at-guided-freeze.json"
+}

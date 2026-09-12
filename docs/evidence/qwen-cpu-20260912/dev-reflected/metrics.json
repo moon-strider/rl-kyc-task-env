@@ -1,0 +1,282 @@
+{
+  "num_docs": 9,
+  "correct_fields": 36,
+  "total_fields": 57,
+  "field_accuracy": 0.631579,
+  "exact_docs": 3,
+  "official_score": {
+    "score": 0.6119,
+    "by_schema": {
+      "government_id": 0.6667,
+      "proof_of_address": 0.3857,
+      "payment_receipt": 0.7833
+    },
+    "num_docs": 9,
+    "error_summary": {
+      "invalid_prediction": 2
+    }
+  },
+  "by_schema": {
+    "government_id": {
+      "num_docs": 3,
+      "correct_fields": 12,
+      "total_fields": 18,
+      "field_accuracy": 0.666667,
+      "exact_docs": 2
+    },
+    "proof_of_address": {
+      "num_docs": 3,
+      "correct_fields": 9,
+      "total_fields": 21,
+      "field_accuracy": 0.428571,
+      "exact_docs": 0
+    },
+    "payment_receipt": {
+      "num_docs": 3,
+      "correct_fields": 15,
+      "total_fields": 18,
+      "field_accuracy": 0.833333,
+      "exact_docs": 1
+    }
+  },
+  "by_ocr_profile": {
+    "standard_noise": {
+      "num_docs": 9,
+      "correct_fields": 36,
+      "total_fields": 57,
+      "field_accuracy": 0.631579,
+      "exact_docs": 3
+    }
+  },
+  "invalid_json": 1,
+  "truncated_responses": 1,
+  "invalid_predictions": 2,
+  "latency_seconds": {
+    "total": 67.212251,
+    "mean": 7.468028
+  },
+  "tokens": {
+    "prompt_tokens": 8457,
+    "completion_tokens": 1249,
+    "total_tokens": 9706
+  },
+  "currency_cost": null,
+  "documents": [
+    {
+      "doc_id": "dev_government_id_000",
+      "schema_name": "government_id",
+      "seed": 316993110,
+      "template": "gid_passport_grid",
+      "ocr_profile": "standard_noise",
+      "ocr_sha256": "30dcfc3678b20b94f314cd85016eb5b223627a4d2adae0dc7b735daacdf81143",
+      "gold_sha256": "fc24b1cf470e741482488a2adf188fa62782e0d86e41032880fb32dc2ce6fe92",
+      "status": "ok",
+      "num_fields": 6,
+      "correct_fields": 6,
+      "exact_doc": true,
+      "errors": {}
+    },
+    {
+      "doc_id": "dev_government_id_001",
+      "schema_name": "government_id",
+      "seed": 845188280,
+      "template": "gid_idcard_compact",
+      "ocr_profile": "standard_noise",
+      "ocr_sha256": "1790173e3eb73cbec9ce58a72298cdba82f7e60c8f7ca6d50f12cda36cf811d7",
+      "gold_sha256": "3355da15f0c5d5f46ee7cce920698d4c4d8fedfdd0af48c68a2232651da676b5",
+      "status": "invalid_prediction",
+      "num_fields": 6,
+      "correct_fields": 0,
+      "exact_doc": false,
+      "errors": {
+        "full_name": {
+          "expected": "gillian turnbull",
+          "predicted": null
+        },
+        "date_of_birth": {
+          "expected": "1985-04-12",
+          "predicted": null
+        },
+        "document_number": {
+          "expected": "197641883",
+          "predicted": null
+        },
+        "issue_date": {
+          "expected": "2011-07-23",
+          "predicted": null
+        },
+        "expiry_date": {
+          "expected": "2021-07-23",
+          "predicted": null
+        },
+        "issuing_country": {
+          "expected": "canada",
+          "predicted": null
+        }
+      }
+    },
+    {
+      "doc_id": "dev_government_id_002",
+      "schema_name": "government_id",
+      "seed": 1574263395,
+      "template": "gid_form_official",
+      "ocr_profile": "standard_noise",
+      "ocr_sha256": "2f16aa43abf25903016782f29b5bdc3e24dee53ccaf10fab7651d86dbe4a9a50",
+      "gold_sha256": "fc1018e60be068b2f4da88ddbdae1ba022ab4b7cfc2de55a1efc7c39002c71fd",
+      "status": "ok",
+      "num_fields": 6,
+      "correct_fields": 6,
+      "exact_doc": true,
+      "errors": {}
+    },
+    {
+      "doc_id": "dev_proof_of_address_000",
+      "schema_name": "proof_of_address",
+      "seed": 1012639885,
+      "template": "poa_utility_bill",
+      "ocr_profile": "standard_noise",
+      "ocr_sha256": "35b5a1eef2e019c14001483deedfccaefc0147219f12cc95d7ec1d601dc80505",
+      "gold_sha256": "d5e7a7c32dc2f16a02e2c27210ee422bfdbdebc31af7f7c263873bada7fb6ee0",
+      "status": "ok",
+      "num_fields": 7,
+      "correct_fields": 3,
+      "exact_doc": false,
+      "errors": {
+        "full_name": {
+          "expected": "kathleen morton",
+          "predicted": "john key"
+        },
+        "address_line1": {
+          "expected": "1007 davidson ramp",
+          "predicted": "newtonville, vt"
+        },
+        "city": {
+          "expected": "greenmouth",
+          "predicted": "newtonville"
+        },
+        "postal_code": {
+          "expected": "54339",
+          "predicted": "31910"
+        }
+      }
+    },
+    {
+      "doc_id": "dev_proof_of_address_001",
+      "schema_name": "proof_of_address",
+      "seed": 1360538418,
+      "template": "poa_telecom_invoice",
+      "ocr_profile": "standard_noise",
+      "ocr_sha256": "027df56ca5acc8f05bda4891603ed7eea20d745032cd6f7d272f62f49350b95b",
+      "gold_sha256": "71003060c5b10ac724afd0d36f8e707eceda85977ce517cd42a6d21a49cd1007",
+      "status": "invalid_prediction",
+      "num_fields": 7,
+      "correct_fields": 0,
+      "exact_doc": false,
+      "errors": {
+        "full_name": {
+          "expected": "megan garza",
+          "predicted": null
+        },
+        "address_line1": {
+          "expected": "2177 rick path suite 344",
+          "predicted": null
+        },
+        "city": {
+          "expected": "north steven",
+          "predicted": null
+        },
+        "postal_code": {
+          "expected": "75033",
+          "predicted": null
+        },
+        "country": {
+          "expected": "united states",
+          "predicted": null
+        },
+        "statement_date": {
+          "expected": "2026-02-23",
+          "predicted": null
+        },
+        "issuer_name": {
+          "expected": "fiberlink corp",
+          "predicted": null
+        }
+      }
+    },
+    {
+      "doc_id": "dev_proof_of_address_002",
+      "schema_name": "proof_of_address",
+      "seed": 243125022,
+      "template": "poa_bank_statement",
+      "ocr_profile": "standard_noise",
+      "ocr_sha256": "554bccba70229058135a2564384b799b1868f48d6defb6e152fc4fc779bffbd4",
+      "gold_sha256": "ec613647c4fd39d0d3b96a45bd3d49d343790fa4307cd14453ed2449ceec88b1",
+      "status": "ok",
+      "num_fields": 7,
+      "correct_fields": 6,
+      "exact_doc": false,
+      "errors": {
+        "issuer_name": {
+          "expected": "northstar savings bank",
+          "predicted": "northstarsavings bank"
+        }
+      }
+    },
+    {
+      "doc_id": "dev_payment_receipt_000",
+      "schema_name": "payment_receipt",
+      "seed": 2066728207,
+      "template": "pay_bank_transfer",
+      "ocr_profile": "standard_noise",
+      "ocr_sha256": "ec1c4d97c723f7d284751ea64dc39968318ab34c84b193bcf524843186b0439c",
+      "gold_sha256": "16bbfce332408cb728608afde2f2a22386e7b3b0c51e4f8bd1e9d19407e8c1f6",
+      "status": "ok",
+      "num_fields": 6,
+      "correct_fields": 6,
+      "exact_doc": true,
+      "errors": {}
+    },
+    {
+      "doc_id": "dev_payment_receipt_001",
+      "schema_name": "payment_receipt",
+      "seed": 713764494,
+      "template": "pay_wallet_receipt",
+      "ocr_profile": "standard_noise",
+      "ocr_sha256": "534d4409f062da0dd5c7e21a63d920d5429f1f7d0445dbdd4a0468f307fe074b",
+      "gold_sha256": "d9ca1771343702514ac739342d7234fba32b0bd5515e095f55bcf8162dc2af82",
+      "status": "ok",
+      "num_fields": 6,
+      "correct_fields": 5,
+      "exact_doc": false,
+      "errors": {
+        "sender_name": {
+          "expected": "leslie mcmillan",
+          "predicted": null
+        }
+      }
+    },
+    {
+      "doc_id": "dev_payment_receipt_002",
+      "schema_name": "payment_receipt",
+      "seed": 1814155773,
+      "template": "pay_paid_invoice",
+      "ocr_profile": "standard_noise",
+      "ocr_sha256": "d0833e962265322be2d4b6a7a15fb3c7d4928f7c71db26db571eaebbc7dc822d",
+      "gold_sha256": "65835a8df13ba7de0d6313b28dd3bd4aef385e6434eae8e62bc2331e480aae85",
+      "status": "ok",
+      "num_fields": 6,
+      "correct_fields": 4,
+      "exact_doc": false,
+      "errors": {
+        "sender_name": {
+          "expected": "laura rogers",
+          "predicted": null
+        },
+        "recipient_name": {
+          "expected": "brightbuy online",
+          "predicted": "laura rogers"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "version": 1,
+  "documents": {
+    "dev_government_id_000": {
+      "status": "ok",
+      "prediction": {
+        "schema_name": "government_id",
+        "fields": {
+          "full_name": "Christopher Hubbard",
+          "date_of_birth": "1967-10-24",
+          "document_number": "U4572512",
+          "issue_date": "1989-10-16",
+          "expiry_date": "1994-10-16",
+          "issuing_country": "Canada"
+        }
+      }
+    },
+    "dev_government_id_001": {
+      "status": "invalid_prediction"
+    },
+    "dev_government_id_002": {
+      "status": "ok",
+      "prediction": {
+        "schema_name": "government_id",
+        "fields": {
+          "full_name": "Elizabeth Reynolds",
+          "date_of_birth": "1992-10-17",
+          "document_number": "719017108",
+          "issue_date": "2015-02-11",
+          "expiry_date": "2025-02-11",
+          "issuing_country": "United States"
+        }
+      }
+    },
+    "dev_payment_receipt_000": {
+      "status": "ok",
+      "prediction": {
+        "schema_name": "payment_receipt",
+        "fields": {
+          "sender_name": "Maria Donovan",
+          "recipient_name": "Crestline Commerce",
+          "amount": "746.16 GBP",
+          "currency": "GBP",
+          "payment_date": "2025-01-21",
+          "reference_id": "TRX-391878"
+        }
+      }
+    },
+    "dev_payment_receipt_001": {
+      "status": "ok",
+      "prediction": {
+        "schema_name": "payment_receipt",
+        "fields": {
+          "sender_name": null,
+          "recipient_name": "Nexus Digital Store",
+          "amount": "2162.33",
+          "currency": "USD",
+          "payment_date": "2025-03-12",
+          "reference_id": "TRX-837388"
+        }
+      }
+    },
+    "dev_payment_receipt_002": {
+      "status": "ok",
+      "prediction": {
+        "schema_name": "payment_receipt",
+        "fields": {
+          "sender_name": null,
+          "recipient_name": "Laura Rogers",
+          "amount": "2339.45",
+          "currency": "GBP",
+          "payment_date": "2025-08-11",
+          "reference_id": "TRX-736461"
+        }
+      }
+    },
+    "dev_proof_of_address_000": {
+      "status": "ok",
+      "prediction": {
+        "schema_name": "proof_of_address",
+        "fields": {
+          "full_name": "John Key",
+          "address_line1": "Newtonville, VT",
+          "city": "Newtonville",
+          "postal_code": "31910",
+          "country": "United States",
+          "statement_date": "2025-11-06",
+          "issuer_name": "Coastal Power Solutions"
+        }
+      }
+    },
+    "dev_proof_of_address_001": {
+      "status": "invalid_prediction"
+    },
+    "dev_proof_of_address_002": {
+      "status": "ok",
+      "prediction": {
+        "schema_name": "proof_of_address",
+        "fields": {
+          "full_name": "Jasmine Holland",
+          "address_line1": "9833 Davis Freeway Apt. 664",
+          "city": "Port Douglas",
+          "postal_code": "M2G4M2",
+          "country": "Canada",
+          "statement_date": "2025-10-20",
+          "issuer_name": "NorthstarSavings Bank"
+        }
+      }
+    }
+  }
+}
