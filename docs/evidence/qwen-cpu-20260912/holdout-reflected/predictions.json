@@ -1,0 +1,166 @@
+{
+  "version": 1,
+  "documents": {
+    "holdout_government_id_000": {
+      "status": "ok",
+      "prediction": {
+        "schema_name": "government_id",
+        "fields": {
+          "full_name": "Marie Young",
+          "date_of_birth": "1976-07-30",
+          "document_number": "VF211951",
+          "issue_date": "2022-02-21",
+          "expiry_date": "2027-02-21",
+          "issuing_country": "United States"
+        }
+      }
+    },
+    "holdout_government_id_001": {
+      "status": "ok",
+      "prediction": {
+        "schema_name": "government_id",
+        "fields": {
+          "full_name": "Donna Ball",
+          "date_of_birth": "1991-11-19",
+          "document_number": "296374853",
+          "issue_date": "2017-03-23",
+          "expiry_date": "2022-03-23",
+          "issuing_country": "United Kingdom"
+        }
+      }
+    },
+    "holdout_government_id_002": {
+      "status": "ok",
+      "prediction": {
+        "schema_name": "government_id",
+        "fields": {
+          "full_name": "Teresa Ellis",
+          "date_of_birth": "1989-02-07",
+          "document_number": "279718236",
+          "issue_date": "2023-10-06",
+          "expiry_date": "2028-10-06",
+          "issuing_country": "United Kingdom"
+        }
+      }
+    },
+    "holdout_government_id_003": {
+      "status": "ok",
+      "prediction": {
+        "schema_name": "government_id",
+        "fields": {
+          "full_name": "Brittney Calhoun",
+          "date_of_birth": "1960-12-27",
+          "document_number": "I3966262",
+          "issue_date": "1994-04-26",
+          "expiry_date": "1999-04-26",
+          "issuing_country": "United Kingdom"
+        }
+      }
+    },
+    "holdout_payment_receipt_000": {
+      "status": "ok",
+      "prediction": {
+        "schema_name": "payment_receipt",
+        "fields": {
+          "sender_name": "Frank Lambert",
+          "recipient_name": "Vertex Supplies",
+          "amount": "2035.96",
+          "currency": "USD",
+          "payment_date": "2026-01-03",
+          "reference_id": "TRX-474198"
+        }
+      }
+    },
+    "holdout_payment_receipt_001": {
+      "status": "invalid_prediction"
+    },
+    "holdout_payment_receipt_002": {
+      "status": "ok",
+      "prediction": {
+        "schema_name": "payment_receipt",
+        "fields": {
+          "sender_name": "Atlas Commerce Inc.",
+          "recipient_name": "Rhonda Boyle",
+          "amount": "4747.72",
+          "currency": "USD",
+          "payment_date": "2025-03-30",
+          "reference_id": "REFMLUYCY7"
+        }
+      }
+    },
+    "holdout_payment_receipt_003": {
+      "status": "ok",
+      "prediction": {
+        "schema_name": "payment_receipt",
+        "fields": {
+          "sender_name": "Apex Ltd.",
+          "recipient_name": "Karl Barton",
+          "amount": "1745.76",
+          "currency": "EUR",
+          "payment_date": "2026-03-16",
+          "reference_id": "TRX-900639"
+        }
+      }
+    },
+    "holdout_proof_of_address_000": {
+      "status": "ok",
+      "prediction": {
+        "schema_name": "proof_of_address",
+        "fields": {
+          "full_name": null,
+          "address_line1": "63356 Tanya Hollow",
+          "city": "Palmerville",
+          "postal_code": "77619",
+          "country": "Canada",
+          "statement_date": "2025-07-13",
+          "issuer_name": "BlueStar Insurance"
+        }
+      }
+    },
+    "holdout_proof_of_address_001": {
+      "status": "ok",
+      "prediction": {
+        "schema_name": "proof_of_address",
+        "fields": {
+          "full_name": null,
+          "address_line1": "49530 Collins Drives Apt. 908",
+          "city": "MELISSAVILLE",
+          "postal_code": "12315",
+          "country": "United Kingdom",
+          "statement_date": "2025-06-02",
+          "issuer_name": "Sterling Life Insurance"
+        }
+      }
+    },
+    "holdout_proof_of_address_002": {
+      "status": "ok",
+      "prediction": {
+        "schema_name": "proof_of_address",
+        "fields": {
+          "full_name": null,
+          "address_line1": "2869 Wilson Mountains Apt. 710",
+          "city": "Jamesshire",
+          "postal_code": "42793",
+          "country": "United States",
+          "statement_date": "2025-03-25",
+          "issuer_name": "Apex Insurance Group"
+        }
+      }
+    },
+    "holdout_proof_of_address_003": {
+      "status": "ok",
+      "prediction": {
+        "schema_name": "proof_of_address",
+        "fields": {
+          "full_name": null,
+          "address_line1": "1748 Melissa Manor",
+          "city": "North Seth",
+          "postal_code": "30354",
+          "country": "United States",
+          "statement_date": "2025-04-02",
+          "issuer_name": "Pinnacle Insurance Co."
+        }
+      }
+    }
+  }
+}

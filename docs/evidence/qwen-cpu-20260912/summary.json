@@ -1,0 +1,534 @@
+{
+  "dev-direct": {
+    "num_docs": 9,
+    "correct_fields": 49,
+    "total_fields": 57,
+    "field_accuracy": 0.859649,
+    "exact_docs": 5,
+    "official_score": {
+      "score": 0.8341,
+      "by_schema": {
+        "government_id": 1.0,
+        "proof_of_address": 0.719,
+        "payment_receipt": 0.7833
+      },
+      "num_docs": 9,
+      "error_summary": {}
+    },
+    "by_schema": {
+      "government_id": {
+        "num_docs": 3,
+        "correct_fields": 18,
+        "total_fields": 18,
+        "field_accuracy": 1.0,
+        "exact_docs": 3
+      },
+      "proof_of_address": {
+        "num_docs": 3,
+        "correct_fields": 16,
+        "total_fields": 21,
+        "field_accuracy": 0.761905,
+        "exact_docs": 1
+      },
+      "payment_receipt": {
+        "num_docs": 3,
+        "correct_fields": 15,
+        "total_fields": 18,
+        "field_accuracy": 0.833333,
+        "exact_docs": 1
+      }
+    },
+    "by_ocr_profile": {
+      "standard_noise": {
+        "num_docs": 9,
+        "correct_fields": 49,
+        "total_fields": 57,
+        "field_accuracy": 0.859649,
+        "exact_docs": 5
+      }
+    },
+    "invalid_json": 0,
+    "truncated_responses": 0,
+    "invalid_predictions": 0,
+    "latency_seconds": {
+      "total": 55.363488,
+      "mean": 6.151499
+    },
+    "tokens": {
+      "prompt_tokens": 7899,
+      "completion_tokens": 898,
+      "total_tokens": 8797
+    },
+    "currency_cost": null
+  },
+  "dev-guided": {
+    "num_docs": 9,
+    "correct_fields": 50,
+    "total_fields": 57,
+    "field_accuracy": 0.877193,
+    "exact_docs": 7,
+    "official_score": {
+      "score": 0.8635,
+      "by_schema": {
+        "government_id": 0.6667,
+        "proof_of_address": 0.9238,
+        "payment_receipt": 1.0
+      },
+      "num_docs": 9,
+      "error_summary": {
+        "invalid_prediction": 1
+      }
+    },
+    "by_schema": {
+      "government_id": {
+        "num_docs": 3,
+        "correct_fields": 12,
+        "total_fields": 18,
+        "field_accuracy": 0.666667,
+        "exact_docs": 2
+      },
+      "proof_of_address": {
+        "num_docs": 3,
+        "correct_fields": 20,
+        "total_fields": 21,
+        "field_accuracy": 0.952381,
+        "exact_docs": 2
+      },
+      "payment_receipt": {
+        "num_docs": 3,
+        "correct_fields": 18,
+        "total_fields": 18,
+        "field_accuracy": 1.0,
+        "exact_docs": 3
+      }
+    },
+    "by_ocr_profile": {
+      "standard_noise": {
+        "num_docs": 9,
+        "correct_fields": 50,
+        "total_fields": 57,
+        "field_accuracy": 0.877193,
+        "exact_docs": 7
+      }
+    },
+    "invalid_json": 1,
+    "truncated_responses": 1,
+    "invalid_predictions": 1,
+    "latency_seconds": {
+      "total": 65.801649,
+      "mean": 7.311294
+    },
+    "tokens": {
+      "prompt_tokens": 9087,
+      "completion_tokens": 1316,
+      "total_tokens": 10403
+    },
+    "currency_cost": null
+  },
+  "dev-heuristic": {
+    "num_docs": 9,
+    "correct_fields": 51,
+    "total_fields": 57,
+    "field_accuracy": 0.894737,
+    "exact_docs": 4,
+    "official_score": {
+      "score": 0.8492,
+      "by_schema": {
+        "government_id": 0.8667,
+        "proof_of_address": 0.8476,
+        "payment_receipt": 0.8333
+      },
+      "num_docs": 9,
+      "error_summary": {}
+    },
+    "by_schema": {
+      "government_id": {
+        "num_docs": 3,
+        "correct_fields": 16,
+        "total_fields": 18,
+        "field_accuracy": 0.888889,
+        "exact_docs": 2
+      },
+      "proof_of_address": {
+        "num_docs": 3,
+        "correct_fields": 19,
+        "total_fields": 21,
+        "field_accuracy": 0.904762,
+        "exact_docs": 1
+      },
+      "payment_receipt": {
+        "num_docs": 3,
+        "correct_fields": 16,
+        "total_fields": 18,
+        "field_accuracy": 0.888889,
+        "exact_docs": 1
+      }
+    },
+    "by_ocr_profile": {
+      "standard_noise": {
+        "num_docs": 9,
+        "correct_fields": 51,
+        "total_fields": 57,
+        "field_accuracy": 0.894737,
+        "exact_docs": 4
+      }
+    },
+    "invalid_json": 0,
+    "truncated_responses": 0,
+    "invalid_predictions": 0,
+    "latency_seconds": {
+      "total": 0.033203,
+      "mean": 0.003689
+    },
+    "tokens": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "total_tokens": 0
+    },
+    "currency_cost": null
+  },
+  "dev-reflected": {
+    "num_docs": 9,
+    "correct_fields": 36,
+    "total_fields": 57,
+    "field_accuracy": 0.631579,
+    "exact_docs": 3,
+    "official_score": {
+      "score": 0.6119,
+      "by_schema": {
+        "government_id": 0.6667,
+        "proof_of_address": 0.3857,
+        "payment_receipt": 0.7833
+      },
+      "num_docs": 9,
+      "error_summary": {
+        "invalid_prediction": 2
+      }
+    },
+    "by_schema": {
+      "government_id": {
+        "num_docs": 3,
+        "correct_fields": 12,
+        "total_fields": 18,
+        "field_accuracy": 0.666667,
+        "exact_docs": 2
+      },
+      "proof_of_address": {
+        "num_docs": 3,
+        "correct_fields": 9,
+        "total_fields": 21,
+        "field_accuracy": 0.428571,
+        "exact_docs": 0
+      },
+      "payment_receipt": {
+        "num_docs": 3,
+        "correct_fields": 15,
+        "total_fields": 18,
+        "field_accuracy": 0.833333,
+        "exact_docs": 1
+      }
+    },
+    "by_ocr_profile": {
+      "standard_noise": {
+        "num_docs": 9,
+        "correct_fields": 36,
+        "total_fields": 57,
+        "field_accuracy": 0.631579,
+        "exact_docs": 3
+      }
+    },
+    "invalid_json": 1,
+    "truncated_responses": 1,
+    "invalid_predictions": 2,
+    "latency_seconds": {
+      "total": 67.212251,
+      "mean": 7.468028
+    },
+    "tokens": {
+      "prompt_tokens": 8457,
+      "completion_tokens": 1249,
+      "total_tokens": 9706
+    },
+    "currency_cost": null
+  },
+  "holdout-direct": {
+    "num_docs": 12,
+    "correct_fields": 60,
+    "total_fields": 76,
+    "field_accuracy": 0.789474,
+    "exact_docs": 6,
+    "official_score": {
+      "score": 0.7679,
+      "by_schema": {
+        "government_id": 1.0,
+        "proof_of_address": 0.6036,
+        "payment_receipt": 0.7
+      },
+      "num_docs": 12,
+      "error_summary": {}
+    },
+    "by_schema": {
+      "government_id": {
+        "num_docs": 4,
+        "correct_fields": 24,
+        "total_fields": 24,
+        "field_accuracy": 1.0,
+        "exact_docs": 4
+      },
+      "proof_of_address": {
+        "num_docs": 4,
+        "correct_fields": 18,
+        "total_fields": 28,
+        "field_accuracy": 0.642857,
+        "exact_docs": 1
+      },
+      "payment_receipt": {
+        "num_docs": 4,
+        "correct_fields": 18,
+        "total_fields": 24,
+        "field_accuracy": 0.75,
+        "exact_docs": 1
+      }
+    },
+    "by_ocr_profile": {
+      "clean": {
+        "num_docs": 6,
+        "correct_fields": 31,
+        "total_fields": 38,
+        "field_accuracy": 0.815789,
+        "exact_docs": 4
+      },
+      "standard_noise": {
+        "num_docs": 6,
+        "correct_fields": 29,
+        "total_fields": 38,
+        "field_accuracy": 0.763158,
+        "exact_docs": 2
+      }
+    },
+    "invalid_json": 0,
+    "truncated_responses": 0,
+    "invalid_predictions": 0,
+    "latency_seconds": {
+      "total": 75.676991,
+      "mean": 6.306416
+    },
+    "tokens": {
+      "prompt_tokens": 10285,
+      "completion_tokens": 1230,
+      "total_tokens": 11515
+    },
+    "currency_cost": null
+  },
+  "holdout-guided": {
+    "num_docs": 12,
+    "correct_fields": 39,
+    "total_fields": 76,
+    "field_accuracy": 0.513158,
+    "exact_docs": 4,
+    "official_score": {
+      "score": 0.4923,
+      "by_schema": {
+        "government_id": 0.0,
+        "proof_of_address": 0.5393,
+        "payment_receipt": 0.9375
+      },
+      "num_docs": 12,
+      "error_summary": {
+        "invalid_prediction": 4
+      }
+    },
+    "by_schema": {
+      "government_id": {
+        "num_docs": 4,
+        "correct_fields": 0,
+        "total_fields": 24,
+        "field_accuracy": 0.0,
+        "exact_docs": 0
+      },
+      "proof_of_address": {
+        "num_docs": 4,
+        "correct_fields": 16,
+        "total_fields": 28,
+        "field_accuracy": 0.571429,
+        "exact_docs": 1
+      },
+      "payment_receipt": {
+        "num_docs": 4,
+        "correct_fields": 23,
+        "total_fields": 24,
+        "field_accuracy": 0.958333,
+        "exact_docs": 3
+      }
+    },
+    "by_ocr_profile": {
+      "clean": {
+        "num_docs": 6,
+        "correct_fields": 22,
+        "total_fields": 38,
+        "field_accuracy": 0.578947,
+        "exact_docs": 3
+      },
+      "standard_noise": {
+        "num_docs": 6,
+        "correct_fields": 17,
+        "total_fields": 38,
+        "field_accuracy": 0.447368,
+        "exact_docs": 1
+      }
+    },
+    "invalid_json": 4,
+    "truncated_responses": 4,
+    "invalid_predictions": 4,
+    "latency_seconds": {
+      "total": 113.591881,
+      "mean": 9.46599
+    },
+    "tokens": {
+      "prompt_tokens": 11869,
+      "completion_tokens": 2839,
+      "total_tokens": 14708
+    },
+    "currency_cost": null
+  },
+  "holdout-heuristic": {
+    "num_docs": 12,
+    "correct_fields": 70,
+    "total_fields": 76,
+    "field_accuracy": 0.921053,
+    "exact_docs": 7,
+    "official_score": {
+      "score": 0.8851,
+      "by_schema": {
+        "government_id": 0.8375,
+        "proof_of_address": 0.9429,
+        "payment_receipt": 0.875
+      },
+      "num_docs": 12,
+      "error_summary": {}
+    },
+    "by_schema": {
+      "government_id": {
+        "num_docs": 4,
+        "correct_fields": 21,
+        "total_fields": 24,
+        "field_accuracy": 0.875,
+        "exact_docs": 2
+      },
+      "proof_of_address": {
+        "num_docs": 4,
+        "correct_fields": 27,
+        "total_fields": 28,
+        "field_accuracy": 0.964286,
+        "exact_docs": 3
+      },
+      "payment_receipt": {
+        "num_docs": 4,
+        "correct_fields": 22,
+        "total_fields": 24,
+        "field_accuracy": 0.916667,
+        "exact_docs": 2
+      }
+    },
+    "by_ocr_profile": {
+      "clean": {
+        "num_docs": 6,
+        "correct_fields": 37,
+        "total_fields": 38,
+        "field_accuracy": 0.973684,
+        "exact_docs": 5
+      },
+      "standard_noise": {
+        "num_docs": 6,
+        "correct_fields": 33,
+        "total_fields": 38,
+        "field_accuracy": 0.868421,
+        "exact_docs": 2
+      }
+    },
+    "invalid_json": 0,
+    "truncated_responses": 0,
+    "invalid_predictions": 0,
+    "latency_seconds": {
+      "total": 0.036461,
+      "mean": 0.003038
+    },
+    "tokens": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "total_tokens": 0
+    },
+    "currency_cost": null
+  },
+  "holdout-reflected": {
+    "num_docs": 12,
+    "correct_fields": 50,
+    "total_fields": 76,
+    "field_accuracy": 0.657895,
+    "exact_docs": 5,
+    "official_score": {
+      "score": 0.6452,
+      "by_schema": {
+        "government_id": 1.0,
+        "proof_of_address": 0.3857,
+        "payment_receipt": 0.55
+      },
+      "num_docs": 12,
+      "error_summary": {
+        "invalid_prediction": 1
+      }
+    },
+    "by_schema": {
+      "government_id": {
+        "num_docs": 4,
+        "correct_fields": 24,
+        "total_fields": 24,
+        "field_accuracy": 1.0,
+        "exact_docs": 4
+      },
+      "proof_of_address": {
+        "num_docs": 4,
+        "correct_fields": 12,
+        "total_fields": 28,
+        "field_accuracy": 0.428571,
+        "exact_docs": 0
+      },
+      "payment_receipt": {
+        "num_docs": 4,
+        "correct_fields": 14,
+        "total_fields": 24,
+        "field_accuracy": 0.583333,
+        "exact_docs": 1
+      }
+    },
+    "by_ocr_profile": {
+      "clean": {
+        "num_docs": 6,
+        "correct_fields": 28,
+        "total_fields": 38,
+        "field_accuracy": 0.736842,
+        "exact_docs": 3
+      },
+      "standard_noise": {
+        "num_docs": 6,
+        "correct_fields": 22,
+        "total_fields": 38,
+        "field_accuracy": 0.578947,
+        "exact_docs": 2
+      }
+    },
+    "invalid_json": 0,
+    "truncated_responses": 0,
+    "invalid_predictions": 1,
+    "latency_seconds": {
+      "total": 74.369662,
+      "mean": 6.197472
+    },
+    "tokens": {
+      "prompt_tokens": 11029,
+      "completion_tokens": 1265,
+      "total_tokens": 12294
+    },
+    "currency_cost": null
+  }
+}

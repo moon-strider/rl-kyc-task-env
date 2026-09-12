@@ -16,7 +16,8 @@ class ContainerMountsTest(unittest.TestCase):
 
         def fake_run_container(image, mounts, command, timeout_seconds):
             calls.append((mounts, command))
-            return subprocess.CompletedProcess(args=[], returncode=0, stdout='{"score": 0.0}', stderr="")
+            output = '{"version": 1, "documents": {}}' if isinstance(command, list) and "collector.py" in command[1] else '{"score": 0.0}'
+            return subprocess.CompletedProcess(args=[], returncode=0, stdout=output, stderr="")
 
         with tempfile.TemporaryDirectory() as tmp_dir:
             tmp = Path(tmp_dir)
@@ -36,7 +37,8 @@ class ContainerMountsTest(unittest.TestCase):
 
         def fake_run_container(image, mounts, command, timeout_seconds):
             calls.append((mounts, command))
-            return subprocess.CompletedProcess(args=[], returncode=0, stdout='{"score": 0.0}', stderr="")
+            output = '{"version": 1, "documents": {}}' if isinstance(command, list) and "collector.py" in command[1] else '{"score": 0.0}'
+            return subprocess.CompletedProcess(args=[], returncode=0, stdout=output, stderr="")
 
         with tempfile.TemporaryDirectory() as tmp_dir:
             tmp = Path(tmp_dir)
@@ -53,6 +55,14 @@ class ContainerMountsTest(unittest.TestCase):
         judge_mounts = calls[-1][0]
         mounted_paths = {container_path for _, container_path, _ in judge_mounts}
         self.assertIn("/workspace/rl_kyc_task_env", mounted_paths)
+        self.assertNotIn("/workspace/solution", mounted_paths)
+        self.assertIn("/workspace/predictions.json", mounted_paths)
+        collector_mounted_paths = {target for _, target, _ in calls[0][0]}
+        self.assertIn("/workspace/solution", collector_mounted_paths)
+        self.assertNotIn("/workspace/private", collector_mounted_paths)
+        self.assertNotIn("/workspace/judge", collector_mounted_paths)
+        self.assertNotIn("/workspace/rl_kyc_task_env", collector_mounted_paths)
+        self.assertEqual(len(calls), 2)
 
 
 if __name__ == "__main__":

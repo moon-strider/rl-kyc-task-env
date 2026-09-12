@@ -1,0 +1,309 @@
+{
+  "num_docs": 12,
+  "correct_fields": 60,
+  "total_fields": 76,
+  "field_accuracy": 0.789474,
+  "exact_docs": 6,
+  "official_score": {
+    "score": 0.7679,
+    "by_schema": {
+      "government_id": 1.0,
+      "proof_of_address": 0.6036,
+      "payment_receipt": 0.7
+    },
+    "num_docs": 12,
+    "error_summary": {}
+  },
+  "by_schema": {
+    "government_id": {
+      "num_docs": 4,
+      "correct_fields": 24,
+      "total_fields": 24,
+      "field_accuracy": 1.0,
+      "exact_docs": 4
+    },
+    "proof_of_address": {
+      "num_docs": 4,
+      "correct_fields": 18,
+      "total_fields": 28,
+      "field_accuracy": 0.642857,
+      "exact_docs": 1
+    },
+    "payment_receipt": {
+      "num_docs": 4,
+      "correct_fields": 18,
+      "total_fields": 24,
+      "field_accuracy": 0.75,
+      "exact_docs": 1
+    }
+  },
+  "by_ocr_profile": {
+    "clean": {
+      "num_docs": 6,
+      "correct_fields": 31,
+      "total_fields": 38,
+      "field_accuracy": 0.815789,
+      "exact_docs": 4
+    },
+    "standard_noise": {
+      "num_docs": 6,
+      "correct_fields": 29,
+      "total_fields": 38,
+      "field_accuracy": 0.763158,
+      "exact_docs": 2
+    }
+  },
+  "invalid_json": 0,
+  "truncated_responses": 0,
+  "invalid_predictions": 0,
+  "latency_seconds": {
+    "total": 75.676991,
+    "mean": 6.306416
+  },
+  "tokens": {
+    "prompt_tokens": 10285,
+    "completion_tokens": 1230,
+    "total_tokens": 11515
+  },
+  "currency_cost": null,
+  "documents": [
+    {
+      "doc_id": "holdout_government_id_000",
+      "schema_name": "government_id",
+      "seed": 2067714377,
+      "template": "gid_card_horizontal",
+      "ocr_profile": "clean",
+      "ocr_sha256": "b6dae7a0d7017bf1649020f5d6ee4a8e2336229a01454ef35dc08d5c4f8ce36e",
+      "gold_sha256": "915298fa6ac839b43d9002113d9af78083f55b033d0f5f598c0000d98a9d2830",
+      "status": "ok",
+      "num_fields": 6,
+      "correct_fields": 6,
+      "exact_doc": true,
+      "errors": {}
+    },
+    {
+      "doc_id": "holdout_government_id_001",
+      "schema_name": "government_id",
+      "seed": 1348139235,
+      "template": "gid_card_horizontal",
+      "ocr_profile": "standard_noise",
+      "ocr_sha256": "13b2e8c80178ff74eebbf859593f9880898bd0196a6e6fe977cd433aa1577b62",
+      "gold_sha256": "2a6aba937a4285e78fe5c4a57cc9479f9eaeba61bbf2d39eb7bf8521f894e7ca",
+      "status": "ok",
+      "num_fields": 6,
+      "correct_fields": 6,
+      "exact_doc": true,
+      "errors": {}
+    },
+    {
+      "doc_id": "holdout_government_id_002",
+      "schema_name": "government_id",
+      "seed": 539481428,
+      "template": "gid_card_horizontal",
+      "ocr_profile": "clean",
+      "ocr_sha256": "f28efe7181963cac910d79c9a851a8073c1cac577e9f49feeb5548ab5a930953",
+      "gold_sha256": "361b57223f8db725368188db65c47f9b596f48a2ceedd934c6a7f34ac0a1c0a5",
+      "status": "ok",
+      "num_fields": 6,
+      "correct_fields": 6,
+      "exact_doc": true,
+      "errors": {}
+    },
+    {
+      "doc_id": "holdout_government_id_003",
+      "schema_name": "government_id",
+      "seed": 222285084,
+      "template": "gid_card_horizontal",
+      "ocr_profile": "standard_noise",
+      "ocr_sha256": "0e461c5413e2c3af0eee539b2dda579f9ebe3b77330b841d1ece0799e02c5dc2",
+      "gold_sha256": "44d86e1f4ecec65e0f4d6ec8ed7ea25fff83400d39b96c03c6fd55a0af170659",
+      "status": "ok",
+      "num_fields": 6,
+      "correct_fields": 6,
+      "exact_doc": true,
+      "errors": {}
+    },
+    {
+      "doc_id": "holdout_proof_of_address_000",
+      "schema_name": "proof_of_address",
+      "seed": 2010791648,
+      "template": "poa_insurance_notice",
+      "ocr_profile": "clean",
+      "ocr_sha256": "269bce9d6fa5fcf07022f45b8e5a6a2998d7b6e22abf9ea0e2bd0de3941a682d",
+      "gold_sha256": "d5e61e489bdb3c42a1e7a9b4bf4da4ec29abe7126b90ce500459b0bac1030773",
+      "status": "ok",
+      "num_fields": 7,
+      "correct_fields": 7,
+      "exact_doc": true,
+      "errors": {}
+    },
+    {
+      "doc_id": "holdout_proof_of_address_001",
+      "schema_name": "proof_of_address",
+      "seed": 579004116,
+      "template": "poa_insurance_notice",
+      "ocr_profile": "standard_noise",
+      "ocr_sha256": "64ed6bbe83dd965ea7ff82f0040a6c146147a24a21619a84167adb0330a539ee",
+      "gold_sha256": "da3d059be41c82b14bec3b3e5ac713881e7b2d677c9d2b34d8b450aab4addbd6",
+      "status": "ok",
+      "num_fields": 7,
+      "correct_fields": 3,
+      "exact_doc": false,
+      "errors": {
+        "full_name": {
+          "expected": "linda robinson",
+          "predicted": "sterling life insurance"
+        },
+        "address_line1": {
+          "expected": "7 jenna flats",
+          "predicted": "49530 collins drives apt. 908"
+        },
+        "city": {
+          "expected": "fionashire",
+          "predicted": "melissaville"
+        },
+        "postal_code": {
+          "expected": "FK6Y 7QF",
+          "predicted": "12315"
+        }
+      }
+    },
+    {
+      "doc_id": "holdout_proof_of_address_002",
+      "schema_name": "proof_of_address",
+      "seed": 601102268,
+      "template": "poa_insurance_notice",
+      "ocr_profile": "clean",
+      "ocr_sha256": "5a2917fc36f3f1fc58993fe9015f9d1c74c17091c00ab8962e8e3e83f9eed1f7",
+      "gold_sha256": "ff920d252aa530888237c07ad57d58a9c861bae4074723830a3702101d698f90",
+      "status": "ok",
+      "num_fields": 7,
+      "correct_fields": 2,
+      "exact_doc": false,
+      "errors": {
+        "full_name": {
+          "expected": "wendy taylor",
+          "predicted": "apex insurance group"
+        },
+        "address_line1": {
+          "expected": "6553 buck extension apt. 163",
+          "predicted": "2869 wilson mountains apt. 710"
+        },
+        "city": {
+          "expected": "port willie",
+          "predicted": "jamesshire"
+        },
+        "postal_code": {
+          "expected": "42785",
+          "predicted": "SC 42793"
+        },
+        "issuer_name": {
+          "expected": "apex insurance group",
+          "predicted": "wendy taylor"
+        }
+      }
+    },
+    {
+      "doc_id": "holdout_proof_of_address_003",
+      "schema_name": "proof_of_address",
+      "seed": 356276600,
+      "template": "poa_insurance_notice",
+      "ocr_profile": "standard_noise",
+      "ocr_sha256": "f66b8bd7797caf4a9176147be1920b5821ff61d459446e027608d18260df1cc1",
+      "gold_sha256": "1a8528540016697fa6621aab9ccdac8ba5f50e657dd4c15fee062830b0a07040",
+      "status": "ok",
+      "num_fields": 7,
+      "correct_fields": 6,
+      "exact_doc": false,
+      "errors": {
+        "full_name": {
+          "expected": "lorraine benson",
+          "predicted": "lorrainebenson"
+        }
+      }
+    },
+    {
+      "doc_id": "holdout_payment_receipt_000",
+      "schema_name": "payment_receipt",
+      "seed": 1547539230,
+      "template": "pay_checkout_receipt",
+      "ocr_profile": "clean",
+      "ocr_sha256": "ba8eb819b1c9413494238db057d1117e37a2e84bbefda10363e961b8ddb9153a",
+      "gold_sha256": "bd0ce70c541984ed2e4455476e081758f66b553d583933af70a2822ea6e84d61",
+      "status": "ok",
+      "num_fields": 6,
+      "correct_fields": 6,
+      "exact_doc": true,
+      "errors": {}
+    },
+    {
+      "doc_id": "holdout_payment_receipt_001",
+      "schema_name": "payment_receipt",
+      "seed": 1905252445,
+      "template": "pay_checkout_receipt",
+      "ocr_profile": "standard_noise",
+      "ocr_sha256": "6e7e2360e00d1f78e2a23c2420407bcd3f1a4fa7fd2f1213c4fe3df6a3b8d16f",
+      "gold_sha256": "5b9d7da9c410d5bf113ab501acf10724c17e2ddc1021fa99e4e022ac0faf4892",
+      "status": "ok",
+      "num_fields": 6,
+      "correct_fields": 4,
+      "exact_doc": false,
+      "errors": {
+        "sender_name": {
+          "expected": "carlos brown",
+          "predicted": "sterling goods ltd"
+        },
+        "recipient_name": {
+          "expected": "sterling goods ltd",
+          "predicted": "carlos brown"
+        }
+      }
+    },
+    {
+      "doc_id": "holdout_payment_receipt_002",
+      "schema_name": "payment_receipt",
+      "seed": 1936189890,
+      "template": "pay_checkout_receipt",
+      "ocr_profile": "clean",
+      "ocr_sha256": "16d56acaf6f5adf2bb9f6021432a0fe3a35f3d847abaa69421f675a7e803ab90",
+      "gold_sha256": "19b50ab8f0542261a32f3841b432eb22b5f7775a140cdc10fb49944c94ec6e45",
+      "status": "ok",
+      "num_fields": 6,
+      "correct_fields": 4,
+      "exact_doc": false,
+      "errors": {
+        "sender_name": {
+          "expected": "rhonda boyle",
+          "predicted": "atlas commerce inc"
+        },
+        "recipient_name": {
+          "expected": "atlas commerce inc",
+          "predicted": "rhonda boyle"
+        }
+      }
+    },
+    {
+      "doc_id": "holdout_payment_receipt_003",
+      "schema_name": "payment_receipt",
+      "seed": 1337467056,
+      "template": "pay_checkout_receipt",
+      "ocr_profile": "standard_noise",
+      "ocr_sha256": "e86641a3be31689f306dbf6900ce7a09859a3c67ef0a7def38d1e892828c3438",
+      "gold_sha256": "3fe07187d407a187a4b6a5e806c898f5b34c0958d64a7688c94a269031286c8c",
+      "status": "ok",
+      "num_fields": 6,
+      "correct_fields": 4,
+      "exact_doc": false,
+      "errors": {
+        "sender_name": {
+          "expected": "karl barton",
+          "predicted": "apex ltd"
+        },
+        "recipient_name": {
+          "expected": "apex retail ltd",
+          "predicted": "karl barton"
+        }
+      }
+    }
+  ]
+}

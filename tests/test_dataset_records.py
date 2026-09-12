@@ -1,13 +1,23 @@
 from __future__ import annotations
 
 import unittest
+import tempfile
+from pathlib import Path
+from unittest.mock import patch
 
 from rl_kyc_task_env.datasets import get_split_paths, list_documents, load_document
 from rl_kyc_task_env.paths import REPO_ROOT
-from rl_kyc_task_env.records import DocumentRecord
+from rl_kyc_task_env.records import DocumentRecord, SplitPaths
 
 
 class DatasetRecordsTest(unittest.TestCase):
+    def test_missing_installed_dataset_has_actionable_error(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            missing = Path(directory) / "val"
+            with patch("rl_kyc_task_env.datasets.get_split_paths", return_value=SplitPaths("val", missing)):
+                with self.assertRaisesRegex(FileNotFoundError, "RL_KYC_DATA_ROOT"):
+                    list_documents("val")
+
     def test_val_split_lists_document_records(self) -> None:
         records = list_documents("val")
         self.assertEqual(len(records), 90)

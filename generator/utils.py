@@ -32,7 +32,7 @@ def seed_python_random(seed: int) -> None:
                                                                              
               
                                                                              
-REPO_ROOT = Path(__file__).resolve().parent.parent
+from rl_kyc_task_env.paths import REPO_ROOT
 
 PUBLIC_TRAIN_DIR = REPO_ROOT / "task" / "public_data" / "train"
 PUBLIC_VAL_DIR = REPO_ROOT / "task" / "public_data" / "val"

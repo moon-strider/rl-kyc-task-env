@@ -1,267 +1,145 @@
 # rl-kyc-task-env
 
-A framework-ready RL environment and local assessment benchmark for structured extraction from synthetic English-language KYC-style documents.
+Structured extraction from synthetic English-language identity documents, address statements, and payment receipts. Use it as a local benchmark or as the scoring environment for an agent-training experiment.
 
-The repository is still usable as a simple local benchmark, but the implementation is now organized around an importable Python package, `rl_kyc_task_env`, with compatibility wrappers for the original public task, hidden judge, and Docker harness flows.
-
-## What this is
-
-The task asks an agent or participant solution to extract structured fields from single-page documents represented by:
-
-- `meta.json`
-- `ocr.json`
-- `pages/0.png`
-
-Supported schemas:
-
-- `government_id`
-- `proof_of_address`
-- `payment_receipt`
-
-Canonical participant contract:
-
-```python
-def predict(document_dir: str) -> dict:
-    ...
-```
-
-The return value must be JSON-serializable and match the active schema:
-
-```json
-{
-  "schema_name": "payment_receipt",
-  "fields": {
-    "sender_name": "..."
-  }
-}
-```
+The package provides a shared reward function, public examples, isolated participant execution, and optional Verifiers/OpenReward adapters. A reproducible CPU model experiment is described in [docs/experiment.md](docs/experiment.md).
 
 ## Quickstart
 
-```bash
-just sync
-just check
-```
-
-Pinned runtime:
-
-- Python `3.12.2`
-- `uv` `0.7.7`
-
-## Demo flow
-
-Run the benchmark as a participant would see it:
+Requires Python **3.12 or 3.13** and `uv` **0.12.11**. Docker is required for isolated execution.
 
 ```bash
-uv run python task/tools/public_validator.py baselines/heuristic_baseline
-```
-
-Run the hidden judge locally:
-
-```bash
-uv run python judge/run_judge.py baselines/heuristic_baseline
-```
-
-Run the package API directly:
-
-```bash
-uv run python - <<'PY'
-from rl_kyc_task_env import DocumentExtractionTask
-
-task = DocumentExtractionTask(split="val", limit=1)
-record = task.records[0]
-print(task.get_prompt(record).splitlines()[0])
-print(task.score_submission(record, task.load_gold_prediction(record)).reward)
-PY
-```
-
-Run the production-style isolated path:
-
-```bash
-just build-public-bundle
-just build-private-judge-bundle
-just build-eval-image
-just run-public-episode
-just run-hidden-judge
-```
-
-What this demonstrates:
-
-- stable public `extract.py` participant contract
-- deterministic scoring shared by local, package, framework, and Docker paths
-- importable environment API for RL adapters
-- optional Verifiers and OpenReward integration surfaces
-- containerized public/hidden execution with separate bundles
-- CI coverage for contract tests, bundle creation, wheel build, and Docker smoke runs
-
-## Installation
-
-Editable local install:
-
-```bash
+git clone https://github.com/moon-strider/rl-kyc-task-env.git
+cd rl-kyc-task-env
 uv sync --frozen
+uv run rl-kyc-public-validator baselines/heuristic_baseline
+uv run python -m unittest discover -s tests
 ```
 
-Build wheel and source distribution:
+A participant supplies `extract.py` with this function:
+
+```python
+def predict(document_dir: str) -> dict:
+    # Read meta.json, ocr.json, and optionally pages/0.png.
+    return {"schema_name": "payment_receipt", "fields": {...}}
+```
+
+Use the fields from the matching schema in `task/schemas/`. Every required field must be present; values are strings or `null`, and extra keys are rejected.
+
+The checked-in public heuristic score is **0.8468**. The null baseline scores **0**. These are synthetic benchmark results, not measured accuracy on real KYC documents.
+
+## Install and use the package
 
 ```bash
 uv build
+uv run python scripts/check_install.py
 ```
 
-Install optional framework adapters only in environments that need them:
+The install check builds a wheel and source archive, installs the wheel into a clean environment outside the checkout, and exercises all four commands plus scoring on independent fixtures.
+
+Datasets and gold answers are excluded from both distributions. Schemas, prompts, and runtime modules are included. If you install the wheel elsewhere, point it at a dataset checkout **before importing the package**:
+
+```bash
+export RL_KYC_DATA_ROOT=/absolute/path/to/rl-kyc-task-env
+rl-kyc-public-validator /absolute/path/to/my-solution
+```
+
+The data root must contain `task/public_data/train`, `task/public_data/val`, and, when using hidden scoring, `private/hidden_test` and `private/hidden_gold`. A missing split raises an error explaining how to configure the data root.
+
+The four installed commands are `rl-kyc-public-validator`, `rl-kyc-hidden-judge`, `rl-kyc-harness`, and `rl-kyc-experiment`; each supports `--help`.
+
+## Safe evaluation of participant code
+
+Run submitted code through the Docker harness:
+
+```bash
+uv run rl-kyc-harness build-public-bundle
+uv run rl-kyc-harness build-private-judge-bundle --shard-name benchmark
+uv run rl-kyc-harness build-eval-image --image rl-kyc-eval:local
+uv run rl-kyc-harness run-public-episode --image rl-kyc-eval:local --seed-solution baselines/heuristic_baseline
+uv run rl-kyc-harness run-hidden-judge --image rl-kyc-eval:local --solution-dir baselines/heuristic_baseline
+```
+
+Hidden evaluation uses two sequential containers:
+
+1. The **collector** runs participant code with scrubbed document inputs and schema resources. Gold answers, the judge, and generation seeds are absent. It returns a bounded JSON prediction envelope.
+2. The collector is removed. The **scorer** receives the frozen JSON and trusted gold; participant code is absent. It returns aggregate metrics.
+
+Containers have no network, a read-only root filesystem, an unprivileged user, dropped capabilities, and limits on memory, processes, CPU, output, and elapsed time. Timeouts force container removal. Archive traversal, links, and special files are rejected. See [the isolation design](docs/isolation.md) for the boundary and its limits.
+
+To score already collected predictions without executing code:
+
+```bash
+uv run rl-kyc-hidden-judge --predictions predictions.json
+```
+
+For a baseline you trust, local execution remains available:
+
+```bash
+uv run rl-kyc-hidden-judge --trusted-solution baselines/heuristic_baseline
+```
+
+Local Python execution, including the public validator, is for trusted code: it has access to the host filesystem. The explicit `--trusted-solution` option replaces the old positional hidden-judge command.
+
+The repository publishes its example hidden dataset and seeds. Container isolation cannot prevent a participant from memorizing published answers. For a meaningful held-out evaluation, generate fresh data outside participant access and freeze predictions before revealing gold.
+
+## Python API
+
+```python
+from rl_kyc_task_env import DocumentExtractionTask
+from rl_kyc_task_env.prompts import build_document_prompt
+
+task = DocumentExtractionTask(split="val", limit=1)
+record = task.records[0]
+observation = task.get_observation(record)
+print(build_document_prompt(record))
+
+# Evaluator-side sanity check: gold should score 1.0.
+gold = task.load_document(record).gold
+print(task.score_submission(record, gold).reward)
+```
+
+`get_observation` exposes metadata, schema, and OCR without returning gold. The task object itself belongs on the trusted evaluator side: `load_document` can read gold.
+
+## Scoring and data
+
+| Schema | Train | Validation | Example hidden |
+| --- | ---: | ---: | ---: |
+| `government_id` | 120 | 30 | 36 |
+| `proof_of_address` | 120 | 30 | 36 |
+| `payment_receipt` | 120 | 30 | 36 |
+
+For each document, `score = 0.9 × field_accuracy + 0.1 × exact_document_match`. The final reward is the equal-weight mean of the three schema averages. Canonicalization handles casing, whitespace, dates, amounts, and supported currencies; it deliberately does not forgive OCR substitutions such as `O/0`.
+
+The generator corrupts OCR tokens and geometry; the rendered page remains clean. OCR-only and image-enabled systems therefore receive different information and should be reported separately.
+
+The checked-in hidden heuristic score is **0.8296**. The regenerated `benchmark` bundle has historically scored **0.8333**; use the actual run report when comparing changes.
+
+## Model experiment
+
+The `rl-kyc-experiment` command separates fresh dataset generation, model inference, development-only prompt reflection, and scoring of frozen predictions. It accepts an OpenAI-compatible local endpoint and requires no paid API when used with a local model.
+
+[The experiment report](docs/experiment.md) records the model, prompts, seeds, hashes, OCR-only conditions, per-schema results, and limitations. This is an extraction and prompt-improvement experiment; it does not train model weights or establish an RL learning curve.
+
+## Optional training adapters
 
 ```bash
 uv sync --frozen --extra verifiers
 uv sync --frozen --extra openreward
+# Or both:
 uv sync --frozen --extra frameworks
 ```
 
-Optional framework packages are strictly pinned and lazy-imported, so the core benchmark stays lightweight.
+Adapters lazy-import their optional dependencies. See [Verifiers](integrations/verifiers/README.md) and [OpenReward](integrations/openreward/README.md) for their interfaces. Core installation and tests do not validate a full external training deployment.
 
-## Local evaluation
-
-Public validation:
-
-```bash
-uv run python task/tools/public_validator.py baselines/heuristic_baseline
-```
-
-Hidden judging:
-
-```bash
-uv run python judge/run_judge.py baselines/heuristic_baseline
-```
-
-Expected baseline scores for checked-in datasets:
-
-- public null: `0.0`
-- public heuristic: `0.8468`
-- hidden null: `0.0`
-- hidden heuristic: `0.8296`
-
-The isolated private judge bundle regenerates the benchmark hidden shard from the seed bank; its heuristic score is currently `0.8333`.
-
-## Isolated execution
-
-Production-style execution goes through bundles and containers:
-
-```bash
-just build-public-bundle
-just build-private-judge-bundle
-just build-eval-image
-just run-public-episode
-just run-hidden-judge
-```
-
-Public runtime mounts only the public task bundle and `/workspace/solution`. Hidden judging runs separately with the private judge bundle.
-
-## Python package API
-
-The package API is the canonical implementation surface for new code:
-
-```python
-from rl_kyc_task_env import DocumentExtractionTask
-
-task = DocumentExtractionTask(split="val", limit=2)
-record = task.records[0]
-observation = task.get_observation(record)
-result = task.score_submission(record, prediction)
-print(result.reward)
-```
-
-Important modules:
-
-- `rl_kyc_task_env.datasets`: split discovery and document records
-- `rl_kyc_task_env.schemas`: schema loading and validation
-- `rl_kyc_task_env.scoring`: canonical scoring and aggregation
-- `rl_kyc_task_env.runner`: participant `extract.py` execution
-- `rl_kyc_task_env.evaluation`: solution evaluation APIs
-- `rl_kyc_task_env.bundles`: public/private bundle builders
-- `rl_kyc_task_env.containers`: Docker runner APIs
-- `rl_kyc_task_env.environment`: high-level environment API for integrations
-
-Legacy entrypoints under `task/`, `judge/`, and `harness/` are compatibility wrappers over this package.
-
-## Verifiers integration
-
-The Verifiers adapter is optional and lazy-imported:
-
-```python
-from rl_kyc_task_env.integrations.verifiers import load_environment
-
-env = load_environment(split="train", limit=100)
-```
-
-See `integrations/verifiers/README.md`.
-
-`verifiers` is not a core dependency. Install it in the training environment only when needed.
-
-## OpenReward / ORS integration
-
-The OpenReward adapter exposes task listing, prompts, document tools, and canonical rewards:
-
-```python
-from rl_kyc_task_env.integrations.openreward import OpenRewardKycEnvironment
-
-env = OpenRewardKycEnvironment(default_split="val", limit=10)
-task = env.list_tasks("val")[0]
-print(env.get_prompt(task))
-print(env.submit_extraction(task, prediction))
-```
-
-See `integrations/openreward/README.md`.
-
-`openreward` is not a core dependency. `build_server(...)` lazy-imports it and raises a clear error when it is absent.
-
-## Scoring
-
-For one document:
-
-```text
-field_acc = mean(exact_match(field_i))
-exact_doc = 1 if all fields match else 0
-doc_score = 0.9 * field_acc + 0.1 * exact_doc
-```
-
-For one schema:
-
-```text
-schema_score = mean(doc_score)
-```
-
-Final score:
-
-```text
-(government_id + proof_of_address + payment_receipt) / 3
-```
-
-The same scoring code is used by:
-
-- public validation
-- hidden judging
-- package evaluation APIs
-- Verifiers rewards
-- OpenReward submission rewards
-
-## Tests and CI
-
-Run all contract and integration smoke tests:
+## Verification
 
 ```bash
 uv run python -m unittest discover -s tests
+uv run python scripts/check_install.py
+# Requires the built Docker image:
+KYC_DOCKER_TESTS=1 KYC_DOCKER_IMAGE=rl-kyc-eval:local \
+  uv run python -m unittest discover -s tests -p test_isolation_docker.py
 ```
 
-The tests freeze CLI compatibility, baseline scores, scoring behavior, bundle contents, environment APIs, optional integration behavior, packaging metadata, and CI workflow coverage.
-
-GitHub Actions runs three gates on pushes and pull requests:
-
-- `contract-tests`: full unittest suite
-- `bundle-builds`: wheel/source build plus public and private bundle creation
-- `docker-smoke`: isolated public episode and hidden judge against the heuristic baseline
-
-## Development rules
-
-- Keep dependency versions strictly pinned with `==`.
-- Do not add optional framework dependencies to core runtime without explicit review.
-- Preserve `extract.py -> predict(document_dir: str) -> dict` compatibility.
-- Preserve score semantics unless intentionally changing benchmark rules.
+See [the validation record](docs/validation.md) for observed test results and CI evidence. GitHub Actions checks Python 3.12/3.13, clean wheel installation, bundle builds, real Docker isolation canaries, and public/hidden heuristic runs. Host unit tests alone do not establish Docker isolation. `just test` and `just check-install` are shortcuts; `just check` additionally regenerates the checked-in datasets.

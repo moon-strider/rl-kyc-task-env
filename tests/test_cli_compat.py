@@ -27,8 +27,8 @@ class CliCompatTest(unittest.TestCase):
         self.assertEqual(result["num_docs"], 90)
         self.assertEqual(result["error_summary"], {})
 
-    def test_hidden_judge_cli_accepts_solution_dir(self) -> None:
-        result = self.run_cli("judge/run_judge.py", "baselines/null_baseline")
+    def test_hidden_judge_cli_accepts_explicit_trusted_solution(self) -> None:
+        result = self.run_cli("judge/run_judge.py", "--trusted-solution", "baselines/null_baseline")
         self.assertEqual(result["score"], 0.0)
         self.assertEqual(result["num_docs"], 108)
         self.assertNotIn("error_summary", result)

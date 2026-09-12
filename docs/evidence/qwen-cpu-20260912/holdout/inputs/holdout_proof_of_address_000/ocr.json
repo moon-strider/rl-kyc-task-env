@@ -1,0 +1,599 @@
+{
+  "pages": [
+    {
+      "page_index": 0,
+      "width": 1600,
+      "height": 2200,
+      "tokens": [
+        {
+          "text": "BlueStar",
+          "bbox": [
+            531,
+            70,
+            776,
+            109
+          ],
+          "line_id": 0,
+          "block_id": 0,
+          "conf": 1.0
+        },
+        {
+          "text": "Insurance",
+          "bbox": [
+            792,
+            70,
+            1069,
+            109
+          ],
+          "line_id": 0,
+          "block_id": 0,
+          "conf": 1.0
+        },
+        {
+          "text": "POLICY",
+          "bbox": [
+            552,
+            132,
+            687,
+            158
+          ],
+          "line_id": 1,
+          "block_id": 1,
+          "conf": 1.0
+        },
+        {
+          "text": "STATEMENT",
+          "bbox": [
+            698,
+            132,
+            902,
+            158
+          ],
+          "line_id": 1,
+          "block_id": 1,
+          "conf": 1.0
+        },
+        {
+          "text": "NOTICE",
+          "bbox": [
+            913,
+            132,
+            1049,
+            158
+          ],
+          "line_id": 1,
+          "block_id": 1,
+          "conf": 1.0
+        },
+        {
+          "text": "Statement",
+          "bbox": [
+            80,
+            210,
+            218,
+            229
+          ],
+          "line_id": 2,
+          "block_id": 3,
+          "conf": 1.0
+        },
+        {
+          "text": "Date",
+          "bbox": [
+            225,
+            210,
+            287,
+            229
+          ],
+          "line_id": 2,
+          "block_id": 3,
+          "conf": 1.0
+        },
+        {
+          "text": "2025-07-13",
+          "bbox": [
+            380,
+            210,
+            531,
+            229
+          ],
+          "line_id": 2,
+          "block_id": 3,
+          "conf": 1.0
+        },
+        {
+          "text": "63356",
+          "bbox": [
+            900,
+            210,
+            970,
+            233
+          ],
+          "line_id": 2,
+          "block_id": 6,
+          "conf": 1.0
+        },
+        {
+          "text": "Tanya",
+          "bbox": [
+            977,
+            210,
+            1048,
+            233
+          ],
+          "line_id": 2,
+          "block_id": 6,
+          "conf": 1.0
+        },
+        {
+          "text": "Hollow",
+          "bbox": [
+            1055,
+            210,
+            1141,
+            233
+          ],
+          "line_id": 2,
+          "block_id": 6,
+          "conf": 1.0
+        },
+        {
+          "text": "Palmerville,",
+          "bbox": [
+            900,
+            238,
+            1060,
+            259
+          ],
+          "line_id": 3,
+          "block_id": 7,
+          "conf": 1.0
+        },
+        {
+          "text": "OR",
+          "bbox": [
+            1066,
+            238,
+            1093,
+            259
+          ],
+          "line_id": 3,
+          "block_id": 7,
+          "conf": 1.0
+        },
+        {
+          "text": "77619",
+          "bbox": [
+            1100,
+            238,
+            1167,
+            259
+          ],
+          "line_id": 3,
+          "block_id": 7,
+          "conf": 1.0
+        },
+        {
+          "text": "Due",
+          "bbox": [
+            80,
+            245,
+            129,
+            264
+          ],
+          "line_id": 3,
+          "block_id": 4,
+          "conf": 1.0
+        },
+        {
+          "text": "Date",
+          "bbox": [
+            137,
+            245,
+            202,
+            264
+          ],
+          "line_id": 3,
+          "block_id": 4,
+          "conf": 1.0
+        },
+        {
+          "text": "2025-07-26",
+          "bbox": [
+            380,
+            245,
+            531,
+            264
+          ],
+          "line_id": 3,
+          "block_id": 4,
+          "conf": 1.0
+        },
+        {
+          "text": "6887958548",
+          "bbox": [
+            380,
+            280,
+            545,
+            299
+          ],
+          "line_id": 4,
+          "block_id": 5,
+          "conf": 1.0
+        },
+        {
+          "text": "Account",
+          "bbox": [
+            80,
+            280,
+            193,
+            300
+          ],
+          "line_id": 4,
+          "block_id": 5,
+          "conf": 1.0
+        },
+        {
+          "text": "Number",
+          "bbox": [
+            201,
+            280,
+            298,
+            300
+          ],
+          "line_id": 4,
+          "block_id": 5,
+          "conf": 1.0
+        },
+        {
+          "text": "Mailing",
+          "bbox": [
+            80,
+            350,
+            202,
+            377
+          ],
+          "line_id": 5,
+          "block_id": 9,
+          "conf": 1.0
+        },
+        {
+          "text": "Address",
+          "bbox": [
+            210,
+            350,
+            333,
+            377
+          ],
+          "line_id": 5,
+          "block_id": 9,
+          "conf": 1.0
+        },
+        {
+          "text": "Keith",
+          "bbox": [
+            80,
+            388,
+            165,
+            412
+          ],
+          "line_id": 6,
+          "block_id": 10,
+          "conf": 1.0
+        },
+        {
+          "text": "Elliott",
+          "bbox": [
+            173,
+            388,
+            293,
+            412
+          ],
+          "line_id": 6,
+          "block_id": 10,
+          "conf": 1.0
+        },
+        {
+          "text": "1972",
+          "bbox": [
+            80,
+            428,
+            150,
+            451
+          ],
+          "line_id": 7,
+          "block_id": 11,
+          "conf": 1.0
+        },
+        {
+          "text": "Cardenas",
+          "bbox": [
+            159,
+            428,
+            299,
+            451
+          ],
+          "line_id": 7,
+          "block_id": 11,
+          "conf": 1.0
+        },
+        {
+          "text": "Mountains",
+          "bbox": [
+            308,
+            428,
+            466,
+            451
+          ],
+          "line_id": 7,
+          "block_id": 11,
+          "conf": 1.0
+        },
+        {
+          "text": "Suite",
+          "bbox": [
+            475,
+            428,
+            563,
+            451
+          ],
+          "line_id": 7,
+          "block_id": 11,
+          "conf": 1.0
+        },
+        {
+          "text": "881",
+          "bbox": [
+            572,
+            428,
+            625,
+            451
+          ],
+          "line_id": 7,
+          "block_id": 11,
+          "conf": 1.0
+        },
+        {
+          "text": "Deborahton,",
+          "bbox": [
+            80,
+            466,
+            277,
+            492
+          ],
+          "line_id": 8,
+          "block_id": 12,
+          "conf": 1.0
+        },
+        {
+          "text": "T6X5R7",
+          "bbox": [
+            286,
+            466,
+            394,
+            492
+          ],
+          "line_id": 8,
+          "block_id": 12,
+          "conf": 1.0
+        },
+        {
+          "text": "Canada",
+          "bbox": [
+            80,
+            504,
+            194,
+            527
+          ],
+          "line_id": 9,
+          "block_id": 13,
+          "conf": 1.0
+        },
+        {
+          "text": "POLICY",
+          "bbox": [
+            80,
+            578,
+            192,
+            598
+          ],
+          "line_id": 10,
+          "block_id": 15,
+          "conf": 1.0
+        },
+        {
+          "text": "DETAILS",
+          "bbox": [
+            201,
+            578,
+            333,
+            598
+          ],
+          "line_id": 10,
+          "block_id": 15,
+          "conf": 1.0
+        },
+        {
+          "text": "6887958548",
+          "bbox": [
+            380,
+            625,
+            558,
+            645
+          ],
+          "line_id": 11,
+          "block_id": 16,
+          "conf": 1.0
+        },
+        {
+          "text": "Policy",
+          "bbox": [
+            80,
+            625,
+            176,
+            652
+          ],
+          "line_id": 11,
+          "block_id": 16,
+          "conf": 1.0
+        },
+        {
+          "text": "Number",
+          "bbox": [
+            185,
+            625,
+            282,
+            652
+          ],
+          "line_id": 11,
+          "block_id": 16,
+          "conf": 1.0
+        },
+        {
+          "text": "Policy",
+          "bbox": [
+            80,
+            680,
+            168,
+            707
+          ],
+          "line_id": 12,
+          "block_id": 17,
+          "conf": 1.0
+        },
+        {
+          "text": "Type",
+          "bbox": [
+            175,
+            680,
+            233,
+            707
+          ],
+          "line_id": 12,
+          "block_id": 17,
+          "conf": 1.0
+        },
+        {
+          "text": "Comprehensive",
+          "bbox": [
+            380,
+            680,
+            610,
+            707
+          ],
+          "line_id": 12,
+          "block_id": 17,
+          "conf": 1.0
+        },
+        {
+          "text": "Home",
+          "bbox": [
+            619,
+            680,
+            690,
+            707
+          ],
+          "line_id": 12,
+          "block_id": 17,
+          "conf": 1.0
+        },
+        {
+          "text": "2025-07-13",
+          "bbox": [
+            380,
+            735,
+            541,
+            755
+          ],
+          "line_id": 13,
+          "block_id": 18,
+          "conf": 1.0
+        },
+        {
+          "text": "to",
+          "bbox": [
+            549,
+            735,
+            581,
+            755
+          ],
+          "line_id": 13,
+          "block_id": 18,
+          "conf": 1.0
+        },
+        {
+          "text": "2025-07-26",
+          "bbox": [
+            589,
+            735,
+            751,
+            755
+          ],
+          "line_id": 13,
+          "block_id": 18,
+          "conf": 1.0
+        },
+        {
+          "text": "Coverage",
+          "bbox": [
+            80,
+            735,
+            206,
+            762
+          ],
+          "line_id": 13,
+          "block_id": 18,
+          "conf": 1.0
+        },
+        {
+          "text": "Period",
+          "bbox": [
+            214,
+            735,
+            310,
+            762
+          ],
+          "line_id": 13,
+          "block_id": 18,
+          "conf": 1.0
+        },
+        {
+          "text": "499.98",
+          "bbox": [
+            380,
+            790,
+            478,
+            810
+          ],
+          "line_id": 14,
+          "block_id": 19,
+          "conf": 1.0
+        },
+        {
+          "text": "Premium",
+          "bbox": [
+            80,
+            790,
+            206,
+            811
+          ],
+          "line_id": 14,
+          "block_id": 19,
+          "conf": 1.0
+        },
+        {
+          "text": "Due",
+          "bbox": [
+            215,
+            790,
+            270,
+            811
+          ],
+          "line_id": 14,
+          "block_id": 19,
+          "conf": 1.0
+        }
+      ]
+    }
+  ]
+}
