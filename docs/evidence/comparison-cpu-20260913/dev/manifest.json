@@ -1,0 +1,258 @@
+{
+  "split": "dev",
+  "seed": 2026091301,
+  "input_modality": "OCR only; no rendered pixels",
+  "synthetic_only": true,
+  "independent_base_documents": 9,
+  "protocol": {
+    "version": 1,
+    "split_seeds": {
+      "dev": 2026091301,
+      "holdout": 2026091302
+    },
+    "families": {
+      "dev": {
+        "government_id": [
+          "gid_passport_grid",
+          "gid_idcard_compact",
+          "gid_form_official"
+        ],
+        "proof_of_address": [
+          "poa_utility_bill",
+          "poa_telecom_invoice",
+          "poa_bank_statement"
+        ],
+        "payment_receipt": [
+          "pay_bank_transfer",
+          "pay_wallet_receipt",
+          "pay_paid_invoice"
+        ]
+      },
+      "holdout": {
+        "government_id": [
+          "gid_dense_smallcaps",
+          "gid_minimal_two_column"
+        ],
+        "proof_of_address": [
+          "poa_energy_statement_center",
+          "poa_water_bill_split"
+        ],
+        "payment_receipt": [
+          "pay_merchant_confirmation",
+          "pay_transaction_slip"
+        ]
+      }
+    },
+    "families_visibility": "All template families are public in source; holdout means omitted from dev.",
+    "dev": {
+      "bases_per_family": 1,
+      "ocr_profiles": [
+        "standard_noise"
+      ],
+      "documents": 9
+    },
+    "holdout": {
+      "bases_per_family": 2,
+      "ocr_profiles": [
+        "clean",
+        "standard_noise"
+      ],
+      "independent_base_documents": 12,
+      "documents": 24
+    },
+    "missing_fields": {
+      "base_index": 1,
+      "by_schema": {
+        "government_id": "document_number",
+        "proof_of_address": "postal_code",
+        "payment_receipt": "reference_id"
+      },
+      "rule": "Blank the value before template rendering; only its gold field becomes null."
+    },
+    "noise": "Existing apply_ocr_noise; each variant starts from the same clean rendered boxes.",
+    "sources_sha256": {
+      "rl_kyc_task_env/comparison_dataset.py": "44c1e18697611455ad1ecc54f5d0016c63d6a3887b97b1c2f6937fbb2eefd47b",
+      "generator/field_sampling.py": "8337145a867d8ef8d2e5296b3ea149b25f58b637b6cc8de8d801a72e9ed708c4",
+      "generator/ocr_noise.py": "5c8f29d7de02b36ebf0f3cc64f1e8587f8256cded68c45fa663c1ec0b00e80fb",
+      "generator/render.py": "31d627b3993565cdf750a7bd92311bcdf9aa00f55b16d22d5f50182712355faa",
+      "generator/template_specs_public.py": "74d42b15eaa145f691d75a7ec17782f08148cde8deb1e0539a0b86b5b553f109",
+      "generator/template_specs_private.py": "81464924193734d6ff55096971c843ba4bdd05c5c1bf72587ab0f5a4421f78a7",
+      "generator/utils.py": "dd2444b7e7ad8593aa5d96d36287513137a66dd4c9151ffaa85d7928abd0661f"
+    },
+    "schema_sha256": {
+      "government_id": "42db1bd199655b0a98e74ab854dc4a89fa22bab15442a5018838cbc992ae22be",
+      "proof_of_address": "ed99537291a7adc12afa0ac42e3aafc9ccbef7cba5392c70b10c0fe420c7d9e8",
+      "payment_receipt": "6e538eb960436a04612f434fcd3d4094e588bdb54327878e13e76836d5dbed70"
+    },
+    "versions": {
+      "Faker": "40.13.0",
+      "numpy": "2.4.4",
+      "Pillow": "12.3.0"
+    },
+    "fonts": {
+      "regular": {
+        "filename": "DejaVuSans.ttf",
+        "sha256": "ae7b7855e115a5966d8b1b3f80f254ccc117ec86f9965e202ee2940453837280"
+      },
+      "bold": {
+        "filename": "DejaVuSans-Bold.ttf",
+        "sha256": "5c1247acef7f2b8522a31742c76d6adcb5569bacc0be7ceaa4dc39dd252ce895"
+      }
+    }
+  },
+  "documents": [
+    {
+      "doc_id": "dev_government_id_f00_b00_standard_noise",
+      "schema_name": "government_id",
+      "base_id": "dev_government_id_f00_b00",
+      "base_index": 0,
+      "template": "gid_passport_grid",
+      "seed": 1165698641,
+      "ocr_seed": 535362725,
+      "ocr_profile": "standard_noise",
+      "variant": "standard_noise",
+      "missing_fields": [],
+      "original_fields_sha256": "2d66de857c09274eca0ed0b40bda8d9d6940a1b4803249df6bc83b8ea28f5d34",
+      "rendered_fields_sha256": "2d66de857c09274eca0ed0b40bda8d9d6940a1b4803249df6bc83b8ea28f5d34",
+      "rendered_elements_sha256": "773391769a4da1c9accaafb856e172d2da7e62e82ac366680825abb22cf33eca",
+      "ocr_sha256": "206a4c077af947826ff5abfc180c1b97ce5985cf98ce355be1662803797b0001",
+      "gold_sha256": "88ef5573c002841cc94e8936fe6cae081e199e3e2529b6df35310da20df1517b"
+    },
+    {
+      "doc_id": "dev_government_id_f01_b00_standard_noise",
+      "schema_name": "government_id",
+      "base_id": "dev_government_id_f01_b00",
+      "base_index": 0,
+      "template": "gid_idcard_compact",
+      "seed": 1625542245,
+      "ocr_seed": 367636463,
+      "ocr_profile": "standard_noise",
+      "variant": "standard_noise",
+      "missing_fields": [],
+      "original_fields_sha256": "7607820a93b4b41a5687096c380cbf824f60aea9345526f1e47148f330e44b33",
+      "rendered_fields_sha256": "7607820a93b4b41a5687096c380cbf824f60aea9345526f1e47148f330e44b33",
+      "rendered_elements_sha256": "f75b7163f96e9ccc636fc755ba894f4908031b6db6ac13ea44f35fd346fb3a4c",
+      "ocr_sha256": "2be401cebf37a7316dceb145576b2220c252afea950a643d84da6b35474476e5",
+      "gold_sha256": "c6723b043406de2a2a15552a5b18274330564ec3847eaea9966e60cfcc1e75b3"
+    },
+    {
+      "doc_id": "dev_government_id_f02_b00_standard_noise",
+      "schema_name": "government_id",
+      "base_id": "dev_government_id_f02_b00",
+      "base_index": 0,
+      "template": "gid_form_official",
+      "seed": 386599943,
+      "ocr_seed": 1110577657,
+      "ocr_profile": "standard_noise",
+      "variant": "standard_noise",
+      "missing_fields": [],
+      "original_fields_sha256": "f17d7ab0c7aca2d5b3b4f6d5b6567b90ee6fedb29249ea428b5fde6b6e10242b",
+      "rendered_fields_sha256": "f17d7ab0c7aca2d5b3b4f6d5b6567b90ee6fedb29249ea428b5fde6b6e10242b",
+      "rendered_elements_sha256": "8078afd424574ceffd8f34c3364d62d0029bc9ad84cfc38526935c79ec0af87b",
+      "ocr_sha256": "31c9ab28479c5896749d421fe317841a9b8eb4ea0e2aa2b51329fdde2f6be079",
+      "gold_sha256": "91c95ee5fbf18ad0d269bfd00eadd23fa0eac19f6a1466e6b7574bbbf30adfd9"
+    },
+    {
+      "doc_id": "dev_proof_of_address_f00_b00_standard_noise",
+      "schema_name": "proof_of_address",
+      "base_id": "dev_proof_of_address_f00_b00",
+      "base_index": 0,
+      "template": "poa_utility_bill",
+      "seed": 1132812979,
+      "ocr_seed": 483051034,
+      "ocr_profile": "standard_noise",
+      "variant": "standard_noise",
+      "missing_fields": [],
+      "original_fields_sha256": "2d9712aff8dccfc568d019c0bb4eacd2d5e180fe3e6365fd329b8748fe0f9710",
+      "rendered_fields_sha256": "2d9712aff8dccfc568d019c0bb4eacd2d5e180fe3e6365fd329b8748fe0f9710",
+      "rendered_elements_sha256": "e0f474af80260c69538f9bf951522be24f88cdcd0afd92b6589743dfe8515757",
+      "ocr_sha256": "c1c3f1c79a523fcb34789b875ef85e560395077c12a88593d92443c3eef30b2b",
+      "gold_sha256": "fc8212a4e5e094fcd6fde18c7bbdf9a15864ab40ca98bb8b7201cac5c6d4a557"
+    },
+    {
+      "doc_id": "dev_proof_of_address_f01_b00_standard_noise",
+      "schema_name": "proof_of_address",
+      "base_id": "dev_proof_of_address_f01_b00",
+      "base_index": 0,
+      "template": "poa_telecom_invoice",
+      "seed": 1401157584,
+      "ocr_seed": 165251678,
+      "ocr_profile": "standard_noise",
+      "variant": "standard_noise",
+      "missing_fields": [],
+      "original_fields_sha256": "28a0d2ac417fe787d673316294a91236e23d7b784acb5dbbd910c471f5c7bf0c",
+      "rendered_fields_sha256": "28a0d2ac417fe787d673316294a91236e23d7b784acb5dbbd910c471f5c7bf0c",
+      "rendered_elements_sha256": "9a2385483b9b11fba9b939b250bd78d6090f77ba088eb1a0618d6c31d630c49e",
+      "ocr_sha256": "630ede596efb140d824ec9d7cdf1b8ecb535691d55c0b048de6135818ed0037f",
+      "gold_sha256": "9d174770deff6cc1000c97c5ec456cdb4338bcef03091524a8a2cea332058129"
+    },
+    {
+      "doc_id": "dev_proof_of_address_f02_b00_standard_noise",
+      "schema_name": "proof_of_address",
+      "base_id": "dev_proof_of_address_f02_b00",
+      "base_index": 0,
+      "template": "poa_bank_statement",
+      "seed": 62357400,
+      "ocr_seed": 1129848521,
+      "ocr_profile": "standard_noise",
+      "variant": "standard_noise",
+      "missing_fields": [],
+      "original_fields_sha256": "cf9e5c6658257dba87b5dba62b2a730c901b700ec9e7ffb66ae845882b4e1617",
+      "rendered_fields_sha256": "cf9e5c6658257dba87b5dba62b2a730c901b700ec9e7ffb66ae845882b4e1617",
+      "rendered_elements_sha256": "41110b4add3d7b306a38d7442d3872940e10d111aa4e6671f0ede5bcaf57d48f",
+      "ocr_sha256": "ae731fffcdcc00c303437ee12d5a6ffbf116f4813c1d2faa9d5ade2984e3beaf",
+      "gold_sha256": "9ad3419425adf1e0799694eccf4cbeafe12c52170446b81ca7dcf42ca3517964"
+    },
+    {
+      "doc_id": "dev_payment_receipt_f00_b00_standard_noise",
+      "schema_name": "payment_receipt",
+      "base_id": "dev_payment_receipt_f00_b00",
+      "base_index": 0,
+      "template": "pay_bank_transfer",
+      "seed": 1596668932,
+      "ocr_seed": 787170951,
+      "ocr_profile": "standard_noise",
+      "variant": "standard_noise",
+      "missing_fields": [],
+      "original_fields_sha256": "afbf58315b1319566b1cadc2c4193523bc00f8c860de132fcf8380c7760601fd",
+      "rendered_fields_sha256": "afbf58315b1319566b1cadc2c4193523bc00f8c860de132fcf8380c7760601fd",
+      "rendered_elements_sha256": "d9ea9f62a3e53f79d9906f88de2512ce43070a80acbd229dcf53e7751f85f090",
+      "ocr_sha256": "bd57fbbb79aea79a4b5ed5d6a7f20e57146c1dc01a69ecb18342a3e0873569ed",
+      "gold_sha256": "ef8d3612e41a219d61fe093c3ecf8831e3f47447fd9d0d4a7dd21b2e7af80f9e"
+    },
+    {
+      "doc_id": "dev_payment_receipt_f01_b00_standard_noise",
+      "schema_name": "payment_receipt",
+      "base_id": "dev_payment_receipt_f01_b00",
+      "base_index": 0,
+      "template": "pay_wallet_receipt",
+      "seed": 2106888011,
+      "ocr_seed": 1408496069,
+      "ocr_profile": "standard_noise",
+      "variant": "standard_noise",
+      "missing_fields": [],
+      "original_fields_sha256": "a2283f66253c66b6b24253139dccf42922d6a0949c1af290aea673624e842a12",
+      "rendered_fields_sha256": "a2283f66253c66b6b24253139dccf42922d6a0949c1af290aea673624e842a12",
+      "rendered_elements_sha256": "ed75b5da46a64c459a8407f0e7fe2d821479ee8206b3162a7c4c14a704a21d6d",
+      "ocr_sha256": "0705789100b7c1e0ec3a9574b8c69c5dd5cd0c91284ff3ec98147877cbd425f5",
+      "gold_sha256": "8c9e3ff7b7a2713cf2aa1265897e93b367054bbc3e6d564cf35972530f867f7d"
+    },
+    {
+      "doc_id": "dev_payment_receipt_f02_b00_standard_noise",
+      "schema_name": "payment_receipt",
+      "base_id": "dev_payment_receipt_f02_b00",
+      "base_index": 0,
+      "template": "pay_paid_invoice",
+      "seed": 494066590,
+      "ocr_seed": 482330784,
+      "ocr_profile": "standard_noise",
+      "variant": "standard_noise",
+      "missing_fields": [],
+      "original_fields_sha256": "bf55e178bd383fc2ee72a8a6111c5b0fe68338d852f02cf1cb2c9b76b31f5c89",
+      "rendered_fields_sha256": "bf55e178bd383fc2ee72a8a6111c5b0fe68338d852f02cf1cb2c9b76b31f5c89",
+      "rendered_elements_sha256": "36b95fab84a190f2a740b955278cf6b10f1fcd8ef344fd622ea19ada154ca557",
+      "ocr_sha256": "cb7a0dc1ad3cd4953562334dbcf1340c7d4ee677dfeb9616f0877c8219e58469",
+      "gold_sha256": "f4a8c2561264ad0fbe55810af089933cfd047f8f1a52576d8111966a5baf520c"
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "call_id": 175,
+  "trace_id": "holdout-ner:holdout_proof_of_address_f01_b00_standard_noise",
+  "started_at_utc": "2026-09-13T10:33:43.731140+00:00",
+  "method": "POST",
+  "path": "/ner/v1/chat/completions",
+  "channel": "ner",
+  "request": {
+    "model": "qwen3-4b-instruct-2507",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a named entity recognition system.\nExtract entities from the user text that belong to the listed entity types.\nReturn JSON only, matching the provided schema.\nReturn the exact surface form from the text. Preserve casing, punctuation, and spacing.\nDo not infer entities that are not explicitly present in the text.\nIf no entities are present, return an empty list.\nReturn one entity per occurrence, in reading order.\nEach returned text must be a contiguous substring of the user text.\nEntity text matching is case-sensitive.\n\nEntity types:\n- FULL_NAME: The customer or account holder's full name, not the issuer or provider.\n- ADDRESS_LINE1: First street address line of the customer, not the issuer's address.\n- CITY: City in the customer's address, not the issuer's city.\n- POSTAL_CODE: Postal or ZIP code of the customer, not the issuer's postal code.\n- COUNTRY: Country in the customer's address, not the issuer's country.\n- STATEMENT_DATE: Date the statement was issued, not its payment due date.\n- ISSUER_NAME: Organization issuing the statement or bill, not the customer."
+      },
+      {
+        "role": "user",
+        "content": "[page=0 block=0 line=0 x=417 y=68] PureFlow Water Authority\n[page=0 block=1 line=1 x=694 y=130] WATER BILL\n[page=0 block=3 line=2 x=100 y=223] Address\n[page=0 block=8 line=2 x=862 y=224] Summary\n[page=0 block=4 line=3 x=99 y=259] Deanna Allen\n[page=0 block=9 line=3 x=858 y=276] Issued On 2025-09-19\n[page=0 block=5 line=4 x=99 y=299] 9478 Turner Val1eys Suite 573\n[page=0 block=10 line=5 x=858 y=331] DueDate 2025-10-09\n[page=0 block=6 line=5 x=100 y=337] Jonesside, N8C 5L9\n[page=0 block=7 line=6 x=98 y=374] CANADA\n[page=0 block=11 line=6 x=862 y=389] ACCOUNT NUMBER 6852176207\n[page=0 block=12 line=7 x=859 y=447] CurrentCharges 365.93\n[page=0 block=14 line=8 x=110 y=482] Remittance\n[page=0 block=15 line=9 x=110 y=523] Service Provider PureFlow Water Authority\n[page=0 block=16 line=10 x=111 y=563] Provider Address 4300 Mary Spur Apt. 670\n[page=0 block=17 line=11 x=111 y=604] City / ZIP Wallstad, AR 15953\n[page=0 block=18 line=12 x=112 y=649] TOTAL PAYABLE 365.93"
+      }
+    ],
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "ner_extraction",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "entities"
+          ],
+          "properties": {
+            "entities": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "text",
+                  "label"
+                ],
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  },
+                  "label": {
+                    "type": "string",
+                    "enum": [
+                      "FULL_NAME",
+                      "ADDRESS_LINE1",
+                      "CITY",
+                      "POSTAL_CODE",
+                      "COUNTRY",
+                      "STATEMENT_DATE",
+                      "ISSUER_NAME"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "temperature": 0.0,
+    "max_tokens": 512
+  },
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"entities\": [\n    {\n      \"text\": \"Deanna Allen\",\n      \"label\": \"FULL_NAME\"\n    },\n    {\n      \"text\": \"9478 Turner Val1eys Suite 573\",\n      \"label\": \"ADDRESS_LINE1\"\n    },\n    {\n      \"text\": \"Jonesside\",\n      \"label\": \"CITY\"\n    },\n    {\n      \"text\": \"N8C 5L9\",\n      \"label\": \"POSTAL_CODE\"\n    },\n    {\n      \"text\": \"CANADA\",\n      \"label\": \"COUNTRY\"\n    },\n    {\n      \"text\": \"2025-09-19\",\n      \"label\": \"STATEMENT_DATE\"\n    },\n    {\n      \"text\": \"PureFlow Water Authority\",\n      \"label\": \"ISSUER_NAME\"\n    }\n  ]\n}"
+        }
+      }
+    ],
+    "created": 1789295649,
+    "model": "qwen3-4b-instruct-2507",
+    "system_fingerprint": "b10867-f3f1a8f27",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 184,
+      "prompt_tokens": 759,
+      "total_tokens": 943,
+      "prompt_tokens_details": {
+        "cached_tokens": 252
+      }
+    },
+    "id": "chatcmpl-sKu7A5jtCTNmnmT1lULshHRdqkfELAzV",
+    "timings": {
+      "cache_n": 252,
+      "prompt_n": 507,
+      "prompt_ms": 8977.375,
+      "prompt_per_token_ms": 17.706854043392504,
+      "prompt_per_second": 56.47530597752684,
+      "predicted_n": 184,
+      "predicted_ms": 16430.161,
+      "predicted_per_token_ms": 89.78230054644808,
+      "predicted_per_second": 11.138052755539036
+    }
+  },
+  "status": 200,
+  "upstream_status": 200,
+  "error": null,
+  "elapsed_s": 25.994081,
+  "latency_ms": 25994.081,
+  "request_body_file": "000175.request.body",
+  "response_body_file": "000175.response.body",
+  "request_sha256": "12119278d88a1b6320679d45d3c3d7b8b2a532bb59e253992e190a701bf90e40",
+  "response_sha256": "fbb1353336444372a6115373f0710dc512ac610c7d8237b9d8eb97d41fc12dab"
+}

@@ -1,0 +1,112 @@
+{
+  "call_id": 171,
+  "trace_id": "holdout-ner:holdout_proof_of_address_f00_b00_standard_noise",
+  "started_at_utc": "2026-09-13T10:32:08.306211+00:00",
+  "method": "POST",
+  "path": "/ner/v1/chat/completions",
+  "channel": "ner",
+  "request": {
+    "model": "qwen3-4b-instruct-2507",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a named entity recognition system.\nExtract entities from the user text that belong to the listed entity types.\nReturn JSON only, matching the provided schema.\nReturn the exact surface form from the text. Preserve casing, punctuation, and spacing.\nDo not infer entities that are not explicitly present in the text.\nIf no entities are present, return an empty list.\nReturn one entity per occurrence, in reading order.\nEach returned text must be a contiguous substring of the user text.\nEntity text matching is case-sensitive.\n\nEntity types:\n- FULL_NAME: The customer or account holder's full name, not the issuer or provider.\n- ADDRESS_LINE1: First street address line of the customer, not the issuer's address.\n- CITY: City in the customer's address, not the issuer's city.\n- POSTAL_CODE: Postal or ZIP code of the customer, not the issuer's postal code.\n- COUNTRY: Country in the customer's address, not the issuer's country.\n- STATEMENT_DATE: Date the statement was issued, not its payment due date.\n- ISSUER_NAME: Organization issuing the statement or bill, not the customer."
+      },
+      {
+        "role": "user",
+        "content": "[page=0 block=0 line=0 x=557 y=68] NorthStar Power\n[page=0 block=1 line=1 x=618 y=134] ENERGY STATEMENT\n[page=0 block=4 line=2 x=998 y=208] Account No. 8689497406\n[page=0 block=3 line=2 x=498 y=209] Bill Date 2025-O3-15\n[page=0 block=5 line=3 x=502 y=246] Due Date2025-03-31\n[page=0 block=7 line=4 x=601 y=323] Service Address\n[page=0 block=8 line=5 x=599 y=363] Lori Jones\n[page=0 block=9 line=6 x=598 y=403] 88912 Anderson Vista\n[page=0 block=10 line=7 x=600 y=442] West Jessica, V7Y 4N9\n[page=0 block=11 line=8 x=600 y=481] Canada\n[page=0 block=13 line=9 x=79 y=556] ENERGY USAGE\n[page=0 block=15 line=10 x=79 y=583] ITEM USAGECHARGE\n[page=0 block=16 line=11 x=81 y=613] Electricity (kWh) 320 169.46\n[page=0 block=17 line=12 x=81 y=666] Gas (units) 45 18.5O\n[page=0 block=18 line=13 x=79 y=718] Standing Charge — 12.00\n[page=0 block=19 line=14 x=80 y=770] VAT/Tax — 0.00\n[page=0 block=21 line=15 x=79 y=854] Total AmountDue 31.24"
+      }
+    ],
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "ner_extraction",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "entities"
+          ],
+          "properties": {
+            "entities": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "text",
+                  "label"
+                ],
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  },
+                  "label": {
+                    "type": "string",
+                    "enum": [
+                      "FULL_NAME",
+                      "ADDRESS_LINE1",
+                      "CITY",
+                      "POSTAL_CODE",
+                      "COUNTRY",
+                      "STATEMENT_DATE",
+                      "ISSUER_NAME"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "temperature": 0.0,
+    "max_tokens": 512
+  },
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"entities\": [\n    {\n      \"text\": \"Lori Jones\",\n      \"label\": \"FULL_NAME\"\n    },\n    {\n      \"text\": \"88912 Anderson Vista\",\n      \"label\": \"ADDRESS_LINE1\"\n    },\n    {\n      \"text\": \"West Jessica\",\n      \"label\": \"ADDRESS_LINE1\"\n    },\n    {\n      \"text\": \"V7Y 4N9\",\n      \"label\": \"POSTAL_CODE\"\n    },\n    {\n      \"text\": \"Canada\",\n      \"label\": \"COUNTRY\"\n    },\n    {\n      \"text\": \"2025-03-15\",\n      \"label\": \"STATEMENT_DATE\"\n    },\n    {\n      \"text\": \"NorthStar Power\",\n      \"label\": \"ISSUER_NAME\"\n    }\n  ]\n}"
+        }
+      }
+    ],
+    "created": 1789295554,
+    "model": "qwen3-4b-instruct-2507",
+    "system_fingerprint": "b10867-f3f1a8f27",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 175,
+      "prompt_tokens": 752,
+      "total_tokens": 927,
+      "prompt_tokens_details": {
+        "cached_tokens": 252
+      }
+    },
+    "id": "chatcmpl-hRlMPxIVpwW3p5N5kfKhbAAdPoKPB0f1",
+    "timings": {
+      "cache_n": 252,
+      "prompt_n": 500,
+      "prompt_ms": 8814.098,
+      "prompt_per_token_ms": 17.628196,
+      "prompt_per_second": 56.72730210170116,
+      "predicted_n": 175,
+      "predicted_ms": 16559.86,
+      "predicted_per_token_ms": 95.1716091954023,
+      "predicted_per_second": 10.507335206940155
+    }
+  },
+  "status": 200,
+  "upstream_status": 200,
+  "error": null,
+  "elapsed_s": 26.201151,
+  "latency_ms": 26201.151,
+  "request_body_file": "000171.request.body",
+  "response_body_file": "000171.response.body",
+  "request_sha256": "a2ebe4924317695d1149e87f7d39e2b04cc221fe16ca9019af14a45e1e3c77da",
+  "response_sha256": "1ff459412921680a418f6250cc033bb6d332cfc8f534671ff7dc4f62fb936593"
+}

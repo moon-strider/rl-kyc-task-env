@@ -1,0 +1,8 @@
+{
+  "method": "ner",
+  "model": "qwen3-4b-instruct-2507",
+  "endpoint": "http://127.0.0.1:47935/v1/extract",
+  "max_tokens": 512,
+  "prompt_sha256": "ed7060c2773d17886f506a3b15cfd4f41eddf0a9418ce6f24b2ea662c223d2e8",
+  "started_at_utc": "2026-09-13T10:28:47.651107+00:00"
+}

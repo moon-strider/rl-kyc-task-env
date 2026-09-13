@@ -1,0 +1,8 @@
+{
+  "method": "direct",
+  "model": "qwen3-4b-instruct-2507",
+  "endpoint": "http://127.0.0.1:45815/direct/v1/chat/completions",
+  "max_tokens": 512,
+  "prompt_sha256": "d1f9deae85b17af2023ba070139c07e1dbfaba10e85f94fdf5b6515a8fbb6b32",
+  "started_at_utc": "2026-09-13T10:02:54.828845+00:00"
+}

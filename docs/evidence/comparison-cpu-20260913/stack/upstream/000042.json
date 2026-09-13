@@ -1,0 +1,112 @@
+{
+  "call_id": 42,
+  "trace_id": "dev-ner:dev_proof_of_address_f02_b00_standard_noise",
+  "started_at_utc": "2026-09-13T10:00:29.535916+00:00",
+  "method": "POST",
+  "path": "/ner/v1/chat/completions",
+  "channel": "ner",
+  "request": {
+    "model": "qwen3-4b-instruct-2507",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a named entity recognition system.\nExtract entities from the user text that belong to the listed entity types.\nReturn JSON only, matching the provided schema.\nReturn the exact surface form from the text. Preserve casing, punctuation, and spacing.\nDo not infer entities that are not explicitly present in the text.\nIf no entities are present, return an empty list.\nReturn one entity per occurrence, in reading order.\nEach returned text must be a contiguous substring of the user text.\nEntity text matching is case-sensitive.\n\nEntity types:\n- FULL_NAME: The customer or account holder's full name, not the issuer or provider.\n- ADDRESS_LINE1: First street address line of the customer, not the issuer's address.\n- CITY: City in the customer's address, not the issuer's city.\n- POSTAL_CODE: Postal or ZIP code of the customer, not the issuer's postal code.\n- COUNTRY: Country in the customer's address, not the issuer's country.\n- STATEMENT_DATE: Date the statement was issued, not its payment due date.\n- ISSUER_NAME: Organization issuing the statement or bill, not the customer."
+      },
+      {
+        "role": "user",
+        "content": "[page=0 block=0 line=0 x=538 y=72] Riverdale Savings\n[page=0 block=1 line=1 x=631 y=133] BANK STATEMENT\n[page=0 block=2 line=2 x=633 y=178] For Personal Use Only\n[page=0 block=6 line=3 x=900 y=238] 45667 Taylor Fort Suite 1S4\n[page=0 block=4 line=3 x=82 y=239] 2025-12-29IssuedOn\n[page=0 block=7 line=4 x=901 y=267] South Natalie, CO 65958\n[page=0 block=5 line=4 x=78 y=274] Account Number 7933917977\n[page=0 block=9 line=5 x=81 y=347] Account Holder\n[page=0 block=10 line=6 x=79 y=385] Tracey Osborne-Bell\n[page=0 block=11 line=7 x=78 y=421] 997 Kaur Underpass\n[page=0 block=12 line=8 x=81 y=459] West Eileen, AL7 7EJ\n[page=0 block=13 line=9 x=81 y=499] United Kingdom\n[page=0 block=15 line=10 x=82 y=571] ACCOUNT SUMMARY\n[page=0 block=17 line=11 x=82 y=624] OPENING BALANCE 81.26\n[page=0 block=18 line=12 x=78 y=678] Total Credits 0.00\n[page=0 block=19 line=13 x=78 y=727] Total Debits 0.00\n[page=0 block=20 line=14 x=78 y=780] Closing Balance 21.48"
+      }
+    ],
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "ner_extraction",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "entities"
+          ],
+          "properties": {
+            "entities": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "text",
+                  "label"
+                ],
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  },
+                  "label": {
+                    "type": "string",
+                    "enum": [
+                      "FULL_NAME",
+                      "ADDRESS_LINE1",
+                      "CITY",
+                      "POSTAL_CODE",
+                      "COUNTRY",
+                      "STATEMENT_DATE",
+                      "ISSUER_NAME"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "temperature": 0.0,
+    "max_tokens": 512
+  },
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"entities\": [\n    {\n      \"text\": \"Tracey Osborne-Bell\",\n      \"label\": \"FULL_NAME\"\n    },\n    {\n      \"text\": \"45667 Taylor Fort Suite 1S4\",\n      \"label\": \"ADDRESS_LINE1\"\n    },\n    {\n      \"text\": \"997 Kaur Underpass\",\n      \"label\": \"ADDRESS_LINE1\"\n    },\n    {\n      \"text\": \"South Natalie\",\n      \"label\": \"CITY\"\n    },\n    {\n      \"text\": \"West Eileen\",\n      \"label\": \"CITY\"\n    },\n    {\n      \"text\": \"65958\",\n      \"label\": \"POSTAL_CODE\"\n    },\n    {\n      \"text\": \"AL7 7EJ\",\n      \"label\": \"POSTAL_CODE\"\n    },\n    {\n      \"text\": \"United Kingdom\",\n      \"label\": \"COUNTRY\"\n    },\n    {\n      \"text\": \"2025-12-29\",\n      \"label\": \"STATEMENT_DATE\"\n    },\n    {\n      \"text\": \"Riverdale Savings\",\n      \"label\": \"ISSUER_NAME\"\n    }\n  ]\n}"
+        }
+      }
+    ],
+    "created": 1789293661,
+    "model": "qwen3-4b-instruct-2507",
+    "system_fingerprint": "b10867-f3f1a8f27",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 252,
+      "prompt_tokens": 739,
+      "total_tokens": 991,
+      "prompt_tokens_details": {
+        "cached_tokens": 250
+      }
+    },
+    "id": "chatcmpl-FMPZlu948SmTFjnzdtb0WpqxxR836ByO",
+    "timings": {
+      "cache_n": 250,
+      "prompt_n": 489,
+      "prompt_ms": 9055.628,
+      "prompt_per_token_ms": 18.518666666666668,
+      "prompt_per_second": 53.99956800345597,
+      "predicted_n": 252,
+      "predicted_ms": 21695.662,
+      "predicted_per_token_ms": 86.43690039840638,
+      "predicted_per_second": 11.569133036825518
+    }
+  },
+  "status": 200,
+  "upstream_status": 200,
+  "error": null,
+  "elapsed_s": 31.701684,
+  "latency_ms": 31701.684,
+  "request_body_file": "000042.request.body",
+  "response_body_file": "000042.response.body",
+  "request_sha256": "d8742479d609c7cd56557d8aeefd120462acb96922213cb17ae545002a452360",
+  "response_sha256": "909def4d33f926986c57f286166cb366be71db4145df8caf0f2ba3b90e897c14"
+}

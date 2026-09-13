@@ -1,0 +1,111 @@
+{
+  "call_id": 45,
+  "trace_id": "dev-ner:dev_payment_receipt_f02_b00_standard_noise",
+  "started_at_utc": "2026-09-13T10:01:46.092427+00:00",
+  "method": "POST",
+  "path": "/ner/v1/chat/completions",
+  "channel": "ner",
+  "request": {
+    "model": "qwen3-4b-instruct-2507",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a named entity recognition system.\nExtract entities from the user text that belong to the listed entity types.\nReturn JSON only, matching the provided schema.\nReturn the exact surface form from the text. Preserve casing, punctuation, and spacing.\nDo not infer entities that are not explicitly present in the text.\nIf no entities are present, return an empty list.\nReturn one entity per occurrence, in reading order.\nEach returned text must be a contiguous substring of the user text.\nEntity text matching is case-sensitive.\n\nEntity types:\n- SENDER_NAME: The payer or sender making this payment, not its recipient or merchant.\n- RECIPIENT_NAME: The payee, recipient or merchant receiving this payment, not the payer.\n- AMOUNT: Total amount actually paid, excluding a fee, tax or subtotal alone.\n- CURRENCY: Currency code or currency symbol for the payment amount.\n- PAYMENT_DATE: Date of this payment or transaction.\n- REFERENCE_ID: Payment transaction reference, not an invoice number or authorization code."
+      },
+      {
+        "role": "user",
+        "content": "[page=0 block=0 line=0 x=660 y=69] INVOICE\n[page=0 block=1 line=1 x=707 y=139] INV-902570\n[page=0 block=3 line=2 x=80 y=213] Paid By\n[page=0 block=4 line=2 x=899 y=215] Payee\n[page=0 block=18 line=3 x=1238 y=227] PAID\n[page=0 block=3 line=3 x=81 y=248] Peter Rowland\n[page=0 block=4 line=4 x=899 y=249] BrightBuy Online\n[page=0 block=18 line=5 x=1240 y=290] Date 2025-10-11\n[page=0 block=6 line=6 x=80 y=334] Payment Date 2025-10-11\n[page=0 block=7 line=7 x=80 y=393] REFERENCE REFPXJRGW2\n[page=0 block=8 line=8 x=79 y=455] Auth Code AUTH-06626S\n[page=0 block=9 line=9 x=79 y=515] Currency USD\n[page=0 block=11 line=10 x=80 y=614] ITEM AMOUNT\n[page=0 block=13 line=11 x=82 y=669] Goods/Services 2486.90\n[page=0 block=14 line=12 x=79 y=720] Shipping Fee 21.88\n[page=0 block=15 line=13 x=81 y=772] Tax 222.17\n[page=0 block=17 line=14 x=82 y=856] TOTAL PAID USD 4792.72"
+      }
+    ],
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "ner_extraction",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "entities"
+          ],
+          "properties": {
+            "entities": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "text",
+                  "label"
+                ],
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  },
+                  "label": {
+                    "type": "string",
+                    "enum": [
+                      "SENDER_NAME",
+                      "RECIPIENT_NAME",
+                      "AMOUNT",
+                      "CURRENCY",
+                      "PAYMENT_DATE",
+                      "REFERENCE_ID"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "temperature": 0.0,
+    "max_tokens": 512
+  },
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"entities\": [\n    {\n      \"text\": \"Peter Rowland\",\n      \"label\": \"SENDER_NAME\"\n    },\n    {\n      \"text\": \"BrightBuy Online\",\n      \"label\": \"RECIPIENT_NAME\"\n    },\n    {\n      \"text\": \"4792.72\",\n      \"label\": \"AMOUNT\"\n    },\n    {\n      \"text\": \"USD\",\n      \"label\": \"CURRENCY\"\n    },\n    {\n      \"text\": \"2025-10-11\",\n      \"label\": \"PAYMENT_DATE\"\n    },\n    {\n      \"text\": \"REFPXJRGW2\",\n      \"label\": \"REFERENCE_ID\"\n    }\n  ]\n}"
+        }
+      }
+    ],
+    "created": 1789293728,
+    "model": "qwen3-4b-instruct-2507",
+    "system_fingerprint": "b10867-f3f1a8f27",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 153,
+      "prompt_tokens": 705,
+      "total_tokens": 858,
+      "prompt_tokens_details": {
+        "cached_tokens": 227
+      }
+    },
+    "id": "chatcmpl-YhuM3JQPPuFMTbmQnOPlj6uMnqSw5yXb",
+    "timings": {
+      "cache_n": 227,
+      "prompt_n": 478,
+      "prompt_ms": 8414.695,
+      "prompt_per_token_ms": 17.603964435146445,
+      "prompt_per_second": 56.80538629148175,
+      "predicted_n": 153,
+      "predicted_ms": 12964.354,
+      "predicted_per_token_ms": 85.29180263157895,
+      "predicted_per_second": 11.724456151073937
+    }
+  },
+  "status": 200,
+  "upstream_status": 200,
+  "error": null,
+  "elapsed_s": 22.086615,
+  "latency_ms": 22086.615,
+  "request_body_file": "000045.request.body",
+  "response_body_file": "000045.response.body",
+  "request_sha256": "ccf3bf71ff336e7582602021ae7de00c1c2564d41b49d008d423d6cfcb1a8604",
+  "response_sha256": "fdb0f5b422eeb84fb4ac2d8bdda01af92771a664aa05dc5aa7dc41510a959a3e"
+}

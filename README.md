@@ -4,6 +4,8 @@ Structured extraction from synthetic English-language identity documents, addres
 
 The package provides a shared reward function, public examples, isolated participant execution, and optional Verifiers/OpenReward adapters. A reproducible CPU model experiment is described in [docs/experiment.md](docs/experiment.md).
 
+[The pipeline comparison](docs/comparison.md) connects the real NER and Swarm services, compares their quality and measured inference cost with a direct model and the unchanged heuristic, and selects prompt improvements using development data before generating holdout documents. The recorded Qwen3-4B run scored **0.9298 heuristic, 0.8893 NER, 0.8598 Swarm and 0.8503 direct** on 24 holdout variants (12 clean/noisy pairs); both prompt candidates were rejected on development. Raw responses, measured usage and offline re-scoring instructions are included.
+
 ## Quickstart
 
 Requires Python **3.12 or 3.13** and `uv` **0.12.11**. Docker is required for isolated execution.

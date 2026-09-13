@@ -1,0 +1,111 @@
+{
+  "call_id": 5,
+  "trace_id": "preflight:ner",
+  "started_at_utc": "2026-09-13T09:47:31.764711+00:00",
+  "method": "POST",
+  "path": "/ner/v1/chat/completions",
+  "channel": "ner",
+  "request": {
+    "model": "qwen3-4b-instruct-2507",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a named entity recognition system.\nExtract entities from the user text that belong to the listed entity types.\nReturn JSON only, matching the provided schema.\nReturn the exact surface form from the text. Preserve casing, punctuation, and spacing.\nDo not infer entities that are not explicitly present in the text.\nIf no entities are present, return an empty list.\nReturn one entity per occurrence, in reading order.\nEach returned text must be a contiguous substring of the user text.\nEntity text matching is case-sensitive.\n\nEntity types:\n- SENDER_NAME: The payer or sender making this payment, not its recipient or merchant.\n- RECIPIENT_NAME: The payee, recipient or merchant receiving this payment, not the payer.\n- AMOUNT: Total amount actually paid, excluding a fee, tax or subtotal alone.\n- CURRENCY: Currency code or currency symbol for the payment amount.\n- PAYMENT_DATE: Date of this payment or transaction.\n- REFERENCE_ID: Payment transaction reference, not an invoice number or authorization code."
+      },
+      {
+        "role": "user",
+        "content": "SYNTHETIC TEST RECEIPT\nSender: Avery Example\nRecipient: Riley Sample\nAmount: 125.50\nCurrency: USD\nPayment date: 2026-09-01\nReference: DEMO-4927\n"
+      }
+    ],
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "ner_extraction",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "entities"
+          ],
+          "properties": {
+            "entities": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "text",
+                  "label"
+                ],
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  },
+                  "label": {
+                    "type": "string",
+                    "enum": [
+                      "SENDER_NAME",
+                      "RECIPIENT_NAME",
+                      "AMOUNT",
+                      "CURRENCY",
+                      "PAYMENT_DATE",
+                      "REFERENCE_ID"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "temperature": 0.0,
+    "max_tokens": 512
+  },
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"entities\": [\n    {\n      \"text\": \"Avery Example\",\n      \"label\": \"SENDER_NAME\"\n    },\n    {\n      \"text\": \"Riley Sample\",\n      \"label\": \"RECIPIENT_NAME\"\n    },\n    {\n      \"text\": \"125.50\",\n      \"label\": \"AMOUNT\"\n    },\n    {\n      \"text\": \"USD\",\n      \"label\": \"CURRENCY\"\n    },\n    {\n      \"text\": \"2026-09-01\",\n      \"label\": \"PAYMENT_DATE\"\n    },\n    {\n      \"text\": \"DEMO-4927\",\n      \"label\": \"REFERENCE_ID\"\n    }\n  ]\n}"
+        }
+      }
+    ],
+    "created": 1789292870,
+    "model": "qwen3-4b-instruct-2507",
+    "system_fingerprint": "b10867-f3f1a8f27",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 153,
+      "prompt_tokens": 279,
+      "total_tokens": 432,
+      "prompt_tokens_details": {
+        "cached_tokens": 3
+      }
+    },
+    "id": "chatcmpl-Ru1p0TKJ9ylaxaVWE7qssjizrCHGje3M",
+    "timings": {
+      "cache_n": 3,
+      "prompt_n": 276,
+      "prompt_ms": 4727.431,
+      "prompt_per_token_ms": 17.128373188405796,
+      "prompt_per_second": 58.382660688225805,
+      "predicted_n": 153,
+      "predicted_ms": 13596.93,
+      "predicted_per_token_ms": 89.45348684210526,
+      "predicted_per_second": 11.178994081752277
+    }
+  },
+  "status": 200,
+  "upstream_status": 200,
+  "error": null,
+  "elapsed_s": 18.806127,
+  "latency_ms": 18806.127,
+  "request_body_file": "000005.request.body",
+  "response_body_file": "000005.response.body",
+  "request_sha256": "46f134080ff4f87c6feefa1c3760e24582646835fe78386831337d815ad6d3ce",
+  "response_sha256": "2593d93cbadeec617f494bc2eb9c839b1b41ae36e7b7a758e16e1e584114ebf2"
+}

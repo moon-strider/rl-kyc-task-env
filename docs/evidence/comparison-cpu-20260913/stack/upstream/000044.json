@@ -1,0 +1,111 @@
+{
+  "call_id": 44,
+  "trace_id": "dev-ner:dev_payment_receipt_f01_b00_standard_noise",
+  "started_at_utc": "2026-09-13T10:01:24.333108+00:00",
+  "method": "POST",
+  "path": "/ner/v1/chat/completions",
+  "channel": "ner",
+  "request": {
+    "model": "qwen3-4b-instruct-2507",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a named entity recognition system.\nExtract entities from the user text that belong to the listed entity types.\nReturn JSON only, matching the provided schema.\nReturn the exact surface form from the text. Preserve casing, punctuation, and spacing.\nDo not infer entities that are not explicitly present in the text.\nIf no entities are present, return an empty list.\nReturn one entity per occurrence, in reading order.\nEach returned text must be a contiguous substring of the user text.\nEntity text matching is case-sensitive.\n\nEntity types:\n- SENDER_NAME: The payer or sender making this payment, not its recipient or merchant.\n- RECIPIENT_NAME: The payee, recipient or merchant receiving this payment, not the payer.\n- AMOUNT: Total amount actually paid, excluding a fee, tax or subtotal alone.\n- CURRENCY: Currency code or currency symbol for the payment amount.\n- PAYMENT_DATE: Date of this payment or transaction.\n- REFERENCE_ID: Payment transaction reference, not an invoice number or authorization code."
+      },
+      {
+        "role": "user",
+        "content": "[page=0 block=0 line=0 x=543 y=59] PAYMENT RECEIPT\n[page=0 block=1 line=1 x=620 y=118] BrightBuy Online\n[page=0 block=3 line=2 x=634 y=202] $313.06\n[page=0 block=4 line=3 x=769 y=286] USD\n[page=0 block=6 line=4 x=82 y=358] Payer Cal1um Smith\n[page=0 block=7 line=5 x=79 y=434] Merchant BrightBuy Online\n[page=0 block=8 line=6 x=82 y=510] 2025-06-13ProcessedOn\n[page=0 block=9 line=7 x=80 y=585] PAYMENT REF PMT-74932231\n[page=0 block=10 line=8 x=79 y=660] Subtotal 1612.81\n[page=0 block=11 line=9 x=82 y=733] Service Fee 18.62\n[page=0 block=12 line=10 x=81 y=808] Total Paid USD 313.06\n[page=0 block=13 line=11 x=78 y=885] Auth Code AUTH-929009\n[page=0 block=15 line=12 x=610 y=994] Thank you for your payment."
+      }
+    ],
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "ner_extraction",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "entities"
+          ],
+          "properties": {
+            "entities": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "text",
+                  "label"
+                ],
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  },
+                  "label": {
+                    "type": "string",
+                    "enum": [
+                      "SENDER_NAME",
+                      "RECIPIENT_NAME",
+                      "AMOUNT",
+                      "CURRENCY",
+                      "PAYMENT_DATE",
+                      "REFERENCE_ID"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "temperature": 0.0,
+    "max_tokens": 512
+  },
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"entities\": [\n    {\n      \"text\": \"Cal1um Smith\",\n      \"label\": \"SENDER_NAME\"\n    },\n    {\n      \"text\": \"BrightBuy Online\",\n      \"label\": \"RECIPIENT_NAME\"\n    },\n    {\n      \"text\": \"313.06\",\n      \"label\": \"AMOUNT\"\n    },\n    {\n      \"text\": \"USD\",\n      \"label\": \"CURRENCY\"\n    },\n    {\n      \"text\": \"2025-06-13\",\n      \"label\": \"PAYMENT_DATE\"\n    },\n    {\n      \"text\": \"PMT-74932231\",\n      \"label\": \"REFERENCE_ID\"\n    }\n  ]\n}"
+        }
+      }
+    ],
+    "created": 1789293706,
+    "model": "qwen3-4b-instruct-2507",
+    "system_fingerprint": "b10867-f3f1a8f27",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 158,
+      "prompt_tokens": 601,
+      "total_tokens": 759,
+      "prompt_tokens_details": {
+        "cached_tokens": 227
+      }
+    },
+    "id": "chatcmpl-OsQ4xKZfVUdu9FVsix7aVw9bqI7G0svw",
+    "timings": {
+      "cache_n": 227,
+      "prompt_n": 374,
+      "prompt_ms": 6705.309,
+      "prompt_per_token_ms": 17.92863368983957,
+      "prompt_per_second": 55.77669873230302,
+      "predicted_n": 158,
+      "predicted_ms": 14264.354,
+      "predicted_per_token_ms": 90.85575796178344,
+      "predicted_per_second": 11.006457074747303
+    }
+  },
+  "status": 200,
+  "upstream_status": 200,
+  "error": null,
+  "elapsed_s": 21.734123,
+  "latency_ms": 21734.123,
+  "request_body_file": "000044.request.body",
+  "response_body_file": "000044.response.body",
+  "request_sha256": "ecc31a62c2a318a4cf338b7ffe3819fadf9affe0191ec6b9d10c4dc5f4b849f4",
+  "response_sha256": "0428707b19bb208b34d31d1d3bbc519542b35bc80e27d9c3037b29bb2c36be59"
+}

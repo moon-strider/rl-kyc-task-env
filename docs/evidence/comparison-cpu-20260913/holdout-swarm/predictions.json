@@ -1,0 +1,349 @@
+{
+  "version": 1,
+  "documents": {
+    "holdout_government_id_f00_b00_clean": {
+      "status": "ok",
+      "prediction": {
+        "schema_name": "government_id",
+        "fields": {
+          "full_name": "Sandra Patel",
+          "date_of_birth": "1973-01-13",
+          "document_number": "TA110018",
+          "issue_date": "2013-04-07",
+          "expiry_date": "2018-04-07",
+          "issuing_country": "Germany"
+        }
+      }
+    },
+    "holdout_government_id_f00_b00_standard_noise": {
+      "status": "ok",
+      "prediction": {
+        "schema_name": "government_id",
+        "fields": {
+          "full_name": "Sandra Patel",
+          "date_of_birth": "1973-01-13",
+          "document_number": "TA110018",
+          "issue_date": null,
+          "expiry_date": "2018-04-07",
+          "issuing_country": "Germany"
+        }
+      }
+    },
+    "holdout_government_id_f00_b01_clean": {
+      "status": "ok",
+      "prediction": {
+        "schema_name": "government_id",
+        "fields": {
+          "full_name": "Victoria Hughes",
+          "date_of_birth": "1994-12-18",
+          "document_number": null,
+          "issue_date": "2021-11-21",
+          "expiry_date": "2026-11-21",
+          "issuing_country": "Australia"
+        }
+      }
+    },
+    "holdout_government_id_f00_b01_standard_noise": {
+      "status": "ok",
+      "prediction": {
+        "schema_name": "government_id",
+        "fields": {
+          "full_name": "Victoria Hughes",
+          "date_of_birth": "1994-12-18",
+          "document_number": null,
+          "issue_date": "2021-11-21",
+          "expiry_date": "2026-11-21",
+          "issuing_country": "Australia"
+        }
+      }
+    },
+    "holdout_government_id_f01_b00_clean": {
+      "status": "ok",
+      "prediction": {
+        "schema_name": "government_id",
+        "fields": {
+          "full_name": "Brandon Myers",
+          "date_of_birth": "1977-08-22",
+          "document_number": "NP476739",
+          "issue_date": "2019-08-19",
+          "expiry_date": "2024-08-19",
+          "issuing_country": "Australia"
+        }
+      }
+    },
+    "holdout_government_id_f01_b00_standard_noise": {
+      "status": "ok",
+      "prediction": {
+        "schema_name": "government_id",
+        "fields": {
+          "full_name": "Brandon Myers",
+          "date_of_birth": "1977-0B-22",
+          "document_number": "NP476739",
+          "issue_date": "2019-08-19",
+          "expiry_date": "2024-08-19",
+          "issuing_country": "Australia"
+        }
+      }
+    },
+    "holdout_government_id_f01_b01_clean": {
+      "status": "ok",
+      "prediction": {
+        "schema_name": "government_id",
+        "fields": {
+          "full_name": "Abdul Hobbs",
+          "date_of_birth": "1964-09-28",
+          "document_number": null,
+          "issue_date": "2013-04-19",
+          "expiry_date": "2023-04-19",
+          "issuing_country": "United Kingdom"
+        }
+      }
+    },
+    "holdout_government_id_f01_b01_standard_noise": {
+      "status": "ok",
+      "prediction": {
+        "schema_name": "government_id",
+        "fields": {
+          "full_name": "Abdul Hobbs",
+          "date_of_birth": "1964-09-28",
+          "document_number": null,
+          "issue_date": null,
+          "expiry_date": "2023-04-19",
+          "issuing_country": "United Kingdom"
+        }
+      }
+    },
+    "holdout_proof_of_address_f00_b00_clean": {
+      "status": "ok",
+      "prediction": {
+        "schema_name": "proof_of_address",
+        "fields": {
+          "full_name": "Lori Jones",
+          "address_line1": "88912 Anderson Vista",
+          "city": "West Jessica",
+          "postal_code": "V7Y 4N9",
+          "country": "Canada",
+          "statement_date": "2025-03-15",
+          "issuer_name": "NorthStar Power"
+        }
+      }
+    },
+    "holdout_proof_of_address_f00_b00_standard_noise": {
+      "status": "ok",
+      "prediction": {
+        "schema_name": "proof_of_address",
+        "fields": {
+          "full_name": "Lori Jones",
+          "address_line1": "88912 Anderson Vista",
+          "city": "West Jessica",
+          "postal_code": "V7Y 4N9",
+          "country": "Canada",
+          "statement_date": "2025-03-15",
+          "issuer_name": "NorthStar Power"
+        }
+      }
+    },
+    "holdout_proof_of_address_f00_b01_clean": {
+      "status": "ok",
+      "prediction": {
+        "schema_name": "proof_of_address",
+        "fields": {
+          "full_name": "Barbara Adams",
+          "address_line1": "5679 Tucker Lodge",
+          "city": "Port Georgehaven",
+          "postal_code": null,
+          "country": "Canada",
+          "statement_date": "2025-03-29",
+          "issuer_name": "SolarEdge Utilities"
+        }
+      }
+    },
+    "holdout_proof_of_address_f00_b01_standard_noise": {
+      "status": "ok",
+      "prediction": {
+        "schema_name": "proof_of_address",
+        "fields": {
+          "full_name": "Barbara Adams",
+          "address_line1": "5679 Tucker Lodge",
+          "city": "Port Georgehaven",
+          "postal_code": null,
+          "country": "Canada",
+          "statement_date": "2025-03-29",
+          "issuer_name": "SolarEdge Utilities"
+        }
+      }
+    },
+    "holdout_proof_of_address_f01_b00_clean": {
+      "status": "ok",
+      "prediction": {
+        "schema_name": "proof_of_address",
+        "fields": {
+          "full_name": "Deanna Allen",
+          "address_line1": "9478 Turner Valleys Suite 573",
+          "city": "Jonesside",
+          "postal_code": "N8C 5L9",
+          "country": "Canada",
+          "statement_date": "2025-09-19",
+          "issuer_name": "PureFlow Water Authority"
+        }
+      }
+    },
+    "holdout_proof_of_address_f01_b00_standard_noise": {
+      "status": "ok",
+      "prediction": {
+        "schema_name": "proof_of_address",
+        "fields": {
+          "full_name": "Deanna Allen",
+          "address_line1": "9478 Turner Val1eys Suite 573",
+          "city": "Jonesside",
+          "postal_code": "N8C 5L9",
+          "country": "CANADA",
+          "statement_date": "2025-09-19",
+          "issuer_name": "PureFlow Water Authority"
+        }
+      }
+    },
+    "holdout_proof_of_address_f01_b01_clean": {
+      "status": "ok",
+      "prediction": {
+        "schema_name": "proof_of_address",
+        "fields": {
+          "full_name": "Dawn Huff",
+          "address_line1": "921 Williams Mill",
+          "city": "Tanyamouth",
+          "postal_code": "64806",
+          "country": "United States",
+          "statement_date": "2025-01-06",
+          "issuer_name": "PureFlow Water Authority"
+        }
+      }
+    },
+    "holdout_proof_of_address_f01_b01_standard_noise": {
+      "status": "ok",
+      "prediction": {
+        "schema_name": "proof_of_address",
+        "fields": {
+          "full_name": "Dawn Huff",
+          "address_line1": "921 WilliamsMill",
+          "city": "Tanyamouth",
+          "postal_code": "64806",
+          "country": "United States",
+          "statement_date": "2025-01-06",
+          "issuer_name": "PureFlow Water Authority"
+        }
+      }
+    },
+    "holdout_payment_receipt_f00_b00_clean": {
+      "status": "ok",
+      "prediction": {
+        "schema_name": "payment_receipt",
+        "fields": {
+          "sender_name": "Matthew Fields",
+          "recipient_name": "Horizon Electronics",
+          "amount": "252.96",
+          "currency": "GBP",
+          "payment_date": "2026-01-22",
+          "reference_id": "TRX-593704"
+        }
+      }
+    },
+    "holdout_payment_receipt_f00_b00_standard_noise": {
+      "status": "ok",
+      "prediction": {
+        "schema_name": "payment_receipt",
+        "fields": {
+          "sender_name": "Matthew Fields",
+          "recipient_name": "Horizon Electronics",
+          "amount": "252.96",
+          "currency": "GBP",
+          "payment_date": "2026-01-22",
+          "reference_id": "TRX-593704"
+        }
+      }
+    },
+    "holdout_payment_receipt_f00_b01_clean": {
+      "status": "ok",
+      "prediction": {
+        "schema_name": "payment_receipt",
+        "fields": {
+          "sender_name": "Zachary Parker",
+          "recipient_name": "Valor Merchants",
+          "amount": "1892.27",
+          "currency": "USD",
+          "payment_date": "2025-01-10",
+          "reference_id": "INV-463671"
+        }
+      }
+    },
+    "holdout_payment_receipt_f00_b01_standard_noise": {
+      "status": "ok",
+      "prediction": {
+        "schema_name": "payment_receipt",
+        "fields": {
+          "sender_name": "Zachary Parker",
+          "recipient_name": "Valor Merchants",
+          "amount": "1892.27",
+          "currency": "USD",
+          "payment_date": "2025-01-10",
+          "reference_id": "INV-463671"
+        }
+      }
+    },
+    "holdout_payment_receipt_f01_b00_clean": {
+      "status": "ok",
+      "prediction": {
+        "schema_name": "payment_receipt",
+        "fields": {
+          "sender_name": "Vertex Supplies",
+          "recipient_name": "Gemma Morgan",
+          "amount": "1297.95",
+          "currency": "EUR",
+          "payment_date": "2026-01-29",
+          "reference_id": "TRX-989045"
+        }
+      }
+    },
+    "holdout_payment_receipt_f01_b00_standard_noise": {
+      "status": "ok",
+      "prediction": {
+        "schema_name": "payment_receipt",
+        "fields": {
+          "sender_name": "Vertex Supplies",
+          "recipient_name": "Gemma Morgan",
+          "amount": "1297.95",
+          "currency": "EUR",
+          "payment_date": "2026-01-29",
+          "reference_id": "TRX-989045"
+        }
+      }
+    },
+    "holdout_payment_receipt_f01_b01_clean": {
+      "status": "ok",
+      "prediction": {
+        "schema_name": "payment_receipt",
+        "fields": {
+          "sender_name": null,
+          "recipient_name": "Nexus Digital Store",
+          "amount": "4445.39",
+          "currency": "EUR",
+          "payment_date": "2025-05-01",
+          "reference_id": null
+        }
+      }
+    },
+    "holdout_payment_receipt_f01_b01_standard_noise": {
+      "status": "ok",
+      "prediction": {
+        "schema_name": "payment_receipt",
+        "fields": {
+          "sender_name": null,
+          "recipient_name": "Nexus Digital Store",
+          "amount": "4445.39",
+          "currency": "EUR",
+          "payment_date": "2025-05-01",
+          "reference_id": null
+        }
+      }
+    }
+  }
+}

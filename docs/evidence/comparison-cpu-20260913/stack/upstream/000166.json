@@ -1,0 +1,111 @@
+{
+  "call_id": 166,
+  "trace_id": "holdout-ner:holdout_government_id_f01_b00_clean",
+  "started_at_utc": "2026-09-13T10:30:20.230244+00:00",
+  "method": "POST",
+  "path": "/ner/v1/chat/completions",
+  "channel": "ner",
+  "request": {
+    "model": "qwen3-4b-instruct-2507",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a named entity recognition system.\nExtract entities from the user text that belong to the listed entity types.\nReturn JSON only, matching the provided schema.\nReturn the exact surface form from the text. Preserve casing, punctuation, and spacing.\nDo not infer entities that are not explicitly present in the text.\nIf no entities are present, return an empty list.\nReturn one entity per occurrence, in reading order.\nEach returned text must be a contiguous substring of the user text.\nEntity text matching is case-sensitive.\n\nEntity types:\n- FULL_NAME: Full name of the identity document holder, excluding titles and field labels.\n- DATE_OF_BIRTH: The holder's date of birth, not an issue or expiry date.\n- DOCUMENT_NUMBER: The complete identity document number, not a partial personal number.\n- ISSUE_DATE: Date this identity document was issued, not birth or expiry date.\n- EXPIRY_DATE: Expiry date of this identity document.\n- ISSUING_COUNTRY: Country issuing the identity document, not a place of birth."
+      },
+      {
+        "role": "user",
+        "content": "[page=0 block=0 line=0 x=453 y=80] IDENTIFICATION DOCUMENT\n[page=0 block=2 line=1 x=60 y=170] Name Brandon Myers\n[page=0 block=6 line=1 x=840 y=170] Doc No. NP476739\n[page=0 block=3 line=2 x=60 y=260] Date of Birth 1977-08-22\n[page=0 block=7 line=2 x=840 y=260] Personal No. 476739\n[page=0 block=4 line=3 x=60 y=350] Nationality Australia\n[page=0 block=8 line=3 x=840 y=350] Issue Date 2019-08-19\n[page=0 block=5 line=4 x=60 y=440] Sex F\n[page=0 block=9 line=4 x=840 y=440] Expiry Date 2024-08-19\n[page=0 block=10 line=5 x=840 y=530] Issuing Country Australia\n[page=0 block=12 line=6 x=60 y=600] Place of Birth: North Kimberleyland\n[page=0 block=13 line=7 x=495 y=660] This document is valid only with the holder's signature."
+      }
+    ],
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "ner_extraction",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "entities"
+          ],
+          "properties": {
+            "entities": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "text",
+                  "label"
+                ],
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  },
+                  "label": {
+                    "type": "string",
+                    "enum": [
+                      "FULL_NAME",
+                      "DATE_OF_BIRTH",
+                      "DOCUMENT_NUMBER",
+                      "ISSUE_DATE",
+                      "EXPIRY_DATE",
+                      "ISSUING_COUNTRY"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "temperature": 0.0,
+    "max_tokens": 512
+  },
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"entities\": [\n    {\n      \"text\": \"Brandon Myers\",\n      \"label\": \"FULL_NAME\"\n    },\n    {\n      \"text\": \"NP476739\",\n      \"label\": \"DOCUMENT_NUMBER\"\n    },\n    {\n      \"text\": \"1977-08-22\",\n      \"label\": \"DATE_OF_BIRTH\"\n    },\n    {\n      \"text\": \"2019-08-19\",\n      \"label\": \"ISSUE_DATE\"\n    },\n    {\n      \"text\": \"2024-08-19\",\n      \"label\": \"EXPIRY_DATE\"\n    },\n    {\n      \"text\": \"Australia\",\n      \"label\": \"ISSUING_COUNTRY\"\n    }\n  ]\n}"
+        }
+      }
+    ],
+    "created": 1789295441,
+    "model": "qwen3-4b-instruct-2507",
+    "system_fingerprint": "b10867-f3f1a8f27",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 165,
+      "prompt_tokens": 576,
+      "total_tokens": 741,
+      "prompt_tokens_details": {
+        "cached_tokens": 228
+      }
+    },
+    "id": "chatcmpl-Q5uzNLDGe0mV5zaxw7H8ZiWF96x930Wh",
+    "timings": {
+      "cache_n": 228,
+      "prompt_n": 348,
+      "prompt_ms": 6200.605,
+      "prompt_per_token_ms": 17.817830459770114,
+      "prompt_per_second": 56.123555685292004,
+      "predicted_n": 165,
+      "predicted_ms": 14322.281,
+      "predicted_per_token_ms": 87.33098170731708,
+      "predicted_per_second": 11.450690012296226
+    }
+  },
+  "status": 200,
+  "upstream_status": 200,
+  "error": null,
+  "elapsed_s": 21.320801,
+  "latency_ms": 21320.801,
+  "request_body_file": "000166.request.body",
+  "response_body_file": "000166.response.body",
+  "request_sha256": "21c4215f8135b3685253f8cb288b56a76cd2e2c19d8543ce39e5636f2a2fe2d2",
+  "response_sha256": "6a390695f503185789ba217beebe0cb3ce08d51f8061b186ce17941118ee2b37"
+}

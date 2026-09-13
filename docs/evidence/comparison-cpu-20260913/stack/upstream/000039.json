@@ -1,0 +1,111 @@
+{
+  "call_id": 39,
+  "trace_id": "dev-ner:dev_government_id_f02_b00_standard_noise",
+  "started_at_utc": "2026-09-13T09:59:11.126877+00:00",
+  "method": "POST",
+  "path": "/ner/v1/chat/completions",
+  "channel": "ner",
+  "request": {
+    "model": "qwen3-4b-instruct-2507",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a named entity recognition system.\nExtract entities from the user text that belong to the listed entity types.\nReturn JSON only, matching the provided schema.\nReturn the exact surface form from the text. Preserve casing, punctuation, and spacing.\nDo not infer entities that are not explicitly present in the text.\nIf no entities are present, return an empty list.\nReturn one entity per occurrence, in reading order.\nEach returned text must be a contiguous substring of the user text.\nEntity text matching is case-sensitive.\n\nEntity types:\n- FULL_NAME: Full name of the identity document holder, excluding titles and field labels.\n- DATE_OF_BIRTH: The holder's date of birth, not an issue or expiry date.\n- DOCUMENT_NUMBER: The complete identity document number, not a partial personal number.\n- ISSUE_DATE: Date this identity document was issued, not birth or expiry date.\n- EXPIRY_DATE: Expiry date of this identity document.\n- ISSUING_COUNTRY: Country issuing the identity document, not a place of birth."
+      },
+      {
+        "role": "user",
+        "content": "[page=0 block=0 line=0 x=336 y=70] GOVERNMENT IDENT1TY DOCUMENT\n[page=0 block=1 line=1 x=597 y=128] Form GID-2025 | Official Use Only\n[page=0 block=3 line=2 x=82 y=193] SECTION 1 — PERSONAL INFORMATION\n[page=0 block=4 line=3 x=78 y=250] Holder Name Amy Chang\n[page=0 block=5 line=4 x=80 y=338] Date of Birth 2003-05-13\n[page=0 block=6 line=5 x=78 y=429] Place of Birth Caseyton\n[page=0 block=7 line=6 x=79 y=518] Height 175 cm\n[page=0 block=9 line=7 x=81 y=648] SECTION 2 — DOCUMENT DETAILS\n[page=0 block=10 line=8 x=81 y=703] Doc No. F2701196\n[page=0 block=11 line=9 x=81 y=793] ISSUING COUNTRY\n[page=0 block=12 line=10 x=80 y=883] Dateof Issue 2025-02-24\n[page=0 block=13 line=11 x=80 y=974] Date of Expiry 2035-02-24\n[page=0 block=15 line=12 x=78 y=1103] Authorized Signature: ________________________________________\n[page=0 block=16 line=13 x=82 y=1163] Issuing Officer:"
+      }
+    ],
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "ner_extraction",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "entities"
+          ],
+          "properties": {
+            "entities": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "text",
+                  "label"
+                ],
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  },
+                  "label": {
+                    "type": "string",
+                    "enum": [
+                      "FULL_NAME",
+                      "DATE_OF_BIRTH",
+                      "DOCUMENT_NUMBER",
+                      "ISSUE_DATE",
+                      "EXPIRY_DATE",
+                      "ISSUING_COUNTRY"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "temperature": 0.0,
+    "max_tokens": 512
+  },
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"entities\": [\n    {\n      \"text\": \"Amy Chang\",\n      \"label\": \"FULL_NAME\"\n    },\n    {\n      \"text\": \"2003-05-13\",\n      \"label\": \"DATE_OF_BIRTH\"\n    },\n    {\n      \"text\": \"F2701196\",\n      \"label\": \"DOCUMENT_NUMBER\"\n    },\n    {\n      \"text\": \"2025-02-24\",\n      \"label\": \"ISSUE_DATE\"\n    },\n    {\n      \"text\": \"2035-02-24\",\n      \"label\": \"EXPIRY_DATE\"\n    },\n    {\n      \"text\": \"ISSUING COUNTRY\",\n      \"label\": \"ISSUING_COUNTRY\"\n    }\n  ]\n}"
+        }
+      }
+    ],
+    "created": 1789293573,
+    "model": "qwen3-4b-instruct-2507",
+    "system_fingerprint": "b10867-f3f1a8f27",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 170,
+      "prompt_tokens": 642,
+      "total_tokens": 812,
+      "prompt_tokens_details": {
+        "cached_tokens": 228
+      }
+    },
+    "id": "chatcmpl-SpoEB3ul4lYvnD3rd8MQXMHgUOwiVxJa",
+    "timings": {
+      "cache_n": 228,
+      "prompt_n": 414,
+      "prompt_ms": 7289.479,
+      "prompt_per_token_ms": 17.607437198067633,
+      "prompt_per_second": 56.7941824100186,
+      "predicted_n": 170,
+      "predicted_ms": 14281.408,
+      "predicted_per_token_ms": 84.50537278106509,
+      "predicted_per_second": 11.83356711046978
+    }
+  },
+  "status": 200,
+  "upstream_status": 200,
+  "error": null,
+  "elapsed_s": 22.302684,
+  "latency_ms": 22302.684,
+  "request_body_file": "000039.request.body",
+  "response_body_file": "000039.response.body",
+  "request_sha256": "ed60b382144b4bba6cda37916a15ba428e5b2fdce54c8fd49df80af93c75acee",
+  "response_sha256": "e1fc9395d7f492bb125d7bfddeba5f2aeee93474808ff090bfb4cfda616edc3d"
+}

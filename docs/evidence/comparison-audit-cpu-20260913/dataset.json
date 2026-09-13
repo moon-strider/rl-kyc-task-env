@@ -1,0 +1,38 @@
+{
+  "passed": true,
+  "counts": {
+    "assertions": 2109,
+    "retained_file_hashes": 722,
+    "protocol_source_hashes": 42,
+    "document_input_and_gold_hashes": 66,
+    "validated_clean_noisy_pairs": 12,
+    "post_regeneration_source_hashes": 42,
+    "post_regeneration_evidence_hashes": 722
+  },
+  "splits": {
+    "dev": {
+      "documents": 9,
+      "independent_bases": 9,
+      "families": 9,
+      "null_documents": 0
+    },
+    "holdout": {
+      "documents": 24,
+      "independent_bases": 12,
+      "families": 6,
+      "null_documents": 12
+    }
+  },
+  "regeneration": {
+    "dev": {
+      "files": 28,
+      "exact_match": true
+    },
+    "holdout": {
+      "files": 73,
+      "exact_match": true
+    }
+  },
+  "errors": [],
+  "scope": "File/source integrity, dataset pairing/nulls, and deterministic regeneration; model metrics audited separately."
+}

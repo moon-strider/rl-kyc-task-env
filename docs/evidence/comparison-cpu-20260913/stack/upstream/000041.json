@@ -1,0 +1,112 @@
+{
+  "call_id": 41,
+  "trace_id": "dev-ner:dev_proof_of_address_f01_b00_standard_noise",
+  "started_at_utc": "2026-09-13T10:00:03.133119+00:00",
+  "method": "POST",
+  "path": "/ner/v1/chat/completions",
+  "channel": "ner",
+  "request": {
+    "model": "qwen3-4b-instruct-2507",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a named entity recognition system.\nExtract entities from the user text that belong to the listed entity types.\nReturn JSON only, matching the provided schema.\nReturn the exact surface form from the text. Preserve casing, punctuation, and spacing.\nDo not infer entities that are not explicitly present in the text.\nIf no entities are present, return an empty list.\nReturn one entity per occurrence, in reading order.\nEach returned text must be a contiguous substring of the user text.\nEntity text matching is case-sensitive.\n\nEntity types:\n- FULL_NAME: The customer or account holder's full name, not the issuer or provider.\n- ADDRESS_LINE1: First street address line of the customer, not the issuer's address.\n- CITY: City in the customer's address, not the issuer's city.\n- POSTAL_CODE: Postal or ZIP code of the customer, not the issuer's postal code.\n- COUNTRY: Country in the customer's address, not the issuer's country.\n- STATEMENT_DATE: Date the statement was issued, not its payment due date.\n- ISSUER_NAME: Organization issuing the statement or bill, not the customer."
+      },
+      {
+        "role": "user",
+        "content": "[page=0 block=0 line=0 x=617 y=71] ConnectPlus\n[page=0 block=1 line=1 x=706 y=133] INVOICE\n[page=0 block=5 line=2 x=898 y=213] Account No. 3902431874\n[page=0 block=3 line=2 x=137 y=215] Date 2025-05-01\n[page=0 block=6 line=3 x=901 y=248] 852 Daniels Freeway Apt. 296\n[page=0 block=4 line=3 x=79 y=252] Due Date\n[page=0 block=7 line=4 x=902 y=276] LakeMatthew, VT 17101\n[page=0 block=9 line=5 x=80 y=338] Customer Name\n[page=0 block=10 line=6 x=78 y=376] Jessica Schroeder\n[page=0 block=11 line=7 x=78 y=417] 8071 Brenda Shoals Suite 395\n[page=0 block=12 line=8 x=78 y=454] Lake Rachelmouth, 56268\n[page=0 block=13 line=9 x=78 y=492] United States\n[page=0 block=15 line=10 x=80 y=563] Service Period: 01 Jan 2025 — 31 Jan 2025\n[page=0 block=16 line=11 x=82 y=613] CHARGES SUMMARY\n[page=0 block=18 line=12 x=82 y=670] Monthly Plan 29.99\n[page=0 block=19 line=13 x=82 y=719] Data Add-on 9.99\n[page=0 block=20 line=14 x=80 y=768] Roaming Charges 5.50\n[page=0 block=21 line=15 x=78 y=819] Taxes 4.52\n[page=0 block=23 line=16 x=82 y=898] Amount Due 199.98"
+      }
+    ],
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "ner_extraction",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "entities"
+          ],
+          "properties": {
+            "entities": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "text",
+                  "label"
+                ],
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  },
+                  "label": {
+                    "type": "string",
+                    "enum": [
+                      "FULL_NAME",
+                      "ADDRESS_LINE1",
+                      "CITY",
+                      "POSTAL_CODE",
+                      "COUNTRY",
+                      "STATEMENT_DATE",
+                      "ISSUER_NAME"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "temperature": 0.0,
+    "max_tokens": 512
+  },
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"entities\": [\n    {\n      \"text\": \"Jessica Schroeder\",\n      \"label\": \"FULL_NAME\"\n    },\n    {\n      \"text\": \"852 Daniels Freeway Apt. 296\",\n      \"label\": \"ADDRESS_LINE1\"\n    },\n    {\n      \"text\": \"LakeMatthew\",\n      \"label\": \"CITY\"\n    },\n    {\n      \"text\": \"17101\",\n      \"label\": \"POSTAL_CODE\"\n    },\n    {\n      \"text\": \"United States\",\n      \"label\": \"COUNTRY\"\n    },\n    {\n      \"text\": \"2025-05-01\",\n      \"label\": \"STATEMENT_DATE\"\n    },\n    {\n      \"text\": \"ConnectPlus\",\n      \"label\": \"ISSUER_NAME\"\n    }\n  ]\n}"
+        }
+      }
+    ],
+    "created": 1789293629,
+    "model": "qwen3-4b-instruct-2507",
+    "system_fingerprint": "b10867-f3f1a8f27",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 177,
+      "prompt_tokens": 814,
+      "total_tokens": 991,
+      "prompt_tokens_details": {
+        "cached_tokens": 250
+      }
+    },
+    "id": "chatcmpl-4NLQ1ThoXeoQSbrF7tlRQQZ9JFfK42qI",
+    "timings": {
+      "cache_n": 250,
+      "prompt_n": 564,
+      "prompt_ms": 10270.534,
+      "prompt_per_token_ms": 18.210166666666666,
+      "prompt_per_second": 54.914379330227625,
+      "predicted_n": 177,
+      "predicted_ms": 15208.229,
+      "predicted_per_token_ms": 86.41039204545454,
+      "predicted_per_second": 11.572682131496048
+    }
+  },
+  "status": 200,
+  "upstream_status": 200,
+  "error": null,
+  "elapsed_s": 26.383166,
+  "latency_ms": 26383.166,
+  "request_body_file": "000041.request.body",
+  "response_body_file": "000041.response.body",
+  "request_sha256": "0e330a15ddb734d39b85daee1703f32df96b162fd8e28198185448bd3c589d70",
+  "response_sha256": "e1a0b52c1e97de8b7ffc75fd06e6aa1c77a12f39a4bdedf6af4c6e8d75945f4f"
+}

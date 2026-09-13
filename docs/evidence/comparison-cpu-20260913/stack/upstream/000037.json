@@ -1,0 +1,111 @@
+{
+  "call_id": 37,
+  "trace_id": "dev-ner:dev_government_id_f00_b00_standard_noise",
+  "started_at_utc": "2026-09-13T09:58:17.671030+00:00",
+  "method": "POST",
+  "path": "/ner/v1/chat/completions",
+  "channel": "ner",
+  "request": {
+    "model": "qwen3-4b-instruct-2507",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a named entity recognition system.\nExtract entities from the user text that belong to the listed entity types.\nReturn JSON only, matching the provided schema.\nReturn the exact surface form from the text. Preserve casing, punctuation, and spacing.\nDo not infer entities that are not explicitly present in the text.\nIf no entities are present, return an empty list.\nReturn one entity per occurrence, in reading order.\nEach returned text must be a contiguous substring of the user text.\nEntity text matching is case-sensitive.\n\nEntity types:\n- FULL_NAME: Full name of the identity document holder, excluding titles and field labels.\n- DATE_OF_BIRTH: The holder's date of birth, not an issue or expiry date.\n- DOCUMENT_NUMBER: The complete identity document number, not a partial personal number.\n- ISSUE_DATE: Date this identity document was issued, not birth or expiry date.\n- EXPIRY_DATE: Expiry date of this identity document.\n- ISSUING_COUNTRY: Country issuing the identity document, not a place of birth."
+      },
+      {
+        "role": "user",
+        "content": "[page=0 block=0 line=0 x=630 y=80] PASSPORT\n[page=0 block=1 line=1 x=667 y=149] UNITED STATES\n[page=0 block=4 line=2 x=480 y=229] Surname and Given Names\n[page=0 block=4 line=3 x=479 y=265] Savannah Kirby\n[page=0 block=3 line=4 x=108 y=301] [PHOTO]\n[page=0 block=5 line=5 x=481 y=330] Nationality\n[page=0 block=5 line=6 x=481 y=364] United States\n[page=0 block=7 line=7 x=678 y=418] PLACE OF BIRTH\n[page=0 block=6 line=7 x=479 y=421] SEX\n[page=0 block=6 line=8 x=481 y=456] F\n[page=0 block=7 line=8 x=679 y=456] Jillside\n[page=0 block=9 line=9 x=78 y=540] Date of Birth\n[page=0 block=10 line=9 x=839 y=540] Document No.\n[page=0 block=9 line=10 x=80 y=576] 1991-11-25\n[page=0 block=10 line=10 x=840 y=578] N1739299\n[page=0 block=11 line=11 x=81 y=678] Issue Date\n[page=0 block=12 line=11 x=842 y=678] Expiry Date\n[page=0 block=12 line=12 x=842 y=717] 2033-07-19\n[page=0 block=11 line=12 x=82 y=718] 2023-07-19\n[page=0 block=13 line=13 x=81 y=818] Issuing Country\n[page=0 block=14 line=13 x=840 y=819] Height\n[page=0 block=14 line=14 x=839 y=854] 199 cm\n[page=0 block=13 line=14 x=80 y=856] United States\n[page=0 block=16 line=15 x=80 y=1002] P<UNISAVANNAH<KIRBY\n[page=0 block=17 line=16 x=82 y=1035] N1739299<<<<<19911125"
+      }
+    ],
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "ner_extraction",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "entities"
+          ],
+          "properties": {
+            "entities": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "text",
+                  "label"
+                ],
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  },
+                  "label": {
+                    "type": "string",
+                    "enum": [
+                      "FULL_NAME",
+                      "DATE_OF_BIRTH",
+                      "DOCUMENT_NUMBER",
+                      "ISSUE_DATE",
+                      "EXPIRY_DATE",
+                      "ISSUING_COUNTRY"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "temperature": 0.0,
+    "max_tokens": 512
+  },
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"entities\": [\n    {\n      \"text\": \"Savannah Kirby\",\n      \"label\": \"FULL_NAME\"\n    },\n    {\n      \"text\": \"1991-11-25\",\n      \"label\": \"DATE_OF_BIRTH\"\n    },\n    {\n      \"text\": \"N1739299\",\n      \"label\": \"DOCUMENT_NUMBER\"\n    },\n    {\n      \"text\": \"2023-07-19\",\n      \"label\": \"ISSUE_DATE\"\n    },\n    {\n      \"text\": \"2033-07-19\",\n      \"label\": \"EXPIRY_DATE\"\n    },\n    {\n      \"text\": \"United States\",\n      \"label\": \"ISSUING_COUNTRY\"\n    }\n  ]\n}"
+        }
+      }
+    ],
+    "created": 1789293529,
+    "model": "qwen3-4b-instruct-2507",
+    "system_fingerprint": "b10867-f3f1a8f27",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 169,
+      "prompt_tokens": 904,
+      "total_tokens": 1073,
+      "prompt_tokens_details": {
+        "cached_tokens": 3
+      }
+    },
+    "id": "chatcmpl-u0bM0M3yt9PVHp090c4YKLuBJMOaP2yy",
+    "timings": {
+      "cache_n": 3,
+      "prompt_n": 901,
+      "prompt_ms": 16088.697,
+      "prompt_per_token_ms": 17.85648945615982,
+      "prompt_per_second": 56.00204914046178,
+      "predicted_n": 169,
+      "predicted_ms": 14952.414,
+      "predicted_per_token_ms": 89.0024642857143,
+      "predicted_per_second": 11.235643956888834
+    }
+  },
+  "status": 200,
+  "upstream_status": 200,
+  "error": null,
+  "elapsed_s": 31.896677,
+  "latency_ms": 31896.677,
+  "request_body_file": "000037.request.body",
+  "response_body_file": "000037.response.body",
+  "request_sha256": "f70086586c81cc771dc7365616481cc0d6ad704a8be336d3f24eff2134d513db",
+  "response_sha256": "bdedbce3ac033436d5e53a995a80d203676f81a96de3d3d911831a0f02b139b5"
+}

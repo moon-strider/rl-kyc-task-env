@@ -1,0 +1,20 @@
+{
+  "status": "closed",
+  "services": [
+    {
+      "service": "swarm",
+      "pid": 51,
+      "returncode": -15
+    },
+    {
+      "service": "ner",
+      "pid": 44,
+      "returncode": -15
+    },
+    {
+      "service": "llama",
+      "pid": 25,
+      "returncode": 0
+    }
+  ]
+}
