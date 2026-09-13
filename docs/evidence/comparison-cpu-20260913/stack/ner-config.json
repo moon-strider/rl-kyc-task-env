@@ -1,0 +1,15 @@
+{
+  "NER_PROVIDER": "llama_cpp",
+  "NER_MODEL": "qwen3-4b-instruct-2507",
+  "LLAMA_CPP_BASE_URL": "http://127.0.0.1:45815/ner/v1",
+  "ALLOWED_MODELS": "[\"qwen3-4b-instruct-2507\"]",
+  "REQUEST_TIMEOUT_S": "300",
+  "TRANSPORT_RETRIES": "0",
+  "MAX_ATTEMPTS": "1",
+  "MAX_TOKENS": "512",
+  "MAX_OUTPUT_TOKENS": "512",
+  "CACHE_ENABLED": "false",
+  "PROVIDER_CONCURRENCY_LIMIT": "1",
+  "BATCH_CONCURRENCY": "1",
+  "CONFIG_DB_PATH": "/workspace/scratch/b33fb38091a9/rl-comparison-20260913/stack/ner-configs.db"
+}

@@ -1,0 +1,134 @@
+{
+  "version": 1,
+  "documents": {
+    "dev_government_id_f00_b00_standard_noise": {
+      "status": "ok",
+      "prediction": {
+        "schema_name": "government_id",
+        "fields": {
+          "full_name": "Savannah Kirby",
+          "date_of_birth": "1991-11-25",
+          "document_number": "N1739299",
+          "issue_date": "2023-07-19",
+          "expiry_date": "2033-07-19",
+          "issuing_country": "United States"
+        }
+      }
+    },
+    "dev_government_id_f01_b00_standard_noise": {
+      "status": "ok",
+      "prediction": {
+        "schema_name": "government_id",
+        "fields": {
+          "full_name": "Leah Valencia",
+          "date_of_birth": "1994-03-21",
+          "document_number": "A3339471",
+          "issue_date": "2017-07-10",
+          "expiry_date": "2022-07-10",
+          "issuing_country": "United States"
+        }
+      }
+    },
+    "dev_government_id_f02_b00_standard_noise": {
+      "status": "ok",
+      "prediction": {
+        "schema_name": "government_id",
+        "fields": {
+          "full_name": "Amy Chang",
+          "date_of_birth": "2003-05-13",
+          "document_number": "F2701196",
+          "issue_date": "2025-02-24",
+          "expiry_date": "2035-02-24",
+          "issuing_country": null
+        }
+      }
+    },
+    "dev_proof_of_address_f00_b00_standard_noise": {
+      "status": "ok",
+      "prediction": {
+        "schema_name": "proof_of_address",
+        "fields": {
+          "full_name": "Lisa White",
+          "address_line1": "31316 Smith Falls Suite 790",
+          "city": "Lake Elizabeth",
+          "postal_code": "08291",
+          "country": "United States",
+          "statement_date": "2025-05-27",
+          "issuer_name": "Coastal Power Solutions"
+        }
+      }
+    },
+    "dev_proof_of_address_f01_b00_standard_noise": {
+      "status": "ok",
+      "prediction": {
+        "schema_name": "proof_of_address",
+        "fields": {
+          "full_name": "Jessica Schroeder",
+          "address_line1": "8071 Brenda Shoals Suite 395",
+          "city": "Lake Rachelmouth",
+          "postal_code": "56268",
+          "country": "United States",
+          "statement_date": "2025-05-01",
+          "issuer_name": null
+        }
+      }
+    },
+    "dev_proof_of_address_f02_b00_standard_noise": {
+      "status": "ok",
+      "prediction": {
+        "schema_name": "proof_of_address",
+        "fields": {
+          "full_name": "Tracey Osborne-Bell",
+          "address_line1": "45667 Taylor Fort Suite 1S4",
+          "city": "South Natalie",
+          "postal_code": "65958",
+          "country": "United Kingdom",
+          "statement_date": "2025-12-29",
+          "issuer_name": "Riverdale Savings BANK"
+        }
+      }
+    },
+    "dev_payment_receipt_f00_b00_standard_noise": {
+      "status": "ok",
+      "prediction": {
+        "schema_name": "payment_receipt",
+        "fields": {
+          "sender_name": "Jose Mcmillan",
+          "recipient_name": "Keystone Retail",
+          "amount": "3522.98",
+          "currency": "GBP",
+          "payment_date": "2025-10-30",
+          "reference_id": "TRX-815437"
+        }
+      }
+    },
+    "dev_payment_receipt_f01_b00_standard_noise": {
+      "status": "ok",
+      "prediction": {
+        "schema_name": "payment_receipt",
+        "fields": {
+          "sender_name": null,
+          "recipient_name": "BrightBuy Online",
+          "amount": "313.06",
+          "currency": "USD",
+          "payment_date": "2025-06-13",
+          "reference_id": "PMT-74932231"
+        }
+      }
+    },
+    "dev_payment_receipt_f02_b00_standard_noise": {
+      "status": "ok",
+      "prediction": {
+        "schema_name": "payment_receipt",
+        "fields": {
+          "sender_name": "Peter Rowland",
+          "recipient_name": "BrightBuy Online",
+          "amount": "4792.72",
+          "currency": "USD",
+          "payment_date": "2025-10-11",
+          "reference_id": "REFPXJRGW2"
+        }
+      }
+    }
+  }
+}

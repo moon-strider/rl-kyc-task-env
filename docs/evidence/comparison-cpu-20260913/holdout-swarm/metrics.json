@@ -1,0 +1,958 @@
+{
+  "num_docs": 24,
+  "correct_fields": 137,
+  "total_fields": 152,
+  "field_accuracy": 0.901316,
+  "exact_docs": 12,
+  "null_fields": 12,
+  "correct_nulls": 8,
+  "hallucinated_nulls": 4,
+  "official_score": {
+    "score": 0.8598,
+    "by_schema": {
+      "government_id": 0.9062,
+      "proof_of_address": 0.8982,
+      "payment_receipt": 0.775
+    },
+    "num_docs": 24,
+    "error_summary": {}
+  },
+  "by_schema": {
+    "government_id": {
+      "num_docs": 8,
+      "correct_fields": 45,
+      "total_fields": 48,
+      "field_accuracy": 0.9375,
+      "exact_docs": 5,
+      "null_fields": 4,
+      "correct_nulls": 4,
+      "hallucinated_nulls": 0
+    },
+    "proof_of_address": {
+      "num_docs": 8,
+      "correct_fields": 52,
+      "total_fields": 56,
+      "field_accuracy": 0.928571,
+      "exact_docs": 5,
+      "null_fields": 4,
+      "correct_nulls": 2,
+      "hallucinated_nulls": 2
+    },
+    "payment_receipt": {
+      "num_docs": 8,
+      "correct_fields": 40,
+      "total_fields": 48,
+      "field_accuracy": 0.833333,
+      "exact_docs": 2,
+      "null_fields": 4,
+      "correct_nulls": 2,
+      "hallucinated_nulls": 2
+    }
+  },
+  "by_ocr_profile": {
+    "clean": {
+      "num_docs": 12,
+      "correct_fields": 71,
+      "total_fields": 76,
+      "field_accuracy": 0.934211,
+      "exact_docs": 8,
+      "null_fields": 6,
+      "correct_nulls": 4,
+      "hallucinated_nulls": 2
+    },
+    "standard_noise": {
+      "num_docs": 12,
+      "correct_fields": 66,
+      "total_fields": 76,
+      "field_accuracy": 0.868421,
+      "exact_docs": 4,
+      "null_fields": 6,
+      "correct_nulls": 4,
+      "hallucinated_nulls": 2
+    }
+  },
+  "by_template": {
+    "gid_dense_smallcaps": {
+      "num_docs": 4,
+      "correct_fields": 23,
+      "total_fields": 24,
+      "field_accuracy": 0.958333,
+      "exact_docs": 3,
+      "null_fields": 2,
+      "correct_nulls": 2,
+      "hallucinated_nulls": 0
+    },
+    "gid_minimal_two_column": {
+      "num_docs": 4,
+      "correct_fields": 22,
+      "total_fields": 24,
+      "field_accuracy": 0.916667,
+      "exact_docs": 2,
+      "null_fields": 2,
+      "correct_nulls": 2,
+      "hallucinated_nulls": 0
+    },
+    "pay_merchant_confirmation": {
+      "num_docs": 4,
+      "correct_fields": 22,
+      "total_fields": 24,
+      "field_accuracy": 0.916667,
+      "exact_docs": 2,
+      "null_fields": 2,
+      "correct_nulls": 0,
+      "hallucinated_nulls": 2
+    },
+    "pay_transaction_slip": {
+      "num_docs": 4,
+      "correct_fields": 18,
+      "total_fields": 24,
+      "field_accuracy": 0.75,
+      "exact_docs": 0,
+      "null_fields": 2,
+      "correct_nulls": 2,
+      "hallucinated_nulls": 0
+    },
+    "poa_energy_statement_center": {
+      "num_docs": 4,
+      "correct_fields": 28,
+      "total_fields": 28,
+      "field_accuracy": 1.0,
+      "exact_docs": 4,
+      "null_fields": 2,
+      "correct_nulls": 2,
+      "hallucinated_nulls": 0
+    },
+    "poa_water_bill_split": {
+      "num_docs": 4,
+      "correct_fields": 24,
+      "total_fields": 28,
+      "field_accuracy": 0.857143,
+      "exact_docs": 1,
+      "null_fields": 2,
+      "correct_nulls": 0,
+      "hallucinated_nulls": 2
+    }
+  },
+  "paired_ocr": [
+    {
+      "base_id": "holdout_government_id_f00_b00",
+      "schema_name": "government_id",
+      "clean_correct_fields": 6,
+      "noisy_correct_fields": 5,
+      "field_accuracy_delta": -0.166667
+    },
+    {
+      "base_id": "holdout_government_id_f00_b01",
+      "schema_name": "government_id",
+      "clean_correct_fields": 6,
+      "noisy_correct_fields": 6,
+      "field_accuracy_delta": 0.0
+    },
+    {
+      "base_id": "holdout_government_id_f01_b00",
+      "schema_name": "government_id",
+      "clean_correct_fields": 6,
+      "noisy_correct_fields": 5,
+      "field_accuracy_delta": -0.166667
+    },
+    {
+      "base_id": "holdout_government_id_f01_b01",
+      "schema_name": "government_id",
+      "clean_correct_fields": 6,
+      "noisy_correct_fields": 5,
+      "field_accuracy_delta": -0.166667
+    },
+    {
+      "base_id": "holdout_payment_receipt_f00_b00",
+      "schema_name": "payment_receipt",
+      "clean_correct_fields": 6,
+      "noisy_correct_fields": 6,
+      "field_accuracy_delta": 0.0
+    },
+    {
+      "base_id": "holdout_payment_receipt_f00_b01",
+      "schema_name": "payment_receipt",
+      "clean_correct_fields": 5,
+      "noisy_correct_fields": 5,
+      "field_accuracy_delta": 0.0
+    },
+    {
+      "base_id": "holdout_payment_receipt_f01_b00",
+      "schema_name": "payment_receipt",
+      "clean_correct_fields": 4,
+      "noisy_correct_fields": 4,
+      "field_accuracy_delta": 0.0
+    },
+    {
+      "base_id": "holdout_payment_receipt_f01_b01",
+      "schema_name": "payment_receipt",
+      "clean_correct_fields": 5,
+      "noisy_correct_fields": 5,
+      "field_accuracy_delta": 0.0
+    },
+    {
+      "base_id": "holdout_proof_of_address_f00_b00",
+      "schema_name": "proof_of_address",
+      "clean_correct_fields": 7,
+      "noisy_correct_fields": 7,
+      "field_accuracy_delta": 0.0
+    },
+    {
+      "base_id": "holdout_proof_of_address_f00_b01",
+      "schema_name": "proof_of_address",
+      "clean_correct_fields": 7,
+      "noisy_correct_fields": 7,
+      "field_accuracy_delta": 0.0
+    },
+    {
+      "base_id": "holdout_proof_of_address_f01_b00",
+      "schema_name": "proof_of_address",
+      "clean_correct_fields": 7,
+      "noisy_correct_fields": 6,
+      "field_accuracy_delta": -0.142857
+    },
+    {
+      "base_id": "holdout_proof_of_address_f01_b01",
+      "schema_name": "proof_of_address",
+      "clean_correct_fields": 6,
+      "noisy_correct_fields": 5,
+      "field_accuracy_delta": -0.142857
+    }
+  ],
+  "independent_base_documents": 12,
+  "invalid_predictions": 0,
+  "invalid_json": 0,
+  "truncated_responses": 0,
+  "observed_truncated_responses": 0,
+  "errors": {},
+  "latency_seconds": {
+    "total": 790.117778,
+    "mean": 32.921574,
+    "median": 32.033859,
+    "p95": 41.538584
+  },
+  "tokens": {
+    "prompt_tokens": 46451,
+    "completion_tokens": 6909,
+    "total_tokens": 53360
+  },
+  "usage_complete": true,
+  "known_tokens": {
+    "prompt_tokens": 46451,
+    "completion_tokens": 6909,
+    "total_tokens": 53360
+  },
+  "observed_tokens": {
+    "prompt_tokens": 46451,
+    "completion_tokens": 6909,
+    "total_tokens": 53360
+  },
+  "observed_usage_complete": true,
+  "token_mismatched_documents": [],
+  "calls": {
+    "reported": 72,
+    "observed": 72,
+    "known_reported": 72,
+    "known_observed": 72,
+    "mismatched_documents": []
+  },
+  "currency_cost": null,
+  "documents": [
+    {
+      "doc_id": "holdout_government_id_f00_b00_clean",
+      "schema_name": "government_id",
+      "base_id": "holdout_government_id_f00_b00",
+      "base_index": 0,
+      "template": "gid_dense_smallcaps",
+      "seed": 2085606989,
+      "ocr_seed": 2040364062,
+      "ocr_profile": "clean",
+      "variant": "clean",
+      "missing_fields": [],
+      "original_fields_sha256": "f01b9340c9ac5e4086aad1feeb33fb94ebf5138eaa8b829991dfa18afb10e904",
+      "rendered_fields_sha256": "f01b9340c9ac5e4086aad1feeb33fb94ebf5138eaa8b829991dfa18afb10e904",
+      "rendered_elements_sha256": "ac1630ca67727efda88182feaa213b99270da5e10d6b55709ca6e35807a868cb",
+      "ocr_sha256": "0e02d3f9feed1aa8420dcf09703f2918e9cb48b5a585e70cc7389f605914b799",
+      "gold_sha256": "d471bb020f31b0b2cda846b6a01feaa26fb388f3c8a17f2283f27ee88e5de0f0",
+      "status": "ok",
+      "num_fields": 6,
+      "correct_fields": 6,
+      "exact_doc": true,
+      "null_fields": 0,
+      "correct_nulls": 0,
+      "hallucinated_nulls": 0,
+      "errors": {}
+    },
+    {
+      "doc_id": "holdout_government_id_f00_b00_standard_noise",
+      "schema_name": "government_id",
+      "base_id": "holdout_government_id_f00_b00",
+      "base_index": 0,
+      "template": "gid_dense_smallcaps",
+      "seed": 2085606989,
+      "ocr_seed": 2040364062,
+      "ocr_profile": "standard_noise",
+      "variant": "standard_noise",
+      "missing_fields": [],
+      "original_fields_sha256": "f01b9340c9ac5e4086aad1feeb33fb94ebf5138eaa8b829991dfa18afb10e904",
+      "rendered_fields_sha256": "f01b9340c9ac5e4086aad1feeb33fb94ebf5138eaa8b829991dfa18afb10e904",
+      "rendered_elements_sha256": "ac1630ca67727efda88182feaa213b99270da5e10d6b55709ca6e35807a868cb",
+      "ocr_sha256": "f545fada89e6561f50747403a08d4f574b611a7e0b58a6de64a04fe4ce183f4d",
+      "gold_sha256": "d471bb020f31b0b2cda846b6a01feaa26fb388f3c8a17f2283f27ee88e5de0f0",
+      "status": "ok",
+      "num_fields": 6,
+      "correct_fields": 5,
+      "exact_doc": false,
+      "null_fields": 0,
+      "correct_nulls": 0,
+      "hallucinated_nulls": 0,
+      "errors": {
+        "issue_date": {
+          "expected": "2013-04-07",
+          "predicted": null
+        }
+      }
+    },
+    {
+      "doc_id": "holdout_government_id_f00_b01_clean",
+      "schema_name": "government_id",
+      "base_id": "holdout_government_id_f00_b01",
+      "base_index": 1,
+      "template": "gid_dense_smallcaps",
+      "seed": 963644276,
+      "ocr_seed": 933025275,
+      "ocr_profile": "clean",
+      "variant": "clean",
+      "missing_fields": [
+        "document_number"
+      ],
+      "original_fields_sha256": "34fcf3fe852d685e83e7065cea49fb928e2d86c8cfb5af66c7e2f428e4037ee9",
+      "rendered_fields_sha256": "80736c9e00e7d1c4894ea308ae6113b8b120ddf2ad56cd29f7a21a17c0544168",
+      "rendered_elements_sha256": "6789724c844ec8774a3f2c3a8dcefb4f509074065eb39c6006de8373f233c0fd",
+      "ocr_sha256": "a74e8128d1a26bf53a53f5414978da8750157751856a5a823228d438910cbf41",
+      "gold_sha256": "5a550698ed06a9a1eda2c1f016d9d5964d13bd2b853c204ef4f20b08c7465655",
+      "status": "ok",
+      "num_fields": 6,
+      "correct_fields": 6,
+      "exact_doc": true,
+      "null_fields": 1,
+      "correct_nulls": 1,
+      "hallucinated_nulls": 0,
+      "errors": {}
+    },
+    {
+      "doc_id": "holdout_government_id_f00_b01_standard_noise",
+      "schema_name": "government_id",
+      "base_id": "holdout_government_id_f00_b01",
+      "base_index": 1,
+      "template": "gid_dense_smallcaps",
+      "seed": 963644276,
+      "ocr_seed": 933025275,
+      "ocr_profile": "standard_noise",
+      "variant": "standard_noise",
+      "missing_fields": [
+        "document_number"
+      ],
+      "original_fields_sha256": "34fcf3fe852d685e83e7065cea49fb928e2d86c8cfb5af66c7e2f428e4037ee9",
+      "rendered_fields_sha256": "80736c9e00e7d1c4894ea308ae6113b8b120ddf2ad56cd29f7a21a17c0544168",
+      "rendered_elements_sha256": "6789724c844ec8774a3f2c3a8dcefb4f509074065eb39c6006de8373f233c0fd",
+      "ocr_sha256": "bca57527a6db3f81f4ef38d33a802887e6c09060b56dd600e5d0c80a2c7333c2",
+      "gold_sha256": "5a550698ed06a9a1eda2c1f016d9d5964d13bd2b853c204ef4f20b08c7465655",
+      "status": "ok",
+      "num_fields": 6,
+      "correct_fields": 6,
+      "exact_doc": true,
+      "null_fields": 1,
+      "correct_nulls": 1,
+      "hallucinated_nulls": 0,
+      "errors": {}
+    },
+    {
+      "doc_id": "holdout_government_id_f01_b00_clean",
+      "schema_name": "government_id",
+      "base_id": "holdout_government_id_f01_b00",
+      "base_index": 0,
+      "template": "gid_minimal_two_column",
+      "seed": 735866500,
+      "ocr_seed": 1777175794,
+      "ocr_profile": "clean",
+      "variant": "clean",
+      "missing_fields": [],
+      "original_fields_sha256": "cb5ef15eabd3a4ba1fafda85a1c017c55a84a05ade2feddb3eff40121707e152",
+      "rendered_fields_sha256": "cb5ef15eabd3a4ba1fafda85a1c017c55a84a05ade2feddb3eff40121707e152",
+      "rendered_elements_sha256": "e26ff83fdca2459573cdf3a8faffe8e4550f91a5dee92df1df23686f6100c4ee",
+      "ocr_sha256": "8fe5804df4487b61a57faddc8600e6c613c818630883d2ef517a5571c030388d",
+      "gold_sha256": "45b1b005aa374210f08e928436903d9ba5cf9998e5452eb5ac51c0b1b382e635",
+      "status": "ok",
+      "num_fields": 6,
+      "correct_fields": 6,
+      "exact_doc": true,
+      "null_fields": 0,
+      "correct_nulls": 0,
+      "hallucinated_nulls": 0,
+      "errors": {}
+    },
+    {
+      "doc_id": "holdout_government_id_f01_b00_standard_noise",
+      "schema_name": "government_id",
+      "base_id": "holdout_government_id_f01_b00",
+      "base_index": 0,
+      "template": "gid_minimal_two_column",
+      "seed": 735866500,
+      "ocr_seed": 1777175794,
+      "ocr_profile": "standard_noise",
+      "variant": "standard_noise",
+      "missing_fields": [],
+      "original_fields_sha256": "cb5ef15eabd3a4ba1fafda85a1c017c55a84a05ade2feddb3eff40121707e152",
+      "rendered_fields_sha256": "cb5ef15eabd3a4ba1fafda85a1c017c55a84a05ade2feddb3eff40121707e152",
+      "rendered_elements_sha256": "e26ff83fdca2459573cdf3a8faffe8e4550f91a5dee92df1df23686f6100c4ee",
+      "ocr_sha256": "fe01b6af015dd83d36d60fba28b8341856496560abd6228dd156094c2bd2f8fd",
+      "gold_sha256": "45b1b005aa374210f08e928436903d9ba5cf9998e5452eb5ac51c0b1b382e635",
+      "status": "ok",
+      "num_fields": 6,
+      "correct_fields": 5,
+      "exact_doc": false,
+      "null_fields": 0,
+      "correct_nulls": 0,
+      "hallucinated_nulls": 0,
+      "errors": {
+        "date_of_birth": {
+          "expected": "1977-08-22",
+          "predicted": "1977-0B-22"
+        }
+      }
+    },
+    {
+      "doc_id": "holdout_government_id_f01_b01_clean",
+      "schema_name": "government_id",
+      "base_id": "holdout_government_id_f01_b01",
+      "base_index": 1,
+      "template": "gid_minimal_two_column",
+      "seed": 1546769572,
+      "ocr_seed": 1567323934,
+      "ocr_profile": "clean",
+      "variant": "clean",
+      "missing_fields": [
+        "document_number"
+      ],
+      "original_fields_sha256": "117b68580bf5a82b1615b0420bc105e92d97160f1ffa12a48247782db7269617",
+      "rendered_fields_sha256": "1fb63c0c7236826e73c0ba76c34d6a4871b8f6e1f627dce878f9c108d3e5b599",
+      "rendered_elements_sha256": "5d878f9ceb041afae6253a93d9db938c9274cce63513e811484ee4fe4ae0d019",
+      "ocr_sha256": "f34990d134855724cd7dcf440c15d360c72b3649fca6ea17c0d48a826af0ed91",
+      "gold_sha256": "4e1be158a908dc7deeb04625dbde7cb979a023fc550ba5e1644b804fd5367ee8",
+      "status": "ok",
+      "num_fields": 6,
+      "correct_fields": 6,
+      "exact_doc": true,
+      "null_fields": 1,
+      "correct_nulls": 1,
+      "hallucinated_nulls": 0,
+      "errors": {}
+    },
+    {
+      "doc_id": "holdout_government_id_f01_b01_standard_noise",
+      "schema_name": "government_id",
+      "base_id": "holdout_government_id_f01_b01",
+      "base_index": 1,
+      "template": "gid_minimal_two_column",
+      "seed": 1546769572,
+      "ocr_seed": 1567323934,
+      "ocr_profile": "standard_noise",
+      "variant": "standard_noise",
+      "missing_fields": [
+        "document_number"
+      ],
+      "original_fields_sha256": "117b68580bf5a82b1615b0420bc105e92d97160f1ffa12a48247782db7269617",
+      "rendered_fields_sha256": "1fb63c0c7236826e73c0ba76c34d6a4871b8f6e1f627dce878f9c108d3e5b599",
+      "rendered_elements_sha256": "5d878f9ceb041afae6253a93d9db938c9274cce63513e811484ee4fe4ae0d019",
+      "ocr_sha256": "d5e4f0d53d9715288a63de5de672aa7a0f7733305a36762df7bf36219b35810f",
+      "gold_sha256": "4e1be158a908dc7deeb04625dbde7cb979a023fc550ba5e1644b804fd5367ee8",
+      "status": "ok",
+      "num_fields": 6,
+      "correct_fields": 5,
+      "exact_doc": false,
+      "null_fields": 1,
+      "correct_nulls": 1,
+      "hallucinated_nulls": 0,
+      "errors": {
+        "issue_date": {
+          "expected": "2013-04-19",
+          "predicted": null
+        }
+      }
+    },
+    {
+      "doc_id": "holdout_proof_of_address_f00_b00_clean",
+      "schema_name": "proof_of_address",
+      "base_id": "holdout_proof_of_address_f00_b00",
+      "base_index": 0,
+      "template": "poa_energy_statement_center",
+      "seed": 1765554807,
+      "ocr_seed": 138081875,
+      "ocr_profile": "clean",
+      "variant": "clean",
+      "missing_fields": [],
+      "original_fields_sha256": "f0d4f8e36fa0f8411b35ff87a9355e74657a42682cc8396665174e9194f0a361",
+      "rendered_fields_sha256": "f0d4f8e36fa0f8411b35ff87a9355e74657a42682cc8396665174e9194f0a361",
+      "rendered_elements_sha256": "d32e3d35edf8b878bfb90ed72f1f288406b00d791f7626e93cb775275a67146b",
+      "ocr_sha256": "d6823f0618f83b0b485fb9a93e689a45b993f2c6eb85905f2875b6231824a49e",
+      "gold_sha256": "4b3ce5fa3e83758e1703757e6617f2da878d212bfeb3d6f5bd5a50c53c26f316",
+      "status": "ok",
+      "num_fields": 7,
+      "correct_fields": 7,
+      "exact_doc": true,
+      "null_fields": 0,
+      "correct_nulls": 0,
+      "hallucinated_nulls": 0,
+      "errors": {}
+    },
+    {
+      "doc_id": "holdout_proof_of_address_f00_b00_standard_noise",
+      "schema_name": "proof_of_address",
+      "base_id": "holdout_proof_of_address_f00_b00",
+      "base_index": 0,
+      "template": "poa_energy_statement_center",
+      "seed": 1765554807,
+      "ocr_seed": 138081875,
+      "ocr_profile": "standard_noise",
+      "variant": "standard_noise",
+      "missing_fields": [],
+      "original_fields_sha256": "f0d4f8e36fa0f8411b35ff87a9355e74657a42682cc8396665174e9194f0a361",
+      "rendered_fields_sha256": "f0d4f8e36fa0f8411b35ff87a9355e74657a42682cc8396665174e9194f0a361",
+      "rendered_elements_sha256": "d32e3d35edf8b878bfb90ed72f1f288406b00d791f7626e93cb775275a67146b",
+      "ocr_sha256": "b39ccb73f590b299a58e161c94ecd35554558dfbce299868b836ef56efa80ed5",
+      "gold_sha256": "4b3ce5fa3e83758e1703757e6617f2da878d212bfeb3d6f5bd5a50c53c26f316",
+      "status": "ok",
+      "num_fields": 7,
+      "correct_fields": 7,
+      "exact_doc": true,
+      "null_fields": 0,
+      "correct_nulls": 0,
+      "hallucinated_nulls": 0,
+      "errors": {}
+    },
+    {
+      "doc_id": "holdout_proof_of_address_f00_b01_clean",
+      "schema_name": "proof_of_address",
+      "base_id": "holdout_proof_of_address_f00_b01",
+      "base_index": 1,
+      "template": "poa_energy_statement_center",
+      "seed": 642469188,
+      "ocr_seed": 778673645,
+      "ocr_profile": "clean",
+      "variant": "clean",
+      "missing_fields": [
+        "postal_code"
+      ],
+      "original_fields_sha256": "404783f9026593fbceb8d6d631dac35b88dd25f23741e2c180b8533a0515800c",
+      "rendered_fields_sha256": "6d1e983deee0009d59240d52d6963f22916303ea9095fcc43484078b4f2efeae",
+      "rendered_elements_sha256": "245bf0530943648324310d38a2aaf00f62f3350cc09b1d60da6bd2634132eb6e",
+      "ocr_sha256": "209a4e85322f989ad14ab4372e20d1cfdf7a5c11c1473b524005016d0e9b029d",
+      "gold_sha256": "f36181c66a38420cac8b0e1196f357aa8dd39e58a16863b829e3c7395aa3aa54",
+      "status": "ok",
+      "num_fields": 7,
+      "correct_fields": 7,
+      "exact_doc": true,
+      "null_fields": 1,
+      "correct_nulls": 1,
+      "hallucinated_nulls": 0,
+      "errors": {}
+    },
+    {
+      "doc_id": "holdout_proof_of_address_f00_b01_standard_noise",
+      "schema_name": "proof_of_address",
+      "base_id": "holdout_proof_of_address_f00_b01",
+      "base_index": 1,
+      "template": "poa_energy_statement_center",
+      "seed": 642469188,
+      "ocr_seed": 778673645,
+      "ocr_profile": "standard_noise",
+      "variant": "standard_noise",
+      "missing_fields": [
+        "postal_code"
+      ],
+      "original_fields_sha256": "404783f9026593fbceb8d6d631dac35b88dd25f23741e2c180b8533a0515800c",
+      "rendered_fields_sha256": "6d1e983deee0009d59240d52d6963f22916303ea9095fcc43484078b4f2efeae",
+      "rendered_elements_sha256": "245bf0530943648324310d38a2aaf00f62f3350cc09b1d60da6bd2634132eb6e",
+      "ocr_sha256": "00134d70c85b238d2d0059a0c704e7dc47770c74d3957ce90139bd6e02835666",
+      "gold_sha256": "f36181c66a38420cac8b0e1196f357aa8dd39e58a16863b829e3c7395aa3aa54",
+      "status": "ok",
+      "num_fields": 7,
+      "correct_fields": 7,
+      "exact_doc": true,
+      "null_fields": 1,
+      "correct_nulls": 1,
+      "hallucinated_nulls": 0,
+      "errors": {}
+    },
+    {
+      "doc_id": "holdout_proof_of_address_f01_b00_clean",
+      "schema_name": "proof_of_address",
+      "base_id": "holdout_proof_of_address_f01_b00",
+      "base_index": 0,
+      "template": "poa_water_bill_split",
+      "seed": 1647825656,
+      "ocr_seed": 2047345470,
+      "ocr_profile": "clean",
+      "variant": "clean",
+      "missing_fields": [],
+      "original_fields_sha256": "db361bb54fac8d4752b999df6f4ae6a7f15e1492761f07969c41b1e99bf563eb",
+      "rendered_fields_sha256": "db361bb54fac8d4752b999df6f4ae6a7f15e1492761f07969c41b1e99bf563eb",
+      "rendered_elements_sha256": "da4503e20029a8cbf0ed23ea6e67ce0efc91b8a34b19b1076466de60b7dc8602",
+      "ocr_sha256": "2f33ad35eec995e5db5aea59a8ad4e2b2e6735c0f283860a8b5222699b0de27c",
+      "gold_sha256": "5438bddc883149c4f21ffee887147bb62584a21754f701387c0cccaaa1681719",
+      "status": "ok",
+      "num_fields": 7,
+      "correct_fields": 7,
+      "exact_doc": true,
+      "null_fields": 0,
+      "correct_nulls": 0,
+      "hallucinated_nulls": 0,
+      "errors": {}
+    },
+    {
+      "doc_id": "holdout_proof_of_address_f01_b00_standard_noise",
+      "schema_name": "proof_of_address",
+      "base_id": "holdout_proof_of_address_f01_b00",
+      "base_index": 0,
+      "template": "poa_water_bill_split",
+      "seed": 1647825656,
+      "ocr_seed": 2047345470,
+      "ocr_profile": "standard_noise",
+      "variant": "standard_noise",
+      "missing_fields": [],
+      "original_fields_sha256": "db361bb54fac8d4752b999df6f4ae6a7f15e1492761f07969c41b1e99bf563eb",
+      "rendered_fields_sha256": "db361bb54fac8d4752b999df6f4ae6a7f15e1492761f07969c41b1e99bf563eb",
+      "rendered_elements_sha256": "da4503e20029a8cbf0ed23ea6e67ce0efc91b8a34b19b1076466de60b7dc8602",
+      "ocr_sha256": "41290e17aafd5fd3e3d608e7675eaf9d8633175ef40b8c2247397dbc1fb481e2",
+      "gold_sha256": "5438bddc883149c4f21ffee887147bb62584a21754f701387c0cccaaa1681719",
+      "status": "ok",
+      "num_fields": 7,
+      "correct_fields": 6,
+      "exact_doc": false,
+      "null_fields": 0,
+      "correct_nulls": 0,
+      "hallucinated_nulls": 0,
+      "errors": {
+        "address_line1": {
+          "expected": "9478 turner valleys suite 573",
+          "predicted": "9478 turner val1eys suite 573"
+        }
+      }
+    },
+    {
+      "doc_id": "holdout_proof_of_address_f01_b01_clean",
+      "schema_name": "proof_of_address",
+      "base_id": "holdout_proof_of_address_f01_b01",
+      "base_index": 1,
+      "template": "poa_water_bill_split",
+      "seed": 555687535,
+      "ocr_seed": 440362390,
+      "ocr_profile": "clean",
+      "variant": "clean",
+      "missing_fields": [
+        "postal_code"
+      ],
+      "original_fields_sha256": "04195a03372fdf5a1bbf10d38a71c62b3acb2f6f2d72ceaa8725596846f48180",
+      "rendered_fields_sha256": "59af663079c30be2239d24a963d8a3cdc9ad3fbd7ed5c99c420f3d8c0b2429b5",
+      "rendered_elements_sha256": "3a1056c4b101c141aa1aedd24b39f743ae48c2462d61ac24fde5497dcbee4445",
+      "ocr_sha256": "b243193a447d6d19e4d37c98fa143cf5d380cd7b3820d066b73062913f3c2634",
+      "gold_sha256": "79ce4e93c4160fbff066f7f61e59b75c2207c8d2d41492d48b26f005b5c4da91",
+      "status": "ok",
+      "num_fields": 7,
+      "correct_fields": 6,
+      "exact_doc": false,
+      "null_fields": 1,
+      "correct_nulls": 0,
+      "hallucinated_nulls": 1,
+      "errors": {
+        "postal_code": {
+          "expected": null,
+          "predicted": "64806"
+        }
+      }
+    },
+    {
+      "doc_id": "holdout_proof_of_address_f01_b01_standard_noise",
+      "schema_name": "proof_of_address",
+      "base_id": "holdout_proof_of_address_f01_b01",
+      "base_index": 1,
+      "template": "poa_water_bill_split",
+      "seed": 555687535,
+      "ocr_seed": 440362390,
+      "ocr_profile": "standard_noise",
+      "variant": "standard_noise",
+      "missing_fields": [
+        "postal_code"
+      ],
+      "original_fields_sha256": "04195a03372fdf5a1bbf10d38a71c62b3acb2f6f2d72ceaa8725596846f48180",
+      "rendered_fields_sha256": "59af663079c30be2239d24a963d8a3cdc9ad3fbd7ed5c99c420f3d8c0b2429b5",
+      "rendered_elements_sha256": "3a1056c4b101c141aa1aedd24b39f743ae48c2462d61ac24fde5497dcbee4445",
+      "ocr_sha256": "b7424f391cf3899816e265cfdc24ee7336cffd5ddf08e72560a83205ee6f42e3",
+      "gold_sha256": "79ce4e93c4160fbff066f7f61e59b75c2207c8d2d41492d48b26f005b5c4da91",
+      "status": "ok",
+      "num_fields": 7,
+      "correct_fields": 5,
+      "exact_doc": false,
+      "null_fields": 1,
+      "correct_nulls": 0,
+      "hallucinated_nulls": 1,
+      "errors": {
+        "address_line1": {
+          "expected": "921 williams mill",
+          "predicted": "921 williamsmill"
+        },
+        "postal_code": {
+          "expected": null,
+          "predicted": "64806"
+        }
+      }
+    },
+    {
+      "doc_id": "holdout_payment_receipt_f00_b00_clean",
+      "schema_name": "payment_receipt",
+      "base_id": "holdout_payment_receipt_f00_b00",
+      "base_index": 0,
+      "template": "pay_merchant_confirmation",
+      "seed": 1877057476,
+      "ocr_seed": 1052590289,
+      "ocr_profile": "clean",
+      "variant": "clean",
+      "missing_fields": [],
+      "original_fields_sha256": "61c323f9d5c51b2a7831937408dcd83b1219f65cd8d03f7ba9f3c3d6c5d18c0a",
+      "rendered_fields_sha256": "61c323f9d5c51b2a7831937408dcd83b1219f65cd8d03f7ba9f3c3d6c5d18c0a",
+      "rendered_elements_sha256": "58dc9613afb2bc9b2410cdcd26696341c9dd92d28994329839db0d37b53365f5",
+      "ocr_sha256": "1698537c86072b63686796f149ac5d546bcbbaa2cf8e8c1968d5eeefa1f89cef",
+      "gold_sha256": "3ee2ed64fcc3fba18364722a56938ebc01733b726e628e554546f7ec3f0d6b2d",
+      "status": "ok",
+      "num_fields": 6,
+      "correct_fields": 6,
+      "exact_doc": true,
+      "null_fields": 0,
+      "correct_nulls": 0,
+      "hallucinated_nulls": 0,
+      "errors": {}
+    },
+    {
+      "doc_id": "holdout_payment_receipt_f00_b00_standard_noise",
+      "schema_name": "payment_receipt",
+      "base_id": "holdout_payment_receipt_f00_b00",
+      "base_index": 0,
+      "template": "pay_merchant_confirmation",
+      "seed": 1877057476,
+      "ocr_seed": 1052590289,
+      "ocr_profile": "standard_noise",
+      "variant": "standard_noise",
+      "missing_fields": [],
+      "original_fields_sha256": "61c323f9d5c51b2a7831937408dcd83b1219f65cd8d03f7ba9f3c3d6c5d18c0a",
+      "rendered_fields_sha256": "61c323f9d5c51b2a7831937408dcd83b1219f65cd8d03f7ba9f3c3d6c5d18c0a",
+      "rendered_elements_sha256": "58dc9613afb2bc9b2410cdcd26696341c9dd92d28994329839db0d37b53365f5",
+      "ocr_sha256": "56236c037c7019585b5959199a7c3d92d775435ae7fb7362e17cfa16b7104b24",
+      "gold_sha256": "3ee2ed64fcc3fba18364722a56938ebc01733b726e628e554546f7ec3f0d6b2d",
+      "status": "ok",
+      "num_fields": 6,
+      "correct_fields": 6,
+      "exact_doc": true,
+      "null_fields": 0,
+      "correct_nulls": 0,
+      "hallucinated_nulls": 0,
+      "errors": {}
+    },
+    {
+      "doc_id": "holdout_payment_receipt_f00_b01_clean",
+      "schema_name": "payment_receipt",
+      "base_id": "holdout_payment_receipt_f00_b01",
+      "base_index": 1,
+      "template": "pay_merchant_confirmation",
+      "seed": 352312181,
+      "ocr_seed": 844283016,
+      "ocr_profile": "clean",
+      "variant": "clean",
+      "missing_fields": [
+        "reference_id"
+      ],
+      "original_fields_sha256": "6ea9d60db70e4172c5c930f846bbe587cb99dfd09e7fc1dc9bf9973d031dc4f3",
+      "rendered_fields_sha256": "b29234ddb4b712eb0f5d7b41fde220aabf2e34ebf46d02fa4625732c600f73ed",
+      "rendered_elements_sha256": "ae94267a57a0a5ac337d85f5ebec457b0009402a3a98a404e6032251565ce3d9",
+      "ocr_sha256": "b2547bd24aac4b2300348097199c116613da6daa85e5bc3ec42b6aa0f45ff12d",
+      "gold_sha256": "381ef86f701c8dcf73708bf16efe738dc9d1677a1886f054aed6d6f678c14de2",
+      "status": "ok",
+      "num_fields": 6,
+      "correct_fields": 5,
+      "exact_doc": false,
+      "null_fields": 1,
+      "correct_nulls": 0,
+      "hallucinated_nulls": 1,
+      "errors": {
+        "reference_id": {
+          "expected": null,
+          "predicted": "INV-463671"
+        }
+      }
+    },
+    {
+      "doc_id": "holdout_payment_receipt_f00_b01_standard_noise",
+      "schema_name": "payment_receipt",
+      "base_id": "holdout_payment_receipt_f00_b01",
+      "base_index": 1,
+      "template": "pay_merchant_confirmation",
+      "seed": 352312181,
+      "ocr_seed": 844283016,
+      "ocr_profile": "standard_noise",
+      "variant": "standard_noise",
+      "missing_fields": [
+        "reference_id"
+      ],
+      "original_fields_sha256": "6ea9d60db70e4172c5c930f846bbe587cb99dfd09e7fc1dc9bf9973d031dc4f3",
+      "rendered_fields_sha256": "b29234ddb4b712eb0f5d7b41fde220aabf2e34ebf46d02fa4625732c600f73ed",
+      "rendered_elements_sha256": "ae94267a57a0a5ac337d85f5ebec457b0009402a3a98a404e6032251565ce3d9",
+      "ocr_sha256": "27b5fc2d18e21b41b98f5cb5741b3403dc2549429700435c82149ae71da6cd3c",
+      "gold_sha256": "381ef86f701c8dcf73708bf16efe738dc9d1677a1886f054aed6d6f678c14de2",
+      "status": "ok",
+      "num_fields": 6,
+      "correct_fields": 5,
+      "exact_doc": false,
+      "null_fields": 1,
+      "correct_nulls": 0,
+      "hallucinated_nulls": 1,
+      "errors": {
+        "reference_id": {
+          "expected": null,
+          "predicted": "INV-463671"
+        }
+      }
+    },
+    {
+      "doc_id": "holdout_payment_receipt_f01_b00_clean",
+      "schema_name": "payment_receipt",
+      "base_id": "holdout_payment_receipt_f01_b00",
+      "base_index": 0,
+      "template": "pay_transaction_slip",
+      "seed": 1623689388,
+      "ocr_seed": 1461705501,
+      "ocr_profile": "clean",
+      "variant": "clean",
+      "missing_fields": [],
+      "original_fields_sha256": "804a26a0af80127c8137b6827b80a74e9525e37a905fdd59d0311cf3e28f8355",
+      "rendered_fields_sha256": "804a26a0af80127c8137b6827b80a74e9525e37a905fdd59d0311cf3e28f8355",
+      "rendered_elements_sha256": "0e0caf73755a584f4d73b454e3e45a5ee5e7d1be629a93eb41a74362f8c54d3d",
+      "ocr_sha256": "3c9824da35f3bb9ffd8adef28a73f08c4cc59d07994caf7ea99ed463dc8a4790",
+      "gold_sha256": "d0f79981ce221bbf77197f5fbd780119a0c7e5a305e6082f56dfc5b9031e9194",
+      "status": "ok",
+      "num_fields": 6,
+      "correct_fields": 4,
+      "exact_doc": false,
+      "null_fields": 0,
+      "correct_nulls": 0,
+      "hallucinated_nulls": 0,
+      "errors": {
+        "sender_name": {
+          "expected": "gemma morgan",
+          "predicted": "vertex supplies"
+        },
+        "recipient_name": {
+          "expected": "vertex supplies",
+          "predicted": "gemma morgan"
+        }
+      }
+    },
+    {
+      "doc_id": "holdout_payment_receipt_f01_b00_standard_noise",
+      "schema_name": "payment_receipt",
+      "base_id": "holdout_payment_receipt_f01_b00",
+      "base_index": 0,
+      "template": "pay_transaction_slip",
+      "seed": 1623689388,
+      "ocr_seed": 1461705501,
+      "ocr_profile": "standard_noise",
+      "variant": "standard_noise",
+      "missing_fields": [],
+      "original_fields_sha256": "804a26a0af80127c8137b6827b80a74e9525e37a905fdd59d0311cf3e28f8355",
+      "rendered_fields_sha256": "804a26a0af80127c8137b6827b80a74e9525e37a905fdd59d0311cf3e28f8355",
+      "rendered_elements_sha256": "0e0caf73755a584f4d73b454e3e45a5ee5e7d1be629a93eb41a74362f8c54d3d",
+      "ocr_sha256": "a2780622dcbd35308fbf8dccb51287d655cf9f010c23e97734c62a17e64c98c7",
+      "gold_sha256": "d0f79981ce221bbf77197f5fbd780119a0c7e5a305e6082f56dfc5b9031e9194",
+      "status": "ok",
+      "num_fields": 6,
+      "correct_fields": 4,
+      "exact_doc": false,
+      "null_fields": 0,
+      "correct_nulls": 0,
+      "hallucinated_nulls": 0,
+      "errors": {
+        "sender_name": {
+          "expected": "gemma morgan",
+          "predicted": "vertex supplies"
+        },
+        "recipient_name": {
+          "expected": "vertex supplies",
+          "predicted": "gemma morgan"
+        }
+      }
+    },
+    {
+      "doc_id": "holdout_payment_receipt_f01_b01_clean",
+      "schema_name": "payment_receipt",
+      "base_id": "holdout_payment_receipt_f01_b01",
+      "base_index": 1,
+      "template": "pay_transaction_slip",
+      "seed": 1777711039,
+      "ocr_seed": 647852153,
+      "ocr_profile": "clean",
+      "variant": "clean",
+      "missing_fields": [
+        "reference_id"
+      ],
+      "original_fields_sha256": "47ad50c4815d4163f21e5a02fa1a23959d09d298c538ffcfa276365eb2b1d770",
+      "rendered_fields_sha256": "b7e52b7fa7d9c6af0a30ba38c5d6d9615e2a5d3c7b092a0afc2f26c59a9b7c7b",
+      "rendered_elements_sha256": "892e2e04286da4a29e41440b9e38ee20111e4ccfa5464a6e717e2f12389d3542",
+      "ocr_sha256": "db487664c38a665ca2db0f91f7bdc7ccfcb505c6ce7cff3d66c1b25797bed3a4",
+      "gold_sha256": "3c09a504ab7c7397378c3a922980314bdbc9f04ccbfcea2137818c71a8f95c25",
+      "status": "ok",
+      "num_fields": 6,
+      "correct_fields": 5,
+      "exact_doc": false,
+      "null_fields": 1,
+      "correct_nulls": 1,
+      "hallucinated_nulls": 0,
+      "errors": {
+        "sender_name": {
+          "expected": "joshua lucas",
+          "predicted": null
+        }
+      }
+    },
+    {
+      "doc_id": "holdout_payment_receipt_f01_b01_standard_noise",
+      "schema_name": "payment_receipt",
+      "base_id": "holdout_payment_receipt_f01_b01",
+      "base_index": 1,
+      "template": "pay_transaction_slip",
+      "seed": 1777711039,
+      "ocr_seed": 647852153,
+      "ocr_profile": "standard_noise",
+      "variant": "standard_noise",
+      "missing_fields": [
+        "reference_id"
+      ],
+      "original_fields_sha256": "47ad50c4815d4163f21e5a02fa1a23959d09d298c538ffcfa276365eb2b1d770",
+      "rendered_fields_sha256": "b7e52b7fa7d9c6af0a30ba38c5d6d9615e2a5d3c7b092a0afc2f26c59a9b7c7b",
+      "rendered_elements_sha256": "892e2e04286da4a29e41440b9e38ee20111e4ccfa5464a6e717e2f12389d3542",
+      "ocr_sha256": "8667d9ef52d14e838453e9012c0a6c115132442756ad1c48e6849d204ba333bb",
+      "gold_sha256": "3c09a504ab7c7397378c3a922980314bdbc9f04ccbfcea2137818c71a8f95c25",
+      "status": "ok",
+      "num_fields": 6,
+      "correct_fields": 5,
+      "exact_doc": false,
+      "null_fields": 1,
+      "correct_nulls": 1,
+      "hallucinated_nulls": 0,
+      "errors": {
+        "sender_name": {
+          "expected": "joshua lucas",
+          "predicted": null
+        }
+      }
+    }
+  ]
+}

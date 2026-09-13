@@ -1,0 +1,112 @@
+{
+  "call_id": 40,
+  "trace_id": "dev-ner:dev_proof_of_address_f00_b00_standard_noise",
+  "started_at_utc": "2026-09-13T09:59:33.455486+00:00",
+  "method": "POST",
+  "path": "/ner/v1/chat/completions",
+  "channel": "ner",
+  "request": {
+    "model": "qwen3-4b-instruct-2507",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a named entity recognition system.\nExtract entities from the user text that belong to the listed entity types.\nReturn JSON only, matching the provided schema.\nReturn the exact surface form from the text. Preserve casing, punctuation, and spacing.\nDo not infer entities that are not explicitly present in the text.\nIf no entities are present, return an empty list.\nReturn one entity per occurrence, in reading order.\nEach returned text must be a contiguous substring of the user text.\nEntity text matching is case-sensitive.\n\nEntity types:\n- FULL_NAME: The customer or account holder's full name, not the issuer or provider.\n- ADDRESS_LINE1: First street address line of the customer, not the issuer's address.\n- CITY: City in the customer's address, not the issuer's city.\n- POSTAL_CODE: Postal or ZIP code of the customer, not the issuer's postal code.\n- COUNTRY: Country in the customer's address, not the issuer's country.\n- STATEMENT_DATE: Date the statement was issued, not its payment due date.\n- ISSUER_NAME: Organization issuing the statement or bill, not the customer."
+      },
+      {
+        "role": "user",
+        "content": "[page=0 block=0 line=0 x=446 y=72] Coastal Power So1utions\n[page=0 block=1 line=1 x=689 y=134] UTILITY BILL\n[page=0 block=5 line=2 x=82 y=198] Statement Date 2025-05-27\n[page=0 block=3 line=2 x=1100 y=200] 704 Amy Ramp\n[page=0 block=4 line=3 x=1102 y=231] EAST LAURENSHIRE, FL 54375\n[page=0 block=6 line=3 x=78 y=236] DUE DATE 2025-06-08\n[page=0 block=7 line=4 x=81 y=268] Account Number 7238240317\n[page=0 block=9 line=5 x=82 y=345] Bill To\n[page=0 block=10 line=6 x=81 y=384] Lisa White\n[page=0 block=11 line=7 x=78 y=423] 31316 Smith Falls Suite 790\n[page=0 block=12 line=8 x=82 y=461] Lake Elizabeth, 08291\n[page=0 block=13 line=9 x=80 y=500] United States\n[page=0 block=15 line=10 x=80 y=574] DESCRIPTION AMOUNT\n[page=0 block=17 line=11 x=81 y=640] Previous Balance 104.20\n[page=0 block=18 line=12 x=78 y=690] CurrentCharges 18.05\n[page=0 block=19 line=13 x=79 y=738] Service Fee 2.50\n[page=0 block=20 line=14 x=80 y=789] Taxes & Levies 1.80\n[page=0 block=22 line=15 x=79 y=868] TOTAL DUE 18.05"
+      }
+    ],
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "ner_extraction",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "entities"
+          ],
+          "properties": {
+            "entities": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "text",
+                  "label"
+                ],
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  },
+                  "label": {
+                    "type": "string",
+                    "enum": [
+                      "FULL_NAME",
+                      "ADDRESS_LINE1",
+                      "CITY",
+                      "POSTAL_CODE",
+                      "COUNTRY",
+                      "STATEMENT_DATE",
+                      "ISSUER_NAME"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "temperature": 0.0,
+    "max_tokens": 512
+  },
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"entities\": [\n    {\n      \"text\": \"Lisa White\",\n      \"label\": \"FULL_NAME\"\n    },\n    {\n      \"text\": \"704 Amy Ramp\",\n      \"label\": \"ADDRESS_LINE1\"\n    },\n    {\n      \"text\": \"EAST LAURENSHIRE\",\n      \"label\": \"CITY\"\n    },\n    {\n      \"text\": \"54375\",\n      \"label\": \"POSTAL_CODE\"\n    },\n    {\n      \"text\": \"FL\",\n      \"label\": \"STATEMENT_DATE\"\n    },\n    {\n      \"text\": \"United States\",\n      \"label\": \"COUNTRY\"\n    },\n    {\n      \"text\": \"2025-05-27\",\n      \"label\": \"STATEMENT_DATE\"\n    },\n    {\n      \"text\": \"Coastal Power So1utions\",\n      \"label\": \"ISSUER_NAME\"\n    }\n  ]\n}"
+        }
+      }
+    ],
+    "created": 1789293603,
+    "model": "qwen3-4b-instruct-2507",
+    "system_fingerprint": "b10867-f3f1a8f27",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 199,
+      "prompt_tokens": 783,
+      "total_tokens": 982,
+      "prompt_tokens_details": {
+        "cached_tokens": 112
+      }
+    },
+    "id": "chatcmpl-NSz4LqDU73LQVj8LyXDMBjbuiuer9x3L",
+    "timings": {
+      "cache_n": 112,
+      "prompt_n": 671,
+      "prompt_ms": 11639.406,
+      "prompt_per_token_ms": 17.346357675111776,
+      "prompt_per_second": 57.64898999141365,
+      "predicted_n": 199,
+      "predicted_ms": 17220.634,
+      "predicted_per_token_ms": 86.97289898989898,
+      "predicted_per_second": 11.497834516429535
+    }
+  },
+  "status": 200,
+  "upstream_status": 200,
+  "error": null,
+  "elapsed_s": 29.645331,
+  "latency_ms": 29645.331,
+  "request_body_file": "000040.request.body",
+  "response_body_file": "000040.response.body",
+  "request_sha256": "398483624562d4ab771274c1f8b0dfea4e65ef3a900935588ae10e1c9cbf9fac",
+  "response_sha256": "bf4757d4632bda88b5bc01d512be79c8f26641a0103c03b088359efbb93b5092"
+}

@@ -1,0 +1,111 @@
+{
+  "call_id": 165,
+  "trace_id": "holdout-ner:holdout_government_id_f00_b01_standard_noise",
+  "started_at_utc": "2026-09-13T10:29:58.604760+00:00",
+  "method": "POST",
+  "path": "/ner/v1/chat/completions",
+  "channel": "ner",
+  "request": {
+    "model": "qwen3-4b-instruct-2507",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a named entity recognition system.\nExtract entities from the user text that belong to the listed entity types.\nReturn JSON only, matching the provided schema.\nReturn the exact surface form from the text. Preserve casing, punctuation, and spacing.\nDo not infer entities that are not explicitly present in the text.\nIf no entities are present, return an empty list.\nReturn one entity per occurrence, in reading order.\nEach returned text must be a contiguous substring of the user text.\nEntity text matching is case-sensitive.\n\nEntity types:\n- FULL_NAME: Full name of the identity document holder, excluding titles and field labels.\n- DATE_OF_BIRTH: The holder's date of birth, not an issue or expiry date.\n- DOCUMENT_NUMBER: The complete identity document number, not a partial personal number.\n- ISSUE_DATE: Date this identity document was issued, not birth or expiry date.\n- EXPIRY_DATE: Expiry date of this identity document.\n- ISSUING_COUNTRY: Country issuing the identity document, not a place of birth."
+      },
+      {
+        "role": "user",
+        "content": "[page=0 block=0 line=0 x=389 y=59] TRAVEL DOCUMENT — GOVERNMENT ISSUE\n[page=0 block=1 line=1 x=662 y=100] AUSTRALIA\n[page=0 block=3 line=2 x=82 y=176] SURNAME AND GIVEN NAMES Victoria Hughes\n[page=0 block=4 line=3 x=80 y=239] NATIONALITYAustralia\n[page=0 block=5 line=4 x=143 y=300] OFBIRTH 1994-12-18\n[page=0 block=6 line=5 x=79 y=364] PERSONAL NO.\n[page=0 block=7 line=6 x=81 y=424] PRINT DATE2021-11-21\n[page=0 block=8 line=7 x=80 y=489] SEX M\n[page=0 block=9 line=8 x=80 y=548] PLACE OF BIRTH Walkerchester\n[page=0 block=10 line=9 x=81 y=610] DATE OF ISSUE 2021-11-21\n[page=0 block=11 line=10 x=81 y=672] DATE OF EXPIRY 2026-11-21\n[page=0 block=12 line=11 x=81 y=734] ISSUING COUNTRY Australia\n[page=0 block=13 line=12 x=78 y=797] HEIGHT 1B3 cm\n[page=0 block=15 line=13 x=654 y=899] MACHINE READABLE ZONE\n[page=0 block=16 line=14 x=81 y=934] P<AUSVICTORIA<HUGHES<<<<<<<<<<\n[page=0 block=17 line=15 x=79 y=966] <<<<<<<<<19941218<<<<<<<<<<"
+      }
+    ],
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "ner_extraction",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "entities"
+          ],
+          "properties": {
+            "entities": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "text",
+                  "label"
+                ],
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  },
+                  "label": {
+                    "type": "string",
+                    "enum": [
+                      "FULL_NAME",
+                      "DATE_OF_BIRTH",
+                      "DOCUMENT_NUMBER",
+                      "ISSUE_DATE",
+                      "EXPIRY_DATE",
+                      "ISSUING_COUNTRY"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "temperature": 0.0,
+    "max_tokens": 512
+  },
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"entities\": [\n    {\n      \"text\": \"Victoria Hughes\",\n      \"label\": \"FULL_NAME\"\n    },\n    {\n      \"text\": \"1994-12-18\",\n      \"label\": \"DATE_OF_BIRTH\"\n    },\n    {\n      \"text\": \"2021-11-21\",\n      \"label\": \"ISSUE_DATE\"\n    },\n    {\n      \"text\": \"2026-11-21\",\n      \"label\": \"EXPIRY_DATE\"\n    },\n    {\n      \"text\": \"Australia\",\n      \"label\": \"ISSUING_COUNTRY\"\n    }\n  ]\n}"
+        }
+      }
+    ],
+    "created": 1789295420,
+    "model": "qwen3-4b-instruct-2507",
+    "system_fingerprint": "b10867-f3f1a8f27",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 140,
+      "prompt_tokens": 702,
+      "total_tokens": 842,
+      "prompt_tokens_details": {
+        "cached_tokens": 230
+      }
+    },
+    "id": "chatcmpl-B66zvuCW7MidR9rVavXteQz4j7yyDzdT",
+    "timings": {
+      "cache_n": 230,
+      "prompt_n": 472,
+      "prompt_ms": 8434.801,
+      "prompt_per_token_ms": 17.870341101694915,
+      "prompt_per_second": 55.958640873685106,
+      "predicted_n": 140,
+      "predicted_ms": 12408.452,
+      "predicted_per_token_ms": 89.26943884892086,
+      "predicted_per_second": 11.202041963010375
+    }
+  },
+  "status": 200,
+  "upstream_status": 200,
+  "error": null,
+  "elapsed_s": 21.607433,
+  "latency_ms": 21607.433,
+  "request_body_file": "000165.request.body",
+  "response_body_file": "000165.response.body",
+  "request_sha256": "6e5ba1f1f62841bb7925813eeca13c675667c9530d8ba45db373b2bfdedddc9e",
+  "response_sha256": "62487832a62c35e1f298f4bdccda9385b35b001b012cb59d8acac854fab62ed6"
+}

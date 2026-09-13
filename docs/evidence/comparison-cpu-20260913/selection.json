@@ -1,0 +1,26 @@
+{
+  "frozen_at_utc": "2026-09-13T10:09:01.289807+00:00",
+  "selected": "direct",
+  "prompt_sha256": "ed7060c2773d17886f506a3b15cfd4f41eddf0a9418ce6f24b2ea662c223d2e8",
+  "development_score": 0.8579,
+  "decisions": [
+    {
+      "round": 1,
+      "incumbent": "direct",
+      "accepted": false,
+      "candidate": "candidate-1",
+      "score": 0.8508,
+      "incumbent_score": 0.8579
+    },
+    {
+      "round": 2,
+      "incumbent": "direct",
+      "accepted": false,
+      "candidate": "candidate-2",
+      "score": 0.8508,
+      "incumbent_score": 0.8579
+    }
+  ],
+  "holdout_generated": false,
+  "holdout_outputs_inspected": false
+}

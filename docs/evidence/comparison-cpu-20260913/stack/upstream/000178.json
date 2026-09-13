@@ -1,0 +1,111 @@
+{
+  "call_id": 178,
+  "trace_id": "holdout-ner:holdout_payment_receipt_f00_b00_clean",
+  "started_at_utc": "2026-09-13T10:34:53.660521+00:00",
+  "method": "POST",
+  "path": "/ner/v1/chat/completions",
+  "channel": "ner",
+  "request": {
+    "model": "qwen3-4b-instruct-2507",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a named entity recognition system.\nExtract entities from the user text that belong to the listed entity types.\nReturn JSON only, matching the provided schema.\nReturn the exact surface form from the text. Preserve casing, punctuation, and spacing.\nDo not infer entities that are not explicitly present in the text.\nIf no entities are present, return an empty list.\nReturn one entity per occurrence, in reading order.\nEach returned text must be a contiguous substring of the user text.\nEntity text matching is case-sensitive.\n\nEntity types:\n- SENDER_NAME: The payer or sender making this payment, not its recipient or merchant.\n- RECIPIENT_NAME: The payee, recipient or merchant receiving this payment, not the payer.\n- AMOUNT: Total amount actually paid, excluding a fee, tax or subtotal alone.\n- CURRENCY: Currency code or currency symbol for the payment amount.\n- PAYMENT_DATE: Date of this payment or transaction.\n- REFERENCE_ID: Payment transaction reference, not an invoice number or authorization code."
+      },
+      {
+        "role": "user",
+        "content": "[page=0 block=0 line=0 x=528 y=70] Horizon Electronics\n[page=0 block=1 line=1 x=560 y=130] PAYMENT CONFIRMATION\n[page=0 block=3 line=2 x=677 y=220] Amount Received\n[page=0 block=4 line=3 x=645 y=265] £252.96\n[page=0 block=5 line=4 x=771 y=345] GBP\n[page=0 block=7 line=5 x=80 y=420] Sender Matthew Fields\n[page=0 block=8 line=6 x=80 y=490] Recipient Horizon Electronics\n[page=0 block=9 line=7 x=80 y=560] Date 2026-01-22\n[page=0 block=10 line=8 x=80 y=630] Transaction ID TRX-593704\n[page=0 block=11 line=9 x=80 y=700] Invoice ID INV-522991\n[page=0 block=12 line=10 x=80 y=770] Auth Code AUTH-914758\n[page=0 block=13 line=11 x=80 y=840] Subtotal 2581.60\n[page=0 block=14 line=12 x=80 y=910] Fee 1.10\n[page=0 block=15 line=13 x=80 y=980] Tax 174.03\n[page=0 block=16 line=14 x=80 y=1050] Total Paid GBP 252.96\n[page=0 block=18 line=15 x=524 y=1155] This confirmation serves as proof of payment."
+      }
+    ],
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "ner_extraction",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "entities"
+          ],
+          "properties": {
+            "entities": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "text",
+                  "label"
+                ],
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  },
+                  "label": {
+                    "type": "string",
+                    "enum": [
+                      "SENDER_NAME",
+                      "RECIPIENT_NAME",
+                      "AMOUNT",
+                      "CURRENCY",
+                      "PAYMENT_DATE",
+                      "REFERENCE_ID"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "temperature": 0.0,
+    "max_tokens": 512
+  },
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"entities\": [\n    {\n      \"text\": \"Matthew Fields\",\n      \"label\": \"SENDER_NAME\"\n    },\n    {\n      \"text\": \"Horizon Electronics\",\n      \"label\": \"RECIPIENT_NAME\"\n    },\n    {\n      \"text\": \"252.96\",\n      \"label\": \"AMOUNT\"\n    },\n    {\n      \"text\": \"£\",\n      \"label\": \"CURRENCY\"\n    },\n    {\n      \"text\": \"2026-01-22\",\n      \"label\": \"PAYMENT_DATE\"\n    },\n    {\n      \"text\": \"TRX-593704\",\n      \"label\": \"REFERENCE_ID\"\n    }\n  ]\n}"
+        }
+      }
+    ],
+    "created": 1789295715,
+    "model": "qwen3-4b-instruct-2507",
+    "system_fingerprint": "b10867-f3f1a8f27",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 154,
+      "prompt_tokens": 685,
+      "total_tokens": 839,
+      "prompt_tokens_details": {
+        "cached_tokens": 228
+      }
+    },
+    "id": "chatcmpl-kECHfuG5BqyhSLC5pYWJapWdZusKKz7d",
+    "timings": {
+      "cache_n": 228,
+      "prompt_n": 457,
+      "prompt_ms": 8042.257,
+      "prompt_per_token_ms": 17.597936542669583,
+      "prompt_per_second": 56.82484407051404,
+      "predicted_n": 154,
+      "predicted_ms": 13327.371,
+      "predicted_per_token_ms": 87.107,
+      "predicted_per_second": 11.48013362875544
+    }
+  },
+  "status": 200,
+  "upstream_status": 200,
+  "error": null,
+  "elapsed_s": 22.006896,
+  "latency_ms": 22006.896,
+  "request_body_file": "000178.request.body",
+  "response_body_file": "000178.response.body",
+  "request_sha256": "6281b49d3d58a3977940274aea796bcf56f9da20e45ccb286aa8af158333fd7a",
+  "response_sha256": "86554f85f7fe8bf5a2616672c31de5eb1279482ce30fadc041c9e369b197093f"
+}

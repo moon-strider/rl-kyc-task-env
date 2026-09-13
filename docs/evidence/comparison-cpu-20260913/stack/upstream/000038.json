@@ -1,0 +1,111 @@
+{
+  "call_id": 38,
+  "trace_id": "dev-ner:dev_government_id_f01_b00_standard_noise",
+  "started_at_utc": "2026-09-13T09:58:49.588375+00:00",
+  "method": "POST",
+  "path": "/ner/v1/chat/completions",
+  "channel": "ner",
+  "request": {
+    "model": "qwen3-4b-instruct-2507",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a named entity recognition system.\nExtract entities from the user text that belong to the listed entity types.\nReturn JSON only, matching the provided schema.\nReturn the exact surface form from the text. Preserve casing, punctuation, and spacing.\nDo not infer entities that are not explicitly present in the text.\nIf no entities are present, return an empty list.\nReturn one entity per occurrence, in reading order.\nEach returned text must be a contiguous substring of the user text.\nEntity text matching is case-sensitive.\n\nEntity types:\n- FULL_NAME: Full name of the identity document holder, excluding titles and field labels.\n- DATE_OF_BIRTH: The holder's date of birth, not an issue or expiry date.\n- DOCUMENT_NUMBER: The complete identity document number, not a partial personal number.\n- ISSUE_DATE: Date this identity document was issued, not birth or expiry date.\n- EXPIRY_DATE: Expiry date of this identity document.\n- ISSUING_COUNTRY: Country issuing the identity document, not a place of birth."
+      },
+      {
+        "role": "user",
+        "content": "[page=0 block=0 line=0 x=582 y=70] IDENTITY CARD\n[page=0 block=1 line=1 x=513 y=133] OFFICIAL DOCUMENT — NOT FOR COMMERCIAL USE\n[page=0 block=5 line=2 x=378 y=239] ID Number: A3339471\n[page=0 block=6 line=3 x=382 y=319] Full Name: Leah Valencia\n[page=0 block=3 line=4 x=142 y=361] [PHOTO]\n[page=0 block=7 line=5 x=379 y=398] 1994-03-21Dateof Birth:\n[page=0 block=8 line=6 x=380 y=479] Issue Date: 2017-07-10\n[page=0 block=9 line=7 x=378 y=559] Expiry Date: 2022-07-10\n[page=0 block=10 line=8 x=379 y=639] Issuing Country: United States\n[page=0 block=11 line=9 x=762 y=720] United States\n[page=0 block=14 line=9 x=1040 y=721] Signature\n[page=0 block=12 line=10 x=380 y=801] Sex: M\n[page=0 block=15 line=11 x=498 y=918] This cardremains the property of the issuing authority."
+      }
+    ],
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "ner_extraction",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "entities"
+          ],
+          "properties": {
+            "entities": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "text",
+                  "label"
+                ],
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  },
+                  "label": {
+                    "type": "string",
+                    "enum": [
+                      "FULL_NAME",
+                      "DATE_OF_BIRTH",
+                      "DOCUMENT_NUMBER",
+                      "ISSUE_DATE",
+                      "EXPIRY_DATE",
+                      "ISSUING_COUNTRY"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "temperature": 0.0,
+    "max_tokens": 512
+  },
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"entities\": [\n    {\n      \"text\": \"Leah Valencia\",\n      \"label\": \"FULL_NAME\"\n    },\n    {\n      \"text\": \"1994-03-21\",\n      \"label\": \"DATE_OF_BIRTH\"\n    },\n    {\n      \"text\": \"A3339471\",\n      \"label\": \"DOCUMENT_NUMBER\"\n    },\n    {\n      \"text\": \"2017-07-10\",\n      \"label\": \"ISSUE_DATE\"\n    },\n    {\n      \"text\": \"2022-07-10\",\n      \"label\": \"EXPIRY_DATE\"\n    },\n    {\n      \"text\": \"United States\",\n      \"label\": \"ISSUING_COUNTRY\"\n    }\n  ]\n}"
+        }
+      }
+    ],
+    "created": 1789293551,
+    "model": "qwen3-4b-instruct-2507",
+    "system_fingerprint": "b10867-f3f1a8f27",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 168,
+      "prompt_tokens": 611,
+      "total_tokens": 779,
+      "prompt_tokens_details": {
+        "cached_tokens": 228
+      }
+    },
+    "id": "chatcmpl-EcmnfJiYsO841VewNH0SAiMfbEBt9bvJ",
+    "timings": {
+      "cache_n": 228,
+      "prompt_n": 383,
+      "prompt_ms": 6662.602,
+      "prompt_per_token_ms": 17.39582767624021,
+      "prompt_per_second": 57.48504863415224,
+      "predicted_n": 168,
+      "predicted_ms": 13797.146,
+      "predicted_per_token_ms": 82.61764071856288,
+      "predicted_per_second": 12.103952513077704
+    }
+  },
+  "status": 200,
+  "upstream_status": 200,
+  "error": null,
+  "elapsed_s": 21.520074,
+  "latency_ms": 21520.074,
+  "request_body_file": "000038.request.body",
+  "response_body_file": "000038.response.body",
+  "request_sha256": "9282f9f90bd3b7cf149516eb78a07a83d6b66d2960706f972f77512a6cc4b146",
+  "response_sha256": "635f24cc378a069e88eff17856cf39064bf66595b296a38c392a1e797b30555c"
+}

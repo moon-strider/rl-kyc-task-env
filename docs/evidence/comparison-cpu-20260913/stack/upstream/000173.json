@@ -1,0 +1,112 @@
+{
+  "call_id": 173,
+  "trace_id": "holdout-ner:holdout_proof_of_address_f00_b01_standard_noise",
+  "started_at_utc": "2026-09-13T10:32:53.399215+00:00",
+  "method": "POST",
+  "path": "/ner/v1/chat/completions",
+  "channel": "ner",
+  "request": {
+    "model": "qwen3-4b-instruct-2507",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a named entity recognition system.\nExtract entities from the user text that belong to the listed entity types.\nReturn JSON only, matching the provided schema.\nReturn the exact surface form from the text. Preserve casing, punctuation, and spacing.\nDo not infer entities that are not explicitly present in the text.\nIf no entities are present, return an empty list.\nReturn one entity per occurrence, in reading order.\nEach returned text must be a contiguous substring of the user text.\nEntity text matching is case-sensitive.\n\nEntity types:\n- FULL_NAME: The customer or account holder's full name, not the issuer or provider.\n- ADDRESS_LINE1: First street address line of the customer, not the issuer's address.\n- CITY: City in the customer's address, not the issuer's city.\n- POSTAL_CODE: Postal or ZIP code of the customer, not the issuer's postal code.\n- COUNTRY: Country in the customer's address, not the issuer's country.\n- STATEMENT_DATE: Date the statement was issued, not its payment due date.\n- ISSUER_NAME: Organization issuing the statement or bill, not the customer."
+      },
+      {
+        "role": "user",
+        "content": "[page=0 block=0 line=0 x=527 y=68] SolarEdge Utilities\n[page=0 block=1 line=1 x=616 y=130] ENERGY STATEMENT\n[page=0 block=4 line=2 x=1002 y=208] Account No. 1272672493\n[page=0 block=3 line=2 x=502 y=209] Bill Date 2025-03-29\n[page=0 block=5 line=3 x=500 y=247] Due Date 2025-04-08\n[page=0 block=7 line=4 x=599 y=323] Service Address\n[page=0 block=8 line=5 x=600 y=366] Barbara Adams\n[page=0 block=9 line=6 x=598 y=404] 5679 Tucker Lodge\n[page=0 block=10 line=7 x=598 y=444] Port Georgehaven,\n[page=0 block=11 line=8 x=602 y=483] Canada\n[page=0 block=13 line=9 x=82 y=558] ENERGYUSAGE\n[page=0 block=15 line=10 x=78 y=585] ITEM USAGE CHARGE\n[page=0 block=16 line=11 x=82 y=613] Electricity (kWh) 320 71.27\n[page=0 block=17 line=12 x=80 y=666] Gas (units) 45 18.50\n[page=0 block=18 line=13 x=78 y=717] Standing Charge — 12.00\n[page=0 block=19 line=14 x=81 y=769] VAT/Tax — 0.00\n[page=0 block=21 line=15 x=81 y=852] Total Amount Due 54.62"
+      }
+    ],
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "ner_extraction",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "entities"
+          ],
+          "properties": {
+            "entities": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "text",
+                  "label"
+                ],
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  },
+                  "label": {
+                    "type": "string",
+                    "enum": [
+                      "FULL_NAME",
+                      "ADDRESS_LINE1",
+                      "CITY",
+                      "POSTAL_CODE",
+                      "COUNTRY",
+                      "STATEMENT_DATE",
+                      "ISSUER_NAME"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "temperature": 0.0,
+    "max_tokens": 512
+  },
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"entities\": [\n    {\n      \"text\": \"Barbara Adams\",\n      \"label\": \"FULL_NAME\"\n    },\n    {\n      \"text\": \"5679 Tucker Lodge\",\n      \"label\": \"ADDRESS_LINE1\"\n    },\n    {\n      \"text\": \"Port Georgehaven\",\n      \"label\": \"CITY\"\n    },\n    {\n      \"text\": \"Canada\",\n      \"label\": \"COUNTRY\"\n    },\n    {\n      \"text\": \"2025-03-29\",\n      \"label\": \"STATEMENT_DATE\"\n    },\n    {\n      \"text\": \"SolarEdge Utilities\",\n      \"label\": \"ISSUER_NAME\"\n    }\n  ]\n}"
+        }
+      }
+    ],
+    "created": 1789295596,
+    "model": "qwen3-4b-instruct-2507",
+    "system_fingerprint": "b10867-f3f1a8f27",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 148,
+      "prompt_tokens": 746,
+      "total_tokens": 894,
+      "prompt_tokens_details": {
+        "cached_tokens": 252
+      }
+    },
+    "id": "chatcmpl-55sn2McJJtrpFdqaxkgnklGkJP0XXEml",
+    "timings": {
+      "cache_n": 252,
+      "prompt_n": 494,
+      "prompt_ms": 8660.086,
+      "prompt_per_token_ms": 17.53053846153846,
+      "prompt_per_second": 57.043313426679596,
+      "predicted_n": 148,
+      "predicted_ms": 14134.455,
+      "predicted_per_token_ms": 96.15275510204081,
+      "predicted_per_second": 10.400118009502311
+    }
+  },
+  "status": 200,
+  "upstream_status": 200,
+  "error": null,
+  "elapsed_s": 23.330248,
+  "latency_ms": 23330.248,
+  "request_body_file": "000173.request.body",
+  "response_body_file": "000173.response.body",
+  "request_sha256": "2a66493bd602dc393751c8a2b7a193c1f3970fcd66d82f6edf9c1e3419e3553c",
+  "response_sha256": "420abd9918f8341ddea9cf8d2d3734bd4e2465b8f9202bcc47afb7e782ab1aad"
+}

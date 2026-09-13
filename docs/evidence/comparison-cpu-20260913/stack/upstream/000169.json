@@ -1,0 +1,111 @@
+{
+  "call_id": 169,
+  "trace_id": "holdout-ner:holdout_government_id_f01_b01_standard_noise",
+  "started_at_utc": "2026-09-13T10:31:22.660020+00:00",
+  "method": "POST",
+  "path": "/ner/v1/chat/completions",
+  "channel": "ner",
+  "request": {
+    "model": "qwen3-4b-instruct-2507",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a named entity recognition system.\nExtract entities from the user text that belong to the listed entity types.\nReturn JSON only, matching the provided schema.\nReturn the exact surface form from the text. Preserve casing, punctuation, and spacing.\nDo not infer entities that are not explicitly present in the text.\nIf no entities are present, return an empty list.\nReturn one entity per occurrence, in reading order.\nEach returned text must be a contiguous substring of the user text.\nEntity text matching is case-sensitive.\n\nEntity types:\n- FULL_NAME: Full name of the identity document holder, excluding titles and field labels.\n- DATE_OF_BIRTH: The holder's date of birth, not an issue or expiry date.\n- DOCUMENT_NUMBER: The complete identity document number, not a partial personal number.\n- ISSUE_DATE: Date this identity document was issued, not birth or expiry date.\n- EXPIRY_DATE: Expiry date of this identity document.\n- ISSUING_COUNTRY: Country issuing the identity document, not a place of birth."
+      },
+      {
+        "role": "user",
+        "content": "[page=0 block=0 line=0 x=452 y=78] IDENTIFICATIONDOCUMENT\n[page=0 block=2 line=1 x=59 y=168] Name Abdul Hobbs\n[page=0 block=6 line=1 x=841 y=170] Doc No.\n[page=0 block=3 line=2 x=61 y=258] Date of Birth 1964-09-28\n[page=0 block=7 line=2 x=838 y=258] Personal No.\n[page=0 block=8 line=3 x=59 y=348] 2013-04-19NATIONALITYISSUE DATE\n[page=0 block=4 line=3 x=319 y=348] UNITED KINGDOM\n[page=0 block=5 line=4 x=60 y=438] Sex F\n[page=0 block=9 line=4 x=841 y=439] Expiry Date 2023-04-19\n[page=0 block=10 line=5 x=839 y=528] Issuing Country United Kingdom\n[page=0 block=12 line=6 x=62 y=599] Place of Birth: Amystad\n[page=0 block=13 line=7 x=496 y=659] This document is valid only with the holder's signature."
+      }
+    ],
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "ner_extraction",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "entities"
+          ],
+          "properties": {
+            "entities": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "text",
+                  "label"
+                ],
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  },
+                  "label": {
+                    "type": "string",
+                    "enum": [
+                      "FULL_NAME",
+                      "DATE_OF_BIRTH",
+                      "DOCUMENT_NUMBER",
+                      "ISSUE_DATE",
+                      "EXPIRY_DATE",
+                      "ISSUING_COUNTRY"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "temperature": 0.0,
+    "max_tokens": 512
+  },
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"entities\": [\n    {\n      \"text\": \"Abdul Hobbs\",\n      \"label\": \"FULL_NAME\"\n    },\n    {\n      \"text\": \"1964-09-28\",\n      \"label\": \"DATE_OF_BIRTH\"\n    },\n    {\n      \"text\": \"2013-04-19\",\n      \"label\": \"ISSUE_DATE\"\n    },\n    {\n      \"text\": \"2023-04-19\",\n      \"label\": \"EXPIRY_DATE\"\n    },\n    {\n      \"text\": \"United Kingdom\",\n      \"label\": \"ISSUING_COUNTRY\"\n    }\n  ]\n}"
+        }
+      }
+    ],
+    "created": 1789295502,
+    "model": "qwen3-4b-instruct-2507",
+    "system_fingerprint": "b10867-f3f1a8f27",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 144,
+      "prompt_tokens": 565,
+      "total_tokens": 709,
+      "prompt_tokens_details": {
+        "cached_tokens": 230
+      }
+    },
+    "id": "chatcmpl-xDrwzXlc9l488B6jw1xQCBPtajZPIlm8",
+    "timings": {
+      "cache_n": 230,
+      "prompt_n": 335,
+      "prompt_ms": 6061.079,
+      "prompt_per_token_ms": 18.092773134328358,
+      "prompt_per_second": 55.2706869519437,
+      "predicted_n": 144,
+      "predicted_ms": 12742.989,
+      "predicted_per_token_ms": 89.11181118881119,
+      "predicted_per_second": 11.221856975627931
+    }
+  },
+  "status": 200,
+  "upstream_status": 200,
+  "error": null,
+  "elapsed_s": 19.44601,
+  "latency_ms": 19446.01,
+  "request_body_file": "000169.request.body",
+  "response_body_file": "000169.response.body",
+  "request_sha256": "0849a785d97d796deeb781392d517f9f689f98ac3168cc2f3347c568764ac7a6",
+  "response_sha256": "10553dd36721d5bd716d6cbe9c86a35859f49a9fcbbad1e0deb9a33980297750"
+}

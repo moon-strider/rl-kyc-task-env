@@ -1,0 +1,111 @@
+{
+  "call_id": 181,
+  "trace_id": "holdout-ner:holdout_payment_receipt_f00_b01_standard_noise",
+  "started_at_utc": "2026-09-13T10:36:04.249860+00:00",
+  "method": "POST",
+  "path": "/ner/v1/chat/completions",
+  "channel": "ner",
+  "request": {
+    "model": "qwen3-4b-instruct-2507",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a named entity recognition system.\nExtract entities from the user text that belong to the listed entity types.\nReturn JSON only, matching the provided schema.\nReturn the exact surface form from the text. Preserve casing, punctuation, and spacing.\nDo not infer entities that are not explicitly present in the text.\nIf no entities are present, return an empty list.\nReturn one entity per occurrence, in reading order.\nEach returned text must be a contiguous substring of the user text.\nEntity text matching is case-sensitive.\n\nEntity types:\n- SENDER_NAME: The payer or sender making this payment, not its recipient or merchant.\n- RECIPIENT_NAME: The payee, recipient or merchant receiving this payment, not the payer.\n- AMOUNT: Total amount actually paid, excluding a fee, tax or subtotal alone.\n- CURRENCY: Currency code or currency symbol for the payment amount.\n- PAYMENT_DATE: Date of this payment or transaction.\n- REFERENCE_ID: Payment transaction reference, not an invoice number or authorization code."
+      },
+      {
+        "role": "user",
+        "content": "[page=0 block=0 line=0 x=568 y=68] Valor Merchants\n[page=0 block=1 line=1 x=560 y=128] PAYMENT CONFIRMATION\n[page=0 block=3 line=2 x=679 y=219] Amount Received\n[page=0 block=4 line=3 x=623 y=263] $1892.27\n[page=0 block=5 line=4 x=770 y=345] USD\n[page=0 block=7 line=5 x=80 y=419] Sender Zachary Parker\n[page=0 block=8 line=6 x=80 y=488] Recipient Valor Merchants\n[page=0 block=9 line=7 x=80 y=560] Date 2025-01-10\n[page=0 block=10 line=8 x=78 y=629] TransactionID\n[page=0 block=11 line=9 x=80 y=698] Invoice ID INV-463671\n[page=0 block=12 line=10 x=81 y=768] Auth Code AUTH-463S37\n[page=0 block=13 line=11 x=80 y=839] 3027.41Subtotal\n[page=0 block=14 line=12 x=81 y=908] Fee 6.74\n[page=0 block=15 line=13 x=82 y=979] Tax 390.92\n[page=0 block=16 line=14 x=78 y=1048] Total Paid U5D 1892.27\n[page=0 block=18 line=15 x=523 y=1153] This confirmation serves as proof of payment."
+      }
+    ],
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "ner_extraction",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "entities"
+          ],
+          "properties": {
+            "entities": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "text",
+                  "label"
+                ],
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  },
+                  "label": {
+                    "type": "string",
+                    "enum": [
+                      "SENDER_NAME",
+                      "RECIPIENT_NAME",
+                      "AMOUNT",
+                      "CURRENCY",
+                      "PAYMENT_DATE",
+                      "REFERENCE_ID"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "temperature": 0.0,
+    "max_tokens": 512
+  },
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"entities\": [\n    {\n      \"text\": \"Zachary Parker\",\n      \"label\": \"SENDER_NAME\"\n    },\n    {\n      \"text\": \"Valor Merchants\",\n      \"label\": \"RECIPIENT_NAME\"\n    },\n    {\n      \"text\": \"1892.27\",\n      \"label\": \"AMOUNT\"\n    },\n    {\n      \"text\": \"USD\",\n      \"label\": \"CURRENCY\"\n    },\n    {\n      \"text\": \"2025-01-10\",\n      \"label\": \"PAYMENT_DATE\"\n    },\n    {\n      \"text\": \"INV-463671\",\n      \"label\": \"REFERENCE_ID\"\n    },\n    {\n      \"text\": \"AUTH-463S37\",\n      \"label\": \"REFERENCE_ID\"\n    }\n  ]\n}"
+        }
+      }
+    ],
+    "created": 1789295790,
+    "model": "qwen3-4b-instruct-2507",
+    "system_fingerprint": "b10867-f3f1a8f27",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 182,
+      "prompt_tokens": 683,
+      "total_tokens": 865,
+      "prompt_tokens_details": {
+        "cached_tokens": 228
+      }
+    },
+    "id": "chatcmpl-fploEIpG73n13EfHj4muuOBWGzjP3TDz",
+    "timings": {
+      "cache_n": 228,
+      "prompt_n": 455,
+      "prompt_ms": 8321.103,
+      "prompt_per_token_ms": 18.28813846153846,
+      "prompt_per_second": 54.68025092346532,
+      "predicted_n": 182,
+      "predicted_ms": 17723.264,
+      "predicted_per_token_ms": 97.91858563535911,
+      "predicted_per_second": 10.21256581180532
+    }
+  },
+  "status": 200,
+  "upstream_status": 200,
+  "error": null,
+  "elapsed_s": 26.578406,
+  "latency_ms": 26578.406,
+  "request_body_file": "000181.request.body",
+  "response_body_file": "000181.response.body",
+  "request_sha256": "ff701d852a29ab7f3f09940822af0c9cc39700b673c9c32bc0016205ef9430e1",
+  "response_sha256": "860172b23dd5553376a8c0f3801316f03d2018ee5bba582fbdeefa6ad0ffad8b"
+}

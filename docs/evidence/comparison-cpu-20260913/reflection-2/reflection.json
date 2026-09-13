@@ -1,0 +1,27 @@
+{
+  "content": "Refine name normalization to correct common OCR errors (e.g., \"cal1um\" → \"calum\", \"riverdale savings bank\" → \"riverdale savings\") and ensure exact role assignment: payer is the individual, merchant is the business. For country and issuer fields, match expected values case-insensitively without adding suffixes or assumptions. Prioritize direct OCR text with explicit normalization rules. Avoid reconstructing or inferring values; use only visible, unambiguous text. Ensure all field values are strings or null, with no invented or assumed data. Maintain strict alignment with expected values in schema.",
+  "finish_reason": "stop",
+  "usage": {
+    "completion_tokens": 124,
+    "prompt_tokens": 1790,
+    "total_tokens": 1914,
+    "prompt_tokens_details": {
+      "cached_tokens": 1579
+    }
+  },
+  "elapsed_seconds": 19.47963,
+  "model": "qwen3-4b-instruct-2507",
+  "observed_calls": 1,
+  "upstream_call_ids": [
+    56
+  ],
+  "observed_usage_complete": true,
+  "observed_usage": {
+    "prompt_tokens": 1790,
+    "completion_tokens": 124,
+    "total_tokens": 1914
+  },
+  "upstream_errors": [],
+  "observed_truncated_responses": 0,
+  "rejection": null
+}

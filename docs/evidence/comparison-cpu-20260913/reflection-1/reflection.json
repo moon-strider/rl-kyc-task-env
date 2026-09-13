@@ -1,0 +1,27 @@
+{
+  "content": "Refine field extraction to prioritize exact name matching by normalizing case and correcting common OCR errors (e.g., \"cal1um\" → \"calum\", \"riverdale savings bank\" → \"riverdale savings\"). For country and issuer fields, explicitly match full expected values using case-insensitive string comparison and avoid adding suffixes or assumptions (e.g., do not infer \"bank\" from \"savings\"). Ensure payer/merchant roles are correctly assigned based on context: payer is the individual, merchant is the business. Use only direct text from OCR; do not infer or reconstruct. Always return strings or null; never invent missing values.",
+  "finish_reason": "stop",
+  "usage": {
+    "completion_tokens": 130,
+    "prompt_tokens": 1586,
+    "total_tokens": 1716,
+    "prompt_tokens_details": {
+      "cached_tokens": 3
+    }
+  },
+  "elapsed_seconds": 46.632249,
+  "model": "qwen3-4b-instruct-2507",
+  "observed_calls": 1,
+  "upstream_call_ids": [
+    46
+  ],
+  "observed_usage_complete": true,
+  "observed_usage": {
+    "prompt_tokens": 1586,
+    "completion_tokens": 130,
+    "total_tokens": 1716
+  },
+  "upstream_errors": [],
+  "observed_truncated_responses": 0,
+  "rejection": null
+}

@@ -1,0 +1,139 @@
+{
+  "created_at_utc": "2026-09-13T09:46:12.749914+00:00",
+  "model_file": "/workspace/scratch/b33fb38091a9/model-runtime/Qwen3-4B-Instruct-2507-Q4_K_M.gguf",
+  "model_sha256": "3605803b982cb64aead44f6c1b2ae36e3acdb41d8e46c8a94c6533bc4c67e597",
+  "runner": "/workspace/scratch/b33fb38091a9/model-runtime/llama-b10867/llama-server",
+  "runner_sha256": "46ec536a7f11c017025b7df219b1071e16fbbd79a4b1deb524de85e9362af184",
+  "runner_version": "version: 0.4.0-dev (build 10867, commit f3f1a8f27)\nbuilt with GNU 11.4.0 for Linux x86_64",
+  "repositories": {
+    "ner": {
+      "path": "/workspace/scratch/b33fb38091a9/rl-ner-readonly",
+      "commit": "22a86d8cf1af451f15e03d75a5f204c5fb2da1fc",
+      "dirty": false
+    },
+    "swarm": {
+      "path": "/workspace/scratch/b33fb38091a9/rl-swarm-readonly",
+      "commit": "cc475251528cf986186cdf3b3b8a423da8269388",
+      "dirty": false
+    }
+  },
+  "model": "qwen3-4b-instruct-2507",
+  "commands": {
+    "llama": [
+      "/workspace/scratch/b33fb38091a9/model-runtime/llama-b10867/llama-server",
+      "--model",
+      "/workspace/scratch/b33fb38091a9/model-runtime/Qwen3-4B-Instruct-2507-Q4_K_M.gguf",
+      "--alias",
+      "qwen3-4b-instruct-2507",
+      "--host",
+      "127.0.0.1",
+      "--port",
+      "45385",
+      "--ctx-size",
+      "16384",
+      "--threads",
+      "6",
+      "--threads-batch",
+      "6",
+      "--parallel",
+      "1",
+      "--n-gpu-layers",
+      "0",
+      "--seed",
+      "17",
+      "--jinja",
+      "--reasoning",
+      "off",
+      "--no-webui"
+    ],
+    "ner": [
+      "/workspace/scratch/b33fb38091a9/rl-ner-readonly/.venv/bin/python",
+      "-m",
+      "uvicorn",
+      "ner_service.main:app",
+      "--host",
+      "127.0.0.1",
+      "--port",
+      "44449",
+      "--log-level",
+      "warning"
+    ],
+    "swarm": [
+      "/workspace/scratch/b33fb38091a9/rl-swarm-readonly/.venv/bin/swarm-of-experts",
+      "--config",
+      "/workspace/scratch/b33fb38091a9/rl-comparison-preflight/stack/swarm-config.json",
+      "serve",
+      "--host",
+      "127.0.0.1",
+      "--port",
+      "51379"
+    ]
+  },
+  "ner_config": {
+    "NER_PROVIDER": "llama_cpp",
+    "NER_MODEL": "qwen3-4b-instruct-2507",
+    "LLAMA_CPP_BASE_URL": "http://127.0.0.1:46427/ner/v1",
+    "ALLOWED_MODELS": "[\"qwen3-4b-instruct-2507\"]",
+    "REQUEST_TIMEOUT_S": "300",
+    "TRANSPORT_RETRIES": "0",
+    "MAX_ATTEMPTS": "1",
+    "MAX_TOKENS": "512",
+    "MAX_OUTPUT_TOKENS": "512",
+    "CACHE_ENABLED": "false",
+    "PROVIDER_CONCURRENCY_LIMIT": "1",
+    "BATCH_CONCURRENCY": "1",
+    "CONFIG_DB_PATH": "/workspace/scratch/b33fb38091a9/rl-comparison-preflight/stack/ner-configs.db"
+  },
+  "swarm_config": {
+    "providers": {
+      "local": {
+        "base_url": "http://127.0.0.1:46427/swarm/v1"
+      }
+    },
+    "swarms": {
+      "kyc-ensemble": {
+        "generators": [
+          {
+            "provider": "local",
+            "model": "qwen3-4b-instruct-2507",
+            "max_tokens": 512,
+            "temperature": 0
+          },
+          {
+            "provider": "local",
+            "model": "qwen3-4b-instruct-2507",
+            "max_tokens": 512,
+            "temperature": 0.4
+          }
+        ],
+        "merger": {
+          "provider": "local",
+          "model": "qwen3-4b-instruct-2507",
+          "max_tokens": 512,
+          "temperature": 0
+        },
+        "min_success": 2,
+        "merger_failure": "error"
+      }
+    },
+    "default_swarm": "kyc-ensemble",
+    "limits": {
+      "requests": 1,
+      "provider_calls": 1,
+      "timeout_seconds": 600,
+      "output_tokens": 512,
+      "request_bytes": 2097152,
+      "response_bytes": 2097152
+    }
+  },
+  "proxy": {
+    "timeout_seconds": 300,
+    "body_limit": 2097152
+  },
+  "endpoints": {
+    "direct": "http://127.0.0.1:46427/direct/v1/chat/completions",
+    "ner": "http://127.0.0.1:44449/v1/extract",
+    "swarm": "http://127.0.0.1:51379/v1/chat/completions"
+  },
+  "working_directory": "/workspace/scratch/b33fb38091a9/rl-comparison-preflight/stack"
+}

@@ -1,0 +1,42 @@
+{
+  "providers": {
+    "local": {
+      "base_url": "http://127.0.0.1:46427/swarm/v1"
+    }
+  },
+  "swarms": {
+    "kyc-ensemble": {
+      "generators": [
+        {
+          "provider": "local",
+          "model": "qwen3-4b-instruct-2507",
+          "max_tokens": 512,
+          "temperature": 0
+        },
+        {
+          "provider": "local",
+          "model": "qwen3-4b-instruct-2507",
+          "max_tokens": 512,
+          "temperature": 0.4
+        }
+      ],
+      "merger": {
+        "provider": "local",
+        "model": "qwen3-4b-instruct-2507",
+        "max_tokens": 512,
+        "temperature": 0
+      },
+      "min_success": 2,
+      "merger_failure": "error"
+    }
+  },
+  "default_swarm": "kyc-ensemble",
+  "limits": {
+    "requests": 1,
+    "provider_calls": 1,
+    "timeout_seconds": 600,
+    "output_tokens": 512,
+    "request_bytes": 2097152,
+    "response_bytes": 2097152
+  }
+}

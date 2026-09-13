@@ -1,0 +1,111 @@
+{
+  "call_id": 162,
+  "trace_id": "holdout-ner:holdout_government_id_f00_b00_clean",
+  "started_at_utc": "2026-09-13T10:28:47.662847+00:00",
+  "method": "POST",
+  "path": "/ner/v1/chat/completions",
+  "channel": "ner",
+  "request": {
+    "model": "qwen3-4b-instruct-2507",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a named entity recognition system.\nExtract entities from the user text that belong to the listed entity types.\nReturn JSON only, matching the provided schema.\nReturn the exact surface form from the text. Preserve casing, punctuation, and spacing.\nDo not infer entities that are not explicitly present in the text.\nIf no entities are present, return an empty list.\nReturn one entity per occurrence, in reading order.\nEach returned text must be a contiguous substring of the user text.\nEntity text matching is case-sensitive.\n\nEntity types:\n- FULL_NAME: Full name of the identity document holder, excluding titles and field labels.\n- DATE_OF_BIRTH: The holder's date of birth, not an issue or expiry date.\n- DOCUMENT_NUMBER: The complete identity document number, not a partial personal number.\n- ISSUE_DATE: Date this identity document was issued, not birth or expiry date.\n- EXPIRY_DATE: Expiry date of this identity document.\n- ISSUING_COUNTRY: Country issuing the identity document, not a place of birth."
+      },
+      {
+        "role": "user",
+        "content": "[page=0 block=0 line=0 x=388 y=60] TRAVEL DOCUMENT — GOVERNMENT ISSUE\n[page=0 block=1 line=1 x=676 y=102] GERMANY\n[page=0 block=3 line=2 x=80 y=178] SURNAME AND GIVEN NAMES Sandra Patel\n[page=0 block=4 line=3 x=80 y=240] NATIONALITY Germany\n[page=0 block=5 line=4 x=80 y=302] DATE OF BIRTH 1973-01-13\n[page=0 block=6 line=5 x=80 y=364] PERSONAL NO. TA110018\n[page=0 block=7 line=6 x=80 y=426] PRINT DATE 2013-04-07\n[page=0 block=8 line=7 x=80 y=488] SEX M\n[page=0 block=9 line=8 x=80 y=550] PLACE OF BIRTH Port Deborah\n[page=0 block=10 line=9 x=80 y=612] DATE OF ISSUE 2013-04-07\n[page=0 block=11 line=10 x=80 y=674] DATE OF EXPIRY 2018-04-07\n[page=0 block=12 line=11 x=80 y=736] ISSUING COUNTRY Germany\n[page=0 block=13 line=12 x=80 y=798] HEIGHT 178 cm\n[page=0 block=15 line=13 x=652 y=900] MACHINE READABLE ZONE\n[page=0 block=16 line=14 x=80 y=936] P<GERSANDRA<PATEL<<<<<<<<<<\n[page=0 block=17 line=15 x=80 y=968] TA110018<<<<<<<<<19730113<<<<<<<<<<"
+      }
+    ],
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "ner_extraction",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "entities"
+          ],
+          "properties": {
+            "entities": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "text",
+                  "label"
+                ],
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  },
+                  "label": {
+                    "type": "string",
+                    "enum": [
+                      "FULL_NAME",
+                      "DATE_OF_BIRTH",
+                      "DOCUMENT_NUMBER",
+                      "ISSUE_DATE",
+                      "EXPIRY_DATE",
+                      "ISSUING_COUNTRY"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "temperature": 0.0,
+    "max_tokens": 512
+  },
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"entities\": [\n    {\n      \"text\": \"Sandra Patel\",\n      \"label\": \"FULL_NAME\"\n    },\n    {\n      \"text\": \"1973-01-13\",\n      \"label\": \"DATE_OF_BIRTH\"\n    },\n    {\n      \"text\": \"TA110018\",\n      \"label\": \"DOCUMENT_NUMBER\"\n    },\n    {\n      \"text\": \"2013-04-07\",\n      \"label\": \"ISSUE_DATE\"\n    },\n    {\n      \"text\": \"2018-04-07\",\n      \"label\": \"EXPIRY_DATE\"\n    },\n    {\n      \"text\": \"Germany\",\n      \"label\": \"ISSUING_COUNTRY\"\n    }\n  ]\n}"
+        }
+      }
+    ],
+    "created": 1789295351,
+    "model": "qwen3-4b-instruct-2507",
+    "system_fingerprint": "b10867-f3f1a8f27",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 166,
+      "prompt_tokens": 717,
+      "total_tokens": 883,
+      "prompt_tokens_details": {
+        "cached_tokens": 228
+      }
+    },
+    "id": "chatcmpl-Tuq3IsPHBzinY0ZsIQfrUZ8cG1Kaz9Ly",
+    "timings": {
+      "cache_n": 228,
+      "prompt_n": 489,
+      "prompt_ms": 8497.312,
+      "prompt_per_token_ms": 17.376916155419224,
+      "prompt_per_second": 57.547610350190745,
+      "predicted_n": 166,
+      "predicted_ms": 14227.403,
+      "predicted_per_token_ms": 86.22668484848485,
+      "predicted_per_second": 11.597337897858099
+    }
+  },
+  "status": 200,
+  "upstream_status": 200,
+  "error": null,
+  "elapsed_s": 23.450339,
+  "latency_ms": 23450.339,
+  "request_body_file": "000162.request.body",
+  "response_body_file": "000162.response.body",
+  "request_sha256": "4fc718d653944d935ea6a7a8445edcd728b7efaf7d810befb077f6429267f889",
+  "response_sha256": "e4d02492b06c638df660e4713dcbc98152fee992da6cd4ec855be2af9433f08b"
+}
